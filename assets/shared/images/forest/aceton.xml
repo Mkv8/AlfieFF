@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="aceton.png">
+	<!-- Created with Adobe Animate version 20.5.1.31044 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Aceton0000" x="8" y="8" width="507" height="642" frameX="0" frameY="-7" frameWidth="507" frameHeight="649"/>
+	<SubTexture name="Aceton0001" x="8" y="8" width="507" height="642" frameX="0" frameY="-7" frameWidth="507" frameHeight="649"/>
+	<SubTexture name="Aceton0002" x="525" y="8" width="503" height="643" frameX="-2" frameY="-6" frameWidth="507" frameHeight="649"/>
+	<SubTexture name="Aceton0003" x="525" y="8" width="503" height="643" frameX="-2" frameY="-6" frameWidth="507" frameHeight="649"/>
+	<SubTexture name="Aceton0004" x="1038" y="8" width="500" height="648" frameX="-3" frameY="0" frameWidth="507" frameHeight="649"/>
+	<SubTexture name="Aceton0005" x="1038" y="8" width="500" height="648" frameX="-3" frameY="0" frameWidth="507" frameHeight="649"/>
+	<SubTexture name="Aceton0006" x="1038" y="8" width="500" height="648" frameX="-3" frameY="0" frameWidth="507" frameHeight="649"/>
+	<SubTexture name="Aceton0007" x="1038" y="8" width="500" height="648" frameX="-3" frameY="0" frameWidth="507" frameHeight="649"/>
+	<SubTexture name="Aceton0008" x="1038" y="8" width="500" height="648" frameX="-3" frameY="0" frameWidth="507" frameHeight="649"/>
+	<SubTexture name="Aceton0009" x="1038" y="8" width="500" height="648" frameX="-3" frameY="0" frameWidth="507" frameHeight="649"/>
+	<SubTexture name="Aceton0010" x="1038" y="8" width="500" height="648" frameX="-3" frameY="0" frameWidth="507" frameHeight="649"/>
+	<SubTexture name="Aceton0011" x="1038" y="8" width="500" height="648" frameX="-3" frameY="0" frameWidth="507" frameHeight="649"/>
+	<SubTexture name="Aceton0012" x="1038" y="8" width="500" height="648" frameX="-3" frameY="0" frameWidth="507" frameHeight="649"/>
+	<SubTexture name="Aceton0013" x="1038" y="8" width="500" height="648" frameX="-3" frameY="0" frameWidth="507" frameHeight="649"/>
+	<SubTexture name="Aceton0014" x="1038" y="8" width="500" height="648" frameX="-3" frameY="0" frameWidth="507" frameHeight="649"/>
+	<SubTexture name="Aceton0015" x="1038" y="8" width="500" height="648" frameX="-3" frameY="0" frameWidth="507" frameHeight="649"/>
+	<SubTexture name="Aceton0016" x="1038" y="8" width="500" height="648" frameX="-3" frameY="0" frameWidth="507" frameHeight="649"/>
+	<SubTexture name="Aceton0017" x="1038" y="8" width="500" height="648" frameX="-3" frameY="0" frameWidth="507" frameHeight="649"/>
+</TextureAtlas>

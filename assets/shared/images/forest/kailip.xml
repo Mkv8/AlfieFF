@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="kailip.png">
+	<!-- Created with Adobe Animate version 20.5.1.31044 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Kailip0000" x="8" y="8" width="429" height="520" frameX="0" frameY="-4" frameWidth="429" frameHeight="524"/>
+	<SubTexture name="Kailip0001" x="8" y="8" width="429" height="520" frameX="0" frameY="-4" frameWidth="429" frameHeight="524"/>
+	<SubTexture name="Kailip0002" x="447" y="8" width="426" height="523" frameX="-1" frameY="-1" frameWidth="429" frameHeight="524"/>
+	<SubTexture name="Kailip0003" x="447" y="8" width="426" height="523" frameX="-1" frameY="-1" frameWidth="429" frameHeight="524"/>
+	<SubTexture name="Kailip0004" x="883" y="8" width="422" height="523" frameX="-2" frameY="0" frameWidth="429" frameHeight="524"/>
+	<SubTexture name="Kailip0005" x="883" y="8" width="422" height="523" frameX="-2" frameY="0" frameWidth="429" frameHeight="524"/>
+	<SubTexture name="Kailip0006" x="883" y="8" width="422" height="523" frameX="-2" frameY="0" frameWidth="429" frameHeight="524"/>
+	<SubTexture name="Kailip0007" x="883" y="8" width="422" height="523" frameX="-2" frameY="0" frameWidth="429" frameHeight="524"/>
+	<SubTexture name="Kailip0008" x="883" y="8" width="422" height="523" frameX="-2" frameY="0" frameWidth="429" frameHeight="524"/>
+	<SubTexture name="Kailip0009" x="883" y="8" width="422" height="523" frameX="-2" frameY="0" frameWidth="429" frameHeight="524"/>
+	<SubTexture name="Kailip0010" x="883" y="8" width="422" height="523" frameX="-2" frameY="0" frameWidth="429" frameHeight="524"/>
+	<SubTexture name="Kailip0011" x="883" y="8" width="422" height="523" frameX="-2" frameY="0" frameWidth="429" frameHeight="524"/>
+	<SubTexture name="Kailip0012" x="883" y="8" width="422" height="523" frameX="-2" frameY="0" frameWidth="429" frameHeight="524"/>
+	<SubTexture name="Kailip0013" x="883" y="8" width="422" height="523" frameX="-2" frameY="0" frameWidth="429" frameHeight="524"/>
+	<SubTexture name="Kailip0014" x="883" y="8" width="422" height="523" frameX="-2" frameY="0" frameWidth="429" frameHeight="524"/>
+	<SubTexture name="Kailip0015" x="883" y="8" width="422" height="523" frameX="-2" frameY="0" frameWidth="429" frameHeight="524"/>
+	<SubTexture name="Kailip0016" x="883" y="8" width="422" height="523" frameX="-2" frameY="0" frameWidth="429" frameHeight="524"/>
+	<SubTexture name="Kailip0017" x="883" y="8" width="422" height="523" frameX="-2" frameY="0" frameWidth="429" frameHeight="524"/>
+</TextureAtlas>

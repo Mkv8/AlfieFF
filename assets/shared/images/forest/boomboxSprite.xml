@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="boomboxSprite.png">
+	<!-- Created with Adobe Animate version 20.5.1.31044 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="boomIdle0000" x="8" y="8" width="394" height="213"/>
+	<SubTexture name="boomIdle0001" x="8" y="8" width="394" height="213"/>
+	<SubTexture name="boomIdle0002" x="412" y="8" width="384" height="205" frameX="-1" frameY="-8" frameWidth="394" frameHeight="213"/>
+	<SubTexture name="boomIdle0003" x="412" y="8" width="384" height="205" frameX="-1" frameY="-8" frameWidth="394" frameHeight="213"/>
+	<SubTexture name="boomIdle0004" x="8" y="231" width="376" height="199" frameX="-3" frameY="-13" frameWidth="394" frameHeight="213"/>
+	<SubTexture name="boomIdle0005" x="8" y="231" width="376" height="199" frameX="-3" frameY="-13" frameWidth="394" frameHeight="213"/>
+	<SubTexture name="boomIdle0006" x="8" y="231" width="376" height="199" frameX="-3" frameY="-13" frameWidth="394" frameHeight="213"/>
+	<SubTexture name="boomIdle0007" x="8" y="231" width="376" height="199" frameX="-3" frameY="-13" frameWidth="394" frameHeight="213"/>
+	<SubTexture name="boomIdle0008" x="8" y="231" width="376" height="199" frameX="-3" frameY="-13" frameWidth="394" frameHeight="213"/>
+	<SubTexture name="boomIdle0009" x="8" y="231" width="376" height="199" frameX="-3" frameY="-13" frameWidth="394" frameHeight="213"/>
+	<SubTexture name="boomIdle0010" x="8" y="231" width="376" height="199" frameX="-3" frameY="-13" frameWidth="394" frameHeight="213"/>
+	<SubTexture name="boomIdle0011" x="8" y="231" width="376" height="199" frameX="-3" frameY="-13" frameWidth="394" frameHeight="213"/>
+	<SubTexture name="boomIdle0012" x="8" y="231" width="376" height="199" frameX="-3" frameY="-13" frameWidth="394" frameHeight="213"/>
+	<SubTexture name="boomIdle0013" x="8" y="231" width="376" height="199" frameX="-3" frameY="-13" frameWidth="394" frameHeight="213"/>
+	<SubTexture name="boomIdle0014" x="8" y="231" width="376" height="199" frameX="-3" frameY="-13" frameWidth="394" frameHeight="213"/>
+	<SubTexture name="boomIdle0015" x="8" y="231" width="376" height="199" frameX="-3" frameY="-13" frameWidth="394" frameHeight="213"/>
+	<SubTexture name="boomIdle0016" x="8" y="231" width="376" height="199" frameX="-3" frameY="-13" frameWidth="394" frameHeight="213"/>
+	<SubTexture name="boomIdle0017" x="8" y="231" width="376" height="199" frameX="-3" frameY="-13" frameWidth="394" frameHeight="213"/>
+</TextureAtlas>

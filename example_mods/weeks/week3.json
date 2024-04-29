@@ -1,0 +1,32 @@
+{
+	"songs": [
+		[
+			"Convicted Love",
+			"kisston90s",
+			[
+				255,
+				220,
+				201
+			]
+		]
+	],
+	"hiddenUntilUnlocked": false,
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"difficulties": "",
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"storyName": "Lovin in the 90s",
+	"weekName": "Lovin in the 90s",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"hideStoryMode": false,
+	"weekBefore": "tutorial",
+	"startUnlocked": true
+}
