@@ -3,6 +3,10 @@ package states.stages;
 import openfl.display.BlendMode;
 import backend.BaseStage;
 import states.stages.objects.*;
+import shaders.PostProcessing;
+import openfl.filters.BitmapFilter;
+import openfl.filters.ShaderFilter;
+//import.shaders.example_mods.shaders.PostProcessing;
 
 class Rooftop extends BaseStage
 {
@@ -19,6 +23,8 @@ class Rooftop extends BaseStage
 	var addspotlight:BGSprite;
 
 	var blackscreen:BGSprite;
+
+	var shader:Array<BitmapFilter> = [new ShaderFilter(new shaders.PostProcessing())];
 
 	override function create()
 	{
@@ -72,8 +78,11 @@ class Rooftop extends BaseStage
 
 		blackscreen = new BGSprite(null, 0, 0, 1, 1);
 		blackscreen.makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
-		blackscreen.camera = camHUD;
+		blackscreen.camera = game.camHUD;
 		add(blackscreen);
+
+		FlxG.game.setFilters(shader);
+		FlxG.game.filtersEnabled = true;
 
 	}
 

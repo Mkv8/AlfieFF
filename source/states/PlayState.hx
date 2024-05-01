@@ -7,6 +7,11 @@ import backend.Song;
 import backend.Section;
 import backend.Rating;
 
+//import.shaders.example_mods.shaders.PostProcessing;
+//import example_mods.shaders.PostProcessing;
+//import openfl.filters.BitmapFilter;
+//import openfl.filters.ShaderFilter;
+
 import flixel.FlxBasic;
 import flixel.FlxObject;
 import flixel.FlxSubState;
