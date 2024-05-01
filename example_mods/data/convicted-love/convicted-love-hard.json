@@ -1,7 +1,7 @@
 {
 	"song": {
 		"player1": "90sbf",
-		"player2": "90salfie",
+		"player2": "90skisston",
 		"events": [],
 		"notes": [
 			{
@@ -9611,7 +9611,7 @@
 		"gfVersion": "gf-90s",
 		"song": "Convicted Love",
 		"needsVoices": true,
-		"stage": "forest",
+		"stage": "rooftop",
 		"bpm": 170,
 		"speed": 3
 	}

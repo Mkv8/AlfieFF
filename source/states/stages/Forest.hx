@@ -23,7 +23,6 @@ class Forest extends BaseStage
 	var addLight:BGSprite;
 	var multiplyDark:BGSprite;
 	var overlay1:BGSprite;
-	var overlayscanline:BGSprite;
 
 
 	override function create()
@@ -94,11 +93,6 @@ class Forest extends BaseStage
 		foregroundTrees.updateHitbox();
 		add(foregroundTrees);
 
-		overlayscanline = new BGSprite('forest/overlay17', 0, 0, 1, 1);
-		overlayscanline.updateHitbox();
-		overlayscanline.alpha = 0.17;
-		overlayscanline.blend = BlendMode.OVERLAY;
-		add(overlayscanline);
 	}
 
 	override function update(elapsed:Float)
