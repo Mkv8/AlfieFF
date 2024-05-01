@@ -3,8 +3,7 @@ package shaders;
 import haxe.Timer;
 import flixel.system.FlxAssets.FlxShader;
 
-class PostProcessing extends FlxShader
-{
+class PostProcessing extends FlxShader {
 	@:glFragmentSource('
     #pragma header
     vec2 uv = openfl_TextureCoordv.xy;
@@ -46,8 +45,7 @@ class PostProcessing extends FlxShader
     
         fragColor = vec4(col,1.0);
     }')
-	public function new()
-	{
+	public function new() {
 		super();
 
 		this.iTime.value = [0.];
@@ -56,6 +54,6 @@ class PostProcessing extends FlxShader
 	override function __updateGL() {
 		super.__updateGL();
 
-		this.iTime.value[0] = Timer.stamp()/1000;
+		this.iTime.value[0] = Timer.stamp() / 1000;
 	}
 }

@@ -4,11 +4,9 @@ import openfl.display.BlendMode;
 import backend.BaseStage;
 import states.stages.objects.*;
 
-class Forest extends BaseStage
-{
+class Forest extends BaseStage {
 	// If you're moving your stage from PlayState to a stage file,
 	// you might have to rename some variables if they're missing, for example: camZooming -> game.camZooming
-
 	var foregroundTrees:BGSprite;
 	var bgfront:BGSprite;
 	var bgback1:BGSprite;
@@ -24,15 +22,13 @@ class Forest extends BaseStage
 	var multiplyDark:BGSprite;
 	var overlay1:BGSprite;
 
-
-	override function create()
-	{
+	override function create() {
 		// Spawn your stage sprites here.
 		// Characters are not ready yet on this function, so you can't add things above them yet.
 		// Use createPost() if that's what you want to do.
-		//concept = new BGSprite('forest/concept', 0, 0, 1, 1);
-		//concept.updateHitbox();
-		//add(concept);
+		// concept = new BGSprite('forest/concept', 0, 0, 1, 1);
+		// concept.updateHitbox();
+		// add(concept);
 
 		bgback2 = new BGSprite('forest/bg3', 120, 110, 0.6, 1);
 		bgback2.updateHitbox();
@@ -65,12 +61,10 @@ class Forest extends BaseStage
 		kailip = new BGSprite('forest/kailip', 220, 610, 1, 1, ['Kailip']);
 		kailip.updateHitbox();
 		add(kailip);
-
 	}
-	
-	override function createPost()
-	{
-		// Use this function to layer things above characters!	
+
+	override function createPost() {
+		// Use this function to layer things above characters!
 		overlay1 = new BGSprite('forest/hardlight40', 0, 0, 1, 1);
 		overlay1.updateHitbox();
 		overlay1.alpha = 1;
@@ -92,120 +86,101 @@ class Forest extends BaseStage
 		foregroundTrees = new BGSprite('forest/foregroundTrees', 0, 0, 1, 1);
 		foregroundTrees.updateHitbox();
 		add(foregroundTrees);
-
 	}
 
-	override function update(elapsed:Float)
-	{
+	override function update(elapsed:Float) {
 		// Code here
 	}
 
-	
 	/*override function countdownTick(count:BaseStage.Countdown, num:Int)
-	{
-		switch(count)
 		{
-			case THREE: //num 0
-			case TWO: //num 1
-			case ONE: //num 2
-			case GO: //num 3
-			case START: //num 4
-		}
+			switch(count)
+			{
+				case THREE: //num 0
+				case TWO: //num 1
+				case ONE: //num 2
+				case GO: //num 3
+				case START: //num 4
+			}
 	}*/
-
 	// Steps, Beats and Sections:
 	//    curStep, curDecStep
 	//    curBeat, curDecBeat
 	//    curSection
-	override function stepHit()
-	{
+	override function stepHit() {
 		// Code here
 	}
-	override function beatHit()
-	{
+
+	override function beatHit() {
 		everyoneDance();
 	}
 
-	function everyoneDance()
-	{
-		if(!ClientPrefs.data.lowQuality) 
-			{
+	function everyoneDance() {
+		if (!ClientPrefs.data.lowQuality) {
 			boombox.dance();
 			aceton.dance();
 			kailip.dance();
-			}
-
+		}
 	}
 
-
-	override function sectionHit()
-	{
+	override function sectionHit() {
 		// Code here
 	}
 
 	// Substates for pausing/resuming tweens and timers
-	override function closeSubState()
-	{
-		if(paused)
-		{
-			//timer.active = true;
-			//tween.active = true;
+	override function closeSubState() {
+		if (paused) {
+			// timer.active = true;
+			// tween.active = true;
 		}
 	}
 
-	override function openSubState(SubState:flixel.FlxSubState)
-	{
-		if(paused)
-		{
-			//timer.active = false;
-			//tween.active = false;
+	override function openSubState(SubState:flixel.FlxSubState) {
+		if (paused) {
+			// timer.active = false;
+			// tween.active = false;
 		}
 	}
 
 	// For events
-	override function eventCalled(eventName:String, value1:String, value2:String, flValue1:Null<Float>, flValue2:Null<Float>, strumTime:Float)
-	{
-		switch(eventName)
-		{
+	override function eventCalled(eventName:String, value1:String, value2:String, flValue1:Null<Float>, flValue2:Null<Float>, strumTime:Float) {
+		switch (eventName) {
 			case "My Event":
 		}
 	}
-	override function eventPushed(event:objects.Note.EventNote)
-	{
+
+	override function eventPushed(event:objects.Note.EventNote) {
 		// used for preloading assets used on events that doesn't need different assets based on its values
-		switch(event.event)
-		{
+		switch (event.event) {
 			case "My Event":
-				//precacheImage('myImage') //preloads images/myImage.png
-				//precacheSound('mySound') //preloads sounds/mySound.ogg
-				//precacheMusic('myMusic') //preloads music/myMusic.ogg
+				// precacheImage('myImage') //preloads images/myImage.png
+				// precacheSound('mySound') //preloads sounds/mySound.ogg
+				// precacheMusic('myMusic') //preloads music/myMusic.ogg
 		}
 	}
-	override function eventPushedUnique(event:objects.Note.EventNote)
-	{
+
+	override function eventPushedUnique(event:objects.Note.EventNote) {
 		// used for preloading assets used on events where its values affect what assets should be preloaded
-		switch(event.event)
-		{
+		switch (event.event) {
 			case "My Event":
-				switch(event.value1)
-				{
+				switch (event.value1) {
 					// If value 1 is "blah blah", it will preload these assets:
 					case 'blah blah':
-						//precacheImage('myImageOne') //preloads images/myImageOne.png
-						//precacheSound('mySoundOne') //preloads sounds/mySoundOne.ogg
-						//precacheMusic('myMusicOne') //preloads music/myMusicOne.ogg
+						// precacheImage('myImageOne') //preloads images/myImageOne.png
+						// precacheSound('mySoundOne') //preloads sounds/mySoundOne.ogg
+						// precacheMusic('myMusicOne') //preloads music/myMusicOne.ogg
 
-					// If value 1 is "coolswag", it will preload these assets:
+						// If value 1 is "coolswag", it will preload these assets:
 					case 'coolswag':
-						//precacheImage('myImageTwo') //preloads images/myImageTwo.png
-						//precacheSound('mySoundTwo') //preloads sounds/mySoundTwo.ogg
-						//precacheMusic('myMusicTwo') //preloads music/myMusicTwo.ogg
-					
-					// If value 1 is not "blah blah" or "coolswag", it will preload these assets:
+						// precacheImage('myImageTwo') //preloads images/myImageTwo.png
+						// precacheSound('mySoundTwo') //preloads sounds/mySoundTwo.ogg
+						// precacheMusic('myMusicTwo') //preloads music/myMusicTwo.ogg
+
+						// If value 1 is not "blah blah" or "coolswag", it will preload these assets:
 					default:
-						//precacheImage('myImageThree') //preloads images/myImageThree.png
-						//precacheSound('mySoundThree') //preloads sounds/mySoundThree.ogg
-						//precacheMusic('myMusicThree') //preloads music/myMusicThree.ogg
+						// precacheImage('myImageThree') //preloads images/myImageThree.png
+						// precacheSound('mySoundThree') //preloads sounds/mySoundThree.ogg
+						// precacheMusic('myMusicThree') //preloads music/myMusicThree.ogg
 				}
 		}
 	}

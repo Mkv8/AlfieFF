@@ -6,8 +6,7 @@ import objects.NoteSplash;
 import flixel.addons.ui.FlxInputText;
 import flixel.addons.ui.FlxUINumericStepper;
 
-class NoteSplashDebugState extends MusicBeatState
-{
+class NoteSplashDebugState extends MusicBeatState {
 	var config:NoteSplashConfig;
 	var forceFrame:Int = -1;
 	var curSelected:Int = 0;
@@ -16,7 +15,7 @@ class NoteSplashDebugState extends MusicBeatState
 	var selection:FlxSprite;
 	var notes:FlxTypedGroup<StrumNote>;
 	var splashes:FlxTypedGroup<FlxSprite>;
-	
+
 	var imageInputText:FlxInputText;
 	var nameInputText:FlxInputText;
 	var stepperMinFps:FlxUINumericStepper;
@@ -33,8 +32,7 @@ class NoteSplashDebugState extends MusicBeatState
 
 	public static final defaultTexture:String = 'noteSplashes';
 
-	override function create()
-	{
+	override function create() {
 		FlxG.camera.bgColor = FlxColor.fromHSL(0, 0, 0.5);
 		selection = new FlxSprite(0, 270).makeGraphic(150, 150, FlxColor.BLACK);
 		selection.alpha = 0.4;
@@ -46,8 +44,7 @@ class NoteSplashDebugState extends MusicBeatState
 		splashes = new FlxTypedGroup<FlxSprite>();
 		add(splashes);
 
-		for (i in 0...maxNotes)
-		{
+		for (i in 0...maxNotes) {
 			var x = i * 220 + 240;
 			var y = 290;
 			var note:StrumNote = new StrumNote(x, y, i, 0);
@@ -70,16 +67,14 @@ class NoteSplashDebugState extends MusicBeatState
 		add(imageName);
 
 		imageInputText = new FlxInputText(txtx, txty - 100, 360, defaultTexture, 16);
-		imageInputText.callback = function(text:String, action:String)
-		{
-			switch(action)
-			{
+		imageInputText.callback = function(text:String, action:String) {
+			switch (action) {
 				case 'enter':
 					imageInputText.hasFocus = false;
 					textureName = text;
 					try {
 						loadFrames();
-					} catch(e:Dynamic) {
+					} catch (e:Dynamic) {
 						trace('ERROR! $e');
 						textureName = defaultTexture;
 						loadFrames();
@@ -90,8 +85,7 @@ class NoteSplashDebugState extends MusicBeatState
 						missingTextBG.visible = true;
 						FlxG.sound.play(Paths.sound('cancelMenu'));
 
-						new FlxTimer().start(2.5, function(tmr:FlxTimer)
-						{
+						new FlxTimer().start(2.5, function(tmr:FlxTimer) {
 							missingText.visible = false;
 							missingTextBG.visible = false;
 						});
@@ -100,7 +94,6 @@ class NoteSplashDebugState extends MusicBeatState
 				default:
 					trace('changed image to $text');
 			}
-
 		};
 		add(imageInputText);
 
@@ -108,20 +101,17 @@ class NoteSplashDebugState extends MusicBeatState
 		add(animName);
 
 		nameInputText = new FlxInputText(txtx, txty + 20, 360, '', 16);
-		nameInputText.callback = function(text:String, action:String)
-		{
-			switch(action)
-			{
+		nameInputText.callback = function(text:String, action:String) {
+			switch (action) {
 				case 'enter':
 					nameInputText.hasFocus = false;
-				
+
 				default:
 					trace('changed anim name to $text');
 					config.anim = text;
 					curAnim = 1;
 					reloadAnims();
 			}
-
 		};
 		add(nameInputText);
 
@@ -150,8 +140,7 @@ class NoteSplashDebugState extends MusicBeatState
 		curAnimText.scrollFactor.set();
 		add(curAnimText);
 
-		var text:FlxText = new FlxText(0, 520, FlxG.width,
-			"Press SPACE to Reset animation\n
+		var text:FlxText = new FlxText(0, 520, FlxG.width, "Press SPACE to Reset animation\n
 			Press ENTER twice to save to the loaded Note Splash PNG's folder\n
 			A/D change selected note - Arrow Keys to change offset (Hold shift for 10x)\n
 			Ctrl + C/V - Copy & Paste", 16);
@@ -184,45 +173,49 @@ class NoteSplashDebugState extends MusicBeatState
 	var curAnim:Int = 1;
 	var visibleTime:Float = 0;
 	var pressEnterToSave:Float = 0;
-	override function update(elapsed:Float)
-	{
+
+	override function update(elapsed:Float) {
 		@:privateAccess
 		cast(stepperMinFps.text_field, FlxInputText).hasFocus = cast(stepperMaxFps.text_field, FlxInputText).hasFocus = false;
 
 		var notTyping:Bool = !nameInputText.hasFocus && !imageInputText.hasFocus;
-		if(controls.BACK && notTyping)
-		{
+		if (controls.BACK && notTyping) {
 			MusicBeatState.switchState(new MasterEditorMenu());
 			FlxG.sound.playMusic(Paths.music('freakyMenu'));
 			FlxG.mouse.visible = false;
 		}
 		super.update(elapsed);
 
-		if(!notTyping) return;
-		
-		if (FlxG.keys.justPressed.A) changeSelection(-1);
-		else if (FlxG.keys.justPressed.D) changeSelection(1);
+		if (!notTyping)
+			return;
 
-		if(maxAnims < 1) return;
+		if (FlxG.keys.justPressed.A)
+			changeSelection(-1);
+		else if (FlxG.keys.justPressed.D)
+			changeSelection(1);
 
-		if(selecArr != null)
-		{
+		if (maxAnims < 1)
+			return;
+
+		if (selecArr != null) {
 			var movex = 0;
 			var movey = 0;
-			if(FlxG.keys.justPressed.LEFT) movex = -1;
-			else if(FlxG.keys.justPressed.RIGHT) movex = 1;
+			if (FlxG.keys.justPressed.LEFT)
+				movex = -1;
+			else if (FlxG.keys.justPressed.RIGHT)
+				movex = 1;
 
-			if(FlxG.keys.justPressed.UP) movey = 1;
-			else if(FlxG.keys.justPressed.DOWN) movey = -1;
-			
-			if(FlxG.keys.pressed.SHIFT)
-			{
+			if (FlxG.keys.justPressed.UP)
+				movey = 1;
+			else if (FlxG.keys.justPressed.DOWN)
+				movey = -1;
+
+			if (FlxG.keys.pressed.SHIFT) {
 				movex *= 10;
 				movey *= 10;
 			}
 
-			if(movex != 0 || movey != 0)
-			{
+			if (movex != 0 || movey != 0) {
 				selecArr[0] -= movex;
 				selecArr[1] += movey;
 				updateOffsetText();
@@ -231,17 +224,14 @@ class NoteSplashDebugState extends MusicBeatState
 		}
 
 		// Copy & Paste
-		if(FlxG.keys.pressed.CONTROL)
-		{
-			if(FlxG.keys.justPressed.C)
-			{
+		if (FlxG.keys.pressed.CONTROL) {
+			if (FlxG.keys.justPressed.C) {
 				var arr:Array<Float> = selectedArray();
-				if(copiedArray == null) copiedArray = [0, 0];
+				if (copiedArray == null)
+					copiedArray = [0, 0];
 				copiedArray[0] = arr[0];
 				copiedArray[1] = arr[1];
-			}
-			else if(FlxG.keys.justPressed.V && copiedArray != null)
-			{
+			} else if (FlxG.keys.justPressed.V && copiedArray != null) {
 				var offs:Array<Float> = selectedArray();
 				offs[0] = copiedArray[0];
 				offs[1] = copiedArray[1];
@@ -252,25 +242,21 @@ class NoteSplashDebugState extends MusicBeatState
 
 		// Saving
 		pressEnterToSave -= elapsed;
-		if(visibleTime >= 0)
-		{
+		if (visibleTime >= 0) {
 			visibleTime -= elapsed;
-			if(visibleTime <= 0)
+			if (visibleTime <= 0)
 				savedText.visible = false;
 		}
 
-		if(FlxG.keys.justPressed.ENTER)
-		{
+		if (FlxG.keys.justPressed.ENTER) {
 			savedText.text = 'Press ENTER again to save.';
-			if(pressEnterToSave > 0) //save
+			if (pressEnterToSave > 0) // save
 			{
 				saveFile();
 				FlxG.sound.play(Paths.sound('confirmMenu'), 0.4);
 				pressEnterToSave = 0;
 				visibleTime = 3;
-			}
-			else
-			{
+			} else {
 				pressEnterToSave = 0.5;
 				visibleTime = 0.5;
 			}
@@ -280,21 +266,26 @@ class NoteSplashDebugState extends MusicBeatState
 		// Reset anim & change anim
 		if (FlxG.keys.justPressed.SPACE)
 			changeAnim();
-		else if (FlxG.keys.justPressed.S) changeAnim(-1);
-		else if (FlxG.keys.justPressed.W) changeAnim(1);
+		else if (FlxG.keys.justPressed.S)
+			changeAnim(-1);
+		else if (FlxG.keys.justPressed.W)
+			changeAnim(1);
 
 		// Force frame
 		var updatedFrame:Bool = false;
-		if(updatedFrame = FlxG.keys.justPressed.Q) forceFrame--;
-		else if(updatedFrame = FlxG.keys.justPressed.E) forceFrame++;
+		if (updatedFrame = FlxG.keys.justPressed.Q)
+			forceFrame--;
+		else if (updatedFrame = FlxG.keys.justPressed.E)
+			forceFrame++;
 
-		if(updatedFrame)
-		{
-			if(forceFrame < 0) forceFrame = 0;
-			else if(forceFrame >= maxFrame) forceFrame = maxFrame - 1;
-			//trace('curFrame: $forceFrame');
-			
-			curFrameText.text = 'Force Frame: ${forceFrame+1} / $maxFrame\n(Press Q/E to change)';
+		if (updatedFrame) {
+			if (forceFrame < 0)
+				forceFrame = 0;
+			else if (forceFrame >= maxFrame)
+				forceFrame = maxFrame - 1;
+			// trace('curFrame: $forceFrame');
+
+			curFrameText.text = 'Force Frame: ${forceFrame + 1} / $maxFrame\n(Press Q/E to change)';
 			splashes.forEachAlive(function(spr:FlxSprite) {
 				spr.animation.curAnim.paused = true;
 				spr.animation.curAnim.curFrame = forceFrame;
@@ -302,8 +293,7 @@ class NoteSplashDebugState extends MusicBeatState
 		}
 	}
 
-	function updateOffsetText()
-	{
+	function updateOffsetText() {
 		selecArr = selectedArray();
 		offsetsText.text = selecArr.toString();
 	}
@@ -311,17 +301,18 @@ class NoteSplashDebugState extends MusicBeatState
 	var textureName:String = defaultTexture;
 	var texturePath:String = '';
 	var copiedArray:Array<Float> = null;
-	function loadFrames()
-	{
+
+	function loadFrames() {
 		texturePath = 'noteSplashes/' + textureName;
 		splashes.forEachAlive(function(spr:FlxSprite) {
 			spr.frames = Paths.getSparrowAtlas(texturePath);
 		});
-	
+
 		// Initialize config
 		NoteSplash.configs.clear();
 		config = NoteSplash.precacheConfig(texturePath);
-		if(config == null) config = NoteSplash.precacheConfig(NoteSplash.defaultNoteSplash);
+		if (config == null)
+			config = NoteSplash.precacheConfig(NoteSplash.defaultNoteSplash);
 		nameInputText.text = config.anim;
 		stepperMinFps.value = config.minFps;
 		stepperMaxFps.value = config.maxFps;
@@ -330,13 +321,11 @@ class NoteSplashDebugState extends MusicBeatState
 		reloadAnims();
 	}
 
-	function saveFile()
-	{
+	function saveFile() {
 		#if sys
 		var maxLen:Int = maxAnims * Note.colArray.length;
 		var curLen:Int = config.offsets.length;
-		while(curLen > maxLen)
-		{
+		while (curLen > maxLen) {
 			config.offsets.pop();
 			curLen = config.offsets.length;
 		}
@@ -346,29 +335,26 @@ class NoteSplashDebugState extends MusicBeatState
 			strToSave += '\n' + offGroup[0] + ' ' + offGroup[1];
 
 		var pathSplit:Array<String> = (Paths.getPath('images/$texturePath.png', IMAGE, true).split('.png')[0] + '.txt').split(':');
-		var path:String = pathSplit[pathSplit.length-1].trim();
+		var path:String = pathSplit[pathSplit.length - 1].trim();
 		savedText.text = 'Saved to: $path';
 		File.saveContent(path, strToSave);
 
-		//trace(strToSave);
+		// trace(strToSave);
 		#else
 		savedText.text = 'Can\'t save on this platform, too bad.';
 		#end
 	}
-	
-	override function getEvent(id:String, sender:Dynamic, data:Dynamic, ?params:Array<Dynamic>)
-	{
-		if (id == FlxUINumericStepper.CHANGE_EVENT && (sender is FlxUINumericStepper))
-		{
+
+	override function getEvent(id:String, sender:Dynamic, data:Dynamic, ?params:Array<Dynamic>) {
+		if (id == FlxUINumericStepper.CHANGE_EVENT && (sender is FlxUINumericStepper)) {
 			var nums:FlxUINumericStepper = cast sender;
 			var wname = nums.name;
-			switch(wname)
-			{
+			switch (wname) {
 				case 'min_fps':
-					if(nums.value > stepperMaxFps.value)
+					if (nums.value > stepperMaxFps.value)
 						stepperMaxFps.value = nums.value;
 				case 'max_fps':
-					if(nums.value < stepperMinFps.value)
+					if (nums.value < stepperMinFps.value)
 						stepperMinFps.value = nums.value;
 			}
 			config.minFps = Std.int(stepperMinFps.value);
@@ -377,20 +363,17 @@ class NoteSplashDebugState extends MusicBeatState
 	}
 
 	var maxAnims:Int = 0;
-	function reloadAnims()
-	{
+
+	function reloadAnims() {
 		var loopContinue:Bool = true;
-		splashes.forEachAlive(function(spr:FlxSprite)
-		{
+		splashes.forEachAlive(function(spr:FlxSprite) {
 			spr.animation.destroyAnimations();
 		});
 
 		maxAnims = 0;
-		while(loopContinue)
-		{
+		while (loopContinue) {
 			var animID:Int = maxAnims + 1;
-			splashes.forEachAlive(function(spr:FlxSprite)
-			{
+			splashes.forEachAlive(function(spr:FlxSprite) {
 				for (i in 0...Note.colArray.length) {
 					var animName = 'note$i-$animID';
 					if (!addAnimAndCheck(spr, animName, '${config.anim} ${Note.colArray[i]} $animID', 24, false)) {
@@ -400,78 +383,74 @@ class NoteSplashDebugState extends MusicBeatState
 					spr.animation.play(animName, true);
 				}
 			});
-			if(loopContinue) maxAnims++;
+			if (loopContinue)
+				maxAnims++;
 		}
 		trace('maxAnims: $maxAnims');
 		changeAnim();
 	}
 
 	var maxFrame:Int = 0;
-	function changeAnim(change:Int = 0)
-	{
+
+	function changeAnim(change:Int = 0) {
 		maxFrame = 0;
 		forceFrame = -1;
-		if (maxAnims > 0)
-		{
+		if (maxAnims > 0) {
 			curAnim += change;
-			if(curAnim > maxAnims) curAnim = 1;
-			else if(curAnim < 1) curAnim = maxAnims;
+			if (curAnim > maxAnims)
+				curAnim = 1;
+			else if (curAnim < 1)
+				curAnim = maxAnims;
 
 			curAnimText.text = 'Current Animation: $curAnim / $maxAnims\n(Press W/S to change)';
 			curFrameText.text = 'Force Frame Disabled\n(Press Q/E to change)';
 
-			for (i in 0...maxNotes)
-			{
+			for (i in 0...maxNotes) {
 				var spr:FlxSprite = splashes.members[i];
 				spr.animation.play('note$i-$curAnim', true);
-				
-				if(maxFrame < spr.animation.curAnim.numFrames)
+
+				if (maxFrame < spr.animation.curAnim.numFrames)
 					maxFrame = spr.animation.curAnim.numFrames;
-				
+
 				spr.animation.curAnim.frameRate = FlxG.random.int(config.minFps, config.maxFps);
 				var offs:Array<Float> = selectedArray(i);
 				spr.offset.set(10 + offs[0], 10 + offs[1]);
 			}
-		}
-		else
-		{
+		} else {
 			curAnimText.text = 'INVALID ANIMATION NAME';
 			curFrameText.text = '';
 		}
 		updateOffsetText();
 	}
 
-	function changeSelection(change:Int = 0)
-	{
+	function changeSelection(change:Int = 0) {
 		var max:Int = Note.colArray.length;
 		curSelected += change;
-		if(curSelected < 0) curSelected = max - 1;
-		else if(curSelected >= max) curSelected = 0;
+		if (curSelected < 0)
+			curSelected = max - 1;
+		else if (curSelected >= max)
+			curSelected = 0;
 
 		selection.x = curSelected * 220 + 220;
 		updateOffsetText();
 	}
 
-	function selectedArray(sel:Int = -1)
-	{
-		if(sel < 0) sel = curSelected;
+	function selectedArray(sel:Int = -1) {
+		if (sel < 0)
+			sel = curSelected;
 		var animID:Int = sel + ((curAnim - 1) * Note.colArray.length);
-		if(config.offsets[animID] == null)
-		{
-			while(config.offsets[animID] == null)
-				config.offsets.push(config.offsets[FlxMath.wrap(animID, 0, config.offsets.length-1)].copy());
+		if (config.offsets[animID] == null) {
+			while (config.offsets[animID] == null) config.offsets.push(config.offsets[FlxMath.wrap(animID, 0, config.offsets.length - 1)].copy());
 		}
-		return config.offsets[FlxMath.wrap(animID, 0, config.offsets.length-1)];
+		return config.offsets[FlxMath.wrap(animID, 0, config.offsets.length - 1)];
 	}
 
-	function addAnimAndCheck(spr:FlxSprite, name:String, anim:String, ?framerate:Int = 24, ?loop:Bool = false)
-	{
+	function addAnimAndCheck(spr:FlxSprite, name:String, anim:String, ?framerate:Int = 24, ?loop:Bool = false) {
 		spr.animation.addByPrefix(name, anim, framerate, loop);
 		return spr.animation.getByName(name) != null;
 	}
 
-	override function destroy()
-	{
+	override function destroy() {
 		super.destroy();
 	}
 }

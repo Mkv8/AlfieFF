@@ -1,16 +1,23 @@
 {
 	"lineEnds": {
-		"leftCurly": "both",
+		"leftCurly": "after",
 		"rightCurly": "both",
 		"emptyCurly": "break",
 		"objectLiteralCurly": {
 			"leftCurly": "after"
 		}
 	},
+	"wrapping": {
+		"maxLineLength": 9999
+	},
 	"sameLine": {
-		"ifElse": "next",
-		"doWhile": "next",
-		"tryBody": "next",
-		"tryCatch": "next"
+		"ifElse": "same",
+		"doWhile": "same",
+		"tryBody": "same",
+		"tryCatch": "same",
+		"functionBody": "same",
+		"anonFunctionBody": "same",
+		"whileBody": "same",
+		"caseBody": "next"
 	}
 }
