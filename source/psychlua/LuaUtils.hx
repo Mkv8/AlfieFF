@@ -23,7 +23,6 @@ class LuaUtils
 	public static final Function_Stop:Dynamic = "##PSYCHLUA_FUNCTIONSTOP";
 	public static final Function_Continue:Dynamic = "##PSYCHLUA_FUNCTIONCONTINUE";
 	public static final Function_StopLua:Dynamic = "##PSYCHLUA_FUNCTIONSTOPLUA";
-	public static final Function_StopHScript:Dynamic = "##PSYCHLUA_FUNCTIONSTOPHSCRIPT";
 	public static final Function_StopAll:Dynamic = "##PSYCHLUA_FUNCTIONSTOPALL";
 
 	public static function getLuaTween(options:Dynamic)
@@ -170,7 +169,7 @@ class LuaUtils
 		else
 		{
 			FlxG.save.data.modSettings.remove(modName);
-			#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
+			#if (LUA_ALLOWED)
 			PlayState.instance.addTextToDebug('getModSetting: $path could not be found!', FlxColor.RED);
 			#else
 			FlxG.log.warn('getModSetting: $path could not be found!');
@@ -179,7 +178,7 @@ class LuaUtils
 		}
 
 		if(settings.exists(saveTag)) return settings.get(saveTag);
-		#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
+		#if (LUA_ALLOWED)
 		PlayState.instance.addTextToDebug('getModSetting: "$saveTag" could not be found inside $modName\'s settings!', FlxColor.RED);
 		#else
 		FlxG.log.warn('getModSetting: "$saveTag" could not be found inside $modName\'s settings!');
