@@ -12,7 +12,6 @@ import haxe.Json;
 import openfl.Assets;
 import openfl.display.Bitmap;
 import openfl.display.BitmapData;
-import shaders.ColorSwap;
 import states.StoryMenuState;
 import states.OutdatedState;
 import states.MainMenuState;
@@ -162,7 +161,6 @@ class TitleState extends MusicBeatState {
 	var logoBl:FlxSprite;
 	var danceLeft:Bool = false;
 	var titleText:FlxSprite;
-	var swagShader:ColorSwap = null;
 
 	function startIntro() {
 		if (!initialized) {
@@ -197,10 +195,6 @@ class TitleState extends MusicBeatState {
 		logoBl.screenCenter();
 		// logoBl.color = FlxColor.BLACK;
 		add(logoBl);
-
-		if (swagShader != null) {
-			logoBl.shader = swagShader.shader;
-		}
 
 		titleText = new FlxSprite(titleJSON.startx, titleJSON.starty);
 		titleText.frames = Paths.getSparrowAtlas('titleEnter');
@@ -412,13 +406,6 @@ class TitleState extends MusicBeatState {
 
 		if (initialized && pressedEnter && !skippedIntro) {
 			skipIntro();
-		}
-
-		if (swagShader != null) {
-			if (controls.UI_LEFT)
-				swagShader.hue -= elapsed * 0.1;
-			if (controls.UI_RIGHT)
-				swagShader.hue += elapsed * 0.1;
 		}
 
 		super.update(elapsed);

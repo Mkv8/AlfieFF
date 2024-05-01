@@ -1,11 +1,8 @@
 package objects;
 
 import backend.animation.PsychAnimationController;
-import shaders.RGBPalette;
-import shaders.RGBPalette.RGBShaderReference;
 
 class StrumNote extends FlxSprite {
-	public var rgbShader:RGBShaderReference;
 	public var resetAnim:Float = 0;
 
 	private var noteData:Int = 0;
@@ -26,28 +23,8 @@ class StrumNote extends FlxSprite {
 		return value;
 	}
 
-	public var useRGBShader:Bool = true;
-
 	public function new(x:Float, y:Float, leData:Int, player:Int) {
 		animation = new PsychAnimationController(this);
-
-		rgbShader = new RGBShaderReference(this, Note.initializeGlobalRGBShader(leData));
-		rgbShader.enabled = false;
-		if (PlayState.SONG != null && PlayState.SONG.disableNoteRGB)
-			useRGBShader = false;
-
-		var arr:Array<FlxColor> = ClientPrefs.data.arrowRGB[leData];
-		if (PlayState.isPixelStage)
-			arr = ClientPrefs.data.arrowRGBPixel[leData];
-
-		if (leData <= arr.length) {
-			@:bypassAccessor
-			{
-				rgbShader.r = arr[0];
-				rgbShader.g = arr[1];
-				rgbShader.b = arr[2];
-			}
-		}
 
 		noteData = leData;
 		this.player = player;
@@ -82,10 +59,6 @@ class StrumNote extends FlxSprite {
 			antialiasing = false;
 			setGraphicSize(Std.int(width * PlayState.daPixelZoom));
 
-			animation.add('green', [6]);
-			animation.add('red', [7]);
-			animation.add('blue', [5]);
-			animation.add('purple', [4]);
 			switch (Math.abs(noteData) % 4) {
 				case 0:
 					animation.add('static', [0]);
@@ -106,10 +79,6 @@ class StrumNote extends FlxSprite {
 			}
 		} else {
 			frames = Paths.getSparrowAtlas(texture);
-			animation.addByPrefix('green', 'arrowUP');
-			animation.addByPrefix('blue', 'arrowDOWN');
-			animation.addByPrefix('purple', 'arrowLEFT');
-			animation.addByPrefix('red', 'arrowRIGHT');
 
 			antialiasing = ClientPrefs.data.antialiasing;
 			setGraphicSize(Std.int(width * 0.7));
@@ -165,7 +134,5 @@ class StrumNote extends FlxSprite {
 			centerOffsets();
 			centerOrigin();
 		}
-		if (useRGBShader)
-			rgbShader.enabled = (animation.curAnim != null && animation.curAnim.name != 'static');
 	}
 }

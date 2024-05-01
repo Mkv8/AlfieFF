@@ -8,7 +8,6 @@ import openfl.utils.Assets;
 import haxe.Json;
 import backend.Song;
 import backend.Section;
-import states.stages.objects.TankmenBG;
 
 typedef CharacterFile = {
 	var animations:Array<AnimArray>;
@@ -369,17 +368,7 @@ class Character extends FlxSprite {
 	}
 
 	function loadMappedAnims():Void {
-		try {
-			var noteData:Array<SwagSection> = Song.loadFromJson('picospeaker', Paths.formatToSongPath(PlayState.SONG.song)).notes;
-			for (section in noteData) {
-				for (songNotes in section.sectionNotes) {
-					animationNotes.push(songNotes);
-				}
-			}
-			TankmenBG.animationNotes = animationNotes;
-			animationNotes.sort(sortAnims);
-		} catch (e:Dynamic) {
-		}
+
 	}
 
 	function sortAnims(Obj1:Array<Dynamic>, Obj2:Array<Dynamic>):Int {

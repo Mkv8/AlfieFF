@@ -22,7 +22,10 @@ class Rooftop extends BaseStage {
 
 	var blackscreen:BGSprite;
 
-	var shader:Array<BitmapFilter> = [new ShaderFilter(new shaders.PostProcessing())];
+	var shader:Array<BitmapFilter> = [
+		new ShaderFilter(new shaders.PostProcessing()),
+		new ShaderFilter(new shaders.ChromUwU())
+	];
 
 	override function create() {
 		// Spawn your stage sprites here.
@@ -79,6 +82,11 @@ class Rooftop extends BaseStage {
 		FlxG.game.filtersEnabled = true;
 	}
 
+	override function destroy() {
+		super.destroy();
+		FlxG.game.filtersEnabled = false;
+	}
+
 	override function update(elapsed:Float) {
 		// Code here
 	}
@@ -101,10 +109,8 @@ class Rooftop extends BaseStage {
 	override function stepHit() {
 		switch (curStep) {
 			case 122:
-				{
-					transition.alpha = 0;
-					blackscreen.alpha = 0;
-				}
+				transition.alpha = 0;
+				blackscreen.alpha = 0;
 		}
 	}
 
