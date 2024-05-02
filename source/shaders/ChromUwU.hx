@@ -3,6 +3,7 @@ package shaders;
 import haxe.Timer;
 import flixel.system.FlxAssets.FlxShader;
 
+//class ChromUwU extends FixedShader {
 class ChromUwU extends FlxShader {
 	@:glFragmentSource('
 #pragma header
@@ -70,11 +71,13 @@ vec3 spectrum_offset( float t )
 
 vec3 render( vec2 uv )
 {
+	//return srgb2lin(textureCamNoFlx( bitmap, uv ).rgb );
 	return srgb2lin(texture2D( bitmap, uv ).rgb );
 }
 
 void main()
 {
+	//vec2 uv = getCamPos(openfl_TextureCoordv.xy);
 	vec2 uv = openfl_TextureCoordv.xy;
 
 	const float MAX_DIST_PX = 50.0;

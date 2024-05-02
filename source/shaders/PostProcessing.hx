@@ -3,6 +3,7 @@ package shaders;
 import haxe.Timer;
 import flixel.system.FlxAssets.FlxShader;
 
+//class PostProcessing extends FixedShader {
 class PostProcessing extends FlxShader {
 	@:glFragmentSource('
 #pragma header
@@ -19,8 +20,10 @@ vec2 iResolution = openfl_TextureSize;
 
 void mainImage()
 {
-	vec2 q = fragCoord.xy / iResolution.xy;
+	vec2 q = openfl_TextureCoordv.xy;
+	//vec2 q = getCamPos(openfl_TextureCoordv.xy);
 
+	//vec3 col = textureCam( iChannel0, uv ).xyz;
 	vec3 col = texture( iChannel0, uv ).xyz;
 
 	col = clamp(col*0.5+0.5*col*col*1.2,0.0,1.0);

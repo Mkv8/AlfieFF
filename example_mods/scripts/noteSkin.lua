@@ -1,14 +1,14 @@
 local noteskinMap = {
-	["gf-90s"] = "NOTE_assets",
-	["90salfie"] = "ALFIENOTE_assets",
-	["90skisston"] = "KISSNOTE_assets",
-	default = "NOTE_assets"
+	["gf-90s"] = "noteSkins/NOTE_assets",
+	["90salfie"] = "noteSkins/ALFIENOTE_assets",
+	["90skisston"] = "noteSkins/KISSNOTE_assets",
+	default = "noteSkins/NOTE_assets"
 }
 
 function onCreatePost()
 	local def = getPropertyFromClass("PlayState", "SONG.arrowSkin")
 	if def == nil or #def < 1  or def == "SONG.arrowSkin" then
-   	 def = "NOTE_assets"
+		def = "noteSkins/NOTE_assets"
 	end
 	noteskinMap["default"] = def
 
