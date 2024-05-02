@@ -27,11 +27,12 @@ class CreditsState extends MusicBeatState {
 	override function create() {
 		#if DISCORD_ALLOWED
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		DiscordClient.changePresence("Checking the credits!", null);
 		#end
 
 		persistentUpdate = true;
-		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		bg = new FlxSprite().loadGraphic(Paths.image('mainMenu'));
+		bg.scale.set(0.67, 0.67);
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		add(bg);
 		bg.screenCenter();
@@ -205,8 +206,8 @@ class CreditsState extends MusicBeatState {
 		descBox.sprTracker = descText;
 		add(descText);
 
-		bg.color = CoolUtil.colorFromString(creditsStuff[curSelected][4]);
-		intendedColor = bg.color;
+		//bg.color = CoolUtil.colorFromString(creditsStuff[curSelected][4]);
+		//intendedColor = bg.color;
 		changeSelection();
 		
 		FlxG.game.setFilters(shader);
@@ -291,7 +292,7 @@ class CreditsState extends MusicBeatState {
 				curSelected = 0;
 		} while (unselectableCheck(curSelected));
 
-		var newColor:FlxColor = CoolUtil.colorFromString(creditsStuff[curSelected][4]);
+		/*var newColor:FlxColor = CoolUtil.colorFromString(creditsStuff[curSelected][4]);
 		// trace('The BG color is: $newColor');
 		if (newColor != intendedColor) {
 			if (colorTween != null) {
@@ -303,7 +304,7 @@ class CreditsState extends MusicBeatState {
 					colorTween = null;
 				}
 			});
-		}
+		}*/
 
 		var bullShit:Int = 0;
 

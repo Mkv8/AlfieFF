@@ -9,7 +9,7 @@ class LeafParticle extends FlxParticle {
         super();
 
         frames = Paths.getSparrowAtlas('leafParticles');
-        angularVelocity = 5;
+        //angularVelocity = 45;
 
         if(maxHeight == -1) {
             for(frame in frames.frames) {
@@ -21,5 +21,6 @@ class LeafParticle extends FlxParticle {
 
     public override function onEmit():Void {
         this.frame = this.frames.frames[FlxG.random.int(0, this.frames.frames.length - 1)];
+        angularVelocity = FlxG.random.float(30, 80);
     }
 }

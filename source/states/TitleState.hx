@@ -250,7 +250,7 @@ class TitleState extends MusicBeatState {
 		emitter.y -= LeafParticle.maxHeight;
 
 		emitter.start(false, 0.3, 100000);
-		add(emitter);
+		//add(emitter);
 
 		// add(logo);
 

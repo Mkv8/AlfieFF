@@ -38,8 +38,8 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 		DiscordClient.changePresence(rpcTitle, null);
 		#end
 
-		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		bg.color = 0xFFea71fd;
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('optionsMenu'));
+		bg.scale.set(0.67, 0.67);
 		bg.screenCenter();
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		add(bg);

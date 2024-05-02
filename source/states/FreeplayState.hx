@@ -90,8 +90,9 @@ class FreeplayState extends MusicBeatState {
 		}
 		Mods.loadTopMod();
 
-		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		bg = new FlxSprite().loadGraphic(Paths.image('mainMenu'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
+		bg.scale.set(0.67, 0.67);
 		add(bg);
 		bg.screenCenter();
 
@@ -150,8 +151,8 @@ class FreeplayState extends MusicBeatState {
 
 		if (curSelected >= songs.length)
 			curSelected = 0;
-		bg.color = songs[curSelected].color;
-		intendedColor = bg.color;
+		//bg.color = songs[curSelected].color;
+		//intendedColor = bg.color;
 		lerpSelected = curSelected;
 
 		curDifficulty = Math.round(Math.max(0, Difficulty.defaultList.indexOf(lastDifficultyName)));
@@ -442,7 +443,7 @@ class FreeplayState extends MusicBeatState {
 		if (curSelected >= songs.length)
 			curSelected = 0;
 
-		var newColor:Int = songs[curSelected].color;
+		/*var newColor:Int = songs[curSelected].color;
 		if (newColor != intendedColor) {
 			if (colorTween != null) {
 				colorTween.cancel();
@@ -453,7 +454,7 @@ class FreeplayState extends MusicBeatState {
 					colorTween = null;
 				}
 			});
-		}
+		}*/
 
 		// selector.y = (70 * curSelected) + 30;
 
