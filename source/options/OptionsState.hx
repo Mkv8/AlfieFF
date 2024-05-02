@@ -1,6 +1,8 @@
 package options;
 
 import states.MainMenuState;
+import openfl.filters.BitmapFilter;
+import openfl.filters.ShaderFilter;
 import backend.StageData;
 
 class OptionsState extends MusicBeatState {
@@ -16,6 +18,10 @@ class OptionsState extends MusicBeatState {
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
 	public static var onPlayState:Bool = false;
+	var shader:Array<BitmapFilter> = [
+		new ShaderFilter(new shaders.PostProcessing()),
+		new ShaderFilter(new shaders.ChromUwU())
+	];
 
 	function openSelectedSubstate(label:String) {
 		switch (label) {
@@ -65,7 +71,8 @@ class OptionsState extends MusicBeatState {
 
 		changeSelection();
 		ClientPrefs.saveSettings();
-
+		FlxG.game.setFilters(shader);
+		FlxG.game.filtersEnabled = true;
 		super.create();
 	}
 

@@ -8,6 +8,9 @@ import objects.MusicPlayer;
 import substates.GameplayChangersSubstate;
 import substates.ResetScoreSubState;
 import flixel.math.FlxMath;
+import openfl.filters.BitmapFilter;
+import openfl.filters.ShaderFilter;
+
 
 class FreeplayState extends MusicBeatState {
 	var songs:Array<SongMetadata> = [];
@@ -28,7 +31,10 @@ class FreeplayState extends MusicBeatState {
 	var lerpRating:Float = 0;
 	var intendedScore:Int = 0;
 	var intendedRating:Float = 0;
-
+	var shader:Array<BitmapFilter> = [
+		new ShaderFilter(new shaders.PostProcessing()),
+		new ShaderFilter(new shaders.ChromUwU())
+	];
 	private var grpSongs:FlxTypedGroup<Alphabet>;
 	private var curPlaying:Bool = false;
 
@@ -167,6 +173,8 @@ class FreeplayState extends MusicBeatState {
 
 		changeSelection();
 		updateTexts();
+		FlxG.game.setFilters(shader);
+		FlxG.game.filtersEnabled = true;
 		super.create();
 	}
 

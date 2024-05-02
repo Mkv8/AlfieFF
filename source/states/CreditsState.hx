@@ -1,6 +1,8 @@
 package states;
 
 import objects.AttachedSprite;
+import openfl.filters.BitmapFilter;
+import openfl.filters.ShaderFilter;
 
 class CreditsState extends MusicBeatState {
 	var curSelected:Int = -1;
@@ -16,6 +18,11 @@ class CreditsState extends MusicBeatState {
 	var descBox:AttachedSprite;
 
 	var offsetThing:Float = -75;
+
+	var shader:Array<BitmapFilter> = [
+		new ShaderFilter(new shaders.PostProcessing()),
+		new ShaderFilter(new shaders.ChromUwU())
+	];
 
 	override function create() {
 		#if DISCORD_ALLOWED
@@ -201,6 +208,9 @@ class CreditsState extends MusicBeatState {
 		bg.color = CoolUtil.colorFromString(creditsStuff[curSelected][4]);
 		intendedColor = bg.color;
 		changeSelection();
+		
+		FlxG.game.setFilters(shader);
+		FlxG.game.filtersEnabled = true;
 		super.create();
 	}
 

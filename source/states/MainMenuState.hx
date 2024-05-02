@@ -6,6 +6,8 @@ import flixel.effects.FlxFlicker;
 import lime.app.Application;
 import states.editors.MasterEditorMenu;
 import options.OptionsState;
+import openfl.filters.BitmapFilter;
+import openfl.filters.ShaderFilter;
 
 class MainMenuState extends MusicBeatState {
 	public static var psychEngineVersion:String = '0.7.3'; // This is also used for Discord RPC
@@ -17,6 +19,11 @@ class MainMenuState extends MusicBeatState {
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
+
+	var shader:Array<BitmapFilter> = [
+		new ShaderFilter(new shaders.PostProcessing()),
+		new ShaderFilter(new shaders.ChromUwU())
+	];
 
 	override function create() {
 		#if MODS_ALLOWED
@@ -96,6 +103,9 @@ class MainMenuState extends MusicBeatState {
 		Achievements.reloadList();
 		#end
 		#end
+		
+		FlxG.game.setFilters(shader);
+		FlxG.game.filtersEnabled = true;
 
 		super.create();
 

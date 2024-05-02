@@ -15,6 +15,8 @@ import openfl.display.BitmapData;
 import states.StoryMenuState;
 import states.OutdatedState;
 import states.MainMenuState;
+import openfl.filters.BitmapFilter;
+import openfl.filters.ShaderFilter;
 
 typedef TitleData = {
 	titlex:Float,
@@ -46,6 +48,11 @@ class TitleState extends MusicBeatState {
 	var curWacky:Array<String> = [];
 
 	var wackyImage:FlxSprite;
+
+	var shader:Array<BitmapFilter> = [
+		new ShaderFilter(new shaders.PostProcessing()),
+		new ShaderFilter(new shaders.ChromUwU())
+	];
 
 	#if TITLE_SCREEN_EASTER_EGG
 	var easterEggKeys:Array<String> = ['SHADOW', 'RIVER', 'BBPANZU'];
@@ -174,16 +181,17 @@ class TitleState extends MusicBeatState {
 
 		var bg:FlxSprite = new FlxSprite();
 		bg.antialiasing = ClientPrefs.data.antialiasing;
-
-		if (titleJSON.backgroundSprite != null && titleJSON.backgroundSprite.length > 0 && titleJSON.backgroundSprite != "none") {
-			bg.loadGraphic(Paths.image(titleJSON.backgroundSprite));
-		} else {
-			bg.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
-		}
-
-		// bg.setGraphicSize(Std.int(bg.width * 0.6));
-		// bg.updateHitbox();
+		bg.loadGraphic(Paths.image('title bg'));
+		bg.scale.set(0.67, 0.67);
+		bg.screenCenter();
 		add(bg);
+
+		var moon:FlxSprite = new FlxSprite(545, -280);
+		moon.antialiasing = ClientPrefs.data.antialiasing;
+		moon.loadGraphic(Paths.image('titlemoon'));
+		moon.scale.set(0.60, 0.60);
+
+		add(moon);
 
 		logoBl = new FlxSprite(titleJSON.titlex, titleJSON.titley);
 		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
@@ -193,6 +201,7 @@ class TitleState extends MusicBeatState {
 		logoBl.animation.play('bump');
 		logoBl.updateHitbox();
 		logoBl.screenCenter();
+		logoBl.scale.set(0.85, 0.85);
 		// logoBl.color = FlxColor.BLACK;
 		add(logoBl);
 
@@ -258,6 +267,8 @@ class TitleState extends MusicBeatState {
 
 		Paths.clearUnusedMemory();
 		// credGroup.add(credTextShit);
+		FlxG.game.setFilters(shader);
+		FlxG.game.filtersEnabled = true;
 	}
 
 	function getIntroTextShit():Array<Array<String>> {
