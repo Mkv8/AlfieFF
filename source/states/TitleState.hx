@@ -1,5 +1,7 @@
 package states;
 
+import flixel.effects.particles.FlxEmitter;
+import flixel.effects.particles.FlxEmitter;
 import backend.WeekData;
 import backend.Highscore;
 import flixel.input.keyboard.FlxKey;
@@ -230,9 +232,26 @@ class TitleState extends MusicBeatState {
 		// titleText.screenCenter(X);
 		add(titleText);
 
-		var logo:FlxSprite = new FlxSprite().loadGraphic(Paths.image('logo'));
-		logo.antialiasing = ClientPrefs.data.antialiasing;
-		logo.screenCenter();
+		var emitter: FlxEmitter = new FlxEmitter(0, 0);
+		emitter.launchMode = FlxEmitterMode.SQUARE;
+		emitter.velocity.set(50, 150, 100, 200);
+		emitter.scale.set(0.5, 0.5, 1, 1, 0.5, 0.5, 0.75, 0.75);
+		//emitter.drag.set(0, 0, 0, 0, 5, 5, 10, 10);
+		emitter.width = 1280 + 300;
+		emitter.x = (FlxG.width / 2) - (emitter.width / 2);
+		emitter.alpha.set(1, 1, 1, 1);
+		emitter.lifespan.set(5, 10);
+		emitter.particleClass = LeafParticle;
+		//emitter.loadParticles(Paths.image('Particles/Particle' + i), 500, 16, true);
+		for (j in 0...25) { // precache
+			var leaf: LeafParticle = new LeafParticle();
+			emitter.add(leaf);
+		}
+		emitter.y -= LeafParticle.maxHeight;
+
+		emitter.start(false, 0.3, 100000);
+		add(emitter);
+
 		// add(logo);
 
 		// FlxTween.tween(logoBl, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG});

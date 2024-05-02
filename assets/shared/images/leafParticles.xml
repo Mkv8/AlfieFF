@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="leafParticles.png">
+	<!-- Created with Adobe Animate version 20.5.1.31044 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="leaves0000" x="8" y="8" width="65" height="67" frameX="-10" frameY="-16" frameWidth="75" frameHeight="98"/>
+	<SubTexture name="leaves0001" x="83" y="8" width="26" height="55" frameX="-19" frameY="-31" frameWidth="75" frameHeight="98"/>
+	<SubTexture name="leaves0002" x="119" y="8" width="43" height="98" frameX="-14" frameY="0" frameWidth="75" frameHeight="98"/>
+	<SubTexture name="leaves0003" x="172" y="8" width="57" height="59" frameX="0" frameY="-19" frameWidth="75" frameHeight="98"/>
+	<SubTexture name="leaves0004" x="8" y="116" width="44" height="70" frameX="-11" frameY="-22" frameWidth="75" frameHeight="98"/>
+	<SubTexture name="leaves0005" x="62" y="116" width="49" height="61" frameX="-2" frameY="-33" frameWidth="75" frameHeight="98"/>
+</TextureAtlas>
