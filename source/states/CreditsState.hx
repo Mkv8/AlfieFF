@@ -70,6 +70,13 @@ class CreditsState extends MusicBeatState {
 				'A66B89'
 			],
 			[
+				'Aidan.XD',
+				'aidan',
+				'Musician for Freaky 4eva (Main Theme)',
+				'https://twitter.com/DEADMAC1',
+				'D65C58'
+			],
+			[
 				'SplatterDash',
 				'splatt',
 				'Musician for Forest Fire (New Mix)',

@@ -10,7 +10,9 @@ import substates.ResetScoreSubState;
 import flixel.math.FlxMath;
 import openfl.filters.BitmapFilter;
 import openfl.filters.ShaderFilter;
-
+import flixel.util.FlxTimer;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
 
 class FreeplayState extends MusicBeatState {
 	var songs:Array<SongMetadata> = [];
@@ -53,6 +55,11 @@ class FreeplayState extends MusicBeatState {
 
 	var player:MusicPlayer;
 
+	var alfieAlbum:Item;
+	var kisstonAlbum:Item;
+	var alfTimer:FlxTimer;
+	var kissTimer:FlxTimer;
+
 	override function create() {
 		// Paths.clearStoredMemory();
 		// Paths.clearUnusedMemory();
@@ -63,7 +70,7 @@ class FreeplayState extends MusicBeatState {
 
 		#if DISCORD_ALLOWED
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		DiscordClient.changePresence("Choosing a song!", null);
 		#end
 
 		for (i in 0...WeekData.weeksList.length) {
@@ -90,11 +97,27 @@ class FreeplayState extends MusicBeatState {
 		}
 		Mods.loadTopMod();
 
-		bg = new FlxSprite().loadGraphic(Paths.image('mainMenu'));
+		bg = new FlxSprite().loadGraphic(Paths.image('freeplayMenu'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		bg.scale.set(0.67, 0.67);
 		add(bg);
 		bg.screenCenter();
+
+
+		alfieAlbum = new Item(1750, -200);
+		alfieAlbum.loadGraphic(Paths.image('alfieAlbum'));
+		alfieAlbum.scale.set(0.4, 0.4);
+
+		kisstonAlbum = new Item(1750, -200);
+		kisstonAlbum.loadGraphic(Paths.image('kisstonAlbum'));
+		kisstonAlbum.scale.set(0.4, 0.4);
+
+
+		add(alfieAlbum);
+		add (kisstonAlbum);
+
+
+
 
 		grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);
@@ -117,7 +140,7 @@ class FreeplayState extends MusicBeatState {
 
 			// using a FlxGroup is too much fuss!
 			iconArray.push(icon);
-			add(icon);
+			//add(icon);
 
 			// songText.x += 40;
 			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
@@ -178,6 +201,8 @@ class FreeplayState extends MusicBeatState {
 		FlxG.game.filtersEnabled = true;
 		super.create();
 	}
+
+
 
 	override function closeSubState() {
 		changeSelection(0, false);
@@ -490,6 +515,50 @@ class FreeplayState extends MusicBeatState {
 
 		changeDiff();
 		_updateSongLastDifficulty();
+
+		FlxTween.cancelTweensOf(alfieAlbum);
+		FlxTween.cancelTweensOf(kisstonAlbum);
+	
+		if(alfTimer != null) alfTimer.cancel();
+		if(kissTimer != null) kissTimer.cancel();
+
+		switch(curSelected){
+
+			case 0:
+			{
+				FlxTween.tween(alfieAlbum,{x:380}, 1.2, {ease: FlxEase.cubeInOut});
+				alfieAlbum.angle = -4;
+				alfTimer = new FlxTimer().start(1, function(tmr:FlxTimer)
+					{
+						if(alfieAlbum.angle == -4)
+							FlxTween.angle(alfieAlbum, alfieAlbum.angle, 4, 4, {ease: FlxEase.quartInOut});
+						if (alfieAlbum.angle == 4)
+							FlxTween.angle(alfieAlbum, alfieAlbum.angle, -4, 4, {ease: FlxEase.quartInOut});
+					}, 0);
+
+				FlxTween.tween(kisstonAlbum,{x: 1750}, 1.2, {ease: FlxEase.cubeInOut});	
+
+			}
+
+			case 1:
+			{
+				FlxTween.tween(kisstonAlbum,{x:380}, 1.2, {ease: FlxEase.cubeInOut});
+				kisstonAlbum.angle = -4;
+				alfTimer = new FlxTimer().start(1, function(tmr:FlxTimer)
+					{
+						if(kisstonAlbum.angle == -4)
+							FlxTween.angle(kisstonAlbum, kisstonAlbum.angle, 4, 4, {ease: FlxEase.quartInOut});
+						if (kisstonAlbum.angle == 4)
+							FlxTween.angle(kisstonAlbum, kisstonAlbum.angle, -4, 4, {ease: FlxEase.quartInOut});
+					}, 0);
+
+				FlxTween.tween(alfieAlbum,{x: 1750}, 1.2, {ease: FlxEase.cubeInOut});
+			}
+
+
+		}
+
+
 	}
 
 	inline private function _updateSongLastDifficulty() {
@@ -555,4 +624,17 @@ class SongMetadata {
 		if (this.folder == null)
 			this.folder = '';
 	}
+}
+
+class Item extends FlxSprite {
+    public var initialX:Float;
+    public var initialY:Float;
+
+    public function new(x:Float, y:Float) {
+        initialY = y;
+        initialX = x;
+        super(x, y);
+
+		antialiasing = true;
+    }
 }

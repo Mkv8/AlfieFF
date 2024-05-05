@@ -172,6 +172,7 @@ class TitleState extends MusicBeatState {
 	var titleText:FlxSprite;
 
 	function startIntro() {
+		trace("hey faggy waggy " +  initialized + "and" + (FlxG.sound.music == null));
 		if (!initialized) {
 			if (FlxG.sound.music == null) {
 				FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
@@ -232,6 +233,12 @@ class TitleState extends MusicBeatState {
 		// titleText.screenCenter(X);
 		add(titleText);
 
+		var logo:FlxSprite = new FlxSprite().loadGraphic(Paths.image('logo'));
+		logo.antialiasing = ClientPrefs.data.antialiasing;
+		logo.screenCenter();
+		//added logo back to see if this fixes it somehow
+		//it didnt
+
 		var emitter: FlxEmitter = new FlxEmitter(0, 0);
 		emitter.launchMode = FlxEmitterMode.SQUARE;
 		emitter.velocity.set(50, 150, 100, 200);
@@ -251,6 +258,8 @@ class TitleState extends MusicBeatState {
 
 		emitter.start(false, 0.3, 100000);
 		//add(emitter);
+		//stopped adding the emnitter but didnt delete any of the code for it
+		//adding the emitter back doesnt fix it
 
 		// add(logo);
 

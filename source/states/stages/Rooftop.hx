@@ -22,6 +22,11 @@ class Rooftop extends BaseStage {
 
 	var blackscreen:BGSprite;
 
+	var blueGlow:BGSprite;
+	var redGlow:BGSprite;
+
+	var stoplights:Bool = false;
+
 	var shader:Array<BitmapFilter> = [
 		new ShaderFilter(new shaders.PostProcessing()),
 		new ShaderFilter(new shaders.ChromUwU())
@@ -41,6 +46,18 @@ class Rooftop extends BaseStage {
 		buildings.updateHitbox();
 		buildings.alpha = 1;
 		add(buildings);
+
+		blueGlow = new BGSprite('rooftop/blueGlow', 0, 0, 1, 1);
+		blueGlow.updateHitbox();
+		blueGlow.alpha = 0;
+		blueGlow.blend = BlendMode.ADD;
+		add(blueGlow);
+
+		redGlow = new BGSprite('rooftop/redGlow', 0, 0, 1, 1);
+		redGlow.updateHitbox();
+		redGlow.alpha = 0;
+		redGlow.blend = BlendMode.ADD;
+		add(redGlow);
 
 		ground = new BGSprite('rooftop/ground', 0, 0, 1, 1);
 		ground.updateHitbox();
@@ -120,6 +137,8 @@ class Rooftop extends BaseStage {
 		switch (curBeat) {
 			case 1:
 				{
+					policeLights();
+					stoplights = true;
 					FlxTween.tween(blackscreen, {
 						alpha: 0
 					}, 1);
@@ -134,7 +153,7 @@ class Rooftop extends BaseStage {
 					});
 				}
 
-			case 21:
+			case 21 | 570:
 				{
 					FlxTween.tween(blackscreen, {
 						alpha: 1
@@ -142,12 +161,46 @@ class Rooftop extends BaseStage {
 						ease: FlxEase.cubeIn
 					});
 				}
+
+			case 96 | 260 | 420 | 516:
+				{
+					//this starts the function
+					stoplights = false;
+					policeLights();
+				}
+
+			case 224 | 418 | 482:
+				{
+					//this stops the function
+					stoplights = true;
+				}
+
 		}
 	}
 
 	function everyoneDance() {
 		if (!ClientPrefs.data.lowQuality) {
 		}
+	}
+
+	function policeLights() {
+		var glowtimer2:FlxTimer;
+
+		if (stoplights)
+			{
+			return;
+			}
+		
+		blueGlow.alpha = 1;
+		FlxTween.tween(blueGlow, {alpha: 0}, 0.9, {onComplete: function(twn:FlxTween) {
+			glowtimer2 = new FlxTimer().start(0.4, function(tmr:FlxTimer)
+				{
+					redGlow.alpha = 1;
+					FlxTween.tween(redGlow, {alpha: 0}, 0.9, {onComplete: function(twn:FlxTween) {policeLights();}});
+				});
+		}});
+		
+
 	}
 
 	override function sectionHit() {

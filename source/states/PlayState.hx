@@ -317,7 +317,7 @@ class PlayState extends MusicBeatState {
 		if (isStoryMode)
 			detailsText = "Story Mode: " + WeekData.getCurrentWeek().weekName;
 		else
-			detailsText = "Freeplay";
+			detailsText = WeekData.getCurrentWeek().weekName;
 
 		// String for when the game is paused
 		detailsPausedText = "Paused - " + detailsText;
