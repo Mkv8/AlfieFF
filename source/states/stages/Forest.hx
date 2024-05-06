@@ -185,6 +185,8 @@ class Forest extends BaseStage {
 				{
 					FlxG.camera.flash(FlxColor.WHITE,1,false);
 					blackscreen.alpha = 0;
+					blackscreen.cameras = [camHUD];
+					whiteText.cameras = [camHUD];
 				}
 
 			case 179:

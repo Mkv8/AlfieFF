@@ -248,16 +248,16 @@ class TitleState extends MusicBeatState {
 		emitter.x = (FlxG.width / 2) - (emitter.width / 2);
 		emitter.alpha.set(1, 1, 1, 1);
 		emitter.lifespan.set(5, 10);
-		emitter.particleClass = LeafParticle;
+		emitter.particleClass = StarParticle;
 		//emitter.loadParticles(Paths.image('Particles/Particle' + i), 500, 16, true);
 		for (j in 0...25) { // precache
-			var leaf: LeafParticle = new LeafParticle();
-			emitter.add(leaf);
+			var star: StarParticle = new StarParticle();
+			emitter.add(star);
 		}
-		emitter.y -= LeafParticle.maxHeight;
+		emitter.y -= StarParticle.maxHeight;
 
-		emitter.start(false, 0.3, 100000);
-		//add(emitter);
+		emitter.start(false, 1, 100000);
+		add(emitter);
 		//stopped adding the emnitter but didnt delete any of the code for it
 		//adding the emitter back doesnt fix it
 

@@ -107,6 +107,7 @@ class CreditsState extends MusicBeatState {
 			[''],
 			['Special Thanks'],
 			['Tantalun', 'blank', 'Coding help/advice', null, '2C55C4'],
+			['shadowfi', 'blank', 'Coding help/advice', null, '2C55C4'],
 			['coquers_', 'blank', 'Helped compose Convicted Love', null, '2C55C4'],
 			[
 				'Past members of vs Alfie',
@@ -123,8 +124,8 @@ class CreditsState extends MusicBeatState {
 				'2C55C4'
 			],
 			['matthiasDoes', 'blank', 'great entertainer he is.', null, '2C55C4'],
-			['Alfie', 'blank', 'for singing the song :)', null, '2C55C4'],
-			['Kisston', 'blank', 'for singing the other song :3', null, '2C55C4'],
+			['alfie', 'blank', 'for singing the song :)', null, '2C55C4'],
+			['kisston', 'blank', 'for singing the other song :3', null, '2C55C4'],
 			['boyfriend', 'blank', 'bee bo o bab bbooo beee booop beeb', null, '2C55C4'],
 			['girlfriend', 'blank', 'for gatekeeping girlbossing gaslighting', null, '2C55C4'],
 			['Filip, Kai and Ace', 'blank', 'for standing in the background', null, '2C55C4'],
@@ -132,6 +133,8 @@ class CreditsState extends MusicBeatState {
 			['You', 'blank', 'for playing the mod!', null, '2C55C4'],
 			['your mom', 'blank', 'for last night ;)', null, '2C55C4'],
 			['sailor moon', 'blank', 'anime', null, '2C55C4'],
+			['the mailman', 'blank', 'thanks to my mailman bob none of us wouldve been here without him', null, '2C55C4'],
+			['yeah', 'blank', 'yeah', null, '2C55C4'],
 			[
 				'dad',
 				'blank',
@@ -139,17 +142,16 @@ class CreditsState extends MusicBeatState {
 				null,
 				'2C55C4'
 			],
-			['what would you do', 'blank', 'if you won half a car twice?', null, '2C55C4'],
+			['cars', 'blank', 'what would you do if you won half a car twice?', null, '2C55C4'],
 			[
-				'what about a penny',
+				'money',
 				'blank',
-				'that doubles in size once a day everyday??',
+				'what would you do with a penny that doubles in size once a day every day??',
 				null,
 				'2C55C4'
 			],
-			['no one', 'blank', 'no thanks for you', null, '2C55C4'],
-			['why', 'blank', 'why is this menu still going', null, '2C55C4'],
-			['why are you still here', 'blank', 'is this entertaining you??', null, '2C55C4'],
+			['not you', 'blank', 'im taking back my thanks', null, '2C55C4'],
+			['why', 'blank', 'why are you still here', null, '2C55C4'],
 			[''],
 
 		];
