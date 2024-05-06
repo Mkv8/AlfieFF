@@ -5,6 +5,8 @@ import backend.BaseStage;
 import states.stages.objects.*;
 import flixel.effects.particles.FlxEmitter;
 import flixel.effects.particles.FlxEmitter;
+import openfl.filters.BitmapFilter;
+import openfl.filters.ShaderFilter;
 
 class Forest extends BaseStage {
 	// If you're moving your stage from PlayState to a stage file,
@@ -17,12 +19,25 @@ class Forest extends BaseStage {
 	var kailip:BGSprite;
 	var boombox:BGSprite;
 	var log:BGSprite;
+	
+	var leaf: LeafParticle = new LeafParticle();
+	var emitter: FlxEmitter = new FlxEmitter(0, 0);
 
 	var concept:BGSprite;
 
 	var addLight:BGSprite;
 	var multiplyDark:BGSprite;
 	var overlay1:BGSprite;
+
+	var whiteText:BGSprite;
+	var blackscreen:BGSprite;
+
+	
+	var shader:Array<BitmapFilter> = [
+		new ShaderFilter(new shaders.PostProcessing()),
+		new ShaderFilter(new shaders.ChromUwU())
+	];
+
 
 	override function create() {
 		// Spawn your stage sprites here.
@@ -85,7 +100,6 @@ class Forest extends BaseStage {
 		addLight.blend = BlendMode.ADD;
 		add(addLight);
 
-		var emitter: FlxEmitter = new FlxEmitter(0, 0);
 		emitter.launchMode = FlxEmitterMode.SQUARE;
 		emitter.velocity.set(50, 150, 100, 200);
 		emitter.scale.set(0.5, 0.5, 1, 1, 0.5, 0.5, 0.75, 0.75);
@@ -97,7 +111,6 @@ class Forest extends BaseStage {
 		emitter.particleClass = LeafParticle;
 		//emitter.loadParticles(Paths.image('Particles/Particle' + i), 500, 16, true);
 		for (j in 0...25) { // precache
-			var leaf: LeafParticle = new LeafParticle();
 			emitter.add(leaf);
 		}
 		emitter.y -= LeafParticle.maxHeight;
@@ -108,6 +121,24 @@ class Forest extends BaseStage {
 		foregroundTrees = new BGSprite('forest/foregroundTrees', 0, 0, 1, 1);
 		foregroundTrees.updateHitbox();
 		add(foregroundTrees);
+
+		blackscreen = new BGSprite(null, 0, 0, 1, 1);
+		blackscreen.makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
+		blackscreen.cameras = [camOther];
+		blackscreen.alpha = 1;
+		add(blackscreen);
+
+		whiteText = new BGSprite('forest/whiteText', 0, 0, 1, 1, ['alfie', 'thanks'], true);
+		whiteText.updateHitbox();
+		whiteText.cameras = [camOther];
+		whiteText.screenCenter();
+		whiteText.alpha = 0;
+		
+		add(whiteText);
+
+		FlxG.game.setFilters(shader);
+		FlxG.game.filtersEnabled = true;
+
 	}
 
 	override function update(elapsed:Float) {
@@ -135,6 +166,91 @@ class Forest extends BaseStage {
 
 	override function beatHit() {
 		everyoneDance();
+
+		
+		switch (curBeat) {
+
+			case 1:
+				{
+					whiteText.animation.play('alfie');
+					FlxTween.tween(whiteText, {alpha: 1}, 1.5);
+				}
+
+			case 14:
+				{
+					whiteText.alpha = 0;
+				}
+
+			case 16:
+				{
+					FlxG.camera.flash(FlxColor.WHITE,1,false);
+					blackscreen.alpha = 0;
+				}
+
+			case 179:
+				{
+					blackscreen.alpha = 1;
+				}	
+				
+			case 180:
+				{
+					blackscreen.alpha = 0;
+					boyfriend.color = 0xFF000000;
+					dad.color = 0xFF000000;
+					gf.color = 0xFF000000;
+					for(leaf in emitter.members) leaf.color = 0xFF000000;
+					//foregroundTrees.alpha = 0;
+					kailip.alpha = 0;
+					aceton.alpha = 0;
+					//log.alpha = 0;
+					boombox.alpha = 0;
+					bgback1.color = 0xFFFF2E2E;
+					bgback2.color = 0xFFFF2E2E;
+					bgfront.color = 0xFFFF2E2E;
+					log.color = 0xFFFF2E2E;
+
+
+				}	
+
+			case 222:
+				{
+					FlxTween.tween(blackscreen, {alpha: 1}, 0.5);
+				}
+				
+			case 224:
+				{
+					FlxG.camera.flash(FlxColor.WHITE,1,false);
+					blackscreen.alpha = 0;
+					boyfriend.color = 0xFFFFFFFF;
+					dad.color = 0xFFFFFFFF;
+					gf.color = 0xFFFFFFFF;
+					for(leaf in emitter.members) leaf.color = 0xFFFFFFFF;
+					//foregroundTrees.alpha = 1;
+					kailip.alpha = 1;
+					aceton.alpha = 1;
+					//log.alpha = 1;
+					boombox.alpha = 1;
+					bgback1.color = 0xFFFFFFFF;
+					bgback2.color = 0xFFFFFFFF;
+					bgfront.color = 0xFFFFFFFF;
+					log.color = 0xFFFFFFFF;
+
+				}		
+
+			case 416:
+				{
+					whiteText.alpha = 1;
+					blackscreen.alpha = 1;
+					whiteText.animation.play('thanks');
+				}
+
+			case 421:
+				{
+					FlxTween.tween(whiteText, {alpha: 0}, 1);
+				}
+
+			
+			}
 	}
 
 	function everyoneDance() {

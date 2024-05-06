@@ -16,6 +16,8 @@ class Rooftop extends BaseStage {
 	var buildings:BGSprite;
 	var moon:BGSprite;
 	var sky:BGSprite;
+	var plane:BGSprite;
+	var clouds:BGSprite;
 
 	var multiplynight:BGSprite;
 	var addspotlight:BGSprite;
@@ -68,6 +70,17 @@ class Rooftop extends BaseStage {
 		moon.updateHitbox();
 		moon.alpha = 1;
 		add(moon);
+
+		plane = new BGSprite('rooftop/plane', -1200, 380, 1, 1);
+		plane.updateHitbox();
+		plane.scale.set(0.75, 0.9);
+		plane.alpha = 1;
+		add(plane);
+
+		clouds = new BGSprite('rooftop/clouds', -2150, 150, 1, 1);
+		clouds.updateHitbox();
+		clouds.alpha = 0.75;
+		add(clouds);
 	}
 
 	override function createPost() {
@@ -160,6 +173,21 @@ class Rooftop extends BaseStage {
 					}, 1, {
 						ease: FlxEase.cubeIn
 					});
+				}
+
+			case 120 | 408:
+				{
+					clouds.x = -2250;
+					FlxTween.tween(clouds, {
+						x: 2600
+					}, 33);
+				}
+
+			case 204:
+				{
+					FlxTween.tween(plane, {
+						x: 4000
+					}, 22);
 				}
 
 			case 96 | 260 | 420 | 516:
