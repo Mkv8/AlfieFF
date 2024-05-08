@@ -19,10 +19,16 @@ class CreditsState extends MusicBeatState {
 
 	var offsetThing:Float = -75;
 
+
 	var shader:Array<BitmapFilter> = [
 		new ShaderFilter(new shaders.PostProcessing()),
-		new ShaderFilter(new shaders.ChromUwU())
 	];
+
+	/*var curveShader:Array<BitmapFilter> = [
+		new ShaderFilter(new shaders.CurveShader()),
+	];*/
+
+	var curveShader = new shaders.CurveShader();
 
 	override function create() {
 		#if DISCORD_ALLOWED
@@ -219,9 +225,15 @@ class CreditsState extends MusicBeatState {
 		//intendedColor = bg.color;
 		changeSelection();
 		
+
+		super.create();
 		FlxG.game.setFilters(shader);
 		FlxG.game.filtersEnabled = true;
-		super.create();
+
+		FlxG.camera.setFilters([new ShaderFilter(curveShader)]);
+		FlxG.camera.filtersEnabled = true;
+
+		curveShader.chromOff = 4;
 	}
 
 	var quitting:Bool = false;

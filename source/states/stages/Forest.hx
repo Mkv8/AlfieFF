@@ -33,11 +33,16 @@ class Forest extends BaseStage {
 	var blackscreen:BGSprite;
 
 	
+
 	var shader:Array<BitmapFilter> = [
 		new ShaderFilter(new shaders.PostProcessing()),
-		new ShaderFilter(new shaders.ChromUwU())
 	];
 
+	/*var curveShader:Array<BitmapFilter> = [
+		new ShaderFilter(new shaders.CurveShader()),
+	];*/
+
+	var curveShader = new shaders.CurveShader();
 
 	override function create() {
 		// Spawn your stage sprites here.
@@ -138,6 +143,14 @@ class Forest extends BaseStage {
 
 		FlxG.game.setFilters(shader);
 		FlxG.game.filtersEnabled = true;
+
+		PlayState.instance.camHUD.setFilters([new ShaderFilter(curveShader)]);
+		PlayState.instance.camHUD.filtersEnabled = true;
+
+		PlayState.instance.camGame.setFilters([new ShaderFilter(curveShader)]);
+		PlayState.instance.camGame.filtersEnabled = true;
+
+		curveShader.chromOff = 4;
 
 	}
 

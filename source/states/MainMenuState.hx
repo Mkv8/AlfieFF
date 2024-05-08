@@ -22,8 +22,13 @@ class MainMenuState extends MusicBeatState {
 
 	var shader:Array<BitmapFilter> = [
 		new ShaderFilter(new shaders.PostProcessing()),
-		new ShaderFilter(new shaders.ChromUwU())
 	];
+
+	/*var curveShader:Array<BitmapFilter> = [
+		new ShaderFilter(new shaders.CurveShader()),
+	];*/
+
+	var curveShader = new shaders.CurveShader();
 
 	override function create() {
 		#if MODS_ALLOWED
@@ -104,12 +109,16 @@ class MainMenuState extends MusicBeatState {
 		Achievements.reloadList();
 		#end
 		#end
-		
+
+
+		super.create();
 		FlxG.game.setFilters(shader);
 		FlxG.game.filtersEnabled = true;
 
-		super.create();
+		FlxG.camera.setFilters([new ShaderFilter(curveShader)]);
+		FlxG.camera.filtersEnabled = true;
 
+		curveShader.chromOff = 4;
 		FlxG.camera.follow(camFollow, null, 9);
 	}
 

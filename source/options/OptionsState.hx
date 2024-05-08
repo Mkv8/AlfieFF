@@ -18,10 +18,16 @@ class OptionsState extends MusicBeatState {
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
 	public static var onPlayState:Bool = false;
+
 	var shader:Array<BitmapFilter> = [
 		new ShaderFilter(new shaders.PostProcessing()),
-		new ShaderFilter(new shaders.ChromUwU())
 	];
+
+	/*var curveShader:Array<BitmapFilter> = [
+		new ShaderFilter(new shaders.CurveShader()),
+	];*/
+
+	var curveShader = new shaders.CurveShader();
 
 	function openSelectedSubstate(label:String) {
 		switch (label) {
@@ -72,9 +78,15 @@ class OptionsState extends MusicBeatState {
 
 		changeSelection();
 		ClientPrefs.saveSettings();
+
+		super.create();
 		FlxG.game.setFilters(shader);
 		FlxG.game.filtersEnabled = true;
-		super.create();
+
+		FlxG.camera.setFilters([new ShaderFilter(curveShader)]);
+		FlxG.camera.filtersEnabled = true;
+
+		curveShader.chromOff = 4;
 	}
 
 	override function closeSubState() {

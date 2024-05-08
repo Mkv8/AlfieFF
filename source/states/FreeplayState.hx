@@ -33,10 +33,17 @@ class FreeplayState extends MusicBeatState {
 	var lerpRating:Float = 0;
 	var intendedScore:Int = 0;
 	var intendedRating:Float = 0;
+
 	var shader:Array<BitmapFilter> = [
 		new ShaderFilter(new shaders.PostProcessing()),
-		new ShaderFilter(new shaders.ChromUwU())
 	];
+
+	/*var curveShader:Array<BitmapFilter> = [
+		new ShaderFilter(new shaders.CurveShader()),
+	];*/
+
+	var curveShader = new shaders.CurveShader();
+
 	private var grpSongs:FlxTypedGroup<Alphabet>;
 	private var curPlaying:Bool = false;
 
@@ -197,9 +204,15 @@ class FreeplayState extends MusicBeatState {
 
 		changeSelection();
 		updateTexts();
+
+		super.create();
 		FlxG.game.setFilters(shader);
 		FlxG.game.filtersEnabled = true;
-		super.create();
+
+		FlxG.camera.setFilters([new ShaderFilter(curveShader)]);
+		FlxG.camera.filtersEnabled = true;
+
+		curveShader.chromOff = 4;
 	}
 
 

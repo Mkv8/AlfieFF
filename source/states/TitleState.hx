@@ -53,8 +53,13 @@ class TitleState extends MusicBeatState {
 
 	var shader:Array<BitmapFilter> = [
 		new ShaderFilter(new shaders.PostProcessing()),
-		new ShaderFilter(new shaders.ChromUwU())
 	];
+
+	/*var curveShader:Array<BitmapFilter> = [
+		new ShaderFilter(new shaders.CurveShader()),
+	];*/
+
+	var curveShader = new shaders.CurveShader();
 
 	#if TITLE_SCREEN_EASTER_EGG
 	var easterEggKeys:Array<String> = ['SHADOW', 'RIVER', 'BBPANZU'];
@@ -297,6 +302,12 @@ class TitleState extends MusicBeatState {
 		// credGroup.add(credTextShit);
 		FlxG.game.setFilters(shader);
 		FlxG.game.filtersEnabled = true;
+
+		FlxG.camera.setFilters([new ShaderFilter(curveShader)]);
+		FlxG.camera.filtersEnabled = true;
+
+		curveShader.chromOff = 4;
+		//curveShader.effect = -0.15;
 	}
 
 	function getIntroTextShit():Array<Array<String>> {

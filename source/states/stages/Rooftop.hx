@@ -31,8 +31,13 @@ class Rooftop extends BaseStage {
 
 	var shader:Array<BitmapFilter> = [
 		new ShaderFilter(new shaders.PostProcessing()),
-		new ShaderFilter(new shaders.ChromUwU())
 	];
+
+	/*var curveShader:Array<BitmapFilter> = [
+		new ShaderFilter(new shaders.CurveShader()),
+	];*/
+
+	var curveShader = new shaders.CurveShader();
 
 	override function create() {
 		// Spawn your stage sprites here.
@@ -71,7 +76,7 @@ class Rooftop extends BaseStage {
 		moon.alpha = 1;
 		add(moon);
 
-		plane = new BGSprite('rooftop/plane', -1200, 380, 1, 1);
+		plane = new BGSprite('rooftop/plane', -1200, 405, 1, 1);
 		plane.updateHitbox();
 		plane.scale.set(0.75, 0.9);
 		plane.alpha = 1;
@@ -110,6 +115,14 @@ class Rooftop extends BaseStage {
 
 		FlxG.game.setFilters(shader);
 		FlxG.game.filtersEnabled = true;
+
+		PlayState.instance.camHUD.setFilters([new ShaderFilter(curveShader)]);
+		PlayState.instance.camHUD.filtersEnabled = true;
+
+		PlayState.instance.camGame.setFilters([new ShaderFilter(curveShader)]);
+		PlayState.instance.camGame.filtersEnabled = true;
+
+		curveShader.chromOff = 4;
 	}
 
 	override function destroy() {
