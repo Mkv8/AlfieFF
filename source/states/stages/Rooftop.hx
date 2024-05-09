@@ -56,13 +56,13 @@ class Rooftop extends BaseStage {
 
 		blueGlow = new BGSprite('rooftop/blueGlow', 0, 0, 1, 1);
 		blueGlow.updateHitbox();
-		blueGlow.alpha = 0;
+		blueGlow.alpha = 0.00001;
 		blueGlow.blend = BlendMode.ADD;
 		add(blueGlow);
 
 		redGlow = new BGSprite('rooftop/redGlow', 0, 0, 1, 1);
 		redGlow.updateHitbox();
-		redGlow.alpha = 0;
+		redGlow.alpha = 0.00001;
 		redGlow.blend = BlendMode.ADD;
 		add(redGlow);
 
@@ -152,8 +152,8 @@ class Rooftop extends BaseStage {
 	override function stepHit() {
 		switch (curStep) {
 			case 122:
-				transition.alpha = 0;
-				blackscreen.alpha = 0;
+				transition.alpha = 0.00001;
+				blackscreen.alpha = 0.00001;
 		}
 	}
 

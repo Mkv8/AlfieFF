@@ -137,7 +137,7 @@ class Forest extends BaseStage {
 		whiteText.updateHitbox();
 		whiteText.cameras = [camOther];
 		whiteText.screenCenter();
-		whiteText.alpha = 0;
+		whiteText.alpha = 0.00001;
 		
 		add(whiteText);
 
@@ -150,7 +150,7 @@ class Forest extends BaseStage {
 		PlayState.instance.camGame.setFilters([new ShaderFilter(curveShader)]);
 		PlayState.instance.camGame.filtersEnabled = true;
 
-		curveShader.chromOff = 4;
+		curveShader.chromOff = 3.5;
 
 	}
 
@@ -191,13 +191,13 @@ class Forest extends BaseStage {
 
 			case 14:
 				{
-					whiteText.alpha = 0;
+					whiteText.alpha = 0.00001;
 				}
 
 			case 16:
 				{
 					FlxG.camera.flash(FlxColor.WHITE,1,false);
-					blackscreen.alpha = 0;
+					blackscreen.alpha = 0.00001;
 					blackscreen.cameras = [camHUD];
 					whiteText.cameras = [camHUD];
 				}
@@ -209,16 +209,16 @@ class Forest extends BaseStage {
 				
 			case 180:
 				{
-					blackscreen.alpha = 0;
+					blackscreen.alpha = 0.00001;
 					boyfriend.color = 0xFF000000;
 					dad.color = 0xFF000000;
 					gf.color = 0xFF000000;
 					for(leaf in emitter.members) leaf.color = 0xFF000000;
-					//foregroundTrees.alpha = 0;
-					kailip.alpha = 0;
-					aceton.alpha = 0;
-					//log.alpha = 0;
-					boombox.alpha = 0;
+					//foregroundTrees.alpha = 0.00001
+					kailip.alpha = 0.00001;
+					aceton.alpha = 0.00001;
+					//log.alpha = 0.00001
+					boombox.alpha = 0.00001;
 					bgback1.color = 0xFFFF2E2E;
 					bgback2.color = 0xFFFF2E2E;
 					bgfront.color = 0xFFFF2E2E;
@@ -235,7 +235,7 @@ class Forest extends BaseStage {
 			case 224:
 				{
 					FlxG.camera.flash(FlxColor.WHITE,1,false);
-					blackscreen.alpha = 0;
+					blackscreen.alpha = 0.00001;
 					boyfriend.color = 0xFFFFFFFF;
 					dad.color = 0xFFFFFFFF;
 					gf.color = 0xFFFFFFFF;
