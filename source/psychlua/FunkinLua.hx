@@ -177,10 +177,6 @@ class FunkinLua {
 		set('currentModDirectory', Mods.currentModDirectory);
 
 		// Noteskin/Splash
-		set('noteSkin', ClientPrefs.data.noteSkin);
-		set('noteSkinPostfix', Note.getNoteSkinPostfix());
-		set('splashSkin', ClientPrefs.data.splashSkin);
-		set('splashSkinPostfix', NoteSplash.getSplashSkinPostfix());
 		set('splashAlpha', ClientPrefs.data.splashAlpha);
 
 		// build target (windows, mac, linux, etc.)
@@ -1070,7 +1066,7 @@ class FunkinLua {
 				if (!game.isDead)
 					game.insert(game.members.indexOf(LuaUtils.getLowestCharacterGroup()), mySprite);
 				else
-					GameOverSubstate.instance.insert(GameOverSubstate.instance.members.indexOf(GameOverSubstate.instance.boyfriend), mySprite);
+					GameOverSubstate.instance.insert(0, mySprite);
 			}
 			return true;
 		});

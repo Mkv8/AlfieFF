@@ -265,14 +265,12 @@ class Note extends FlxSprite {
 
 		var skinPixel:String = skin;
 		var lastScaleY:Float = scale.y;
-		var skinPostfix:String = getNoteSkinPostfix();
-		var customSkin:String = skin + skinPostfix;
+		var customSkin:String = skin;
 		//var path:String = PlayState.isPixelStage ? 'pixelUI/' : '';
 		if (customSkin == _lastValidChecked || Paths.fileExists('images/' + customSkin + '.png', IMAGE)) {
 			skin = customSkin;
 			_lastValidChecked = customSkin;
-		} else
-			skinPostfix = '';
+		}
 
 		/*if (PlayState.isPixelStage) {
 			if (isSustainNote) {
@@ -308,13 +306,6 @@ class Note extends FlxSprite {
 
 		if (animName != null)
 			animation.play(animName, true);
-	}
-
-	public static function getNoteSkinPostfix() {
-		var skin:String = '';
-		if (ClientPrefs.data.noteSkin != ClientPrefs.defaultData.noteSkin)
-			skin = '-' + ClientPrefs.data.noteSkin.trim().toLowerCase().replace(' ', '_');
-		return skin;
 	}
 
 	function loadNoteAnims() {

@@ -28,7 +28,7 @@ class NoteSplash extends FlxSprite {
 		if (PlayState.SONG.splashSkin != null && PlayState.SONG.splashSkin.length > 0)
 			skin = PlayState.SONG.splashSkin;
 		else
-			skin = defaultNoteSplash + getSplashSkinPostfix();
+			skin = defaultNoteSplash;
 
 		precacheConfig(skin);
 		_configLoaded = skin;
@@ -53,7 +53,7 @@ class NoteSplash extends FlxSprite {
 		else if (PlayState.SONG.splashSkin != null && PlayState.SONG.splashSkin.length > 0)
 			texture = PlayState.SONG.splashSkin;
 		else
-			texture = defaultNoteSplash + getSplashSkinPostfix();
+			texture = defaultNoteSplash;
 
 		var config:NoteSplashConfig = null;
 		if (_textureLoaded != texture)
@@ -93,19 +93,12 @@ class NoteSplash extends FlxSprite {
 			animation.curAnim.frameRate = FlxG.random.int(minFps, maxFps);
 	}
 
-	public static function getSplashSkinPostfix() {
-		var skin:String = '';
-		if (ClientPrefs.data.splashSkin != ClientPrefs.defaultData.splashSkin)
-			skin = '-' + ClientPrefs.data.splashSkin.trim().toLowerCase().replace(' ', '_');
-		return skin;
-	}
-
 	function loadAnims(skin:String, ?animName:String = null):NoteSplashConfig {
 		maxAnims = 0;
 		frames = Paths.getSparrowAtlas(skin);
 		var config:NoteSplashConfig = null;
 		if (frames == null) {
-			skin = defaultNoteSplash + getSplashSkinPostfix();
+			skin = defaultNoteSplash;
 			frames = Paths.getSparrowAtlas(skin);
 			if (frames == null) // if you really need this, you really fucked something up
 			{
