@@ -101,7 +101,9 @@ class ChartingState extends MusicBeatState {
 		[
 			'Play Sound',
 			"Value 1: Sound file name\nValue 2: Volume (Default: 1), ranges from 0 to 1"
-		]
+		],
+		["Cinematic Bars", "Value 1: Bars to show (Default: 0)"],
+		["Set Cam Zoom", "Value 1: Zoom (Default: 1), Value 2: Duration (Default: 0)"],
 	];
 
 	var _file:FileReference;
@@ -2094,9 +2096,10 @@ class ChartingState extends MusicBeatState {
 					strumLineNotes.members[noteDataToCheck].playAnim('confirm', true);
 					strumLineNotes.members[noteDataToCheck].resetAnim = ((note.sustainLength / 1000) + 0.15) / playbackSpeed;
 					if (!playedSound[data]) {
-						if (note.hitsoundChartEditor
-							&& ((playSoundBf.checked && note.mustPress) || (playSoundDad.checked && !note.mustPress))) {
-							var soundToPlay = note.hitsound;
+						if (/*note.hitsoundChartEditor
+							&& */((playSoundBf.checked && note.mustPress) || (playSoundDad.checked && !note.mustPress))) {
+							var soundToPlay:String = note.hitsound;
+							if (soundToPlay == null) soundToPlay = 'hitsound';
 							if (_song.player1 == 'gf') // Easter egg
 								soundToPlay = 'GF_' + Std.string(data + 1);
 

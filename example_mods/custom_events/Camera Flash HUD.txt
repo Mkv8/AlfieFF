@@ -1,5 +1,0 @@
-Flashes Camera
-
-Value 1: Speed
-Value 2: Color
-(will default to white if blank)

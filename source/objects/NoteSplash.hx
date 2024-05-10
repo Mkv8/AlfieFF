@@ -65,7 +65,7 @@ class NoteSplash extends FlxSprite {
 
 		if (note != null)
 			antialiasing = note.noteSplashData.antialiasing;
-		if (PlayState.isPixelStage || !ClientPrefs.data.antialiasing)
+		if (!ClientPrefs.data.antialiasing)
 			antialiasing = false;
 
 		_textureLoaded = texture;

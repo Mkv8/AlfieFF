@@ -23,23 +23,27 @@ class StrumNote extends FlxSprite {
 		return value;
 	}
 
-	public function new(x:Float, y:Float, leData:Int, player:Int) {
+	public function new(x:Float, y:Float, leData:Int, player:Int, customSkin:String = null) {
+		super(x, y);
 		animation = new PsychAnimationController(this);
-
-		noteData = leData;
 		this.player = player;
 		this.noteData = leData;
-		super(x, y);
 
-		var skin:String = null;
-		if (PlayState.SONG != null && PlayState.SONG.arrowSkin != null && PlayState.SONG.arrowSkin.length > 1)
-			skin = PlayState.SONG.arrowSkin;
-		else
-			skin = Note.defaultNoteSkin;
+		var skin:String = customSkin;
+		if (skin == null) {
+			if (PlayState.SONG != null && PlayState.SONG.arrowSkin != null && PlayState.SONG.arrowSkin.length > 1)
+				skin = PlayState.SONG.arrowSkin;
+			else
+				skin = Note.defaultNoteSkin;
 
-		var customSkin:String = skin + Note.getNoteSkinPostfix();
-		if (Paths.fileExists('images/$customSkin.png', IMAGE))
-			skin = customSkin;
+			var customSkin:String = skin + Note.getNoteSkinPostfix();
+			if (Paths.fileExists('images/$customSkin.png', IMAGE))
+				skin = customSkin;
+		}
+
+		//#if debug
+		//trace('Note skin for player $player is $skin with id $noteData (forced was $customSkin)');
+		//#end
 
 		texture = skin; // Load texture and anims
 		scrollFactor.set();
@@ -50,7 +54,7 @@ class StrumNote extends FlxSprite {
 		if (animation.curAnim != null)
 			lastAnim = animation.curAnim.name;
 
-		if (PlayState.isPixelStage) {
+		/*if (PlayState.isPixelStage) {
 			loadGraphic(Paths.image('pixelUI/' + texture));
 			width = width / 4;
 			height = height / 5;
@@ -77,31 +81,17 @@ class StrumNote extends FlxSprite {
 					animation.add('pressed', [7, 11], 12, false);
 					animation.add('confirm', [15, 19], 24, false);
 			}
-		} else {
+		} else {*/
 			frames = Paths.getSparrowAtlas(texture);
 
 			antialiasing = ClientPrefs.data.antialiasing;
 			setGraphicSize(Std.int(width * 0.7));
 
-			switch (Math.abs(noteData) % 4) {
-				case 0:
-					animation.addByPrefix('static', 'arrowLEFT');
-					animation.addByPrefix('pressed', 'left press', 24, false);
-					animation.addByPrefix('confirm', 'left confirm', 24, false);
-				case 1:
-					animation.addByPrefix('static', 'arrowDOWN');
-					animation.addByPrefix('pressed', 'down press', 24, false);
-					animation.addByPrefix('confirm', 'down confirm', 24, false);
-				case 2:
-					animation.addByPrefix('static', 'arrowUP');
-					animation.addByPrefix('pressed', 'up press', 24, false);
-					animation.addByPrefix('confirm', 'up confirm', 24, false);
-				case 3:
-					animation.addByPrefix('static', 'arrowRIGHT');
-					animation.addByPrefix('pressed', 'right press', 24, false);
-					animation.addByPrefix('confirm', 'right confirm', 24, false);
-			}
-		}
+			var dirs = ['left', 'down', 'up', 'right'][noteData % 4];
+			animation.addByPrefix('static', "arrow" + dirs.toUpperCase(), 24, false);
+			animation.addByPrefix('pressed', dirs + ' press', 24, false);
+			animation.addByPrefix('confirm', dirs + ' confirm', 24, false);
+		//}
 		updateHitbox();
 
 		if (lastAnim != null) {

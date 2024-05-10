@@ -379,7 +379,7 @@ class EditorPlayState extends MusicBeatSubstate {
 						swagNote.tail.push(sustainNote);
 
 						sustainNote.correctionOffset = swagNote.height / 2;
-						if (!PlayState.isPixelStage) {
+						//if (!PlayState.isPixelStage) {
 							if (oldNote.isSustainNote) {
 								oldNote.scale.y *= Note.SUSTAIN_SIZE / oldNote.frameHeight;
 								oldNote.scale.y /= playbackRate;
@@ -388,10 +388,10 @@ class EditorPlayState extends MusicBeatSubstate {
 
 							if (ClientPrefs.data.downScroll)
 								sustainNote.correctionOffset = 0;
-						} else if (oldNote.isSustainNote) {
-							oldNote.scale.y /= playbackRate;
-							oldNote.updateHitbox();
-						}
+						//}/* else if (oldNote.isSustainNote) {
+						//	oldNote.scale.y /= playbackRate;
+						//	oldNote.updateHitbox();
+						//}
 
 						if (sustainNote.mustPress)
 							sustainNote.x += FlxG.width / 2; // general offset
@@ -503,7 +503,7 @@ class EditorPlayState extends MusicBeatSubstate {
 		note.ratingMod = daRating.ratingMod;
 		if (!note.ratingDisabled)
 			daRating.hits++;
-		note.rating = daRating.name;
+		//note.rating = daRating.name;
 		score = daRating.score;
 
 		if (daRating.noteSplash && !note.noteSplashData.disabled)

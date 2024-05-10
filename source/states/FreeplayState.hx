@@ -215,10 +215,9 @@ class FreeplayState extends MusicBeatState {
 		curveShader.chromOff = 4;
 	}
 
-
-
 	override function closeSubState() {
-		changeSelection(0, false);
+		if(!(subState is CustomFadeTransition))
+			changeSelection(0, false);
 		persistentUpdate = true;
 		super.closeSubState();
 	}
