@@ -1978,6 +1978,9 @@ class PlayState extends MusicBeatState {
 	var topBar:FlxSprite;
 	var botBar:FlxSprite;
 
+	var camZoomTween:FlxTween;
+
+
 	public function triggerEvent(eventName:String, value1:String, value2:String, strumTime:Float) {
 		var flValue1:Null<Float> = Std.parseFloat(value1);
 		var flValue2:Null<Float> = Std.parseFloat(value2);
@@ -1987,14 +1990,14 @@ class PlayState extends MusicBeatState {
 			flValue2 = null;
 
 		switch (eventName) {
-			case 'Cinematic Bars':
+			/*case 'Cinematic Bars':
 				if (value1 == '1') {
 					topBarTween = FlxTween.tween(topBar, {y: 0}, 1, {ease: FlxEase.expoOut});
 					botBarTween = FlxTween.tween(botBar, {y: 620}, 1, {ease: FlxEase.expoOut});
 				} else {
 					topBarTween = FlxTween.tween(topBar, {y: -100}, 1, {ease: FlxEase.expoOut});
 					botBarTween = FlxTween.tween(botBar, {y: 720}, 1, {ease: FlxEase.expoOut});
-				}
+				}*/
 
 			case 'Hey!':
 				var value:Int = 2;
@@ -2041,23 +2044,26 @@ class PlayState extends MusicBeatState {
 					camHUD.zoom += flValue2;
 				}
 
-			case 'Set Cam Zoom':
+			/*case 'Set Cam Zoom':
 				if (flValue1 == null || flValue1 < 1)
 					flValue1 = 1;
 
 				if (flValue2 == null) {
 					defaultCamZoom = flValue1;
 				} else {
-					FlxTween.cancelTweensOf(FlxG.camera, ["zoom"]);
-					FlxTween.tween(FlxG.camera, {
-						zoom: flValue1
-					}, flValue2, {
-						ease: FlxEase.sineInOut,
-						onComplete: function(twn:FlxTween) {
-							defaultCamZoom = FlxG.camera.zoom;
-						}
-					});
-				}
+                    if(camZoomTween != null) 
+                        camZoomTween.cancel();
+
+
+                    camZoomTween = FlxTween.tween(FlxG.camera, {
+                        zoom: flValue1
+                    }, flValue2, {
+                        ease: FlxEase.sineInOut,
+                        onComplete: function(twn:FlxTween) {
+                            defaultCamZoom = FlxG.camera.zoom; camZoomTween = null;
+                        }
+                    });
+				}*/
 
 			case 'Play Animation':
 				// trace('Anim to play: ' + value1);
