@@ -203,14 +203,15 @@ class Rooftop extends BaseStage {
 					}, 22);
 				}
 
-			case 96 | 260 | 420 | 516:
+			case 96 | 260 | 516:
 				{
 					//this starts the function
 					stoplights = false;
 					policeLights();
 				}
+				
 
-			case 224 | 418 | 482:
+			case 224 | 482:
 				{
 					//this stops the function
 					stoplights = true;
