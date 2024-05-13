@@ -104,7 +104,7 @@ class CreditsState extends MusicBeatState {
 				'C78A58'
 			],
 			[
-				'Pavlikos',
+				'PpavlikosS',
 				'pav',
 				'Charter for Convicted Love',
 				'https://twitter.com/ppavlikoss',
