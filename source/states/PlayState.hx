@@ -1801,7 +1801,7 @@ class PlayState extends MusicBeatState {
 			checkEventNote();
 		}
 
-		#if debug
+		//#if debug
 		if (!endingSong && !startingSong) {
 			if (FlxG.keys.justPressed.ONE) {
 				KillNotes();
@@ -1812,7 +1812,7 @@ class PlayState extends MusicBeatState {
 				clearNotesBefore(Conductor.songPosition);
 			}
 		}
-		#end
+		//#end
 
 		if(health > 1.6) {
 			scoreTxt.color = 0xFFFFFFFF;

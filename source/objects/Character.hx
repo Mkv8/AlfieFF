@@ -70,7 +70,7 @@ class Character extends FlxSprite {
 	public var hasMissAnimations:Bool = false;
 	public var vocalsFile:String = '';
 
-	public static var dontInterrupt:Bool;
+	public var dontInterrupt:Bool;
 
 	// Used on Character Editor
 	public var imageFile:String = '';

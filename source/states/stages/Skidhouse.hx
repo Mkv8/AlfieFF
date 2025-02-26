@@ -159,12 +159,13 @@ class Skidhouse extends BaseStage {
 			case 2213:
 				{
 					boyfriend.playAnim('turnOff', true);
-					Character.dontInterrupt = true;
+					boyfriend.dontInterrupt = true;
 					//if this is supposed to happen mid song u have to add a timer that disables the dont interrupt and plays whatever animation hes supposed to play
-					animtimer = new FlxTimer().start(3, function(tmr:FlxTimer)
+					animtimer = new FlxTimer().start(5, function(tmr:FlxTimer)
 						{
-							Character.dontInterrupt = false;
-							boyfriend.playAnim('danceLeft', true);
+							boyfriend.dontInterrupt = false;
+							//boyfriend.playAnim('danceLeft', true);
+							boyfriend.animation.pause();
 						});
 					//like this ^^^^
 				}
