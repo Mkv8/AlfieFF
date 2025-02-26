@@ -20,6 +20,8 @@ typedef CharacterFile = {
 	var camera_position:Array<Float>;
 
 	var flip_x:Bool;
+
+
 	var no_antialiasing:Bool;
 	var healthbar_colors:Array<Int>;
 	var vocals_file:String;
@@ -67,6 +69,8 @@ class Character extends FlxSprite {
 
 	public var hasMissAnimations:Bool = false;
 	public var vocalsFile:String = '';
+
+	public static var dontInterrupt:Bool;
 
 	// Used on Character Editor
 	public var imageFile:String = '';
@@ -397,6 +401,11 @@ class Character extends FlxSprite {
 	}
 
 	public function playAnim(AnimName:String, Force:Bool = false, Reversed:Bool = false, Frame:Int = 0):Void {
+
+		if (dontInterrupt)
+		{
+			return;
+		}
 		specialAnim = false;
 		#if flxanimate
 		if (!isAnimateAtlas)

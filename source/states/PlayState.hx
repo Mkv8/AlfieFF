@@ -386,6 +386,8 @@ class PlayState extends MusicBeatState {
 				new states.stages.Forest(); // Forest Fire Remix
 			case 'rooftop':
 				new states.stages.Rooftop(); // Convicted Love
+			case 'skidHouse':
+				new states.stages.Skidhouse(); // Convicted Love
 		}
 
 		//if (isPixelStage) {
@@ -1567,20 +1569,23 @@ class PlayState extends MusicBeatState {
 		}
 	}
 
-	override public function onFocus():Void {
-		if (health > 0 && !paused)
-			resetRPC(Conductor.songPosition > 0.0);
-		super.onFocus();
-	}
-
-	override public function onFocusLost():Void {
-		#if DISCORD_ALLOWED
-		if (health > 0 && !paused && autoUpdateRPC)
-			DiscordClient.changePresence(detailsPausedText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
-		#end
-
-		super.onFocusLost();
-	}
+		override public function onFocus():Void
+		{
+			if (health > 0 && !paused) resetRPC(Conductor.songPosition > 0.0);
+	
+			stagesFunc(function(stage:BaseStage) stage.onFocus());
+			super.onFocus();
+		}
+	
+		override public function onFocusLost():Void
+		{
+			#if DISCORD_ALLOWED
+			if (health > 0 && !paused && autoUpdateRPC) DiscordClient.changePresence(detailsPausedText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
+			#end
+	
+			stagesFunc(function(stage:BaseStage) stage.onFocusLost());
+			super.onFocusLost();
+		}
 
 	// Updating Discord Rich Presence.
 	public var autoUpdateRPC:Bool = true; // performance setting for custom RPC things
