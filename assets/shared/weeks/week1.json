@@ -1,0 +1,32 @@
+{
+	"songs": [
+		[
+			"Freaky 4eva",
+			"bf90s",
+			[
+				5,
+				193,
+				250
+			]
+		]
+	],
+	"hiddenUntilUnlocked": false,
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"difficulties": "hard",
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"storyName": "Eternal lovin'",
+	"weekName": "Eternal lovin'",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"hideStoryMode": false,
+	"weekBefore": "tutorial",
+	"startUnlocked": true
+}

@@ -387,7 +387,10 @@ class PlayState extends MusicBeatState {
 			case 'rooftop':
 				new states.stages.Rooftop(); // Convicted Love
 			case 'skidHouse':
-				new states.stages.Skidhouse(); // Convicted Love
+				new states.stages.Skidhouse(); // Jammed Cartridge
+			case 'freaky':
+				new states.stages.Freaky(); // Freaky 4eva
+				
 		}
 
 		//if (isPixelStage) {
@@ -497,6 +500,8 @@ class PlayState extends MusicBeatState {
 			"gf-90s" => "noteSkins/NOTE_assets",
 			"90salfie" => "noteSkins/ALFIENOTE_assets",
 			"90skisston" => "noteSkins/KISSNOTE_assets",
+			"skid90s" => "noteSkins/NOTE_assets",
+
 		];
 
 		if(noteSkinMap.exists(dad.curCharacter)) dadNoteSkin = noteSkinMap[dad.curCharacter];

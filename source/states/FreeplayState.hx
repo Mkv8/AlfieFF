@@ -64,8 +64,13 @@ class FreeplayState extends MusicBeatState {
 
 	var alfieAlbum:Item;
 	var kisstonAlbum:Item;
+	var jammedAlbum:Item;
+	var freakyAlbum:Item;
+
 	var alfTimer:FlxTimer;
 	var kissTimer:FlxTimer;
+	var jamTimer:FlxTimer;
+	var freakyTimer:FlxTimer;
 
 	override function create() {
 		// Paths.clearStoredMemory();
@@ -112,18 +117,26 @@ class FreeplayState extends MusicBeatState {
 
 
 		alfieAlbum = new Item(1750, -200);
-		alfieAlbum.loadGraphic(Paths.image('alfieAlbum'));
+		alfieAlbum.loadGraphic(Paths.image('albums/ffNewMix'));
 		alfieAlbum.scale.set(0.4, 0.4);
 
 		kisstonAlbum = new Item(1750, -200);
-		kisstonAlbum.loadGraphic(Paths.image('kisstonAlbum'));
+		kisstonAlbum.loadGraphic(Paths.image('albums/convictedLove'));
 		kisstonAlbum.scale.set(0.4, 0.4);
+
+		freakyAlbum = new Item(1750, -200);
+		freakyAlbum.loadGraphic(Paths.image('albums/freaky4eva'));
+		freakyAlbum.scale.set(0.4, 0.4);
+
+		jammedAlbum = new Item(1750, -200);
+		jammedAlbum.loadGraphic(Paths.image('albums/jammedCartridge'));
+		jammedAlbum.scale.set(0.4, 0.4);
 
 
 		add(alfieAlbum);
 		add (kisstonAlbum);
-
-
+		add(freakyAlbum);
+		add (jammedAlbum);
 
 
 		grpSongs = new FlxTypedGroup<Alphabet>();
@@ -530,13 +543,36 @@ class FreeplayState extends MusicBeatState {
 
 		FlxTween.cancelTweensOf(alfieAlbum);
 		FlxTween.cancelTweensOf(kisstonAlbum);
+		FlxTween.cancelTweensOf(freakyAlbum);
+		FlxTween.cancelTweensOf(jammedAlbum);
 	
 		if(alfTimer != null) alfTimer.cancel();
 		if(kissTimer != null) kissTimer.cancel();
+		if(jamTimer != null) jamTimer.cancel();
+		if(freakyTimer != null) freakyTimer.cancel();
+
 
 		switch(curSelected){
 
 			case 0:
+			{
+				FlxTween.tween(freakyAlbum,{x:380}, 1.2, {ease: FlxEase.cubeInOut});
+				freakyAlbum.angle = -4;
+				freakyTimer = new FlxTimer().start(1, function(tmr:FlxTimer)
+					{
+						if(freakyAlbum.angle == -4)
+							FlxTween.angle(freakyAlbum, freakyAlbum.angle, 4, 4, {ease: FlxEase.quartInOut});
+						if (freakyAlbum.angle == 4)
+							FlxTween.angle(freakyAlbum, freakyAlbum.angle, -4, 4, {ease: FlxEase.quartInOut});
+					}, 0);
+
+				FlxTween.tween(kisstonAlbum,{x: 1750}, 1.2, {ease: FlxEase.cubeInOut});	
+				FlxTween.tween(alfieAlbum,{x: 1750}, 1.2, {ease: FlxEase.cubeInOut});	
+				FlxTween.tween(jammedAlbum,{x: 1750}, 1.2, {ease: FlxEase.cubeInOut});	
+
+			}
+
+			case 1:
 			{
 				FlxTween.tween(alfieAlbum,{x:380}, 1.2, {ease: FlxEase.cubeInOut});
 				alfieAlbum.angle = -4;
@@ -548,15 +584,16 @@ class FreeplayState extends MusicBeatState {
 							FlxTween.angle(alfieAlbum, alfieAlbum.angle, -4, 4, {ease: FlxEase.quartInOut});
 					}, 0);
 
-				FlxTween.tween(kisstonAlbum,{x: 1750}, 1.2, {ease: FlxEase.cubeInOut});	
-
+					FlxTween.tween(kisstonAlbum,{x: 1750}, 1.2, {ease: FlxEase.cubeInOut});	
+					FlxTween.tween(freakyAlbum,{x: 1750}, 1.2, {ease: FlxEase.cubeInOut});	
+					FlxTween.tween(jammedAlbum,{x: 1750}, 1.2, {ease: FlxEase.cubeInOut});				
 			}
 
-			case 1:
+			case 2:
 			{
 				FlxTween.tween(kisstonAlbum,{x:380}, 1.2, {ease: FlxEase.cubeInOut});
 				kisstonAlbum.angle = -4;
-				alfTimer = new FlxTimer().start(1, function(tmr:FlxTimer)
+				kissTimer = new FlxTimer().start(1, function(tmr:FlxTimer)
 					{
 						if(kisstonAlbum.angle == -4)
 							FlxTween.angle(kisstonAlbum, kisstonAlbum.angle, 4, 4, {ease: FlxEase.quartInOut});
@@ -564,7 +601,26 @@ class FreeplayState extends MusicBeatState {
 							FlxTween.angle(kisstonAlbum, kisstonAlbum.angle, -4, 4, {ease: FlxEase.quartInOut});
 					}, 0);
 
-				FlxTween.tween(alfieAlbum,{x: 1750}, 1.2, {ease: FlxEase.cubeInOut});
+					FlxTween.tween(freakyAlbum,{x: 1750}, 1.2, {ease: FlxEase.cubeInOut});	
+					FlxTween.tween(alfieAlbum,{x: 1750}, 1.2, {ease: FlxEase.cubeInOut});	
+					FlxTween.tween(jammedAlbum,{x: 1750}, 1.2, {ease: FlxEase.cubeInOut});				
+			}
+
+			case 3:
+			{
+				FlxTween.tween(jammedAlbum,{x:380}, 1.2, {ease: FlxEase.cubeInOut});
+				jammedAlbum.angle = -4;
+				jamTimer = new FlxTimer().start(1, function(tmr:FlxTimer)
+					{
+						if(jammedAlbum.angle == -4)
+							FlxTween.angle(jammedAlbum, jammedAlbum.angle, 4, 4, {ease: FlxEase.quartInOut});
+						if (jammedAlbum.angle == 4)
+							FlxTween.angle(jammedAlbum, jammedAlbum.angle, -4, 4, {ease: FlxEase.quartInOut});
+					}, 0);
+
+					FlxTween.tween(kisstonAlbum,{x: 1750}, 1.2, {ease: FlxEase.cubeInOut});	
+					FlxTween.tween(alfieAlbum,{x: 1750}, 1.2, {ease: FlxEase.cubeInOut});	
+					FlxTween.tween(freakyAlbum,{x: 1750}, 1.2, {ease: FlxEase.cubeInOut});				
 			}
 
 
