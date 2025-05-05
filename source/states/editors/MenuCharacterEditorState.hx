@@ -32,6 +32,7 @@ class MenuCharacterEditorState extends MusicBeatState {
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("Menu Character Editor", "Editting: " + characterFile.image);
 		#end
+		FlxG.mouse.visible = true;
 
 		grpWeekCharacters = new FlxTypedGroup<MenuCharacter>();
 		for (char in 0...3) {
@@ -268,6 +269,7 @@ class MenuCharacterEditorState extends MusicBeatState {
 			ClientPrefs.toggleVolumeKeys(true);
 			if (FlxG.keys.justPressed.ESCAPE) {
 				MusicBeatState.switchState(new states.editors.MasterEditorMenu());
+				FlxG.mouse.visible = false;
 				FlxG.sound.playMusic(Paths.music('freakyMenu'));
 			}
 

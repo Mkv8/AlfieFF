@@ -1,0 +1,124 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": false,
+			"name": "Eidle"
+		},
+		{
+			"offsets": [
+				140,
+				-10
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "Eleft0"
+		},
+		{
+			"offsets": [
+				120,
+				-31
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFTmiss",
+			"loop": false,
+			"name": "EleftMiss"
+		},
+		{
+			"offsets": [
+				15,
+				-79
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWNmiss",
+			"loop": false,
+			"name": "EdownMiss"
+		},
+		{
+			"offsets": [
+				-70,
+				-25
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHTmiss",
+			"loop": false,
+			"name": "ErightMiss"
+		},
+		{
+			"offsets": [
+				-14,
+				106
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUPmiss",
+			"loop": false,
+			"name": "EupMiss"
+		},
+		{
+			"offsets": [
+				40,
+				-80
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "Edown0"
+		},
+		{
+			"offsets": [
+				-70,
+				-10
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "Eright0"
+		},
+		{
+			"offsets": [
+				0,
+				150
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP",
+			"loop": false,
+			"name": "Eup0"
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": false,
+	"image": "characters/erhardt",
+	"position": [
+		-50,
+		160
+	],
+	"healthicon": "erhardt",
+	"flip_x": true,
+	"healthbar_colors": [
+		121,
+		255,
+		101
+	],
+	"camera_position": [
+		100,
+		40
+	],
+	"sing_duration": 4,
+	"scale": 1,
+	"_editor_isPlayer": true
+}

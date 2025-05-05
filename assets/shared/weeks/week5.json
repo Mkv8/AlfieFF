@@ -1,0 +1,32 @@
+{
+	"storyName": "My artificial nostalgia.",
+	"difficulties": "hard",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"weekBefore": "tutorial",
+	"freeplayColor": [
+		200,
+		200,
+		255
+	],
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"songs": [
+		[
+			"Anemoia",
+			"kaiTV90s",
+			[
+				255,
+				161,
+				77
+			]
+		]
+	],
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "My artificial nostalgia."
+}

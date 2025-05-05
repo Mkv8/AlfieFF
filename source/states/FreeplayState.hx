@@ -62,15 +62,9 @@ class FreeplayState extends MusicBeatState {
 
 	var player:MusicPlayer;
 
-	var alfieAlbum:Item;
-	var kisstonAlbum:Item;
-	var jammedAlbum:Item;
-	var freakyAlbum:Item;
+	var selectedAlbum:Item;
+	var albumTimer:FlxTimer;
 
-	var alfTimer:FlxTimer;
-	var kissTimer:FlxTimer;
-	var jamTimer:FlxTimer;
-	var freakyTimer:FlxTimer;
 
 	override function create() {
 		// Paths.clearStoredMemory();
@@ -116,28 +110,11 @@ class FreeplayState extends MusicBeatState {
 		bg.screenCenter();
 
 
-		alfieAlbum = new Item(1750, -200);
-		alfieAlbum.loadGraphic(Paths.image('albums/ffNewMix'));
-		alfieAlbum.scale.set(0.4, 0.4);
+		selectedAlbum = new Item(1750, -200);
+		selectedAlbum.loadGraphic(Paths.image('albums/freaky4eva'));
+		selectedAlbum.scale.set(0.4, 0.4);
 
-		kisstonAlbum = new Item(1750, -200);
-		kisstonAlbum.loadGraphic(Paths.image('albums/convictedLove'));
-		kisstonAlbum.scale.set(0.4, 0.4);
-
-		freakyAlbum = new Item(1750, -200);
-		freakyAlbum.loadGraphic(Paths.image('albums/freaky4eva'));
-		freakyAlbum.scale.set(0.4, 0.4);
-
-		jammedAlbum = new Item(1750, -200);
-		jammedAlbum.loadGraphic(Paths.image('albums/jammedCartridge'));
-		jammedAlbum.scale.set(0.4, 0.4);
-
-
-		add(alfieAlbum);
-		add (kisstonAlbum);
-		add(freakyAlbum);
-		add (jammedAlbum);
-
+		add(selectedAlbum);
 
 		grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);
@@ -541,90 +518,17 @@ class FreeplayState extends MusicBeatState {
 		changeDiff();
 		_updateSongLastDifficulty();
 
-		FlxTween.cancelTweensOf(alfieAlbum);
-		FlxTween.cancelTweensOf(kisstonAlbum);
-		FlxTween.cancelTweensOf(freakyAlbum);
-		FlxTween.cancelTweensOf(jammedAlbum);
-	
-		if(alfTimer != null) alfTimer.cancel();
-		if(kissTimer != null) kissTimer.cancel();
-		if(jamTimer != null) jamTimer.cancel();
-		if(freakyTimer != null) freakyTimer.cancel();
-
-
-		switch(curSelected){
-
-			case 0:
+		FlxTween.cancelTweensOf(selectedAlbum);
+		if(albumTimer != null) albumTimer.cancel();
+		switchAlbums();
+		selectedAlbum.angle = -4;
+		albumTimer = new FlxTimer().start(1, function(tmr:FlxTimer)
 			{
-				FlxTween.tween(freakyAlbum,{x:380}, 1.2, {ease: FlxEase.cubeInOut});
-				freakyAlbum.angle = -4;
-				freakyTimer = new FlxTimer().start(1, function(tmr:FlxTimer)
-					{
-						if(freakyAlbum.angle == -4)
-							FlxTween.angle(freakyAlbum, freakyAlbum.angle, 4, 4, {ease: FlxEase.quartInOut});
-						if (freakyAlbum.angle == 4)
-							FlxTween.angle(freakyAlbum, freakyAlbum.angle, -4, 4, {ease: FlxEase.quartInOut});
-					}, 0);
-
-				FlxTween.tween(kisstonAlbum,{x: 1750}, 1.2, {ease: FlxEase.cubeInOut});	
-				FlxTween.tween(alfieAlbum,{x: 1750}, 1.2, {ease: FlxEase.cubeInOut});	
-				FlxTween.tween(jammedAlbum,{x: 1750}, 1.2, {ease: FlxEase.cubeInOut});	
-
-			}
-
-			case 1:
-			{
-				FlxTween.tween(alfieAlbum,{x:380}, 1.2, {ease: FlxEase.cubeInOut});
-				alfieAlbum.angle = -4;
-				alfTimer = new FlxTimer().start(1, function(tmr:FlxTimer)
-					{
-						if(alfieAlbum.angle == -4)
-							FlxTween.angle(alfieAlbum, alfieAlbum.angle, 4, 4, {ease: FlxEase.quartInOut});
-						if (alfieAlbum.angle == 4)
-							FlxTween.angle(alfieAlbum, alfieAlbum.angle, -4, 4, {ease: FlxEase.quartInOut});
-					}, 0);
-
-					FlxTween.tween(kisstonAlbum,{x: 1750}, 1.2, {ease: FlxEase.cubeInOut});	
-					FlxTween.tween(freakyAlbum,{x: 1750}, 1.2, {ease: FlxEase.cubeInOut});	
-					FlxTween.tween(jammedAlbum,{x: 1750}, 1.2, {ease: FlxEase.cubeInOut});				
-			}
-
-			case 2:
-			{
-				FlxTween.tween(kisstonAlbum,{x:380}, 1.2, {ease: FlxEase.cubeInOut});
-				kisstonAlbum.angle = -4;
-				kissTimer = new FlxTimer().start(1, function(tmr:FlxTimer)
-					{
-						if(kisstonAlbum.angle == -4)
-							FlxTween.angle(kisstonAlbum, kisstonAlbum.angle, 4, 4, {ease: FlxEase.quartInOut});
-						if (kisstonAlbum.angle == 4)
-							FlxTween.angle(kisstonAlbum, kisstonAlbum.angle, -4, 4, {ease: FlxEase.quartInOut});
-					}, 0);
-
-					FlxTween.tween(freakyAlbum,{x: 1750}, 1.2, {ease: FlxEase.cubeInOut});	
-					FlxTween.tween(alfieAlbum,{x: 1750}, 1.2, {ease: FlxEase.cubeInOut});	
-					FlxTween.tween(jammedAlbum,{x: 1750}, 1.2, {ease: FlxEase.cubeInOut});				
-			}
-
-			case 3:
-			{
-				FlxTween.tween(jammedAlbum,{x:380}, 1.2, {ease: FlxEase.cubeInOut});
-				jammedAlbum.angle = -4;
-				jamTimer = new FlxTimer().start(1, function(tmr:FlxTimer)
-					{
-						if(jammedAlbum.angle == -4)
-							FlxTween.angle(jammedAlbum, jammedAlbum.angle, 4, 4, {ease: FlxEase.quartInOut});
-						if (jammedAlbum.angle == 4)
-							FlxTween.angle(jammedAlbum, jammedAlbum.angle, -4, 4, {ease: FlxEase.quartInOut});
-					}, 0);
-
-					FlxTween.tween(kisstonAlbum,{x: 1750}, 1.2, {ease: FlxEase.cubeInOut});	
-					FlxTween.tween(alfieAlbum,{x: 1750}, 1.2, {ease: FlxEase.cubeInOut});	
-					FlxTween.tween(freakyAlbum,{x: 1750}, 1.2, {ease: FlxEase.cubeInOut});				
-			}
-
-
-		}
+				if(selectedAlbum.angle == -4)
+					FlxTween.angle(selectedAlbum, selectedAlbum.angle, 4, 4, {ease: FlxEase.quartInOut});
+				if (selectedAlbum.angle == 4)
+					FlxTween.angle(selectedAlbum, selectedAlbum.angle, -4, 4, {ease: FlxEase.quartInOut});
+			}, 0);
 
 
 	}
@@ -664,6 +568,54 @@ class FreeplayState extends MusicBeatState {
 			icon.visible = icon.active = true;
 			_lastVisibles.push(i);
 		}
+	}
+
+	private function switchAlbums()
+	{
+		FlxTween.tween(selectedAlbum,{x: 1750}, 0.7, {ease: FlxEase.cubeInOut, 
+		onComplete: function(twn:FlxTween){
+			switch(curSelected){
+
+				case 0:
+				{
+					selectedAlbum.loadGraphic(Paths.image('albums/freaky4eva'));
+				}
+				case 1:
+				{
+					selectedAlbum.loadGraphic(Paths.image('albums/ffNewMix'));
+				}
+				case 2:
+				{
+					selectedAlbum.loadGraphic(Paths.image('albums/convictedLove'));
+				}
+				case 3:
+				{
+					selectedAlbum.loadGraphic(Paths.image('albums/jammedCartridge'));
+				}
+				case 4:
+				{
+					selectedAlbum.loadGraphic(Paths.image('albums/anemoia'));
+				}
+				case 5:
+				{
+					selectedAlbum.loadGraphic(Paths.image('albums/rooftopTalkshop'));
+				}
+				case 6:
+				{
+					selectedAlbum.loadGraphic(Paths.image('albums/filipsong'));
+				}
+				case 7:
+				{
+					selectedAlbum.loadGraphic(Paths.image('albums/aisong'));
+				}
+				case 8:
+				{
+					selectedAlbum.loadGraphic(Paths.image('albums/eyeOfTheBeholder'));
+				}
+			}
+		FlxTween.tween(selectedAlbum,{x:380}, 0.7, {ease: FlxEase.cubeInOut});
+		}});	
+
 	}
 
 	override function destroy():Void {

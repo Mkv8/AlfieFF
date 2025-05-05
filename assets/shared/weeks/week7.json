@@ -1,0 +1,32 @@
+{
+	"storyName": "THIS IS FILIPS SKA PLAYLIST",
+	"difficulties": "hard",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"weekBefore": "tutorial",
+	"freeplayColor": [
+		200,
+		200,
+		255
+	],
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"songs": [
+		[
+			"pending",
+			"filipHappy2",
+			[
+				255,
+				213,
+				74
+			]
+		]
+	],
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "THIS IS FILIPS SKA PLAYLIST"
+}

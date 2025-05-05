@@ -1,0 +1,32 @@
+{
+	"storyName": "Fly me to the moon",
+	"difficulties": "hard",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"weekBefore": "tutorial",
+	"freeplayColor": [
+		200,
+		200,
+		255
+	],
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"songs": [
+		[
+			"Rooftop Talkshop",
+			"nikku90s",
+			[
+				242,
+				46,
+				98
+			]
+		]
+	],
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "Fly me to the moon"
+}

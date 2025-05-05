@@ -390,7 +390,12 @@ class PlayState extends MusicBeatState {
 				new states.stages.Skidhouse(); // Jammed Cartridge
 			case 'freaky':
 				new states.stages.Freaky(); // Freaky 4eva
-				
+			case 'temple':
+				new states.stages.Temple(); // Anemoia
+			case 'desktop':
+				new states.stages.Desktop(); // Eye of the Beholder
+			case 'mansiontop':
+				new states.stages.MansionTop(); // Rooftop Talkshop
 		}
 
 		//if (isPixelStage) {
