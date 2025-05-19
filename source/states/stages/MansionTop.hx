@@ -15,16 +15,19 @@ import openfl.filters.ShaderFilter;
 class MansionTop extends BaseStage {
 	// If you're moving your stage from PlayState to a stage file,
 	// you might have to rename some variables if they're missing, for example: camZooming -> game.camZooming
-	var couch:BGSprite;
+	var cloudbig:BGSprite;
+	var cloudsmall:BGSprite;
 	var bg:BGSprite;
-	var n64:BGSprite;
-	var pump:BGSprite;
-	
+	var rooftop:BGSprite;
+	var shootingstar:BGSprite;
+	var spotlight:BGSprite;
 
 	var concept:BGSprite;
 
 	var multiply:BGSprite;
 
+	var topBar:BGSprite;
+	var botBar:BGSprite;
 	var blackscreen:BGSprite;
 
 	public var videoSprite:VideoSprite;
@@ -51,38 +54,75 @@ class MansionTop extends BaseStage {
 		// concept.updateHitbox();
 		// add(concept);
 
-		bg = new BGSprite('skidHouse/JCbg', 0, 0, 1, 1);
+		bg = new BGSprite('nikkurooftop/bgRooftop', 0, 0, 1, 1);
 		bg.updateHitbox();
+		bg.scale.set(1.1, 1.1);
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 
 		bg.alpha = 1;
 		add(bg);
 
+		cloudbig = new BGSprite('nikkurooftop/cloudBig', -500, 400, 1, 1);
+		cloudbig.updateHitbox();
+		cloudbig.scale.set(1.1, 1.1);
+		cloudbig.antialiasing = ClientPrefs.data.antialiasing;
 
-		pump = new BGSprite('skidHouse/pump', 0, 390, 1, 1, ['pumpIdle']);
-		pump.updateHitbox();
-		pump.antialiasing = ClientPrefs.data.antialiasing;
+		cloudbig.alpha = 1;
+		add(cloudbig);
 
-		add(pump);
+		cloudsmall = new BGSprite('nikkurooftop/cloudSmall', -500, 100, 1, 1);
+		cloudsmall.updateHitbox();
+		cloudsmall.scale.set(1.1, 1.1);
+		cloudsmall.antialiasing = ClientPrefs.data.antialiasing;
+
+		cloudsmall.alpha = 1;
+		add(cloudsmall);
+
+		rooftop = new BGSprite('nikkurooftop/rooftopAsset', 0, 0, 1, 1);
+		rooftop.updateHitbox();
+		rooftop.scale.set(1.1, 1.1);
+		rooftop.antialiasing = ClientPrefs.data.antialiasing;
+
+		rooftop.alpha = 1;
+		add(rooftop);
+
+		spotlight = new BGSprite('nikkurooftop/spotlight', 0, 0, 1, 1);
+		spotlight.updateHitbox();
+		spotlight.scale.set(1.1, 1.1);
+		spotlight.antialiasing = ClientPrefs.data.antialiasing;
+		spotlight.blend = BlendMode.MULTIPLY;
+		spotlight.alpha = 1;
+		//add(spotlight);
+
+
+		shootingstar = new BGSprite('nikkurooftop/shootingstar', 1200, 250, 1, 1, ['shoot']);
+		shootingstar.updateHitbox();
+		shootingstar.scale.set(1.2, 1.2);
+		shootingstar.antialiasing = ClientPrefs.data.antialiasing;
+		shootingstar.alpha = 1;
+
+		add(shootingstar);
 	}
 
 	override function createPost() {
 		// Use this function to layer things above characters
 
-		n64 = new BGSprite('skidHouse/n64', 1760, 780, 1, 1);
-		n64.updateHitbox();
-		n64.antialiasing = ClientPrefs.data.antialiasing;
-		add(n64);
 
-		
-		couch = new BGSprite('skidHouse/couch', -55, 690, 1, 1);
-		couch.updateHitbox();
-		couch.antialiasing = ClientPrefs.data.antialiasing;
-		add(couch);
+		multiply = new BGSprite('nikkurooftop/rooftopMultiply', 0, 0, 1, 1);
+		multiply.updateHitbox();
+		bg.scale.set(1.1, 1.1);
+		//multiply.alpha = 0.44;
+		multiply.blend = BlendMode.MULTIPLY;
+		add(multiply);
 
+		concept = new BGSprite('nikkurooftop/concept', 0, 0, 1, 1);
+		concept.updateHitbox();
+		concept.alpha = 0.3;
+		concept.antialiasing = ClientPrefs.data.antialiasing;
+		//add(concept);
 
 		videoSprite = new VideoSprite();
-		videoSprite.playVideo(Paths.video("kaiintro"),false,false,true);//cached but not gonna start to play
+		videoSprite.playVideo(Paths.video("nikkuIntro"),false,false,true);//cached but not gonna start to play
 		videoSprite.cameras = [camOther];
 		videoSprite.scale.set(1,1);
 		//videoSprite.screenCenter();
@@ -95,21 +135,22 @@ class MansionTop extends BaseStage {
 		blackscreen = new BGSprite(null, 0, 0, 1, 1);
 		blackscreen.makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
 		blackscreen.cameras = [camOther];
-		blackscreen.alpha = 1;
+		blackscreen.alpha = 0;
 		add(blackscreen);
 
+		topBar = new BGSprite(null, 0, -360, 1, 1);
+		topBar.makeGraphic(Std.int(FlxG.width * 3), Std.int(FlxG.height), FlxColor.BLACK);
+		topBar.alpha = 1;
+		topBar.cameras = [camOther];
+		add(topBar);
 
-		multiply = new BGSprite('skidHouse/KaiMult', 0, 0, 1, 1);
-		multiply.updateHitbox();
-		//multiply.alpha = 0.44;
-		multiply.blend = BlendMode.MULTIPLY;
-		add(multiply);
+		botBar = new BGSprite(null, 0, 360, 1, 1);
+		botBar.makeGraphic(Std.int(FlxG.width * 3), Std.int(FlxG.height * 2), FlxColor.BLACK);
+		botBar.alpha = 1;
+		botBar.cameras = [camOther];
+		add(botBar);
 
-		concept = new BGSprite('skidHouse/concept', 0, 0, 1, 1);
-		concept.updateHitbox();
-		concept.alpha = 0.3;
-		concept.antialiasing = ClientPrefs.data.antialiasing;
-		//add(concept);
+
 
 
 		FlxG.game.setFilters(shader);
@@ -142,7 +183,7 @@ class MansionTop extends BaseStage {
 				videoSprite.bitmap.startPos = Std.int(Conductor.songPosition);
 				videoSprite.bitmap.playCached();
 				videoSprite.alpha = 1;
-				FlxTween.tween(blackscreen, {alpha: 0}, 0.5);
+				//FlxTween.tween(blackscreen, {alpha: 0}, 0.5);
 			}
 			}
 	}
@@ -158,16 +199,7 @@ class MansionTop extends BaseStage {
 
 			case 2213:
 				{
-					boyfriend.playAnim('turnOff', true);
-					boyfriend.dontInterrupt = true;
-					//if this is supposed to happen mid song u have to add a timer that disables the dont interrupt and plays whatever animation hes supposed to play
-					animtimer = new FlxTimer().start(5, function(tmr:FlxTimer)
-						{
-							boyfriend.dontInterrupt = false;
-							//boyfriend.playAnim('danceLeft', true);
-							boyfriend.animation.pause();
-						});
-					//like this ^^^^
+					
 				}
 		}
 
@@ -180,32 +212,50 @@ class MansionTop extends BaseStage {
 		
 		switch (curBeat) {
 
-			case 30:
+			case 2:
 				{
-					FlxTween.tween(blackscreen, {alpha: 1}, 0.5);
+					//camHUD.alpha = 0;
+
+					FlxTween.tween(botBar, {y: 750}, 0.7, {ease: FlxEase.cubeInOut});
+					FlxTween.tween(topBar, {y: -750}, 0.7, {ease: FlxEase.cubeInOut});
 
 				}
 
-			case 36:
+			case 37:
 				{
-					FlxTween.tween(blackscreen, {alpha: 0}, 3.5);
+					FlxTween.tween(botBar, {y: -360}, 0.9, {ease: FlxEase.cubeInOut});
+					FlxTween.tween(topBar, {y: 360}, 0.9, {ease: FlxEase.cubeInOut});
 
 				}
 
-			case 561:
+			case 40:
 				{
-					FlxTween.tween(blackscreen, {alpha: 1}, 1);
+					//topBar.cameras = [camGame];
+					//botBar.cameras = [camGame];
+					FlxTween.tween(botBar, {y: 750}, 1, {ease: FlxEase.cubeInOut});
+					FlxTween.tween(topBar, {y: -750}, 1, {ease: FlxEase.cubeInOut});
 
+				}	
+			case 60:
+				{
+					shootingstar.animation.play('shoot', true, false, 0);
 				}
-				
+
+			case 90:
+				{
+					FlxTween.tween(cloudbig, {x: 2000}, 12);
+				}
+
+			case 120:
+				{
+					FlxTween.tween(cloudsmall, {x: 2000}, 12);
+				}
 			
 			}
 	}
 
 	function everyoneDance() {
-		if (!ClientPrefs.data.lowQuality) {
-			pump.dance();
-		}
+		
 	}
 
 	override function sectionHit() {

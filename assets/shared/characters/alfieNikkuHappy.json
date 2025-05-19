@@ -1,0 +1,80 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "altIdle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				168,
+				-35
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "altLeft",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				72,
+				-78
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "altDown",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				47,
+				40
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "altUp",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-56,
+				6
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "altRight",
+			"indices": []
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": false,
+	"image": "characters/alfieNikkuHappy",
+	"position": [
+		500,
+		60
+	],
+	"healthicon": "alfie90s",
+	"flip_x": false,
+	"healthbar_colors": [
+		195,
+		24,
+		70
+	],
+	"camera_position": [
+		-440,
+		0
+	],
+	"sing_duration": 4,
+	"scale": 1,
+	"_editor_isPlayer": false
+}

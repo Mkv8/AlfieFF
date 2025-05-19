@@ -1,6 +1,6 @@
 {
 	"song": {
-		"player1": "90sbf",
+		"player1": "nikku90s",
 		"gfVersion": "gf-90s",
 		"notes": [
 			{
@@ -9600,10 +9600,10 @@
 			}
 		],
 		"events": [],
-		"player2": "90skisston",
-		"song": "Convicted Love",
+		"player2": "alfieNikku",
+		"song": "Rooftop Talkshop",
 		"needsVoices": true,
-		"stage": "rooftop",
+		"stage": "mansiontop",
 		"speed": 3,
 		"bpm": 170
 	}

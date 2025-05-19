@@ -142,7 +142,7 @@ class Skidhouse extends BaseStage {
 				videoSprite.bitmap.startPos = Std.int(Conductor.songPosition);
 				videoSprite.bitmap.playCached();
 				videoSprite.alpha = 1;
-				FlxTween.tween(blackscreen, {alpha: 0}, 0.5);
+				FlxTween.tween(blackscreen, {alpha: 0}, 0.8);
 			}
 			}
 	}

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="shootingstar.png">
+	<!-- Created with Adobe Animate version 20.5.1.31044 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="shoot0000" x="8" y="8" width="144" height="48"/>
+	<SubTexture name="shoot0001" x="8" y="8" width="144" height="48"/>
+	<SubTexture name="shoot0002" x="162" y="8" width="144" height="48"/>
+	<SubTexture name="shoot0003" x="162" y="8" width="144" height="48"/>
+	<SubTexture name="shoot0004" x="316" y="8" width="144" height="48"/>
+	<SubTexture name="shoot0005" x="316" y="8" width="144" height="48"/>
+	<SubTexture name="shoot0006" x="8" y="66" width="144" height="48"/>
+	<SubTexture name="shoot0007" x="8" y="66" width="144" height="48"/>
+	<SubTexture name="shoot0008" x="162" y="66" width="144" height="48"/>
+	<SubTexture name="shoot0009" x="162" y="66" width="144" height="48"/>
+	<SubTexture name="shoot0010" x="316" y="66" width="144" height="48"/>
+	<SubTexture name="shoot0011" x="316" y="66" width="144" height="48"/>
+	<SubTexture name="shoot0012" x="8" y="124" width="144" height="48"/>
+	<SubTexture name="shoot0013" x="8" y="124" width="144" height="48"/>
+	<SubTexture name="shoot0014" x="162" y="124" width="144" height="48"/>
+	<SubTexture name="shoot0015" x="162" y="124" width="144" height="48"/>
+	<SubTexture name="shoot0016" x="316" y="124" width="144" height="48"/>
+	<SubTexture name="shoot0017" x="316" y="124" width="144" height="48"/>
+	<SubTexture name="shoot0018" x="316" y="124" width="144" height="48"/>
+</TextureAtlas>

@@ -168,7 +168,7 @@ class PlayState extends MusicBeatState {
 	public var camZoomingMult:Float = 1;
 	public var camZoomingDecay:Float = 1;
 
-	private var curSong:String = "";
+	public var curSong:String = "";
 
 	public var gfSpeed:Int = 1;
 	public var health(default, set):Float = 1;
@@ -398,9 +398,9 @@ class PlayState extends MusicBeatState {
 				new states.stages.MansionTop(); // Rooftop Talkshop
 		}
 
-		//if (isPixelStage) {
-		//	introSoundsSuffix = '-pixel';
-		//}
+		if (SONG.song == 'rooftop-talkshop' || SONG.song == 'Rooftop Talkshop' ) {
+			introSoundsSuffix = '-nikku';
+		}
 
 		add(gfGroup);
 		add(dadGroup);

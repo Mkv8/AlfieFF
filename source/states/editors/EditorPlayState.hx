@@ -13,6 +13,7 @@ import flixel.input.keyboard.FlxKey;
 import openfl.events.KeyboardEvent;
 import haxe.Json;
 import objects.Character;
+import states.PlayState;
 import openfl.utils.Assets as OpenFlAssets;
 
 class EditorPlayState extends MusicBeatSubstate {
@@ -436,7 +437,15 @@ class EditorPlayState extends MusicBeatSubstate {
 			babyArrow.alpha = targetAlpha;
 
 			if (player == 1)
+			{
+				if (PlayState.SONG.song == 'rooftop-talkshop' && !ClientPrefs.data.middleScroll || PlayState.SONG.song == 'Rooftop Talkshop' && !ClientPrefs.data.middleScroll)
+				{
+					babyArrow.x += 310;
+				}
+
 				playerStrums.add(babyArrow);
+
+			}
 			else {
 				if (ClientPrefs.data.middleScroll) {
 					babyArrow.x += 310;
@@ -444,13 +453,22 @@ class EditorPlayState extends MusicBeatSubstate {
 						babyArrow.x += FlxG.width / 2 + 25;
 					}
 				}
+
+				if (PlayState.SONG.song == 'rooftop-talkshop' && !ClientPrefs.data.middleScroll || PlayState.SONG.song == 'Rooftop Talkshop' && !ClientPrefs.data.middleScroll)
+				{
+					babyArrow.x -= 310;
+				}
+
 				opponentStrums.add(babyArrow);
+
 			}
 
 			strumLineNotes.add(babyArrow);
 			babyArrow.postAddedToGroup();
+
+			}
 		}
-	}
+	
 
 	public function finishSong():Void {
 		if (ClientPrefs.data.noteOffset <= 0) {
