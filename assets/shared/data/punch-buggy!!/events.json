@@ -1,0 +1,31 @@
+{
+	"song": {
+		"events": [
+			[
+				96333.3333333333,
+				[
+					[
+						"Play Animation",
+						"singDOWN-alt",
+						"gf"
+					]
+				]
+			],
+			[
+				109250,
+				[
+					[
+						"Play Animation",
+						"pissed",
+						"gf"
+					],
+					[
+						"Change Character",
+						"dad",
+						"90sAlfieFilip2"
+					]
+				]
+			]
+		]
+	}
+}

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="filipBoombox.png">
+	<!-- Created with Adobe Animate version 20.5.1.31044 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="bounce0000" x="8" y="8" width="334" height="427"/>
+	<SubTexture name="bounce0001" x="8" y="8" width="334" height="427"/>
+	<SubTexture name="bounce0002" x="350" y="8" width="334" height="427"/>
+	<SubTexture name="bounce0003" x="350" y="8" width="334" height="427"/>
+	<SubTexture name="bounce0004" x="692" y="8" width="334" height="427"/>
+	<SubTexture name="bounce0005" x="692" y="8" width="334" height="427"/>
+	<SubTexture name="bounce0006" x="1034" y="8" width="334" height="427"/>
+	<SubTexture name="bounce0007" x="1034" y="8" width="334" height="427"/>
+	<SubTexture name="bounce0008" x="1376" y="8" width="334" height="427"/>
+	<SubTexture name="bounce0009" x="1376" y="8" width="334" height="427"/>
+	<SubTexture name="bounce0010" x="1376" y="8" width="334" height="427"/>
+	<SubTexture name="bounce0011" x="1376" y="8" width="334" height="427"/>
+	<SubTexture name="bounce0012" x="1376" y="8" width="334" height="427"/>
+	<SubTexture name="bounce0013" x="1376" y="8" width="334" height="427"/>
+	<SubTexture name="bounce0014" x="1376" y="8" width="334" height="427"/>
+	<SubTexture name="bounce0015" x="1376" y="8" width="334" height="427"/>
+	<SubTexture name="bounce0016" x="1376" y="8" width="334" height="427"/>
+	<SubTexture name="bounce0017" x="1376" y="8" width="334" height="427"/>
+	<SubTexture name="bounce0018" x="1376" y="8" width="334" height="427"/>
+</TextureAtlas>

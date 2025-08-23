@@ -598,11 +598,11 @@ class FreeplayState extends MusicBeatState {
 				}
 				case 5:
 				{
-					selectedAlbum.loadGraphic(Paths.image('albums/rooftopTalkshop'));
+					selectedAlbum.loadGraphic(Paths.image('albums/punchBuggy'));
 				}
 				case 6:
 				{
-					selectedAlbum.loadGraphic(Paths.image('albums/filipsong'));
+					selectedAlbum.loadGraphic(Paths.image('albums/rooftopTalkshop'));
 				}
 				case 7:
 				{

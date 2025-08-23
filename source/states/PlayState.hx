@@ -392,6 +392,10 @@ class PlayState extends MusicBeatState {
 				new states.stages.Freaky(); // Freaky 4eva
 			case 'temple':
 				new states.stages.Temple(); // Anemoia
+			case 'filipGarage':
+				new states.stages.FilipGarage(); // PUNCH BUGGY!!!
+			case 'aiStage':
+				new states.stages.AiStage(); // Ai song					
 			case 'desktop':
 				new states.stages.Desktop(); // Eye of the Beholder
 			case 'mansiontop':
@@ -405,6 +409,8 @@ class PlayState extends MusicBeatState {
 		add(gfGroup);
 		add(dadGroup);
 		add(boyfriendGroup);
+
+
 
 		#if (LUA_ALLOWED)
 		luaDebugGroup = new FlxTypedGroup<psychlua.DebugLuaText>();
@@ -447,6 +453,11 @@ class PlayState extends MusicBeatState {
 		startCharacterPos(boyfriend);
 		boyfriendGroup.add(boyfriend);
 		startCharacterScripts(boyfriend.curCharacter);
+
+		if (SONG.song == 'punch-buggy' || SONG.song == 'PUNCH BUGGY!!!' || SONG.song == 'punch-buggy!!' || SONG.song == 'punch-buggy!') {
+		//	LOOK I DONT FUCKIN KNOW WHAT THE NAME OF THIS SONG IS OK I DONT CARE IF THIS LOOKS UGLY
+			dad.alpha = 0;
+		}
 
 		var camPos:FlxPoint = FlxPoint.get(girlfriendCameraOffset[0], girlfriendCameraOffset[1]);
 		if (gf != null) {

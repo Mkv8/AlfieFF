@@ -1,5 +1,5 @@
 {
-	"storyName": "Fly me to the moon",
+	"storyName": "THIS IS FILIPS SKA PLAYLIST",
 	"difficulties": "hard",
 	"hideFreeplay": false,
 	"weekBackground": "",
@@ -13,12 +13,12 @@
 	"hideStoryMode": false,
 	"songs": [
 		[
-			"Rooftop Talkshop",
-			"nikku90s",
+			"PUNCH BUGGY!!!",
+			"filipHappy2",
 			[
-				242,
-				46,
-				98
+				255,
+				213,
+				74
 			]
 		]
 	],
@@ -28,5 +28,5 @@
 		""
 	],
 	"hiddenUntilUnlocked": false,
-	"weekName": "Fly me to the moon"
+	"weekName": "THIS IS FILIPS SKA PLAYLIST"
 }
