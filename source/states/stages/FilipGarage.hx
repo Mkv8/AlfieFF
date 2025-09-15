@@ -154,7 +154,7 @@ class FilipGarage extends BaseStage {
 		if (!ClientPrefs.data.lowQuality) {
 			if (curBeat % 2 == 1) { gfBob.animation.play('danceLeft', true, false); } //else { gfBob.animation.play('danceRight', true, false); }
 			if (curBeat % 2 == 0) { alfieBob.animation.play('evenidle', true, false); } else { alfieBob.animation.play('oddidle', true, false); }
-			boombox.dance();
+			if (curBeat % 2 == 1) {boombox.dance();}
 		}
 	}
 

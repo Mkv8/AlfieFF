@@ -22,6 +22,11 @@ class MansionTop extends BaseStage {
 	var shootingstar:BGSprite;
 	var spotlight:BGSprite;
 
+	var circle1:BGSprite;
+	var circle2:BGSprite;
+	var circle3:BGSprite;
+
+
 	var concept:BGSprite;
 
 	var multiply:BGSprite;
@@ -94,6 +99,29 @@ class MansionTop extends BaseStage {
 		spotlight.alpha = 1;
 		//add(spotlight);
 
+		circle1 = new BGSprite('nikkurooftop/circle1', 0, 0, 1, 1);
+		circle1.updateHitbox();
+		circle1.scale.set(1.1, 1.1);
+		circle1.antialiasing = ClientPrefs.data.antialiasing;
+
+		circle1.alpha = 0;
+		add(circle1);
+
+		circle2 = new BGSprite('nikkurooftop/circle2', 0, 0, 1, 1);
+		circle2.updateHitbox();
+		circle2.scale.set(1.1, 1.1);
+		circle2.antialiasing = ClientPrefs.data.antialiasing;
+
+		circle2.alpha = 0;
+		add(circle2);
+
+		circle3 = new BGSprite('nikkurooftop/circle3', 0, 0, 1, 1);
+		circle3.updateHitbox();
+		circle3.scale.set(1.1, 1.1);
+		circle3.antialiasing = ClientPrefs.data.antialiasing;
+
+		circle3.alpha = 0;
+		add(circle3);
 
 		shootingstar = new BGSprite('nikkurooftop/shootingstar', 1200, 250, 1, 1, ['shoot']);
 		shootingstar.updateHitbox();
@@ -218,17 +246,22 @@ class MansionTop extends BaseStage {
 
 					FlxTween.tween(botBar, {y: 750}, 0.7, {ease: FlxEase.cubeInOut});
 					FlxTween.tween(topBar, {y: -750}, 0.7, {ease: FlxEase.cubeInOut});
+					for (i in 0...4)
+					{
+					PlayState.playerStrums.members[i].x -= 650;
+					PlayState.opponentStrums.members[i].x += 650;
+					}
 
 				}
 
-			case 37:
+			case 28 | 377:
 				{
 					FlxTween.tween(botBar, {y: -360}, 0.9, {ease: FlxEase.cubeInOut});
 					FlxTween.tween(topBar, {y: 360}, 0.9, {ease: FlxEase.cubeInOut});
 
 				}
 
-			case 40:
+			case 32:
 				{
 					//topBar.cameras = [camGame];
 					//botBar.cameras = [camGame];
@@ -236,20 +269,42 @@ class MansionTop extends BaseStage {
 					FlxTween.tween(topBar, {y: -750}, 1, {ease: FlxEase.cubeInOut});
 
 				}	
-			case 60:
+			case 60 | 170 |  286 | 360:
 				{
 					shootingstar.animation.play('shoot', true, false, 0);
 				}
 
-			case 90:
+			case 90 | 220 | 289:
 				{
+					cloudbig.x = -500;
 					FlxTween.tween(cloudbig, {x: 2000}, 12);
 				}
 
-			case 120:
+			case 120 | 190 | 315:
 				{
+					cloudsmall.x = -500;
 					FlxTween.tween(cloudsmall, {x: 2000}, 12);
 				}
+
+			case 248:
+				{
+					FlxTween.tween(circle1, {alpha: 1}, 4 * Conductor.stepCrochet / 1000, {ease: FlxEase.cubeIn});
+				}
+			case 258:
+				{
+					FlxTween.tween(circle2, {alpha: 1}, 4 * Conductor.stepCrochet / 1000, {ease: FlxEase.cubeIn});
+				}
+			case 262:
+				{
+					FlxTween.tween(circle3, {alpha: 1}, 4 * Conductor.stepCrochet / 1000, {ease: FlxEase.cubeIn});
+				}
+			case 281:
+				{
+					FlxTween.tween(circle1, {alpha: 0}, 20 * Conductor.stepCrochet / 1000, {ease: FlxEase.cubeInOut});
+					FlxTween.tween(circle2, {alpha: 0}, 20 * Conductor.stepCrochet / 1000, {ease: FlxEase.cubeInOut});
+					FlxTween.tween(circle3, {alpha: 0}, 20 * Conductor.stepCrochet / 1000, {ease: FlxEase.cubeInOut});
+				}
+				
 			
 			}
 	}

@@ -1,0 +1,4 @@
+Value 1: Text
+
+Value 2: Icon 1, Icon 2, Show Previous Text
+Defaults: none, none, true

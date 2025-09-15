@@ -1,0 +1,9 @@
+Value 1: HUD zoom (1 is normal)
+
+Value 2: Duration, Easing, Mid-Tween Zooms (no idea if that works)
+Example: 3, circOut, true
+
+Defaults:
+*no default*, sineInOut, false
+If Value 2 is blank, it will smoothly zoom regularly.
+Easing List: FlxEase page of the HaxeFlixel API

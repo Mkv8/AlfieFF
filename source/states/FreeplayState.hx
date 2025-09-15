@@ -202,7 +202,7 @@ class FreeplayState extends MusicBeatState {
 		FlxG.camera.setFilters([new ShaderFilter(curveShader)]);
 		FlxG.camera.filtersEnabled = true;
 
-		curveShader.chromOff = 3;
+		curveShader.chromOff = 2;
 	}
 
 	override function closeSubState() {

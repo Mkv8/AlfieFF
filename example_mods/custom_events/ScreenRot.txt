@@ -1,2 +1,11 @@
-Value 1: angle
-Value 2: time
+Value 1: Angle, Camera, Easing
+Cameras: "camHUD", "camGame", "both", "camOther", "all"
+Easing List: FlxEase page of the HaxeFlixel API
+Example: 3, camHUD, circIn
+
+Value 2: Time
+
+Defaults:
+Camera: both, Easing: circOut, Time: 0.005
+
+(This is just ScreenStuff but not linked to tempo)

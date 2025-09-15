@@ -1,0 +1,4 @@
+Value 1: Shake Multiplier, Shake Ratio
+Value 2: Shake Duration, Fade Easing
+
+i give up on writing good explanations

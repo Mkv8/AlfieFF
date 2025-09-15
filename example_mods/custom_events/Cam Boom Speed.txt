@@ -1,0 +1,9 @@
+Value 1: Speed, Offset (in beats). 
+Type 'default' to zoom on section start.
+Value 2: Zoom Intensity, Camera Ratio, Shake Intensity
+Value 2 Defaults: 1, 2, 0                                        
+Intensity Calculations:
+Camera Zoom: 0.015 * Zoom Intensity
+Camera Shake: 0.00075 * Shake Intensity
+HUD Zoom: Camera Zoom * Camera Ratio
+HUD Shake: Camera Shake * Camera Ratio

@@ -1,0 +1,9 @@
+Value 1: Zoom Size Multiplier, Zoom Ratio
+Default: 1, 2
+Base zoom size: 0.015
+
+Value 2: Shake Size Mult, Shake Ratio, Shake Duration
+Default: 1, 2, (Linked to camZoomingDecay by default)
+Base shake size: 0.00075
+Default Shake Length: 0.15 / camZoomingDecay
+Ratio works the same as in the Cam Boom Speed event.

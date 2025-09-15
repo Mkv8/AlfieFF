@@ -1,0 +1,9 @@
+Value 1: Color (HEX), Alpha, Flash Type
+Defaults: FFFFFF, 1, flash
+Flash Types: flash, fade, hold, mix
+Value 2 (if Flash Type isn't "mix"): Duration, Camera
+Defaults: 1, game
+Value 2: Duration (Fade In, Hold, Fade Out), Camera
+Defaults: 1, 1, 1, game
+If Value 2 with Flash Type "mix" only has one number:
+Defaults: 1, *number*, 1, game or Camera

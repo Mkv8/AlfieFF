@@ -1,0 +1,6 @@
+Value 1: % of screen covered, Bar type
+Bar types: "letter", "pillar" and "all"
+
+please don't actually put the "%" symbol
+
+Value 2: Duration, Easing

@@ -1,0 +1,9 @@
+Value 1: Character (Optional), X Offset, Y Offset.
+Character List: Dad, BF, GF, Middle 
+Middle = Average between Dad and BF.
+X Offset: Positive = Right, Negative = Left
+Y Offset: Positive = Down, Negative = Up
+Leave blank to return to normal camera movement.
+
+Value 2 (optional): Tween Settings
+In order: Duration, Easing

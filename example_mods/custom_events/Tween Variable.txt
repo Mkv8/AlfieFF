@@ -1,0 +1,9 @@
+Value 1: Variable
+
+Value 2: Value, Duration, Easing
+Easing List: FlxEase page of the HaxeFlixel API
+Value 2 Example: 13, 2, circIn
+
+Defaults:
+Duration: 1, Easing: linear
+Only supports one tween at a time!
