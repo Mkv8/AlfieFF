@@ -5,7 +5,9 @@ function onCreate()
 	stageZoom = camZoom
 	tweenOngoing = false
 	zooming = false
-	zoomCheckingDefault = false -- user customizable but please also change the txt file accordingly if you change it
+	zoomCheckingDefault = true -- user customizable but please also change the txt file accordingly if you change it
+	fastZoomCheckingDefault = zoomCheckingDefault -- whether you want fast zooms (zooms faster than iDontCareValue) to use the new tween system 
+	-- (setting zoom checking in value2 overrides fastZoomCheckingDefault)
 	iDontCareValue = 0.025 -- the point right before where short zooms get fucky
 end
 
@@ -32,27 +34,32 @@ function onUpdate(elapsed)
 				tweenStarter = false
 			end
 			cameraZoom = getProperty('placeholder.x')
-			if zooming == true and getProperty('camZooming') then
-				if negativeZoom == true then
-					if getProperty('camGame.zoom') > cameraZoom then
-						setProperty('camGame.zoom', cameraZoom)
-						zooming = false
+			if zoomChecking == false then
+				if zooming == true and getProperty('camZooming') then
+					if negativeZoom == true then
+						if getProperty('camGame.zoom') > cameraZoom then
+							setProperty('camGame.zoom', cameraZoom)
+							zooming = false
 							if zoomChecking == false then
 								idkWhatToNameThis = false
 							end
+						end
+					else
+						if getProperty('camGame.zoom') < cameraZoom then
+							setProperty('camGame.zoom', cameraZoom)
+							zooming = false
+							if zoomChecking == false then
+								idkWhatToNameThis = false
+							end
+						end
 					end
 				else
-					if getProperty('camGame.zoom') < cameraZoom then
-						setProperty('camGame.zoom', cameraZoom)
-						zooming = false
-							if zoomChecking == false then
-								idkWhatToNameThis = false
-							end
-					end
+					setProperty('camGame.zoom', cameraZoom)
+					idkWhatToNameThis = false
 				end
 			else
-				setProperty('camGame.zoom', cameraZoom)
-				idkWhatToNameThis = false
+				zoomDifference = ogZoom - cameraZoom
+				setProperty('camGame.zoom', getProperty('camGame.zoom') - zoomDifference)
 			end
 			setProperty('defaultCamZoom', cameraZoom)
 			ogZoom = getProperty('defaultCamZoom')
@@ -98,21 +105,31 @@ function onEvent(name,value1,value2)
 					zoomOut = false
 				end
 				duration = tonumber(splitStr(value2, ',')[1]) or stepBullshit(splitStr(value2, ',')[1])
+				if duration == 0 then
+					duration = 0.000001
+				end
 				easing = splitStr(value2, ',')[2] or 'sineInOut'
 				zoomChecking = splitStr(value2, ',')[3]
 				if zoomChecking == 'true' then
 					zoomChecking = true
+					fastZoomChecking = true
 				elseif zoomChecking == 'false' then
 					zoomChecking = false
+					fastZoomChecking = false
 					idkWhatToNameThis = true
 				else
 					zoomChecking = zoomCheckingDefault
+					fastZoomChecking = fastZoomCheckingDefault
 					if zoomChecking == false then
 						idkWhatToNameThis = true
 					end
 				end
-				if duration >= iDontCareValue then
-					startValue = getProperty('camGame.zoom')
+				if duration >= iDontCareValue or fastZoomChecking == true then
+					if zoomChecking == true then
+						startValue = getProperty('defaultCamZoom')
+					else
+						startValue = getProperty('camGame.zoom')
+					end
 					setProperty('placeholder.x', startValue)
 					cameraZoom = startValue
 					doTweenX('idk', 'placeholder', camZoom, duration, easing)
@@ -120,9 +137,6 @@ function onEvent(name,value1,value2)
 					tweenStarter = true
 					elapsedTime = 0
 				else
-					if duration == 0 then
-						duration = 0.000001
-					end
 					doTweenZoom('fast', 'camGame', camZoom, duration, easing)
 					cancelTween('idk')
 					tweenOngoing = true
@@ -190,6 +204,11 @@ end
 function onTweenCompleted(name)
 	if name == 'idk' then
 		if tweenOngoing == true and brokenCameraZoom == false then
+			if zoomChecking == true then
+				cameraZoom = getProperty('placeholder.x')
+				zoomDifference = ogZoom - cameraZoom
+				setProperty('camGame.zoom', getProperty('camGame.zoom') - zoomDifference)
+			end
 			setProperty('defaultCamZoom', getProperty('placeholder.x'))
 			ogZoom = getProperty('defaultCamZoom')
 		end

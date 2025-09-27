@@ -1,103 +1,114 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "idle",
-			"loop": false,
-			"name": "idle"
+			"fps": 24,
+			"name": "idle",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				85,
 				3
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singLEFT",
-			"loop": false,
-			"name": "left0"
+			"fps": 24,
+			"name": "left0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				85,
 				3
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singLEFT-alt",
-			"loop": false,
-			"name": "leftAlt"
+			"fps": 24,
+			"name": "leftAlt",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				-51
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singDOWN",
-			"loop": false,
-			"name": "down0"
+			"fps": 24,
+			"name": "down0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				-51
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singDOWN-alt",
-			"loop": false,
-			"name": "downAlt"
+			"fps": 24,
+			"name": "downAlt",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				10,
 				31
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singUP",
-			"loop": false,
-			"name": "up0"
+			"fps": 24,
+			"name": "up0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				10,
 				31
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singUP-alt",
-			"loop": false,
-			"name": "upAlt"
+			"fps": 24,
+			"name": "upAlt",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				62,
 				-15
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singRIGHT",
-			"loop": false,
-			"name": "right0"
+			"fps": 24,
+			"name": "right0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				40,
 				-15
 			],
+			"anim": "singRIGHT-alt",
+			"fps": 24,
+			"name": "rightAlt",
+			"indices": []
+		},
+		{
+			"offsets": [
+				-4,
+				14
+			],
 			"indices": [],
 			"fps": 24,
-			"anim": "singRIGHT-alt",
+			"anim": "open",
 			"loop": false,
-			"name": "rightAlt"
+			"name": "open"
 		}
 	],
 	"vocals_file": "",
@@ -116,7 +127,7 @@
 	],
 	"camera_position": [
 		-210,
-		10
+		-80
 	],
 	"sing_duration": 4,
 	"scale": 1,

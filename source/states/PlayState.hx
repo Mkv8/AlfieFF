@@ -672,6 +672,21 @@ class PlayState extends MusicBeatState {
 
 		if (eventNotes.length < 1)
 			checkEventNote();
+		
+		if (Paths.formatToSongPath(SONG.song) == "eye-of-the-beholder") 
+			{
+				for(strum in opponentStrums.members) strum.visible = false;
+
+				for(i in 0...opponentStrums.members.length) opponentStrums.members[i].x = -1000;
+				//for(strum in opponentStrums.members) noteGroup.visible = false;
+				//for(note in unspawnNotes) if(!note.mustPress) note.visible = false;
+				iconP1.visible = false;
+				iconP2.visible = false;
+				healthBar.visible = false;
+				timeTxt.visible = false;
+				//opponentStrums.members[i].visible = false;
+				
+			}		
 	}
 
 	var bfNoteSkin:String = null;

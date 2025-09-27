@@ -1,0 +1,46 @@
+{
+	"song": {
+		"events": [
+			[
+				362.903225806452,
+				[
+					[
+						"Camera Movement",
+						"dad",
+						""
+					]
+				]
+			],
+			[
+				117400.588189345,
+				[
+					[
+						"Change Character",
+						"dad",
+						"breakout"
+					]
+				]
+			],
+			[
+				216635.282066896,
+				[
+					[
+						"Play Animation",
+						"break",
+						"dad"
+					]
+				]
+			],
+			[
+				223248.185292703,
+				[
+					[
+						"Change Character",
+						"dad",
+						"desktop"
+					]
+				]
+			]
+		]
+	}
+}

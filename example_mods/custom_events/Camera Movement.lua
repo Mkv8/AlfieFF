@@ -31,6 +31,15 @@ function onEvent(name,value1,value2)
 				tweenTimer = 0.00001
 			end
 			setProperty('isCameraOnForcedPos', true)
+		else
+			if camMoveTween == true then
+				camMoveTween = false
+				tweenFinished = true
+			end
+			cancelTween('camMoveX')
+			cancelTween('camMoveX2')
+			cancelTween('camMoveY')
+			cancelTween('camMoveY2')
 		end
 		if setChar == "boyfriend" or setChar == "bf" or setChar == "Boyfriend" or setChar == "BF" then
 			curChar = 'boyfriend'
@@ -63,7 +72,15 @@ function onEvent(name,value1,value2)
 		FocusHeld = false
 		holdCam = false
 		setChar = nil
-		curChar = nil
+		if value1 == '' and value2 == '' then
+			offsetX = 0
+			offsetY = 0
+			setChar = nil
+			camChar = nil
+			camCharacter = nil
+		else
+			curChar = nil
+		end
 		camChar = nil
 		camCharacter = nil
 	end
@@ -148,23 +165,31 @@ function onUpdate()
 				if getProperty(curChar .. '.x') == charPosX and getProperty(curChar .. '.y') == charPosY then
 					curCharMoving = false
 				end
-				finalCamPos(curChar)
+				if camMoveTween ~= true then
+					finalCamPos(curChar)
+				end
 			else
 				if getProperty('dad.x') == dadPosX and getProperty('dad.y') == dadPosY and getProperty('boyfriend.x') == bfPosX and getProperty('boyfriend.y') == bfPosY --[[and getProperty('gf.x') == gfPosX and getProperty('gf.y') == gfPosY --]]then
 					curCharMoving = false
 				end
-				finalCamPos(curChar)
+				if camMoveTween ~= true then
+					finalCamPos(curChar)
+				end
 			end
 		elseif curCharMoving ~= true then
 			if curChar ~= 'middle' then
 				if getProperty(curChar .. '.x') ~= charPosX or getProperty(curChar .. '.y') ~= charPosY then
 					curCharMoving = true
-					finalCamPos(curChar)
+					if camMoveTween ~= true then
+						finalCamPos(curChar)
+					end
 				end
 			else 
 				if getProperty('dad.x') ~= dadPosX or getProperty('dad.y') ~= dadPosY or getProperty('boyfriend.x') ~= bfPosX or getProperty('boyfriend.y') ~= bfPosY --[[or getProperty('gf.x') ~= gfPosX or getProperty('gf.y') ~= gfPosY --]]then
 					curCharMoving = true
-					finalCamPos(curChar)
+					if camMoveTween ~= true then
+						finalCamPos(curChar)
+					end
 				end
 			end
 		end

@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="introText.png">
+	<!-- Created with Adobe Animate version 20.5.1.31044 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="textExport0000" x="8" y="8" width="422" height="80" frameX="0" frameY="-4" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0001" x="8" y="8" width="422" height="80" frameX="0" frameY="-4" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0002" x="438" y="8" width="422" height="80" frameX="0" frameY="-4" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0003" x="438" y="8" width="422" height="80" frameX="0" frameY="-4" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0004" x="868" y="8" width="422" height="80" frameX="0" frameY="-4" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0005" x="868" y="8" width="422" height="80" frameX="0" frameY="-4" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0006" x="1298" y="8" width="422" height="80" frameX="0" frameY="-4" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0007" x="1298" y="8" width="422" height="80" frameX="0" frameY="-4" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0008" x="1728" y="8" width="422" height="80" frameX="0" frameY="-4" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0009" x="1728" y="8" width="422" height="80" frameX="0" frameY="-4" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0010" x="2158" y="8" width="422" height="80" frameX="0" frameY="-4" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0011" x="2158" y="8" width="422" height="80" frameX="0" frameY="-4" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0012" x="2158" y="8" width="422" height="80" frameX="0" frameY="-4" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0013" x="2158" y="8" width="422" height="80" frameX="0" frameY="-4" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0014" x="2158" y="8" width="422" height="80" frameX="0" frameY="-4" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0015" x="2158" y="8" width="422" height="80" frameX="0" frameY="-4" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0016" x="2158" y="8" width="422" height="80" frameX="0" frameY="-4" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0017" x="2158" y="8" width="422" height="80" frameX="0" frameY="-4" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0018" x="2158" y="8" width="422" height="80" frameX="0" frameY="-4" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0019" x="2158" y="8" width="422" height="80" frameX="0" frameY="-4" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0020" x="2158" y="8" width="422" height="80" frameX="0" frameY="-4" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0021" x="2158" y="8" width="422" height="80" frameX="0" frameY="-4" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0022" x="2158" y="8" width="422" height="80" frameX="0" frameY="-4" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0023" x="2158" y="8" width="422" height="80" frameX="0" frameY="-4" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0024" x="2158" y="8" width="422" height="80" frameX="0" frameY="-4" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0025" x="2158" y="8" width="422" height="80" frameX="0" frameY="-4" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0026" x="2158" y="8" width="422" height="80" frameX="0" frameY="-4" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0027" x="2588" y="8" width="546" height="84" frameX="0" frameY="0" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0028" x="2588" y="8" width="546" height="84" frameX="0" frameY="0" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0029" x="2588" y="8" width="546" height="84" frameX="0" frameY="0" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0030" x="2588" y="8" width="546" height="84" frameX="0" frameY="0" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0031" x="2588" y="8" width="546" height="84" frameX="0" frameY="0" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0032" x="3142" y="8" width="774" height="84" frameX="0" frameY="0" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0033" x="3142" y="8" width="774" height="84" frameX="0" frameY="0" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0034" x="3142" y="8" width="774" height="84" frameX="0" frameY="0" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0035" x="3142" y="8" width="774" height="84" frameX="0" frameY="0" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0036" x="3142" y="8" width="774" height="84" frameX="0" frameY="0" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0037" x="3142" y="8" width="774" height="84" frameX="0" frameY="0" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0038" x="3142" y="8" width="774" height="84" frameX="0" frameY="0" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0039" x="3142" y="8" width="774" height="84" frameX="0" frameY="0" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0040" x="8" y="100" width="1167" height="84" frameX="0" frameY="0" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0041" x="8" y="100" width="1167" height="84" frameX="0" frameY="0" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0042" x="8" y="100" width="1167" height="84" frameX="0" frameY="0" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0043" x="8" y="100" width="1167" height="84" frameX="0" frameY="0" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0044" x="8" y="100" width="1167" height="84" frameX="0" frameY="0" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0045" x="8" y="100" width="1167" height="84" frameX="0" frameY="0" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0046" x="8" y="100" width="1167" height="84" frameX="0" frameY="0" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0047" x="8" y="100" width="1167" height="84" frameX="0" frameY="0" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0048" x="8" y="100" width="1167" height="84" frameX="0" frameY="0" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0049" x="8" y="100" width="1167" height="84" frameX="0" frameY="0" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0050" x="8" y="100" width="1167" height="84" frameX="0" frameY="0" frameWidth="1167" frameHeight="276"/>
+	<SubTexture name="textExport0051" x="1183" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0052" x="1183" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0053" x="1183" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0054" x="1183" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0055" x="1183" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0056" x="1183" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0057" x="1183" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0058" x="1183" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0059" x="1183" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0060" x="1183" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0061" x="1183" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0062" x="2358" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0063" x="2358" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0064" x="2358" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0065" x="2358" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0066" x="2358" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0067" x="2358" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0068" x="2358" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0069" x="2358" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0070" x="2358" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0071" x="2358" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0072" x="2358" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0073" x="2358" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0074" x="2358" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0075" x="2358" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0076" x="2358" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0077" x="2358" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0078" x="2358" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0079" x="2358" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0080" x="2358" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0081" x="2358" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0082" x="2358" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0083" x="2358" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0084" x="2358" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0085" x="2358" y="100" width="1167" height="276"/>
+	<SubTexture name="textExport0086" x="8" y="384" width="1167" height="276"/>
+	<SubTexture name="textExport0087" x="8" y="384" width="1167" height="276"/>
+	<SubTexture name="textExport0088" x="1183" y="384" width="1167" height="276"/>
+	<SubTexture name="textExport0089" x="1183" y="384" width="1167" height="276"/>
+	<SubTexture name="textExport0090" x="2358" y="384" width="1167" height="276"/>
+	<SubTexture name="textExport0091" x="2358" y="384" width="1167" height="276"/>
+	<SubTexture name="textExport0092" x="8" y="668" width="1167" height="276"/>
+	<SubTexture name="textExport0093" x="8" y="668" width="1167" height="276"/>
+	<SubTexture name="textExport20000" x="1183" y="668" width="102" height="83" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20001" x="1183" y="668" width="102" height="83" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20002" x="1293" y="668" width="239" height="90" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20003" x="1293" y="668" width="239" height="90" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20004" x="1293" y="668" width="239" height="90" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20005" x="1293" y="668" width="239" height="90" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20006" x="1293" y="668" width="239" height="90" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20007" x="1293" y="668" width="239" height="90" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20008" x="1293" y="668" width="239" height="90" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20009" x="1293" y="668" width="239" height="90" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20010" x="1293" y="668" width="239" height="90" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20011" x="1540" y="668" width="771" height="95" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20012" x="1540" y="668" width="771" height="95" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20013" x="1540" y="668" width="771" height="95" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20014" x="1540" y="668" width="771" height="95" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20015" x="1540" y="668" width="771" height="95" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20016" x="1540" y="668" width="771" height="95" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20017" x="1540" y="668" width="771" height="95" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20018" x="1540" y="668" width="771" height="95" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20019" x="1540" y="668" width="771" height="95" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20020" x="1540" y="668" width="771" height="95" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20021" x="1540" y="668" width="771" height="95" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20022" x="1540" y="668" width="771" height="95" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20023" x="1540" y="668" width="771" height="95" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20024" x="1540" y="668" width="771" height="95" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20025" x="1540" y="668" width="771" height="95" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20026" x="1540" y="668" width="771" height="95" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20027" x="1540" y="668" width="771" height="95" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20028" x="1540" y="668" width="771" height="95" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20029" x="1540" y="668" width="771" height="95" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20030" x="1540" y="668" width="771" height="95" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20031" x="1540" y="668" width="771" height="95" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20032" x="1540" y="668" width="771" height="95" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20033" x="1540" y="668" width="771" height="95" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20034" x="1540" y="668" width="771" height="95" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20035" x="1540" y="668" width="771" height="95" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20036" x="1540" y="668" width="771" height="95" frameX="-128" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20037" x="2319" y="668" width="899" height="351" frameX="0" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20038" x="2319" y="668" width="899" height="351" frameX="0" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20039" x="2319" y="668" width="899" height="351" frameX="0" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20040" x="2319" y="668" width="899" height="351" frameX="0" frameY="0" frameWidth="1070" frameHeight="364"/>
+	<SubTexture name="textExport20041" x="8" y="1027" width="1070" height="364"/>
+	<SubTexture name="textExport20042" x="8" y="1027" width="1070" height="364"/>
+	<SubTexture name="textExport20043" x="8" y="1027" width="1070" height="364"/>
+	<SubTexture name="textExport20044" x="8" y="1027" width="1070" height="364"/>
+	<SubTexture name="textExport20045" x="8" y="1027" width="1070" height="364"/>
+	<SubTexture name="textExport20046" x="8" y="1027" width="1070" height="364"/>
+	<SubTexture name="textExport20047" x="8" y="1027" width="1070" height="364"/>
+	<SubTexture name="textExport20048" x="8" y="1027" width="1070" height="364"/>
+	<SubTexture name="textExport20049" x="8" y="1027" width="1070" height="364"/>
+	<SubTexture name="textExport20050" x="8" y="1027" width="1070" height="364"/>
+	<SubTexture name="textExport20051" x="8" y="1027" width="1070" height="364"/>
+	<SubTexture name="textExport20052" x="8" y="1027" width="1070" height="364"/>
+	<SubTexture name="textExport20053" x="8" y="1027" width="1070" height="364"/>
+	<SubTexture name="textExport20054" x="8" y="1027" width="1070" height="364"/>
+	<SubTexture name="textExport20055" x="8" y="1027" width="1070" height="364"/>
+	<SubTexture name="textExport20056" x="8" y="1027" width="1070" height="364"/>
+	<SubTexture name="textExport20057" x="8" y="1027" width="1070" height="364"/>
+	<SubTexture name="textExport20058" x="8" y="1027" width="1070" height="364"/>
+	<SubTexture name="textExport20059" x="8" y="1027" width="1070" height="364"/>
+	<SubTexture name="textExport20060" x="8" y="1027" width="1070" height="364"/>
+	<SubTexture name="textExport20061" x="8" y="1027" width="1070" height="364"/>
+	<SubTexture name="textExport20062" x="8" y="1027" width="1070" height="364"/>
+	<SubTexture name="textExport20063" x="8" y="1027" width="1070" height="364"/>
+</TextureAtlas>

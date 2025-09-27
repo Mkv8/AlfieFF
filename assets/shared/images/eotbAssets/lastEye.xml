@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="lastEye.png">
+	<!-- Created with Adobe Animate version 20.5.1.31044 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="eye0000" x="8" y="8" width="758" height="318"/>
+	<SubTexture name="eye0001" x="8" y="8" width="758" height="318"/>
+	<SubTexture name="eye0002" x="8" y="8" width="758" height="318"/>
+	<SubTexture name="eye0003" x="8" y="8" width="758" height="318"/>
+	<SubTexture name="eye0004" x="8" y="334" width="758" height="318"/>
+	<SubTexture name="eye0005" x="8" y="334" width="758" height="318"/>
+	<SubTexture name="eye0006" x="8" y="334" width="758" height="318"/>
+	<SubTexture name="eye0007" x="8" y="334" width="758" height="318"/>
+	<SubTexture name="eye0008" x="8" y="660" width="758" height="318"/>
+	<SubTexture name="eye0009" x="8" y="660" width="758" height="318"/>
+	<SubTexture name="eye0010" x="8" y="660" width="758" height="318"/>
+	<SubTexture name="eye0011" x="8" y="660" width="758" height="318"/>
+	<SubTexture name="eye0012" x="774" y="660" width="0" height="0" frameX="-222" frameY="-213" frameWidth="758" frameHeight="318"/>
+	<SubTexture name="eye0013" x="774" y="660" width="0" height="0" frameX="-222" frameY="-213" frameWidth="758" frameHeight="318"/>
+	<SubTexture name="eye0014" x="774" y="660" width="0" height="0" frameX="-222" frameY="-213" frameWidth="758" frameHeight="318"/>
+	<SubTexture name="eye0015" x="774" y="660" width="0" height="0" frameX="-222" frameY="-213" frameWidth="758" frameHeight="318"/>
+	<SubTexture name="eye0016" x="774" y="660" width="0" height="0" frameX="-222" frameY="-213" frameWidth="758" frameHeight="318"/>
+	<SubTexture name="eye0017" x="774" y="660" width="0" height="0" frameX="-222" frameY="-213" frameWidth="758" frameHeight="318"/>
+	<SubTexture name="eye0018" x="774" y="660" width="0" height="0" frameX="-222" frameY="-213" frameWidth="758" frameHeight="318"/>
+	<SubTexture name="eye0019" x="774" y="660" width="0" height="0" frameX="-222" frameY="-213" frameWidth="758" frameHeight="318"/>
+	<SubTexture name="eye0020" x="774" y="660" width="0" height="0" frameX="-222" frameY="-213" frameWidth="758" frameHeight="318"/>
+	<SubTexture name="eye0021" x="774" y="660" width="0" height="0" frameX="-222" frameY="-213" frameWidth="758" frameHeight="318"/>
+	<SubTexture name="eye0022" x="774" y="660" width="0" height="0" frameX="-222" frameY="-213" frameWidth="758" frameHeight="318"/>
+	<SubTexture name="eye0023" x="774" y="660" width="0" height="0" frameX="-222" frameY="-213" frameWidth="758" frameHeight="318"/>
+	<SubTexture name="eye0024" x="774" y="660" width="0" height="0" frameX="-222" frameY="-213" frameWidth="758" frameHeight="318"/>
+	<SubTexture name="eye0025" x="774" y="660" width="0" height="0" frameX="-222" frameY="-213" frameWidth="758" frameHeight="318"/>
+	<SubTexture name="eye0026" x="774" y="660" width="0" height="0" frameX="-222" frameY="-213" frameWidth="758" frameHeight="318"/>
+	<SubTexture name="eye0027" x="774" y="660" width="0" height="0" frameX="-222" frameY="-213" frameWidth="758" frameHeight="318"/>
+	<SubTexture name="eye0028" x="774" y="660" width="0" height="0" frameX="-222" frameY="-213" frameWidth="758" frameHeight="318"/>
+	<SubTexture name="eye0029" x="774" y="660" width="0" height="0" frameX="-222" frameY="-213" frameWidth="758" frameHeight="318"/>
+</TextureAtlas>

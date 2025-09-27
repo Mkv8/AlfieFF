@@ -5,5 +5,5 @@ Easing List: FlxEase page of the HaxeFlixel API
 Value 2 Example: 13, 2, circIn
 
 Defaults:
-Duration: 1, Easing: linear
+Duration: 0, Easing: linear
 Only supports one tween at a time!

@@ -3,17 +3,19 @@ function onCreate()
 	defaultHUDzoom = 1
 	tweenOngoing = false
 	zooming = false
-	zoomCheckingDefault = false -- idk if this works
-	iDontCareValue = 0.025 -- idk if this works either
+	zoomCheckingDefault = true -- false lowkey doesnt do its job just keep it at true
+	fastZoomCheckingDefault = zoomCheckingDefault -- whether you want fast zooms (zooms faster than iDontCareValue) to use the new tween system
+	-- (setting zoom checking in value2 overrides fastZoomCheckingDefault)
+	iDontCareValue = 0.025
 	playRate = getProperty('playbackRate')
 	zoomingDecay = getProperty('camZoomingDecay')
-	setProperty('camZoomingDecay', 0.00000000000000000001)
+	setProperty('camZoomingDecay', 0)
 end
 
 function onUpdate(elapsed)
-	if getProperty('camZoomingDecay') ~= 0.00000000000000000001 then
+	if getProperty('camZoomingDecay') ~= 0 then
 		zoomingDecay = getProperty('camZoomingDecay')
-		setProperty('camZoomingDecay', 0.00000000000000000001)
+		setProperty('camZoomingDecay', 0)
 	end
 	if getProperty('camZooming') then
 		setProperty('camHUD.zoom', customLerp(defaultHUDzoom, getProperty('camHUD.zoom'), math.exp(-elapsed * 3.125 * zoomingDecay * playRate)))
@@ -27,27 +29,32 @@ function onUpdate(elapsed)
 				zoomChecker()
 				tweenStarter = false
 			end
-			if zooming == true and getProperty('camZooming') then
-				if negativeZoom == true then
-					if getProperty('camHUD.zoom') > cameraZoom then
-						setProperty('camHUD.zoom', cameraZoom)
-						zooming = false
+			if zoomChecking == false then
+				if zooming == true and getProperty('camZooming') then
+					if negativeZoom == true then
+						if getProperty('camHUD.zoom') > cameraZoom then
+							setProperty('camHUD.zoom', cameraZoom)
+							zooming = false
 							if zoomChecking == false then
 								idkWhatToNameThis = false
 							end
+						end
+					else
+						if getProperty('camHUD.zoom') < cameraZoom then
+							setProperty('camHUD.zoom', cameraZoom)
+							zooming = false
+							if zoomChecking == false then
+								idkWhatToNameThis = false
+							end
+						end
 					end
 				else
-					if getProperty('camHUD.zoom') < cameraZoom + 0.008 then -- +0.008 is there because this sucks and it doesnt work otherwise because of the decay im guessing
-						setProperty('camHUD.zoom', cameraZoom)
-						zooming = false
-							if zoomChecking == false then
-								idkWhatToNameThis = false
-							end
-					end
+					setProperty('camHUD.zoom', cameraZoom)
+					idkWhatToNameThis = false
 				end
 			else
-				setProperty('camHUD.zoom', cameraZoom)
-				idkWhatToNameThis = false
+				zoomDifference = prevZoom - cameraZoom
+				setProperty('camHUD.zoom', getProperty('camHUD.zoom') - zoomDifference)
 			end
 			defaultHUDzoom = cameraZoom
 			prevZoom = defaultHUDzoom
@@ -60,7 +67,7 @@ end
 
 function onEvent(name,value1,value2)
 	if name == "Set HUD Zoom" then
-		camZoom = value1
+		camZoom = string.gsub(value1, "%a", "")
 		if tweenOngoing == true then
 			tweenOngoing = false
 			if fastTween == true then
@@ -77,35 +84,46 @@ function onEvent(name,value1,value2)
 				zoomOut = false
 			end
 			duration = tonumber(splitStr(value2, ',')[1]) or stepBullshit(splitStr(value2, ',')[1])
+			if duration == 0 then
+				duration = 0.000001
+			end
 			easing = splitStr(value2, ',')[2] or 'sineInOut'
 			zoomChecking = splitStr(value2, ',')[3]
 			if zoomChecking == 'true' then
 				zoomChecking = true
+				fastZoomChecking = true
 			elseif zoomChecking == 'false' then
 				zoomChecking = false
+				fastZoomChecking = false
 				idkWhatToNameThis = true
 			else
 				zoomChecking = zoomCheckingDefault
+				fastZoomChecking = fastZoomCheckingDefault
 				if zoomChecking == false then
 					idkWhatToNameThis = true
 				end
 			end
-			if duration >= iDontCareValue then
-				startValue = getProperty('camHUD.zoom')
+			if duration >= iDontCareValue or fastZoomChecking == true then
+				if zoomChecking == true then
+					startValue = defaultHUDzoom
+				else
+					startValue = getProperty('camHUD.zoom')
+				end
 				setProperty('hudplaceholder.x', startValue)
 				doTweenX('hudidk', 'hudplaceholder', camZoom, duration, easing)
 				tweenOngoing = true
 				tweenStarter = true
 				elapsedTime = 0
 			else
-				if duration == 0 then
-					duration = 0.000001
-				end
 				doTweenZoom('hudfast', 'camHUD', camZoom, duration, easing)
 				cancelTween('hudidk')
 				tweenOngoing = true
 				fastTween = true
 			end
+		end
+	elseif name == 'Set Property' then
+		if value1 == 'camZoomingDecay' and value2 == '0' then
+			zoomingDecay = 0
 		end
 	end
 end
@@ -163,6 +181,11 @@ end
 function onTweenCompleted(name)
 	if name == 'hudidk' then
 		if tweenOngoing == true then
+			if zoomChecking == true then
+				cameraZoom = getProperty('hudplaceholder.x')
+				zoomDifference = prevZoom - cameraZoom
+				setProperty('camHUD.zoom', getProperty('camHUD.zoom') - zoomDifference)
+			end
 			defaultHUDzoom = getProperty('hudplaceholder.x')
 			prevZoom = defaultHUDzoom
 		end

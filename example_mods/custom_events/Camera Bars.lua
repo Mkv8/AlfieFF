@@ -83,12 +83,21 @@ function onTweenCompleted(tag)
 		end
 	end
 end
-
+--[[
+function onUpdate()
+	debugPrint('letterbot:' .. getObjectOrder('letterboxBottom'))
+	debugPrint('lettertop:' .. getObjectOrder('letterboxTop'))
+	debugPrint('pillarleft:' .. getObjectOrder('pillarboxLeft'))
+	debugPrint('pillarright:' .. getObjectOrder('pillarboxRight'))
+end
+--]]
 function moveBars(moveSides, screenCover, easingDuration, easingType)
 	if moveSides == 'letter' then
 		if screenCover ~= 0 and letterboxRemoved == true then
 			addLuaSprite('letterboxBottom')
 			addLuaSprite('letterboxTop')
+			setObjectOrder('letterboxBottom',0)
+			setObjectOrder('letterboxTop',0)
 			letterboxRemoved = false
 		elseif screenCover == 0 and letterboxRemoved == false then
 			removeLetterbox = true
@@ -100,6 +109,8 @@ function moveBars(moveSides, screenCover, easingDuration, easingType)
 		if screenCover ~= 0 and pillarboxRemoved == true then
 			addLuaSprite('pillarboxLeft')
 			addLuaSprite('pillarboxRight')
+			setObjectOrder('pillarboxLeft',0)
+			setObjectOrder('pillarboxRight',0)
 			pillarboxRemoved = false
 		elseif screenCover == 0 and pillarboxRemoved == false then
 			removePillarbox = true

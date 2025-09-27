@@ -1,18 +1,43 @@
+function onCreate()
+	property = nil
+	value = nil
+end
+
 function onEvent(name,value1,value2)
 	if name == "Tween Variable" then
+		if property ~= nil and value ~= nil then
+			if value1 == property then
+				cancelTween('vartween')
+			end
+			setProperty(property, value) -- ends ongoing tweens
+		end
 		property = value1
-		value = tonumber(splitStr(value2, ',')[1])
+		value = stringMatch(splitStr(value2, ',')[1])
         tweenduration = tonumber(splitStr(value2, ',')[2]) or stepBullshit(splitStr(value2, ',')[2])
 		tweeneasing = splitStr(value2, ',')[3] or 'linear'
-		if tweenduration == 0 then
-			tweenduration = 0.000001
+		if tweenduration ~= 0 then
+			varTween('vartween', property, value, tweenduration, tweeneasing)
+		else
+			setProperty(property, value)
 		end
-		varTween('vartween', property, value, tweenduration, tweeneasing)
 	elseif name == "Set Property" then
 		if value1 == property then
 			cancelTween('vartween')
 		end
 	end
+end
+
+function stringMatch(text)
+	if string.find(text, '+') ~= nil then
+		text = getProperty(property) + string.gsub(text, '+', '')
+	elseif string.find(text, '*') ~= nil then
+		text = getProperty(property) * string.gsub(text, '*', '')
+	elseif string.find(text, '/') ~= nil then
+		text = getProperty(property) / string.gsub(text, '/', '')
+	else
+		text = tonumber(text)
+	end
+	return text
 end
 
 function stepBullshit(stepDur)
@@ -23,10 +48,10 @@ function stepBullshit(stepDur)
 		if dur ~= 'balls' then
 			dur = dur * stepLength
 		else
-			dur = 1
+			dur = 0
 		end
 	else
-		dur = 1
+		dur = 0
 	end
 	return dur
 end
@@ -55,7 +80,6 @@ end
 function varTween(tag, variable, endValue, duration, easing)
 	if tweenOngoing == true then
 		tweenOngoing = false
-		setProperty(tweenvariable, finalValue)
 	end
 	finalValue = endValue
 	tweenOngoing = true
