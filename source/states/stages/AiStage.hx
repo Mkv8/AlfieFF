@@ -91,48 +91,63 @@ class AiStage extends BaseStage {
 		diamond1.alpha = 1;
 		diamond1.antialiasing = ClientPrefs.data.antialiasing;
 		add(diamond1);
+		FlxTween.tween(diamond1, {y: diamond1.y - 16}, 1.5, { type: FlxTween.PINGPONG, ease: FlxEase.sineInOut});
+		FlxTween.angle(diamond1, -3.5, 0, 3.5, {type: FlxTween.PINGPONG, ease: FlxEase.sineInOut});
 
 		diamond2 = new BGSprite('aiStage/diamond2', 990, 450, 1, 1);
 		diamond2.updateHitbox();
 		diamond2.alpha = 1;
 		diamond2.antialiasing = ClientPrefs.data.antialiasing;
 		add(diamond2);
+		FlxTween.tween(diamond2, {y: diamond2.y + 14}, 1.5, { type: FlxTween.PINGPONG, ease: FlxEase.sineInOut});
+		FlxTween.angle(diamond2, 3.5, 0, 3.5, {type: FlxTween.PINGPONG, ease: FlxEase.sineInOut});
 
 		diamond3 = new BGSprite('aiStage/diamond3', 1200, 320, 1, 1);
 		diamond3.updateHitbox();
 		diamond3.alpha = 1;
 		diamond3.antialiasing = ClientPrefs.data.antialiasing;
 		add(diamond3);
+		FlxTween.tween(diamond3, {y: diamond3.y - 20}, 1.5, { type: FlxTween.PINGPONG, ease: FlxEase.sineInOut});
+		FlxTween.angle(diamond3, -3.5, 0, 3.5, {type: FlxTween.PINGPONG, ease: FlxEase.sineInOut});
 
 		diamond4 = new BGSprite('aiStage/diamond4', 1670, 350, 1, 1);
 		diamond4.updateHitbox();
 		diamond4.alpha = 1;
 		diamond4.antialiasing = ClientPrefs.data.antialiasing;
 		add(diamond4);
+		FlxTween.tween(diamond4, {y: diamond4.y + 20}, 1.5, { type: FlxTween.PINGPONG, ease: FlxEase.sineInOut});
+		FlxTween.angle(diamond4, 3.5, 0, 3.5, {type: FlxTween.PINGPONG, ease: FlxEase.sineInOut});
 
 		backisland = new BGSprite('aiStage/backIsland', -120, 50, 1, 1);
 		backisland.updateHitbox();
 		backisland.alpha = 1;
 		backisland.antialiasing = ClientPrefs.data.antialiasing;
 		add(backisland);
+		FlxTween.tween(backisland, {y: backisland.y - 40}, 3.5, { type: FlxTween.PINGPONG, ease: FlxEase.sineInOut});
+		FlxTween.angle(backisland, -6.5, 0, 3.5, {type: FlxTween.PINGPONG, ease: FlxEase.sineInOut});
 
 		littleStage = new BGSprite('aiStage/notTheStageLol', 1200, 430, 1, 1);
 		littleStage.updateHitbox();
 		littleStage.alpha = 1;
 		littleStage.antialiasing = ClientPrefs.data.antialiasing;
 		add(littleStage);
+		FlxTween.tween(littleStage, {y: littleStage.y + 15}, 3.5, { type: FlxTween.PINGPONG, ease: FlxEase.sineInOut});
 		
 		block1 = new BGSprite('aiStage/block1', 2120, 570, 1, 1);
 		block1.updateHitbox();
 		block1.alpha = 1;
 		block1.antialiasing = ClientPrefs.data.antialiasing;
 		add(block1);
+		FlxTween.tween(block1, {y: block1.y - 15}, 1.5, { type: FlxTween.PINGPONG, ease: FlxEase.sineInOut});
+		FlxTween.angle(block1, 4.5, 0, 3.5, {type: FlxTween.PINGPONG, ease: FlxEase.sineInOut});
 		
 		block2 = new BGSprite('aiStage/block2', 1400, 790, 1, 1);
 		block2.updateHitbox();
 		block2.alpha = 1;
 		block2.antialiasing = ClientPrefs.data.antialiasing;
 		add(block2);
+		FlxTween.tween(block2, {y: block2.y + 20}, 1.5, { type: FlxTween.PINGPONG, ease: FlxEase.sineInOut});
+		FlxTween.angle(block2, -4.5, 0, 3.5, {type: FlxTween.PINGPONG, ease: FlxEase.sineInOut});
 
 		leaves = new BGSprite('aiStage/leaves', 1526, 0, 1, 1, ['leaves'], true);
 		leaves.updateHitbox();
