@@ -24,9 +24,12 @@ class Desktop extends BaseStage {
 
 	public var introVideo:VideoSprite;
 	public var midVideo:VideoSprite;
-	//public var introVideo:VideoSprite;
 
 	var animtimer:FlxTimer;
+
+	//THIS IS COMMENTED SHADER CODE
+	//I COMMENTED IT BECAUSE I THINK THE CHROMATIC ABBERRATION EFFECT MIGHT LOOK BAD HERE, IF YOU THINK WE SHOULD KEEP IT, FEEL FREE TO PLAY AROUND WITH IT
+	//EVEN THOUGH I DISABLED THE SHADERS, FOR SOME REASON THE SCANLINE EFFECT WON'T GO AWAY, IDK WHY
 
 	/*var shader:Array<BitmapFilter> = [
 		new ShaderFilter(new shaders.PostProcessing()),
@@ -36,28 +39,22 @@ class Desktop extends BaseStage {
 		new ShaderFilter(new shaders.CurveShader()),
 	];*/
 
-	//Shader isnt on in this song i think it would mess stuff up?????? if you think it should stay on let me know
 	//var curveShader = new shaders.CurveShader();
-
-// note: FOR SOME REASON I DISABLED THE SHADER BUT ITS STILL HAPPENING???? THE SCANLINES WONT GO AWAY :COPE:
-// NOTE 2: sorry if some positions arent perfect i tried my hardest,,, atm teh last eye and crack assets are not positioned cuz idk how ur stuff is gonna look when its done...
-//Note 3: please read all the comments i made......... thank u again....
 
 	override function create() {
 
 
 		bg = new BGSprite(null, 0, 0, 1, 1); //idk if this is even needed but i made a black bg anyways
-		bg.makeGraphic(Std.int(FlxG.width), Std.int(FlxG.height), FlxColor.BLACK); //this means its 720x1280 right?
+		bg.makeGraphic(Std.int(FlxG.width), Std.int(FlxG.height), FlxColor.BLACK); 
 		bg.screenCenter(XY);
 		bg.updateHitbox();
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		bg.alpha = 1;
 		add(bg);
 
-		introtext = new BGSprite('eotbAssets/introText', -310, -220, 1, 1, ['textExport']); //intro text
+		introtext = new BGSprite('eotbAssets/introText', -310, -220, 1, 1, ['textExport']); 
 		introtext.updateHitbox();
 		introtext.scale.set(1.35,1.35);
-		//introtext.screenCenter(XY);
 		introtext.antialiasing = ClientPrefs.data.antialiasing;
 		add(introtext);
 		introtext.animation.pause();
@@ -70,7 +67,6 @@ class Desktop extends BaseStage {
 
 		crack = new BGSprite('eotbAssets/lastPhaseCrack', -640, -360, 1, 1, ['LAST SHARDS']); 
 		crack.updateHitbox();
-		//crack.screenCenter(XY);
 		crack.alpha = 0;
 		crack.antialiasing = ClientPrefs.data.antialiasing;
 		//This is for when he breaks the screen near the end, im gonna ask you to position this better cuz im not entirely sure how its gonna look when its all done...
@@ -79,14 +75,12 @@ class Desktop extends BaseStage {
 	}
 
 	override function createPost() {
-		// Use this function to layer things above characters
 
 
 		introVideo = new VideoSprite();
-		introVideo.playVideo(Paths.video("EOTBintro"),false,false,true);//cached but not gonna start to play
+		introVideo.playVideo(Paths.video("EOTBintro"),false,false,true);
 		introVideo.cameras = [camOther];
 		introVideo.scale.set(1,1);
-		//introVideo.screenCenter();
 		introVideo.x = 0;
 		introVideo.y= 0;   
 		
@@ -94,10 +88,9 @@ class Desktop extends BaseStage {
 		add(introVideo);
 
 		midVideo = new VideoSprite();
-		midVideo.playVideo(Paths.video("EOTBmidCutscene"),false,false,true);//cached but not gonna start to play
+		midVideo.playVideo(Paths.video("EOTBmidCutscene"),false,false,true);
 		midVideo.cameras = [camHUD];
 		midVideo.scale.set(1,1);
-		//introVideo.screenCenter();
 		midVideo.x = 0;
 		midVideo.y= 0;   
 		
@@ -111,6 +104,7 @@ class Desktop extends BaseStage {
 		blackscreen.alpha = 1;
 		add(blackscreen);
 
+		//THIS IS COMMENTED SHADER CODE
 		/*FlxG.game.setFilters(shader);
 		FlxG.game.filtersEnabled = true;
 
@@ -186,20 +180,28 @@ class Desktop extends BaseStage {
 					//NOTE: he keeps resetting his animation and going back to idle before its time, can you please fix this? i remember i did this once but i dont remember how...
 					//He's supposed to be stuck in frame 0 or a while before he resumes it in beat 42...
 				}
-			
-			case 952:
+
+				
+			case 896:
 				{
-					//THIS IS WHERE THE EYE OPENS IN THE MIDSONG VIDEO
-				}
+					FlxTween.tween(midVideo, {alpha: 1}, 1);
+					midVideo.bitmap.startPos = Std.int(Conductor.songPosition);
+					midVideo.bitmap.playCached();
+					FlxTween.tween(dad, {alpha: 0}, 1.5);
+				}	
+							
+// AT ANY POINT BETWEEN STEPS 896 AND 952, MAKE THE DESKTOP STUFF VISIBLE HERE:
+//THE VIDEO IS PLAYING ON CAMOTHER, SO IT'LL BE IN FRONT OF DESKTOP, IT DOESNT MATTER WHEN YOU DO IT AS LONG AS ITS AFTER 896 AND BEFORE 952
+//MAKE SURE YOU MASK OUT THE GREEN IN THE VIDEO SO THAT YOU CAN SEE THE DESKTOP ONCE HE OPENS THE EYE AND BREAKS THE SCREEN (SEE THE VIDEO FOR MORE REFERENCE)
+// aka step 896 - video starts || step 952 - eye opens and you can see the desktop background on the masked area
 			case 960:
 				{
 					dad.alpha = 1;
-					//THIS IS WHERE THE SCREEN BREAKS IN THE MIDSONG VIDEO
-				}
-			case 2224:
-				{
-					//THIS IS WHERE HE PLAYS THE ANIMATION FOR BREAKIN THE SCREEN NEAR THE END (its in the chart)
-				}									
+					//This is the part where the glass shards fall, he is already visible, so I set his alpha to 1, you dont need to do anything here.
+				}				
+				
+
+//AT THIS POINT HERE, TURN THE DESKTOP BACKGROUND INTO A BLACK BACKGROUND, HE JUST PLAYED THE ANIMATION WHERE HE BREAKS THE SCREEN A SECOND TIME
 			case 2240:
 				{
 					crack.alpha = 1;
@@ -209,17 +211,16 @@ class Desktop extends BaseStage {
 			case 2256:
 				{
 					dad.alpha = 0;
-					dad.scale.set(0.8, 0.8);
-					//THIS IS WHERE HES OFFSCREEN N STUFF
+					dad.scale.set(0.8, 0.8); //I feel like this doesn't work, or at least I didn't see any difference, can you check?
 				}	
 			case 2336:
 				{
 					FlxTween.tween(dad, {alpha: 1}, 1);
-					//THIS IS WHERE HE LAUGHS (its just a right note ngl)
 				}	
 			case 3392:
 				{
-					//THIS IS WHERE HE BUGS OUT AND THE SONG ENDS... HE CAN JUST DISAPPEAR IN SOME WEIRD WAY	
+					//THIS IS WHERE HE BUGS OUT AND THE SONG ENDS... 
+					//Can you make him disappear in some way? either fade him out or move him in some way, I'm leavin this to your personal preference
 				}		
 			case 3470:
 				{
@@ -246,14 +247,6 @@ class Desktop extends BaseStage {
 				{
 					FlxTween.tween(introtext, {alpha: 0}, 1.5);
 					FlxTween.tween(camHUD, {alpha: 1}, 1.5);
-
-				}
-			case 224:
-				{
-					FlxTween.tween(midVideo, {alpha: 1}, 1);
-					midVideo.bitmap.startPos = Std.int(Conductor.songPosition);
-					midVideo.bitmap.playCached();
-					FlxTween.tween(dad, {alpha: 0}, 1.5);
 
 				}
 			
