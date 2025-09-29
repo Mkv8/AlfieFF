@@ -42,7 +42,7 @@ class Main extends Sprite {
 		startFullscreen: false // if the game should start at fullscreen mode
 	};
 
-	public static var appTitle:String = 'another alfie mod aaaaa';
+	public static var appTitle:String = 'Vs. Alfie - Moonlight Serenade';
 
 	public static var fpsVar:FPSCounter;
 
