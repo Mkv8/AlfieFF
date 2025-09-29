@@ -42,6 +42,8 @@ class Main extends Sprite {
 		startFullscreen: false // if the game should start at fullscreen mode
 	};
 
+	public static var appTitle:String = 'another alfie mod aaaaa';
+
 	public static var fpsVar:FPSCounter;
 
 	// You can pretty much ignore everything from here on - your code should go in your states.
@@ -135,6 +137,8 @@ class Main extends Sprite {
 			if (FlxG.game != null)
 				resetSpriteCache(FlxG.game);
 		});
+
+		Application.current.window.title = Main.appTitle;
 	}
 
 	static function resetSpriteCache(sprite:Sprite):Void {

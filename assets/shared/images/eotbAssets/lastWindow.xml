@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="lastWindow.png">
+	<!-- Created with Adobe Animate version 20.5.1.31044 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="eye0000" x="8" y="8" width="1280" height="720"/>
+	<SubTexture name="eye0001" x="8" y="8" width="1280" height="720"/>
+	<SubTexture name="eye0002" x="8" y="8" width="1280" height="720"/>
+	<SubTexture name="eye0003" x="8" y="8" width="1280" height="720"/>
+	<SubTexture name="eye0004" x="1296" y="8" width="1280" height="720"/>
+	<SubTexture name="eye0005" x="1296" y="8" width="1280" height="720"/>
+	<SubTexture name="eye0006" x="1296" y="8" width="1280" height="720"/>
+	<SubTexture name="eye0007" x="1296" y="8" width="1280" height="720"/>
+	<SubTexture name="eye0008" x="2584" y="8" width="1280" height="720"/>
+	<SubTexture name="eye0009" x="2584" y="8" width="1280" height="720"/>
+	<SubTexture name="eye0010" x="2584" y="8" width="1280" height="720"/>
+	<SubTexture name="eye0011" x="2584" y="8" width="1280" height="720"/>
+</TextureAtlas>

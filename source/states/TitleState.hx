@@ -20,6 +20,8 @@ import states.MainMenuState;
 import openfl.filters.BitmapFilter;
 import utils.TransNdll;
 import openfl.filters.ShaderFilter;
+import lime.app.Application;
+import openfl.Lib;
 
 typedef TitleData = {
 	titlex:Float,
@@ -83,7 +85,7 @@ class TitleState extends MusicBeatState {
 		curWacky = FlxG.random.getObject(getIntroTextShit());
 
 		super.create();
-
+		
 		TransNdll.cacheFunctions();
 
 		FlxG.save.bind('funkin', CoolUtil.getSavePath());

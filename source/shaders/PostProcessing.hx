@@ -39,7 +39,8 @@ void mainImage()
 	//float comp = smoothstep( 0.2, 0.7, sin(iTime) );
 	//col = mix( col, oricol, clamp(-2.0+2.0*uv.x+3.0*comp,0.0,1.0) );
 
-	fragColor = vec4(col,1.0);
+	vec4 texColor = texture(iChannel0, uv);
+	fragColor = vec4(col, texColor.a);
 }')
 	public function new() {
 		super();

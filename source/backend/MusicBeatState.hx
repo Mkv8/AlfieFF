@@ -17,6 +17,16 @@ class MusicBeatState extends FlxUIState {
 
 	public var controls(get, never):Controls;
 
+	private var events:Array<EventStep> = [];
+
+	private function addevents(steps:Array<Float>, func:Void->Void = null, timetype="step") {
+		for (step in steps)
+		{
+			var event:EventStep = new EventStep(step, func,timetype);
+			events.push(event);
+		}
+	}
+
 	private function get_controls() {
 		return Controls.instance;
 	}
@@ -52,6 +62,22 @@ class MusicBeatState extends FlxUIState {
 
 	override function update(elapsed:Float) {
 		// everyStep();
+		if (events != null)
+		{
+			for (i in events)
+			{
+				if (i != null)
+				{
+					if (Conductor.songPosition >= i.time && !i.passed)
+					{
+						i.func();
+						i.passed = true;
+						events.remove(i);
+					}
+				}
+			}
+		}
+
 		var oldStep:Int = curStep;
 		timePassedOnState += elapsed;
 
@@ -206,4 +232,29 @@ class MusicBeatState extends FlxUIState {
 			val = PlayState.SONG.notes[curSection].sectionBeats;
 		return val == null ? 4 : val;
 	}
+}
+
+  
+class EventStep
+{
+	  public var passed = false;
+	  public var func:Void->Void;
+	  public var time:Float;
+
+	  public function new(s:Float, f:Void->Void = null,timetype = "step") {
+		  switch (timetype){
+			  case "beat":
+				  time = Conductor.crochet * s;
+			  case "step":
+				  time = Conductor.stepCrochet * s;
+			  case "time" | 'ms':
+				  time = s;
+			  case 'second','seconds','sec',"s":
+				  time = s * 1000;
+			  default:
+				  time = Conductor.stepCrochet * s;
+		  }
+
+		  func = f;
+	  }
 }

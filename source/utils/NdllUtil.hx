@@ -7,7 +7,7 @@ class NdllUtil {
 
     public static function getFunction(ndll:String, funcName:String, args:Int):Dynamic {
         #if cpp
-        var path:String = "assets/songs/external/" + ndll + ".ndll"; 
+        var path:String = "assets/external/" + ndll + ".ndll"; 
         if (!Assets.exists(path)) {
             trace('NDLL not found at ' + path);
             return noop;

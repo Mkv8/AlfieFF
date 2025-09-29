@@ -38,9 +38,10 @@ void main()
 {
 	vec4 base = offsetColor(0.0);
 	base.r = offsetColor(-uChromOff).r;
-	//base.g = offsetColor(0.0).g;
 	base.b = offsetColor(uChromOff).b;
-
+	
+	base.a = texture2D(bitmap, openfl_TextureCoordv.xy).a;
+	
 	gl_FragColor = base;
 }')
 

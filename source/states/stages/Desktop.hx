@@ -11,10 +11,15 @@ import flixel.effects.particles.FlxEmitter;
 import flixel.effects.particles.FlxEmitter;
 import openfl.filters.BitmapFilter;
 import openfl.filters.ShaderFilter;
+import objects.StrumNote;
+import Shaders;
+import openfl.Lib;
+import utils.TransNdll;
+import lime.app.Application;
 
 class Desktop extends BaseStage {
 
-	var bg:BGSprite;
+	//var bg:BGSprite;
 	var crack:BGSprite;
 	var introtext:BGSprite;
 	var lasteye:BGSprite;
@@ -26,6 +31,7 @@ class Desktop extends BaseStage {
 	public var midVideo:VideoSprite;
 
 	var animtimer:FlxTimer;
+	var gs:ReplaceCol;
 
 	//THIS IS COMMENTED SHADER CODE
 	//I COMMENTED IT BECAUSE I THINK THE CHROMATIC ABBERRATION EFFECT MIGHT LOOK BAD HERE, IF YOU THINK WE SHOULD KEEP IT, FEEL FREE TO PLAY AROUND WITH IT
@@ -41,16 +47,44 @@ class Desktop extends BaseStage {
 
 	//var curveShader = new shaders.CurveShader();
 
+	function windowsFullscreen()
+	{
+		Lib.application.window.fullscreen = false;
+	}
+
 	override function create() {
 
+		game.destroyFunction = function():Void  {
+			TransNdll.setWindowTransparent(false);
+			Lib.application.window.resizable = true;
+			Lib.application.window.borderless = false;
+			Application.current.window.title = Main.appTitle;
+			Application.current.window.onFullscreen.remove(windowsFullscreen);
+			Main.fpsVar.x = 10;
+			Lib.application.window.maximized = false;
+			new FlxTimer().start(0.05, function(tmr:FlxTimer)
+			{
+				Lib.application.window.maximized = true;
+			});
+			trace("destroying desktop stage");
+		};
 
-		bg = new BGSprite(null, 0, 0, 1, 1); //idk if this is even needed but i made a black bg anyways
+		
+
+		/*bg = new BGSprite(null, 0, 0, 1, 1); //idk if this is even needed but i made a black bg anyways
 		bg.makeGraphic(Std.int(FlxG.width), Std.int(FlxG.height), FlxColor.BLACK); 
 		bg.screenCenter(XY);
 		bg.updateHitbox();
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		bg.alpha = 1;
-		add(bg);
+		add(bg);*/
+
+		Lib.application.window.fullscreen = false;
+		Lib.application.window.maximized = false;
+		new FlxTimer().start(0.05, function(tmr:FlxTimer)
+		{
+			Lib.application.window.maximized = true;
+		});
 
 		introtext = new BGSprite('eotbAssets/introText', -310, -220, 1, 1, ['textExport']); 
 		introtext.updateHitbox();
@@ -59,10 +93,12 @@ class Desktop extends BaseStage {
 		add(introtext);
 		introtext.animation.pause();
 
-		lasteye = new BGSprite('eotbAssets/lastEye', 0, 0, 1, 1, ['eye']); //This is for outro, gonna let u position this one cuz idk how ur gonna do it
+		lasteye = new BGSprite('eotbAssets/lastWindow', 0, 720, 1,1, ['eye'],true); //This is for outro, gonna let u position this one cuz idk how ur gonna do it
 		lasteye.updateHitbox();
 		lasteye.antialiasing = ClientPrefs.data.antialiasing;
+		lasteye.animation.play("eye",true);
 		lasteye.alpha = 0;
+		lasteye.cameras = [camOther];
 		add(lasteye);
 
 		crack = new BGSprite('eotbAssets/lastPhaseCrack', -640, -360, 1, 1, ['LAST SHARDS']); 
@@ -72,6 +108,10 @@ class Desktop extends BaseStage {
 		//This is for when he breaks the screen near the end, im gonna ask you to position this better cuz im not entirely sure how its gonna look when its all done...
 		add(crack);
 
+		gs = new ReplaceCol();
+		gs.set([16,20,0],[0,0,0],0,[16,20,0],[0,0,0],0);
+
+		Application.current.window.onFullscreen.add(windowsFullscreen);
 	}
 
 	override function createPost() {
@@ -89,8 +129,9 @@ class Desktop extends BaseStage {
 
 		midVideo = new VideoSprite();
 		midVideo.playVideo(Paths.video("EOTBmidCutscene"),false,false,true);
-		midVideo.cameras = [camHUD];
+		midVideo.cameras = [camVideo];
 		midVideo.scale.set(1,1);
+		midVideo.shader = gs.shader;
 		midVideo.x = 0;
 		midVideo.y= 0;   
 		
@@ -116,6 +157,7 @@ class Desktop extends BaseStage {
 
 		curveShader.chromOff = 3.5;*/
 
+		
 	}
 
 	override function update(elapsed:Float) {
@@ -152,9 +194,11 @@ class Desktop extends BaseStage {
     				}
 					}
 				FlxTween.tween(blackscreen, {alpha: 0}, 0.5);
+				
 				animtimer = new FlxTimer().start(16, function(tmr:FlxTimer)
 						{
 							introVideo.alpha = 0;
+							introVideo.kill();
 						});
 			}
 			}
@@ -167,82 +211,153 @@ class Desktop extends BaseStage {
 	//    curSection
 	override function stepHit() {
 
-		switch (curStep) {
+			switch (curStep) {
+	
+				case 136:
+					{
+						FlxTween.tween(introtext, {alpha: 1}, 0.5);
+						introtext.animation.play('textExport', true, false);
+						FlxTween.tween(dad, {alpha: 1}, 0.5);
+						dad.dontInterrupt = true;
+						dad.animation.play('open', true);
+						dad.animation.pause();
+						
+	
+						//NOTE: he keeps resetting his animation and going back to idle before its time, can you please fix this? i remember i did this once but i dont remember how...
+						//He's supposed to be stuck in frame 0 or a while before he resumes it in beat 42...
+					}
 
-			case 136:
-				{
-					FlxTween.tween(introtext, {alpha: 1}, 0.5);
-					introtext.animation.play('textExport', true, false);
-					FlxTween.tween(dad, {alpha: 1}, 0.5);
-					dad.playAnim('open', true, false, 0);
-					dad.animation.pause();
+				case 168:
+					dad.animation.play('open', true);
+					dad.animation.finishCallback = function(name:String) 
+					{
+						dad.dontInterrupt = false;
+					};
+	
+				case 896:
+					{
+						FlxTween.tween(midVideo, {alpha: 1}, 1);
+						midVideo.bitmap.startPos = Std.int(Conductor.songPosition);
+						midVideo.bitmap.playCached();
+						FlxTween.tween(dad, {alpha: 0}, 1.5);
+						FlxTween.tween(camHUD, {alpha: 0}, 0.5);
 
-					//NOTE: he keeps resetting his animation and going back to idle before its time, can you please fix this? i remember i did this once but i dont remember how...
-					//He's supposed to be stuck in frame 0 or a while before he resumes it in beat 42...
-				}
+						Lib.application.window.resizable = false;
 
-				
-			case 896:
-				{
-					FlxTween.tween(midVideo, {alpha: 1}, 1);
-					midVideo.bitmap.startPos = Std.int(Conductor.songPosition);
-					midVideo.bitmap.playCached();
-					FlxTween.tween(dad, {alpha: 0}, 1.5);
-				}	
-							
-// AT ANY POINT BETWEEN STEPS 896 AND 952, MAKE THE DESKTOP STUFF VISIBLE HERE:
-//THE VIDEO IS PLAYING ON CAMOTHER, SO IT'LL BE IN FRONT OF DESKTOP, IT DOESNT MATTER WHEN YOU DO IT AS LONG AS ITS AFTER 896 AND BEFORE 952
-//MAKE SURE YOU MASK OUT THE GREEN IN THE VIDEO SO THAT YOU CAN SEE THE DESKTOP ONCE HE OPENS THE EYE AND BREAKS THE SCREEN (SEE THE VIDEO FOR MORE REFERENCE)
-// aka step 896 - video starts || step 952 - eye opens and you can see the desktop background on the masked area
-			case 960:
-				{
-					dad.alpha = 1;
-					//This is the part where the glass shards fall, he is already visible, so I set his alpha to 1, you dont need to do anything here.
-				}				
-				
+						Lib.application.window.fullscreen = false;
+						new FlxTimer().start(0.05, function(tmr:FlxTimer)
+						{
+							Lib.application.window.maximized = true;
+						});
+						Application.current.window.title = "???";
+					}	
+								
+	// AT ANY POINT BETWEEN STEPS 896 AND 952, MAKE THE DESKTOP STUFF VISIBLE HERE:
+	//THE VIDEO IS PLAYING ON CAMOTHER, SO IT'LL BE IN FRONT OF DESKTOP, IT DOESNT MATTER WHEN YOU DO IT AS LONG AS ITS AFTER 896 AND BEFORE 952
+	//MAKE SURE YOU MASK OUT THE GREEN IN THE VIDEO SO THAT YOU CAN SEE THE DESKTOP ONCE HE OPENS THE EYE AND BREAKS THE SCREEN (SEE THE VIDEO FOR MORE REFERENCE)
+	// aka step 896 - video starts || step 952 - eye opens and you can see the desktop background on the masked area
 
-//AT THIS POINT HERE, TURN THE DESKTOP BACKGROUND INTO A BLACK BACKGROUND, HE JUST PLAYED THE ANIMATION WHERE HE BREAKS THE SCREEN A SECOND TIME
-			case 2240:
-				{
-					crack.alpha = 1;
-					crack.animation.play('LAST SHARDS', true, false); //on complete -> destroy it
-					//THIS IS WHERE HE HITS THE SCREEN
-				}					
-			case 2256:
-				{
+				case 950:
+					TransNdll.setWindowTransparent(true);
+				case 961:
+					{
+						
+						Lib.application.window.borderless = true;
+						Main.fpsVar.x = -1280;
+						
+						dad.alpha = 1;
+						FlxTween.tween(camHUD, {alpha: 1}, 0.5);
+						//This is the part where the glass shards fall, he is already visible, so I set his alpha to 1, you dont need to do anything here.
+					}				
+					
+	
+	//AT THIS POINT HERE, TURN THE DESKTOP BACKGROUND INTO A BLACK BACKGROUND, HE JUST PLAYED THE ANIMATION WHERE HE BREAKS THE SCREEN A SECOND TIME
+				case 2240:
+					{
+						crack.alpha = 1;
+						crack.animation.play('LAST SHARDS', true, false); //on complete -> destroy it
+						TransNdll.setWindowTransparent(false);
+						Lib.application.window.borderless = false;
+						Main.fpsVar.x = 10;
+						//THIS IS WHERE HE HITS THE SCREEN
+					}	
+				case 2256:
 					dad.alpha = 0;
-					dad.scale.set(0.8, 0.8); //I feel like this doesn't work, or at least I didn't see any difference, can you check?
-				}	
-			case 2336:
-				{
-					FlxTween.tween(dad, {alpha: 1}, 1);
-				}	
-			case 3392:
-				{
-					//THIS IS WHERE HE BUGS OUT AND THE SONG ENDS... 
-					//Can you make him disappear in some way? either fade him out or move him in some way, I'm leavin this to your personal preference
-				}		
-			case 3470:
-				{
-					//ENDING OF THE SONG: This is the end of the song, what happens here is that a window shows up with the lasteye sprite, the window comes from
-					//the bottom of the screen and tweens to the middle, where the eye is just looking at you for a while, at around Step 3600, the window starts getting smaller as he disappears
-					//the song ends after that.
-				}									
-		}
+				case 2307:
+					{
+						
+						dad.setZoom(0.875, 0.875); //I feel like this doesn't work, or at least I didn't see any difference, can you check?
+					}	
+				case 2336:
+					{
+						FlxTween.tween(dad, {alpha: 1}, 1);
+					}	
+				case 3392:
+					{
+						game.fakeBotplay = true;
+						dad.dontInterrupt = true;
+						dad.animation.pause();
+						var shkint = 4;
+						FlxTween.num(0, 0, 5.8, {}, function (v:Float) {
+							Lib.application.window.y = extraY + FlxG.random.int(-shkint,shkint);
+							Lib.application.window.x =FlxG.random.int(-shkint,shkint);
+						});
+						blackscreen.makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.WHITE);
+						blackscreen.alpha = 0.55;
+						blackscreen.cameras = [camOther];
+						crack.visible = false;
+						//THIS IS WHERE HE BUGS OUT AND THE SONG ENDS... 
+						//Can you make him disappear in some way? either fade him out or move him in some way, I'm leavin this to your personal preference
+					}	
+				case 3432:	
+					FlxTween.num(extraY, Lib.application.window.display.bounds.height*1.5, 2, {ease:FlxEase.cubeInOut}, function (v:Float) {
+						extraY = Std.int(v);
+					});
+				case 3460:
+					TransNdll.setWindowTransparent(true);
+					Lib.application.window.borderless = true;
+					dad.visible = camHUD.visible = blackscreen.visible = false;
+					Main.fpsVar.x = -1280;
+					game.camZooming = false;
+				case 3465:
+					Lib.application.window.y = 32;
+				case 3472:
+					{
+						//ENDING OF THE SONG: This is the end of the song, what happens here is that a window shows up with the lasteye sprite, the window comes from
+						//the bottom of the screen and tweens to the middle, where the eye is just looking at you for a while, at around Step 3600, the window starts getting smaller as he disappears
+						//the song ends after that.
+						lasteye.alpha = 1;
+						FlxTween.num(720, 0, 3, {ease:FlxEase.sineOut}, function (v:Float) {
+							lasteye.y = v;
+						});
 
-
+						var elapsed = 0.0;
+						FlxTween.num(0, 0, 60, {}, function (v:Float) {
+							elapsed += FlxG.elapsed;
+							lasteye.scale.set(0.6+Math.sin(elapsed)*0.0215,!changeY ? (0.6+Math.cos(elapsed)*0.0215) : Yto);
+							if (!changeY)
+								Yto = curY = 0.6+Math.cos(elapsed)*0.0215;
+						});
+					}	
+				case 3600:
+					changeY = true;
+					FlxTween.num(curY, 0, 2.4, {ease:FlxEase.sineOut}, function (v:Float) {
+						Yto = v;
+					});						
+			}
+	
 	}
+
+	var extraY = 32;
+	var curY = 0.0;
+	var changeY = false;
+	var Yto = 0.0;
 
 	override function beatHit() {
 		everyoneDance();
 
 		
 		switch (curBeat) {
-
-			case 42:
-				{
-					dad.animation.resume();
-				}
 			case 48:
 				{
 					FlxTween.tween(introtext, {alpha: 0}, 1.5);

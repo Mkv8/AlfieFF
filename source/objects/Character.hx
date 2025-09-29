@@ -49,6 +49,7 @@ class Character extends FlxSprite {
 
 	public var isPlayer:Bool = false;
 	public var curCharacter:String = DEFAULT_CHARACTER;
+	public var scaleAmt = [1.0,1.0];
 
 	public var holdTimer:Float = 0;
 	public var heyTimer:Float = 0;
@@ -418,7 +419,7 @@ class Character extends FlxSprite {
 
 		if (animOffsets.exists(AnimName)) {
 			var daOffset = animOffsets.get(AnimName);
-			offset.set(daOffset[0], daOffset[1]);
+			offset.set(daOffset[0] * scaleAmt[0], daOffset[1] * scaleAmt[0]);
 		}
 		// else offset.set(0, 0);
 
@@ -465,6 +466,12 @@ class Character extends FlxSprite {
 
 	public function addOffset(name:String, x:Float = 0, y:Float = 0) {
 		animOffsets[name] = [x, y];
+	}
+
+	public function setZoom(zoom:Float,zoomY:Float = 0.0) {
+		var zY = (zoomY==0?zoom:zoomY);
+		scaleAmt = [zoom,zY];
+		scale.set(zoom,zY);
 	}
 
 	public function quickAnimAdd(name:String, anim:String) {

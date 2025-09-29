@@ -197,6 +197,7 @@ class PlayState extends MusicBeatState {
 	public var guitarHeroSustains:Bool = false;
 	public var instakillOnMiss:Bool = false;
 	public var cpuControlled:Bool = false;
+	public var fakeBotplay:Bool = false;
 	public var practiceMode:Bool = false;
 
 	public var botplaySine:Float = 0;
@@ -207,6 +208,7 @@ class PlayState extends MusicBeatState {
 	public var camHUD:FlxCamera;
 	public var camGame:FlxCamera;
 	public var camOther:FlxCamera;
+	public var camVideo:FlxCamera;
 	public var cameraSpeed:Float = 1;
 
 	public var songScore:Int = 0;
@@ -302,9 +304,12 @@ class PlayState extends MusicBeatState {
 		camGame = initPsychCamera();
 		camHUD = new FlxCamera();
 		camOther = new FlxCamera();
+		camVideo = new FlxCamera();
 		camHUD.bgColor.alpha = 0;
 		camOther.bgColor.alpha = 0;
+		camVideo.bgColor.alpha = 0;
 
+		FlxG.cameras.add(camVideo, false);
 		FlxG.cameras.add(camHUD, false);
 		FlxG.cameras.add(camOther, false);
 		grpNoteSplashes = new FlxTypedGroup<NoteSplash>();
@@ -1789,7 +1794,7 @@ class PlayState extends MusicBeatState {
 
 			if (!inCutscene) {
 				notes.update(elapsed);
-				if (!cpuControlled)
+				if (!cpuControlled && !fakeBotplay)
 					keysCheck();
 				else
 					playerDance();
@@ -1806,7 +1811,7 @@ class PlayState extends MusicBeatState {
 							daNote.followStrumNote(strum, fakeCrochet, songSpeed / playbackRate);
 
 							if (daNote.mustPress) {
-								if (cpuControlled
+								if ((cpuControlled || fakeBotplay)
 									&& !daNote.blockHit
 									&& daNote.canBeHit
 									&& (daNote.isSustainNote || daNote.strumTime <= Conductor.songPosition))
@@ -1819,7 +1824,7 @@ class PlayState extends MusicBeatState {
 
 							// Kill extremely late notes and cause misses
 							if (Conductor.songPosition - daNote.strumTime > noteKillOffset) {
-								if (daNote.mustPress && !cpuControlled && !daNote.ignoreNote && !endingSong && (daNote.tooLate || !daNote.wasGoodHit))
+								if (daNote.mustPress && !cpuControlled && !fakeBotplay && !daNote.ignoreNote && !endingSong && (daNote.tooLate || !daNote.wasGoodHit))
 									noteMiss(daNote);
 
 								daNote.active = daNote.visible = false;
@@ -1845,7 +1850,7 @@ class PlayState extends MusicBeatState {
 			}
 			if (FlxG.keys.justPressed.TWO) { // Go 10 seconds into the future :O
 				setSongTime(Conductor.songPosition + 10000);
-				clearNotesBefore(Conductor.songPosition);
+				//clearNotesBefore(Conductor.songPosition);
 			}
 		}
 		//#end
@@ -1911,7 +1916,7 @@ class PlayState extends MusicBeatState {
 			vocals.pause();
 			opponentVocals.pause();
 		}
-		if (!cpuControlled) {
+		if (!cpuControlled && !fakeBotplay) {
 			for (note in playerStrums)
 				if (note.animation.curAnim != null && note.animation.curAnim.name != 'static') {
 					note.playAnim('static');
@@ -2681,7 +2686,7 @@ class PlayState extends MusicBeatState {
 	}
 
 	private function keyPressed(key:Int) {
-		if (cpuControlled || paused || inCutscene || key < 0 || key >= playerStrums.length || !generatedMusic || endingSong || boyfriend.stunned)
+		if (cpuControlled || fakeBotplay || paused || inCutscene || key < 0 || key >= playerStrums.length || !generatedMusic || endingSong || boyfriend.stunned)
 			return;
 
 		var ret:Dynamic = callOnScripts('onKeyPressPre', [key]);
@@ -2762,7 +2767,7 @@ class PlayState extends MusicBeatState {
 	}
 
 	private function keyReleased(key:Int) {
-		if (cpuControlled || !startedCountdown || paused || key < 0 || key >= playerStrums.length)
+		if (cpuControlled || fakeBotplay || !startedCountdown || paused || key < 0 || key >= playerStrums.length)
 			return;
 
 		var ret:Dynamic = callOnScripts('onKeyReleasePre', [key]);
@@ -3007,7 +3012,7 @@ class PlayState extends MusicBeatState {
 	public function goodNoteHit(note:Note):Void {
 		if (note.wasGoodHit)
 			return;
-		if (cpuControlled && note.ignoreNote)
+		if ((cpuControlled || fakeBotplay)  && note.ignoreNote)
 			return;
 
 		var isSus:Bool = note.isSustainNote; // GET OUT OF MY HEAD, GET OUT OF MY HEAD, GET OUT OF MY HEAD
@@ -3067,7 +3072,7 @@ class PlayState extends MusicBeatState {
 			}
 		}
 
-		if (!cpuControlled) {
+		if (!cpuControlled && !fakeBotplay) {
 			var spr = playerStrums.members[note.noteData];
 			if (spr != null)
 				spr.playAnim('confirm', true);
@@ -3113,7 +3118,10 @@ class PlayState extends MusicBeatState {
 		grpNoteSplashes.add(splash);
 	}
 
+	public var destroyFunction:Void->Void = null;
 	override function destroy() {
+		if (destroyFunction!=null)
+			destroyFunction();
 		#if LUA_ALLOWED
 		for (lua in luaArray) {
 			lua.call('onDestroy', []);
