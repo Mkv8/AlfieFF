@@ -276,9 +276,17 @@ class Desktop extends BaseStage {
 					{
 						crack.alpha = 1;
 						crack.animation.play('LAST SHARDS', true, false); //on complete -> destroy it
-						TransNdll.setWindowTransparent(false);
-						Lib.application.window.borderless = false;
-						Main.fpsVar.x = 10;
+						new FlxTimer().start(0.03, function(tmr:FlxTimer)
+						{
+							TransNdll.setWindowTransparent(false);
+							Lib.application.window.y = 0;
+							Lib.application.window.height = Lib.application.window.height + 32;
+							for (camera in FlxG.cameras.list) camera.y += 32;
+							camOther.y -= 32;
+						});
+						
+						//Lib.application.window.borderless = false;
+						//Main.fpsVar.x = 10;
 						//THIS IS WHERE HE HITS THE SCREEN
 					}	
 				case 2256:
@@ -320,7 +328,7 @@ class Desktop extends BaseStage {
 					Main.fpsVar.x = -1280;
 					game.camZooming = false;
 				case 3465:
-					Lib.application.window.y = 32;
+					Lib.application.window.y = 0;
 				case 3472:
 					{
 						//ENDING OF THE SONG: This is the end of the song, what happens here is that a window shows up with the lasteye sprite, the window comes from
@@ -348,7 +356,7 @@ class Desktop extends BaseStage {
 	
 	}
 
-	var extraY = 32;
+	var extraY = 0;
 	var curY = 0.0;
 	var changeY = false;
 	var Yto = 0.0;
