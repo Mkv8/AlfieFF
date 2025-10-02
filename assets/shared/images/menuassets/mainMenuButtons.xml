@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="mainMenuButtons.png">
+	<!-- Created with Adobe Animate version 20.5.1.31044 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="creditsButton0000" x="8" y="8" width="479" height="165"/>
+	<SubTexture name="creditsButton0001" x="8" y="8" width="479" height="165"/>
+	<SubTexture name="creditsButton0002" x="8" y="8" width="479" height="165"/>
+	<SubTexture name="creditsButtonUnselected0000" x="495" y="8" width="479" height="165"/>
+	<SubTexture name="creditsButtonUnselected0001" x="495" y="8" width="479" height="165"/>
+	<SubTexture name="creditsButtonUnselected0002" x="495" y="8" width="479" height="165"/>
+	<SubTexture name="extraButton0000" x="8" y="181" width="443" height="169"/>
+	<SubTexture name="extraButton0001" x="8" y="181" width="443" height="169"/>
+	<SubTexture name="extraButton0002" x="8" y="181" width="443" height="169"/>
+	<SubTexture name="extraButtonUnselected0000" x="459" y="181" width="443" height="169"/>
+	<SubTexture name="extraButtonUnselected0001" x="459" y="181" width="443" height="169"/>
+	<SubTexture name="extraButtonUnselected0002" x="459" y="181" width="443" height="169"/>
+	<SubTexture name="optionsButton0000" x="8" y="358" width="498" height="212"/>
+	<SubTexture name="optionsButton0001" x="8" y="358" width="498" height="212"/>
+	<SubTexture name="optionsButton0002" x="8" y="358" width="498" height="212"/>
+	<SubTexture name="optionsButtonUnselected0000" x="514" y="358" width="498" height="212"/>
+	<SubTexture name="optionsButtonUnselected0001" x="514" y="358" width="498" height="212"/>
+	<SubTexture name="optionsButtonUnselected0002" x="514" y="358" width="498" height="212"/>
+	<SubTexture name="songButton0000" x="8" y="578" width="403" height="203"/>
+	<SubTexture name="songButton0001" x="8" y="578" width="403" height="203"/>
+	<SubTexture name="songButton0002" x="8" y="578" width="403" height="203"/>
+	<SubTexture name="songButtonUnselected0000" x="419" y="578" width="403" height="203"/>
+	<SubTexture name="songButtonUnselected0001" x="419" y="578" width="403" height="203"/>
+	<SubTexture name="songButtonUnselected0002" x="419" y="578" width="403" height="203"/>
+</TextureAtlas>

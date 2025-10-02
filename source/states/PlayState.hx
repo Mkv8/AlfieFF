@@ -88,7 +88,7 @@ class PlayState extends MusicBeatState {
 		['Sick!', 1], // From 90% to 99%
 		['Perfect!!', 1] // The value on this one isn't used actually, since Perfect is always "1"
 	];
-
+	public var lastRating:String = 'sick';
 	// event variables
 	private var isCameraOnForcedPos:Bool = false;
 
@@ -214,7 +214,7 @@ class PlayState extends MusicBeatState {
 	public var songScore:Int = 0;
 	public var songHits:Int = 0;
 	public var songMisses:Int = 0;
-	public var scoreTxt:FlxText;
+	public static var scoreTxt:FlxText;
 
 	var timeTxt:FlxText;
 	var scoreTxtTween:FlxTween;
@@ -478,8 +478,8 @@ class PlayState extends MusicBeatState {
 		}
 		stagesFunc(function(stage:BaseStage) stage.createPost());
 
-		comboGroup = new FlxSpriteGroup();
-		add(comboGroup);
+		//comboGroup = new FlxSpriteGroup();
+		//add(comboGroup);
 		noteGroup = new FlxTypedGroup<FlxBasic>();
 		add(noteGroup);
 		uiGroup = new FlxSpriteGroup();
@@ -598,7 +598,7 @@ class PlayState extends MusicBeatState {
 
 		uiGroup.cameras = [camHUD];
 		noteGroup.cameras = [camHUD];
-		comboGroup.cameras = [camHUD];
+		//comboGroup.cameras = [camHUD];
 
 		startingSong = true;
 
@@ -2514,7 +2514,7 @@ class PlayState extends MusicBeatState {
 	public var showRating:Bool = true;
 
 	// Stores Ratings and Combo Sprites in a group
-	public var comboGroup:FlxSpriteGroup;
+	//public var comboGroup:FlxSpriteGroup;
 	// Stores HUD Objects in a Group
 	public var uiGroup:FlxSpriteGroup;
 	// Stores Note Objects in a Group
@@ -2542,13 +2542,13 @@ class PlayState extends MusicBeatState {
 	private function popUpScore(note:Note):Void {
 		var noteDiff:Float = Math.abs(note.strumTime - Conductor.songPosition + ClientPrefs.data.ratingOffset);
 
-		if (!ClientPrefs.data.comboStacking && comboGroup.members.length > 0) {
+		/*if (!ClientPrefs.data.comboStacking && comboGroup.members.length > 0) {
 			while(comboGroup.members.length > 0) {
 				var spr = comboGroup.members[0];
 				spr.destroy();
 				comboGroup.remove(spr, true);
 			}
-		}
+		}*/
 
 		var score:Int = 350;
 
@@ -2561,6 +2561,7 @@ class PlayState extends MusicBeatState {
 			daRating.hits++;
 		//note.rating = daRating.name;
 		score = daRating.score;
+		lastRating = daRating.name;
 
 		if (daRating.noteSplash && !note.noteSplashData.disabled)
 			spawnNoteSplashOnNote(note);
@@ -2607,12 +2608,12 @@ class PlayState extends MusicBeatState {
 			FlxTween.tween(rating, zeroAlpha, 0.2 / playbackRate, {
 				startDelay: Conductor.crochet * 0.001 / playbackRate,
 				onComplete: function(tween:FlxTween) {
-					comboGroup.remove(rating, true);
+					//comboGroup.remove(rating, true);
 					rating.destroy();
 				}
 			});
 
-			comboGroup.add(rating);
+			//comboGroup.add(rating);
 		}
 
 		//if (!PlayState.isPixelStage) {
@@ -2653,11 +2654,11 @@ class PlayState extends MusicBeatState {
 			numScore.antialiasing = antialias;
 
 			// if (combo >= 10 || combo == 0)
-			comboGroup.add(numScore);
+			//comboGroup.add(numScore);
 
 			FlxTween.tween(numScore, zeroAlpha, 0.2 / playbackRate, {
 				onComplete: function(tween:FlxTween) {
-					comboGroup.remove(numScore, true);
+					//comboGroup.remove(numScore, true);
 					numScore.destroy();
 				},
 				startDelay: Conductor.crochet * 0.002 / playbackRate

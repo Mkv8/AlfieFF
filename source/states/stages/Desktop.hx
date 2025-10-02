@@ -86,7 +86,7 @@ class Desktop extends BaseStage {
 			Lib.application.window.maximized = true;
 		});
 
-		introtext = new BGSprite('eotbAssets/introText', -310, -220, 1, 1, ['textExport']); 
+		introtext = new BGSprite('eotbAssets/introText', -340, -220, 1, 1, ['textExport']); 
 		introtext.updateHitbox();
 		introtext.scale.set(1.35,1.35);
 		introtext.antialiasing = ClientPrefs.data.antialiasing;
@@ -101,9 +101,10 @@ class Desktop extends BaseStage {
 		lasteye.cameras = [camOther];
 		add(lasteye);
 
-		crack = new BGSprite('eotbAssets/lastPhaseCrack', -640, -360, 1, 1, ['LAST SHARDS']); 
+		crack = new BGSprite('eotbAssets/lastPhaseCrack', -440, -250, 1, 1, ['LAST SHARDS']); 
 		crack.updateHitbox();
 		crack.alpha = 0;
+		crack.scale.set(1.35,1.35);
 		crack.antialiasing = ClientPrefs.data.antialiasing;
 		//This is for when he breaks the screen near the end, im gonna ask you to position this better cuz im not entirely sure how its gonna look when its all done...
 		add(crack);
@@ -223,8 +224,7 @@ class Desktop extends BaseStage {
 						dad.animation.pause();
 						
 	
-						//NOTE: he keeps resetting his animation and going back to idle before its time, can you please fix this? i remember i did this once but i dont remember how...
-						//He's supposed to be stuck in frame 0 or a while before he resumes it in beat 42...
+
 					}
 
 				case 168:
@@ -241,6 +241,7 @@ class Desktop extends BaseStage {
 						midVideo.bitmap.playCached();
 						FlxTween.tween(dad, {alpha: 0}, 1.5);
 						FlxTween.tween(camHUD, {alpha: 0}, 0.5);
+						PlayState.scoreTxt.visible = false;
 
 						Lib.application.window.resizable = false;
 
@@ -252,10 +253,6 @@ class Desktop extends BaseStage {
 						Application.current.window.title = "???";
 					}	
 								
-	// AT ANY POINT BETWEEN STEPS 896 AND 952, MAKE THE DESKTOP STUFF VISIBLE HERE:
-	//THE VIDEO IS PLAYING ON CAMOTHER, SO IT'LL BE IN FRONT OF DESKTOP, IT DOESNT MATTER WHEN YOU DO IT AS LONG AS ITS AFTER 896 AND BEFORE 952
-	//MAKE SURE YOU MASK OUT THE GREEN IN THE VIDEO SO THAT YOU CAN SEE THE DESKTOP ONCE HE OPENS THE EYE AND BREAKS THE SCREEN (SEE THE VIDEO FOR MORE REFERENCE)
-	// aka step 896 - video starts || step 952 - eye opens and you can see the desktop background on the masked area
 
 				case 950:
 					TransNdll.setWindowTransparent(true);
@@ -271,11 +268,13 @@ class Desktop extends BaseStage {
 					}				
 					
 	
-	//AT THIS POINT HERE, TURN THE DESKTOP BACKGROUND INTO A BLACK BACKGROUND, HE JUST PLAYED THE ANIMATION WHERE HE BREAKS THE SCREEN A SECOND TIME
 				case 2240:
 					{
 						crack.alpha = 1;
-						crack.animation.play('LAST SHARDS', true, false); //on complete -> destroy it
+						crack.animation.play('LAST SHARDS', true, false); 
+						crack.animation.finishCallback = function(name:String){
+							crack.destroy();
+						}
 						new FlxTimer().start(0.03, function(tmr:FlxTimer)
 						{
 							TransNdll.setWindowTransparent(false);

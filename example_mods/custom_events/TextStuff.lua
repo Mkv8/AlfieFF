@@ -121,7 +121,7 @@ function onEvent(name, value1, value2)
 			setProperty('textIcon2.y', baseTextY - icon2Height / 2.5 + icon2YOffset --[[- 2 * textSize--]])
 			icon2Offset = icon2Width / icon2Count / 3 * icon2Scale + textLength * textSize/3
 			setProperty('textIcon2.x', textWidth/2 + icon2XOffset - icon2Width / icon2Count /2 + icon2Offset * icon2XOffsetMult)
-				
+			setProperty('dumbText.y', baseTextY)
 			if getProperty('dumbText.alpha') ~= 1 then
 				if getProperty('dumbText.alpha') == 0 then
 					setTextString('dumbText', value1)

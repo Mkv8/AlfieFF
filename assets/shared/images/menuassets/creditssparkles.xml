@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="creditssparkles.png">
+	<!-- Created with Adobe Animate version 20.5.1.31044 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="sparkles0000" x="8" y="8" width="401" height="764"/>
+	<SubTexture name="sparkles0001" x="417" y="8" width="401" height="764"/>
+	<SubTexture name="sparkles0002" x="417" y="8" width="401" height="764"/>
+	<SubTexture name="sparkles0003" x="826" y="8" width="401" height="764"/>
+	<SubTexture name="sparkles0004" x="826" y="8" width="401" height="764"/>
+	<SubTexture name="sparkles0005" x="1235" y="8" width="401" height="764"/>
+	<SubTexture name="sparkles0006" x="1235" y="8" width="401" height="764"/>
+	<SubTexture name="sparkles0007" x="1644" y="8" width="401" height="764"/>
+	<SubTexture name="sparkles0008" x="1644" y="8" width="401" height="764"/>
+	<SubTexture name="sparkles0009" x="1644" y="8" width="401" height="764"/>
+	<SubTexture name="sparkles0010" x="2053" y="8" width="401" height="764"/>
+	<SubTexture name="sparkles0011" x="2053" y="8" width="401" height="764"/>
+	<SubTexture name="sparkles0012" x="2462" y="8" width="401" height="764"/>
+	<SubTexture name="sparkles0013" x="2462" y="8" width="401" height="764"/>
+	<SubTexture name="sparkles0014" x="2871" y="8" width="401" height="764"/>
+	<SubTexture name="sparkles0015" x="2871" y="8" width="401" height="764"/>
+	<SubTexture name="sparkles0016" x="3280" y="8" width="401" height="764"/>
+	<SubTexture name="sparkles0017" x="3280" y="8" width="401" height="764"/>
+	<SubTexture name="sparkles0018" x="8" y="780" width="401" height="764"/>
+	<SubTexture name="sparkles0019" x="8" y="780" width="401" height="764"/>
+	<SubTexture name="sparkles0020" x="8" y="780" width="401" height="764"/>
+	<SubTexture name="sparkles0021" x="8" y="780" width="401" height="764"/>
+	<SubTexture name="sparkles0022" x="8" y="780" width="401" height="764"/>
+	<SubTexture name="sparkles0023" x="8" y="780" width="401" height="764"/>
+	<SubTexture name="sparkles0024" x="8" y="780" width="401" height="764"/>
+	<SubTexture name="sparkles0025" x="417" y="780" width="401" height="764"/>
+	<SubTexture name="sparkles0026" x="417" y="780" width="401" height="764"/>
+	<SubTexture name="sparkles0027" x="826" y="780" width="401" height="764"/>
+	<SubTexture name="sparkles0028" x="826" y="780" width="401" height="764"/>
+	<SubTexture name="sparkles0029" x="1235" y="780" width="401" height="764"/>
+	<SubTexture name="sparkles0030" x="1235" y="780" width="401" height="764"/>
+	<SubTexture name="sparkles0031" x="1644" y="780" width="401" height="764"/>
+	<SubTexture name="sparkles0032" x="1644" y="780" width="401" height="764"/>
+	<SubTexture name="sparkles0033" x="2053" y="780" width="401" height="764"/>
+	<SubTexture name="sparkles0034" x="2462" y="780" width="401" height="764"/>
+	<SubTexture name="sparkles0035" x="2871" y="780" width="401" height="764"/>
+	<SubTexture name="sparkles0036" x="3280" y="780" width="401" height="764"/>
+	<SubTexture name="sparkles0037" x="8" y="1552" width="401" height="764"/>
+	<SubTexture name="sparkles0038" x="417" y="1552" width="401" height="764"/>
+	<SubTexture name="sparkles0039" x="826" y="1552" width="401" height="764"/>
+	<SubTexture name="sparkles0040" x="8" y="8" width="401" height="764"/>
+	<SubTexture name="sparkles0041" x="8" y="8" width="401" height="764"/>
+	<SubTexture name="sparkles0042" x="8" y="8" width="401" height="764"/>
+	<SubTexture name="sparkles0043" x="8" y="8" width="401" height="764"/>
+	<SubTexture name="sparkles0044" x="8" y="8" width="401" height="764"/>
+	<SubTexture name="sparkles0045" x="8" y="8" width="401" height="764"/>
+	<SubTexture name="sparkles0046" x="8" y="8" width="401" height="764"/>
+</TextureAtlas>

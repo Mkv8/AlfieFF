@@ -85,14 +85,17 @@ function onTweenCompleted(tag)
 end
 --[[
 function onUpdate()
-	debugPrint('letterbot:' .. getObjectOrder('letterboxBottom'))
-	debugPrint('lettertop:' .. getObjectOrder('letterboxTop'))
-	debugPrint('pillarleft:' .. getObjectOrder('pillarboxLeft'))
-	debugPrint('pillarright:' .. getObjectOrder('pillarboxRight'))
+	--debugPrint('letterbot:' .. getObjectOrder('letterboxBottom'))
+	--debugPrint('lettertop:' .. getObjectOrder('letterboxTop'))
+	--debugPrint('pillarleft:' .. getObjectOrder('pillarboxLeft'))
+	--debugPrint('pillarright:' .. getObjectOrder('pillarboxRight'))
 end
 --]]
 function moveBars(moveSides, screenCover, easingDuration, easingType)
 	if moveSides == 'letter' then
+		if screenCover ~= 0 then
+			removeLetterbox = false
+		end
 		if screenCover ~= 0 and letterboxRemoved == true then
 			addLuaSprite('letterboxBottom')
 			addLuaSprite('letterboxTop')
@@ -106,6 +109,9 @@ function moveBars(moveSides, screenCover, easingDuration, easingType)
 		doTweenY('letterBottom', 'letterboxBottom', screenHeight - coverY*screenCover/100, easingDuration, easingType)
 		doTweenY('letterTop', 'letterboxTop', -screenHeight*2 + coverY*screenCover/100, easingDuration, easingType)
 	else
+		if screenCover ~= 0 then
+			removePillarbox = false
+		end
 		if screenCover ~= 0 and pillarboxRemoved == true then
 			addLuaSprite('pillarboxLeft')
 			addLuaSprite('pillarboxRight')

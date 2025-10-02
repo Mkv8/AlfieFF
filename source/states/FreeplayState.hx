@@ -50,6 +50,7 @@ class FreeplayState extends MusicBeatState {
 	private var iconArray:Array<HealthIcon> = [];
 
 	var bg:FlxSprite;
+	var borders:BGSprite;
 	var intendedColor:Int;
 	var colorTween:FlxTween;
 
@@ -65,6 +66,13 @@ class FreeplayState extends MusicBeatState {
 	var selectedAlbum:Item;
 	var albumTimer:FlxTimer;
 
+
+	//BASIC NOTES: NEW SONGS YOU HAVENT PLAYED ARE BLACK WITH THE NAMES BEING ???
+	//ONLY EXCEPTIONS TO THIS ARE THE FIRST THREE SONGS: FREAKY 4EVA, FOREST FIRE AND CONVICTED LOVE, THATS BECAUSE THEYRE FROM THE OLD UPDATE! PLEASE KEEP THEM ALREADY REVEALED
+	//AFTER YOU PLAY A SONG IT SHOWS THE ACTUAL SONG NAME AND ALBUM
+	//CHANGE SONGS WITH LEFT AND RIGHT, THERES ONLY ONE DIFFICULTY SO NOTHING WITH THAT
+	//THERES A CONCEPT PICTURE IN THE FILES ON /MENUASSETS
+	//ALSO yellow text: #FF ffcf53 and outline border: #FF 770f0f
 
 	override function create() {
 		// Paths.clearStoredMemory();
@@ -103,17 +111,23 @@ class FreeplayState extends MusicBeatState {
 		}
 		Mods.loadTopMod();
 
-		bg = new FlxSprite().loadGraphic(Paths.image('freeplayMenu'));
+		bg = new FlxSprite().loadGraphic(Paths.image('menuassets/songBG'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
-		bg.scale.set(0.67, 0.67);
+		bg.scale.set(0.8, 0.8);
 		add(bg);
-		bg.screenCenter();
+		bg.screenCenter(XY);
 
+		borders = new BGSprite('menuassets/bars', 0, 0, 0, 0);
+		borders.updateHitbox();
+		borders.alpha = 1;
+		borders.scale.set(0.8,0.8);
+		borders.screenCenter(XY);
+		borders.antialiasing = ClientPrefs.data.antialiasing;
+		add(borders);		
 
 		selectedAlbum = new Item(1750, -200);
 		selectedAlbum.loadGraphic(Paths.image('albums/freaky4eva'));
 		selectedAlbum.scale.set(0.4, 0.4);
-
 		add(selectedAlbum);
 
 		grpSongs = new FlxTypedGroup<Alphabet>();
@@ -145,9 +159,9 @@ class FreeplayState extends MusicBeatState {
 		}
 		WeekData.setDirectoryFromWeek();
 
-		scoreText = new FlxText(FlxG.width * 0.7, 5, 0, "", 32);
-		scoreText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, RIGHT);
-
+		scoreText = new FlxText(0, 20, 0, "", 32);
+		scoreText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER);
+		//scoreText.screenCenter(X);
 		scoreBG = new FlxSprite(scoreText.x - 6, 0).makeGraphic(1, 66, 0xFF000000);
 		scoreBG.alpha = 0.6;
 		add(scoreBG);
@@ -188,9 +202,15 @@ class FreeplayState extends MusicBeatState {
 		bottomText.setFormat(Paths.font("vcr.ttf"), size, FlxColor.WHITE, CENTER);
 		bottomText.scrollFactor.set();
 		add(bottomText);
-
+		
 		player = new MusicPlayer(this);
 		add(player);
+
+
+		bottomBG.visible = false; //IDK WHY BUT WHEN I TRIED TO COMMENT IT OUT OR JUST REMOVE THEM THE GAME CRASHED SO IM JUST MAKING THEM INVISIBLE INSTEAD ITS NOT A BIG DEAL
+		bottomText.visible = false;
+		scoreBG.visible = false;
+		diffText.visible = false;
 
 		changeSelection();
 		updateTexts();
@@ -538,7 +558,7 @@ class FreeplayState extends MusicBeatState {
 	}
 
 	private function positionHighscore() {
-		scoreText.x = FlxG.width - scoreText.width - 6;
+		scoreText.x = 1000 - scoreText.width - 6;
 		scoreBG.scale.x = FlxG.width - scoreText.x + 6;
 		scoreBG.x = FlxG.width - (scoreBG.scale.x / 2);
 		diffText.x = Std.int(scoreBG.x + (scoreBG.width / 2));
@@ -609,6 +629,10 @@ class FreeplayState extends MusicBeatState {
 					selectedAlbum.loadGraphic(Paths.image('albums/aisong'));
 				}
 				case 8:
+				{
+					selectedAlbum.loadGraphic(Paths.image('albums/mikusong'));
+				}				
+				case 9:
 				{
 					selectedAlbum.loadGraphic(Paths.image('albums/eyeOfTheBeholder'));
 				}

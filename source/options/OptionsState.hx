@@ -19,6 +19,15 @@ class OptionsState extends MusicBeatState {
 	public static var menuBG:FlxSprite;
 	public static var onPlayState:Bool = false;
 
+	public var gear1:BGSprite;
+	public var gear2:BGSprite;
+	public var alfie:BGSprite;
+
+	//on this menu all you have to do is change the all the letters into the right font, and then reposition the options so that theyre on the left...
+	//idk how the submenus work here? I dont think it will be much of a problem but honestly who knows with fnf......
+	//reminder that theres concept pics of how they should look like in the menu assets folder!
+	// use this one and not BaseOptionsMenu
+
 	var shader:Array<BitmapFilter> = [
 		new ShaderFilter(new shaders.PostProcessing()),
 	];
@@ -52,14 +61,34 @@ class OptionsState extends MusicBeatState {
 		DiscordClient.changePresence("Options Menu", null);
 		#end
 
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('optionsMenu'));
-		bg.scale.set(0.67, 0.67);
-		bg.antialiasing = ClientPrefs.data.antialiasing;
-		//bg.color = 0xFFea71fd;
-		bg.updateHitbox();
-
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuassets/optionsMenu'));
+		bg.scale.set(0.8, 0.8);
 		bg.screenCenter();
+		bg.antialiasing = ClientPrefs.data.antialiasing;
 		add(bg);
+
+		gear1 = new BGSprite('menuassets/gear', FlxG.width * 0.75 + 25, -200, 0, 0); //spins counter clock wise
+		gear1.updateHitbox();
+		gear1.alpha = 1;
+		gear1.scale.set(0.8,0.8);
+		gear1.antialiasing = ClientPrefs.data.antialiasing;
+		add(gear1);	
+
+
+		gear2 = new BGSprite('menuassets/gear', -180, FlxG.height * 0.71, 0, 0); //spins counter clock wise
+		gear2.updateHitbox();
+		gear2.alpha = 1;
+		gear2.scale.set(0.8,0.8);
+		gear2.antialiasing = ClientPrefs.data.antialiasing;
+		add(gear2);	
+
+		alfie = new BGSprite('menuassets/alfieOptions', FlxG.width * 0.5 - 75, 90, 0, 0, ['thonk'], true);
+		alfie.updateHitbox();
+		alfie.alpha = 1;
+		alfie.scale.set(0.8,0.8);
+		alfie.animation.play('thonk', true, false);
+		alfie.antialiasing = ClientPrefs.data.antialiasing;
+		add(alfie);	
 
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
@@ -99,6 +128,8 @@ class OptionsState extends MusicBeatState {
 
 	override function update(elapsed:Float) {
 		super.update(elapsed);
+		gear1.angle -= 5 * elapsed;
+		gear2.angle += 5 * elapsed;
 
 		if (controls.UI_UP_P) {
 			changeSelection(-1);

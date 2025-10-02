@@ -1,5 +1,7 @@
 package states;
 
+import flixel.effects.particles.FlxEmitter;
+import flixel.effects.particles.FlxEmitter;
 import flixel.FlxObject;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.effects.FlxFlicker;
@@ -7,6 +9,7 @@ import lime.app.Application;
 import states.editors.MasterEditorMenu;
 import options.OptionsState;
 import openfl.filters.BitmapFilter;
+import openfl.display.BlendMode;
 import openfl.filters.ShaderFilter;
 
 class MainMenuState extends MusicBeatState {
@@ -15,10 +18,30 @@ class MainMenuState extends MusicBeatState {
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 
+	// THE MENU HAS 4 OPTIONS: SONGS, EXTRAS, CREDITS, OPTIONS, YOU CAN USE THE FREEPLAY MENU AS THE SONGS MENU SINCE ITS LITERALLY THE SAME THING
 	var optionShit:Array<String> = ['freeplay', 'credits', 'options'];
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
+
+	var multiplyBar:BGSprite; //im using bgsprite cuz i think its just like the same thing as flxsprite but easier to use right lmao
+	var randomRender:BGSprite; //this is for the random renders
+
+	//BASIC NOTES:
+	//When you enter the menu, the multiplyBar and the randomRender slide in from the left and right respectedly (check the concept pics i sent, they're also in the files
+	//Everytime you enter the menu it chooses a random render to display... HOWEVER
+	//Would it be possible to make it so a character render would only show up if youve played the song that character is from? so that you don't get spoiled on Nikku
+	//before actually playing her song.....
+
+	//When highlighted, the button would use the songButton animation, while the non highlighted option uses the songButtonUnselected animation... It'd also be good if
+	//the icon got a little bigger when you highlighted it (like a tween for the size..)
+
+	//What I'm gonna do for this menu here is add in all the visuals...... I dunno how to mess with these buttons too much so I won't try it bc i might just break things
+	//For hte random render i'm gonna just make it Alfie for now, but it should pick from any of the renders in the RENDERS folder
+
+	//For the extras menu, you can copy and pastethis one and then just replace stuff as necessary!
+
+
 
 	var shader:Array<BitmapFilter> = [
 		new ShaderFilter(new shaders.PostProcessing()),
@@ -46,22 +69,58 @@ class MainMenuState extends MusicBeatState {
 
 		persistentUpdate = persistentDraw = true;
 
-		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
-		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('mainMenu'));
+		var bg:FlxSprite = new FlxSprite(0).loadGraphic(Paths.image('menuassets/mainExtraBg'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
-		bg.scrollFactor.set(0, yScroll);
-		bg.setGraphicSize(Std.int(bg.width * 1.175));
+		bg.scrollFactor.set(0, 0);
+		//bg.setGraphicSize(Std.int(bg.width * 1.175));
 		bg.updateHitbox();
 		bg.screenCenter();
-		bg.scale.set(0.70, 0.75);
+		bg.scale.set(0.8, 0.8);
 		add(bg);
+
+		var emitter: FlxEmitter = new FlxEmitter(-700, -300);
+		emitter.launchMode = FlxEmitterMode.SQUARE;
+		emitter.velocity.set(50, 150, 100, 200);
+		emitter.scale.set(0.5, 0.5, 1, 1, 0.5, 0.5, 0.75, 0.75);
+		//emitter.drag.set(0, 0, 0, 0, 5, 5, 10, 10);
+		emitter.width = 1280 + 300;
+		emitter.x = -750;//(FlxG.width / 2) - (emitter.width / 2);
+		emitter.alpha.set(1, 1, 1, 1);
+		emitter.lifespan.set(5, 10);
+		emitter.particleClass = StarParticle;
+		//emitter.loadParticles(Paths.image('Particles/Particle' + i), 500, 16, true);
+		for (j in 0...25) { // precache
+			var star: StarParticle = new StarParticle();
+			emitter.add(star);
+		}
+		emitter.y -= StarParticle.maxHeight;
+
+		emitter.start(false, 1, 100000);
+		add(emitter);
+
+		multiplyBar = new BGSprite('menuassets/mainMenuMultiply', -80, 0, 0, 0); 
+		multiplyBar.updateHitbox();
+		multiplyBar.alpha = 1;
+		multiplyBar.scale.set(0.8,0.8);
+		multiplyBar.screenCenter(Y);
+		multiplyBar.blend = BlendMode.MULTIPLY;
+		multiplyBar.antialiasing = ClientPrefs.data.antialiasing;
+		add(multiplyBar);
+
+		randomRender = new BGSprite('RENDERS/AlfieMSRenderAlt', -600, 0, 0, 0); //I assume youll make an array of possible renders?
+		randomRender.updateHitbox();
+		randomRender.alpha = 1;
+		randomRender.scale.set(0.28,0.28);
+		randomRender.screenCenter(Y);
+		randomRender.antialiasing = ClientPrefs.data.antialiasing;
+		add(randomRender);
 
 		camFollow = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
 
 		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuDesat'));
 		magenta.antialiasing = ClientPrefs.data.antialiasing;
-		magenta.scrollFactor.set(0, yScroll);
+		magenta.scrollFactor.set(0, 0);
 		magenta.setGraphicSize(Std.int(magenta.width * 1.175));
 		magenta.updateHitbox();
 		magenta.screenCenter();
@@ -226,7 +285,7 @@ class MainMenuState extends MusicBeatState {
 		menuItems.members[curSelected].centerOffsets();
 		menuItems.members[curSelected].screenCenter(X);
 
-		camFollow.setPosition(menuItems.members[curSelected].getGraphicMidpoint().x, menuItems.members[curSelected].getGraphicMidpoint().y
-			- (menuItems.length > 4 ? menuItems.length * 8 : 0));
+		//camFollow.setPosition(menuItems.members[curSelected].getGraphicMidpoint().x, menuItems.members[curSelected].getGraphicMidpoint().y
+			//- (menuItems.length > 4 ? menuItems.length * 8 : 0));
 	}
 }
