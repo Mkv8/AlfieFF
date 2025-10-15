@@ -11,6 +11,11 @@ function onEvent(name,value1,value2)
 		manualShakeIntensity = tonumber(splitStrval2(value2, ',')[1]) or defaultManualShakeIntensity
 		manualShakeRatio = tonumber(splitStrval2(value2, ',')[2]) or defaultManualShakeRatio
 		manualShakeLength = tonumber(splitStrval2(value2, ',')[3]) or stepBullshit(splitStrval2(value2, ',')[3])
+		playRate = getProperty('playbackRate') or 1
+		if playRate == 0 then
+			playRate = 1
+		end
+		manualShakeLength = manualShakeLength / playRate
 		ShakeZoomThing()
 	end
 end

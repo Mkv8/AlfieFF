@@ -105,6 +105,11 @@ function onEvent(name,value1,value2)
 					zoomOut = false
 				end
 				duration = tonumber(splitStr(value2, ',')[1]) or stepBullshit(splitStr(value2, ',')[1])
+				playRate = getProperty('playbackRate') or 1
+				if playRate == 0 then
+					playRate = 1
+				end
+				duration = duration / playRate
 				if duration == 0 then
 					duration = 0.000001
 				end

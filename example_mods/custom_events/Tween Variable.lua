@@ -11,9 +11,14 @@ function onEvent(name,value1,value2)
 			end
 			setProperty(property, value) -- ends ongoing tweens
 		end
+		playRate = getProperty('playbackRate') or 1
+		if playRate == 0 then
+			playRate = 1
+		end
 		property = value1
 		value = stringMatch(splitStr(value2, ',')[1])
         tweenduration = tonumber(splitStr(value2, ',')[2]) or stepBullshit(splitStr(value2, ',')[2])
+		tweenduration = tweenduration / playRate
 		tweeneasing = splitStr(value2, ',')[3] or 'linear'
 		if tweenduration ~= 0 then
 			varTween('vartween', property, value, tweenduration, tweeneasing)

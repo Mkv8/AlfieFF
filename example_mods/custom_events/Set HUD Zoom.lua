@@ -7,12 +7,15 @@ function onCreate()
 	fastZoomCheckingDefault = zoomCheckingDefault -- whether you want fast zooms (zooms faster than iDontCareValue) to use the new tween system
 	-- (setting zoom checking in value2 overrides fastZoomCheckingDefault)
 	iDontCareValue = 0.025
-	playRate = getProperty('playbackRate')
 	zoomingDecay = getProperty('camZoomingDecay')
 	setProperty('camZoomingDecay', 0)
+	playRate = getProperty('playbackRate') or 1
 end
 
 function onUpdate(elapsed)
+	if playRate ~= getProperty('playbackRate') and getProperty('playbackRate') ~= nil then
+		playRate = getProperty('playbackRate')
+	end
 	if getProperty('camZoomingDecay') ~= 0 then
 		zoomingDecay = getProperty('camZoomingDecay')
 		setProperty('camZoomingDecay', 0)
@@ -84,6 +87,7 @@ function onEvent(name,value1,value2)
 				zoomOut = false
 			end
 			duration = tonumber(splitStr(value2, ',')[1]) or stepBullshit(splitStr(value2, ',')[1])
+			duration = duration / playRate
 			if duration == 0 then
 				duration = 0.000001
 			end

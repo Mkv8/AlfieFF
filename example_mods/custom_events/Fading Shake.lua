@@ -8,6 +8,11 @@ function onEvent(name,value1,value2)
 		shakeMult = tonumber(splitStrval1(value1, ',')[1]) or defaultShakeMult
 		fadingShakeRatio = tonumber(splitStrval1(value1, ',')[2]) or defaultFadeShakeRatio
 		shakeDuration = tonumber(splitStr(value2, ',')[1]) or stepBullshit(splitStr(value2, ',')[1])
+		playRate = getProperty('playbackRate') or 1
+		if playRate == 0 then
+			playRate = 1
+		end
+		shakeDuration = shakeDuration / playRate
 		shakeEasing = splitStr(value2, ',')[2] or defaultShakeEasing
 		shakeOngoing = true
 		shakeTween(shakeMult, shakeDuration, shakeEasing)

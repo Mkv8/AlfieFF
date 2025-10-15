@@ -28,6 +28,11 @@ function onEvent(name, value1, value2)
 		screenPercentage = tonumber(splitStrval1(value1, ',')[1]) or 0
 		barType = splitStrval1(value1, ',')[2] or 'letter'
 		duration = tonumber(splitStrval2(value2, ',')[1]) or stepBullshit(splitStrval2(value2, ',')[1])
+		playRate = getProperty('playbackRate') or 1
+		if playRate == 0 then
+			playRate = 1
+		end
+		duration = duration / playRate
 		if duration == 0 then
 			duration = 0.000001
 		end

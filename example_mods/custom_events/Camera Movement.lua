@@ -1,5 +1,6 @@
 function onEvent(name,value1,value2)
 	if name == "Camera Movement" and value1 ~= '' then
+		dontFuckWithThis = false
 		setChar = splitStr(value1, ',')[1]
 		offsetX = splitStr(value1, ',')[2] or 0
 		offsetY = splitStr(value1, ',')[3] or 0
@@ -25,7 +26,12 @@ function onEvent(name,value1,value2)
 			end
 			tweenFinished = false
 			camMoveTween = true
+			playRate = getProperty('playbackRate') or 1
+			if playRate == 0 then
+				playRate = 1
+			end
 			tweenTimer = tonumber(splitStrval2(value2, ',')[1]) or stepBullshit(splitStrval2(value2, ',')[1])
+			tweenTimer = tweenTimer / playRate
 			tweenEase = splitStrval2(value2, ',')[2] or 'linear'
 			if tweenTimer == 0 then
 				tweenTimer = 0.00001
@@ -83,6 +89,8 @@ function onEvent(name,value1,value2)
 		end
 		camChar = nil
 		camCharacter = nil
+	elseif name == "Cam Focus Character" then
+		dontFuckWithThis = true
 	end
 end
 
@@ -115,10 +123,12 @@ function tweenCamPos(length, positionX, positionY, ease)
 end
 
 function onTweenCompleted(tweenTag)
-	if tweenTag == 'camMoveX' or tweenTag == 'camMoveY' and camMoveTween == true then
-		camMoveTween = false
-		tweenFinished = true
-		finalCamPos(curChar)
+	if dontFuckWithThis ~= true then
+		if tweenTag == 'camMoveX' or tweenTag == 'camMoveY' and camMoveTween == true then
+			camMoveTween = false
+			tweenFinished = true
+			finalCamPos(curChar)
+		end
 	end
 end
 

@@ -21,6 +21,11 @@ defaultColor = 'FFFFFF' -- string (default color in hex)
 defaultCam = 'game' -- string (default camera to flash)
 
 function createFade(color, opacity, fType, dur, cam)
+	playRate = getProperty('playbackRate') or 1
+	if playRate == 0 then
+		playRate = 1
+	end
+	dur = dur / playRate
 	if dur == 0 then
 		dur = 0.000001
 	end

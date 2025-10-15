@@ -1,5 +1,7 @@
-Value 1: % of screen covered, Bar type
+Value 1: % of screen covered, Bar type, Ratio, Ratio 2
 Bar types: "letter", "pillar" and "all"
+Ratio: 0 moves empty space up (Left when pillarbox)
+(Ratio 2 is used for pillarbox when bar type is "all")
 
 please don't actually put the "%" symbol
 

@@ -5,6 +5,11 @@ function onEvent(name, value1, value2)
         yourcamera = splitStr(value1, ',')[2] 
 		easing = splitStr(value1, ',')[3] or 'circOut'
 		rotationtime = tonumber(value2) or stepBullshit(value2)
+		playRate = getProperty('playbackRate') or 1
+		if playRate == 0 then
+			playRate = 1
+		end
+		rotationtime = rotationtime / playRate
 		if rotationtime == 0 then
 			rotationtime = 0.000001
 		end

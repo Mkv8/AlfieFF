@@ -37,11 +37,9 @@ class CreditsState extends MusicBeatState {
 	//REMINDER THAT THERES A CONCEPT PICTURE ON THE MENU ASSETS FOLDER
 	//For this menu, people are displayed vertically and when you press up and down it swaps between them (just like the original menu!)
 	//When someone is highlighted/selected, their icon and name tweens to the left and it displays a message
-	//Pressing left and right changes categories... categories are: ARTISTS - CODERS - MUSICIANS - CHARTERS - MISC/SPECIAL THANKS
-	//For now, since i only made mine and Gigab00ts' icons, feel free to make them all my icon and ill change it later, ill add in everyone that needs to be credited here on the 
-	//existing credits list
-	//IDK WHAT BUTTON TO MAKE THE CREDITS VIDEO PLAY, the credits video itself isnt done yet, so for now, you can just make it play any of the existing videos in the files and
-	//ill replace it later LOL
+	//Pressing left and right changes categories... categories are: ARTISTS - CODERS - MUSICIANS - CHARTERS - EXTRA HELP - SPECIAL THANKS
+	//I set all the icons as mk for now but i can change them later, theyre already in the tiles
+	//IDK WHAT BUTTON TO MAKE THE CREDITS VIDEO PLAY, the credits video itself is done its "CreditsFilter" in the files
 
 	var curveShader = new shaders.CurveShader();
 
