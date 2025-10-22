@@ -6480,8 +6480,6 @@
 		"player2": "skid90s",
 		"song": "Jammed Cartridge",
 		"needsVoices": true,
-		"arrowSkin": "noteSkins/KAINOTE_assets",
-		"splashSkin": "KAInoteSplashes",
 		"stage": "skidHouse",
 		"speed": 2.5,
 		"bpm": 140

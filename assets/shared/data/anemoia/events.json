@@ -17,7 +17,7 @@
 				]
 			],
 			[
-				352.941176470588,
+				618.556701030928,
 				[
 					[
 						"Set Property",
@@ -27,7 +27,7 @@
 				]
 			],
 			[
-				7676.47058823529,
+				13453.6082474227,
 				[
 					[
 						"Camera Follow Pos",
@@ -37,7 +37,7 @@
 				]
 			],
 			[
-				9794.11764705882,
+				17164.9484536082,
 				[
 					[
 						"Camera Follow Pos",
@@ -47,12 +47,937 @@
 				]
 			],
 			[
-				10764.7058823529,
+				18865.9793814433,
 				[
 					[
 						"Camera Follow Pos",
 						"",
 						""
+					]
+				]
+			],
+			[
+				19484.5360824742,
+				[
+					[
+						"Cam Boom Speed",
+						"1",
+						"0.5"
+					]
+				]
+			],
+			[
+				19793.8144329897,
+				[
+					[
+						"Set Cam Zoom",
+						"1.3x",
+						"16s, expoOut"
+					],
+					[
+						"Camera Movement",
+						"bf, -50",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				21030.9278350515,
+				[
+					[
+						"Camera Movement",
+						"dad, 50",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				22268.0412371134,
+				[
+					[
+						"Camera Movement",
+						"bf, -50",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				23505.1546391753,
+				[
+					[
+						"Camera Movement",
+						"dad, 50",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				24742.2680412371,
+				[
+					[
+						"Camera Movement",
+						"bf, -50",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				25979.381443299,
+				[
+					[
+						"Camera Movement",
+						"dad, 50",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				27216.4948453608,
+				[
+					[
+						"Camera Movement",
+						"middle",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				28453.6082474227,
+				[
+					[
+						"Camera Movement",
+						"bf",
+						"16s, expoInOut"
+					],
+					[
+						"Set Cam Zoom",
+						"1x",
+						"16s, expoInOut"
+					]
+				]
+			],
+			[
+				29381.4432989691,
+				[
+					[
+						"Cam Boom Speed",
+						"1",
+						"0.7"
+					]
+				]
+			],
+			[
+				31237.1134020619,
+				[
+					[
+						"Camera Movement",
+						"dad",
+						"12s, quartInOut"
+					]
+				]
+			],
+			[
+				33711.3402061856,
+				[
+					[
+						"Camera Movement",
+						"bf",
+						"12s, quartInOut"
+					]
+				]
+			],
+			[
+				36185.5670103093,
+				[
+					[
+						"Camera Movement",
+						"dad",
+						"12s, quartInOut"
+					]
+				]
+			],
+			[
+				38969.0721649485,
+				[
+					[
+						"Camera Movement",
+						"dad, -50, 50",
+						"4s, expoOut"
+					],
+					[
+						"Set Cam Zoom",
+						"1.65x",
+						"4s, expoOut"
+					]
+				]
+			],
+			[
+				39123.7113402062,
+				[
+					[
+						"Add Camera Zoom",
+						"0.003",
+						"0.006"
+					]
+				]
+			],
+			[
+				39278.3505154639,
+				[
+					[
+						"Add Camera Zoom",
+						"0.003",
+						"0.006"
+					]
+				]
+			],
+			[
+				39432.9896907216,
+				[
+					[
+						"Add Camera Zoom",
+						"0.003",
+						"0.006"
+					]
+				]
+			],
+			[
+				39587.6288659794,
+				[
+					[
+						"Camera Movement",
+						"bf, -50",
+						"32s, sineInOut"
+					],
+					[
+						"Set Cam Zoom",
+						"1.15x",
+						"32s, sineInOut"
+					],
+					[
+						"Camera Bars",
+						"25",
+						"32s, sineInOut"
+					]
+				]
+			],
+			[
+				39742.2680412371,
+				[
+					[
+						"Cam Boom Speed",
+						"2",
+						"0.7"
+					]
+				]
+			],
+			[
+				40515.4639175258,
+				[
+					[
+						"Add Camera Zoom",
+						"0.0075",
+						"0.015"
+					]
+				]
+			],
+			[
+				41752.5773195876,
+				[
+					[
+						"Add Camera Zoom",
+						"0.0075",
+						"0.015"
+					]
+				]
+			],
+			[
+				42835.0515463917,
+				[
+					[
+						"Add Camera Zoom",
+						"0.0075",
+						"0.015"
+					]
+				]
+			],
+			[
+				42989.6907216495,
+				[
+					[
+						"Add Camera Zoom",
+						"0.0075",
+						"0.015"
+					]
+				]
+			],
+			[
+				44226.8041237113,
+				[
+					[
+						"Add Camera Zoom",
+						"0.0075",
+						"0.015"
+					]
+				]
+			],
+			[
+				44536.0824742268,
+				[
+					[
+						"Camera Movement",
+						"dad, 50",
+						"32s, sineInOut"
+					]
+				]
+			],
+			[
+				45463.9175257732,
+				[
+					[
+						"Add Camera Zoom",
+						"0.0075",
+						"0.015"
+					]
+				]
+			],
+			[
+				46701.030927835,
+				[
+					[
+						"Add Camera Zoom",
+						"0.0075",
+						"0.015"
+					]
+				]
+			],
+			[
+				47783.5051546392,
+				[
+					[
+						"Add Camera Zoom",
+						"0.0075",
+						"0.015"
+					]
+				]
+			],
+			[
+				47938.1443298969,
+				[
+					[
+						"Add Camera Zoom",
+						"0.0075",
+						"0.015"
+					]
+				]
+			],
+			[
+				48247.4226804124,
+				[
+					[
+						"Camera Bars",
+						"0",
+						"16s, expoInOut"
+					]
+				]
+			],
+			[
+				48865.9793814433,
+				[
+					[
+						"Add Camera Zoom",
+						"0.0075",
+						"0.015"
+					],
+					[
+						"Set Cam Zoom",
+						"1.35x",
+						"4s, expoOut"
+					],
+					[
+						"Camera Movement",
+						"dad, -50, 50",
+						"4s, expoOut"
+					]
+				]
+			],
+			[
+				49020.618556701,
+				[
+					[
+						"Add Camera Zoom",
+						"0.003",
+						"0.006"
+					]
+				]
+			],
+			[
+				49175.2577319588,
+				[
+					[
+						"Add Camera Zoom",
+						"0.003",
+						"0.006"
+					]
+				]
+			],
+			[
+				49329.8969072165,
+				[
+					[
+						"Add Camera Zoom",
+						"0.003",
+						"0.006"
+					]
+				]
+			],
+			[
+				49484.5360824742,
+				[
+					[
+						"Camera Movement",
+						"bf, -50",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				50412.3711340206,
+				[
+					[
+						"Add Camera Zoom",
+						"0.0075",
+						"0.015"
+					]
+				]
+			],
+			[
+				50721.6494845361,
+				[
+					[
+						"Camera Movement",
+						"dad, 50",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				51649.4845360825,
+				[
+					[
+						"Add Camera Zoom",
+						"0.0075",
+						"0.015"
+					]
+				]
+			],
+			[
+				51958.7628865979,
+				[
+					[
+						"Camera Movement",
+						"bf, -50",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				52731.9587628866,
+				[
+					[
+						"Add Camera Zoom",
+						"0.0075",
+						"0.015"
+					]
+				]
+			],
+			[
+				52886.5979381443,
+				[
+					[
+						"Add Camera Zoom",
+						"0.0075",
+						"0.015"
+					]
+				]
+			],
+			[
+				53195.8762886598,
+				[
+					[
+						"Camera Movement",
+						"dad, 50",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				54123.7113402062,
+				[
+					[
+						"Add Camera Zoom",
+						"0.0075",
+						"0.015"
+					]
+				]
+			],
+			[
+				54432.9896907216,
+				[
+					[
+						"Camera Movement",
+						"bf, -50",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				55360.824742268,
+				[
+					[
+						"Add Camera Zoom",
+						"0.0075",
+						"0.015"
+					]
+				]
+			],
+			[
+				55670.1030927835,
+				[
+					[
+						"Camera Movement",
+						"middle",
+						"16s, expoInOut"
+					],
+					[
+						"Set Cam Zoom",
+						"1.15x",
+						"16s, expoInOut"
+					]
+				]
+			],
+			[
+				56597.9381443299,
+				[
+					[
+						"Add Camera Zoom",
+						"0.0075",
+						"0.015"
+					]
+				]
+			],
+			[
+				57680.412371134,
+				[
+					[
+						"Add Camera Zoom",
+						"0.0075",
+						"0.015"
+					]
+				]
+			],
+			[
+				57835.0515463917,
+				[
+					[
+						"Add Camera Zoom",
+						"0.0075",
+						"0.015"
+					]
+				]
+			],
+			[
+				58762.8865979381,
+				[
+					[
+						"Add Camera Zoom",
+						"0.0075",
+						"0.015"
+					]
+				]
+			],
+			[
+				58917.5257731959,
+				[
+					[
+						"Add Camera Zoom",
+						"0.003",
+						"0.006"
+					]
+				]
+			],
+			[
+				59072.1649484536,
+				[
+					[
+						"Cam Boom Speed",
+						"4",
+						"1"
+					],
+					[
+						"Add Camera Zoom",
+						"0.003",
+						"0.006"
+					]
+				]
+			],
+			[
+				59226.8041237113,
+				[
+					[
+						"Add Camera Zoom",
+						"0.003",
+						"0.006"
+					]
+				]
+			],
+			[
+				59381.4432989691,
+				[
+					[
+						"Set Cam Zoom",
+						"1.4x",
+						"16s, expoOut"
+					],
+					[
+						"Camera Movement",
+						"bf",
+						"16s, expoOut"
+					],
+					[
+						"Camera Bars",
+						"25",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				64329.8969072165,
+				[
+					[
+						"Camera Movement",
+						"dad",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				69278.3505154639,
+				[
+					[
+						"Camera Movement",
+						"bf",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				74226.8041237113,
+				[
+					[
+						"Camera Movement",
+						"dad",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				76701.030927835,
+				[
+					[
+						"Camera Bars",
+						"100",
+						"16s, expoIn"
+					]
+				]
+			],
+			[
+				77938.1443298969,
+				[
+					[
+						"Set Cam Zoom",
+						"1.65x",
+						"8s, expoIn"
+					],
+					[
+						"Camera Movement",
+						"dad, -50, 50",
+						"8s, expoIn"
+					]
+				]
+			],
+			[
+				78865.9793814433,
+				[
+					[
+						"Cam Boom Speed",
+						"1",
+						"0.5"
+					]
+				]
+			],
+			[
+				79175.2577319588,
+				[
+					[
+						"Camera Bars",
+						"0",
+						"16s, expoOut"
+					],
+					[
+						"Camera Movement",
+						"bf, -50",
+						"0"
+					],
+					[
+						"Set Cam Zoom",
+						"1.3x",
+						"0"
+					]
+				]
+			],
+			[
+				80412.3711340206,
+				[
+					[
+						"Camera Movement",
+						"dad, 50",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				81649.4845360825,
+				[
+					[
+						"Camera Movement",
+						"bf, -50",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				82886.5979381443,
+				[
+					[
+						"Camera Movement",
+						"dad, 50",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				84123.7113402062,
+				[
+					[
+						"Camera Movement",
+						"bf, -50",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				85360.8247422681,
+				[
+					[
+						"Camera Movement",
+						"dad, 50",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				86597.9381443299,
+				[
+					[
+						"Camera Movement",
+						"middle",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				87835.0515463918,
+				[
+					[
+						"Camera Movement",
+						"bf",
+						"16s, expoInOut"
+					],
+					[
+						"Set Cam Zoom",
+						"1x",
+						"16s, expoInOut"
+					]
+				]
+			],
+			[
+				88762.8865979382,
+				[
+					[
+						"Cam Boom Speed",
+						"1",
+						"0.7"
+					]
+				]
+			],
+			[
+				94020.6185567011,
+				[
+					[
+						"Camera Movement",
+						"dad",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				98041.2371134021,
+				[
+					[
+						"Cam Boom Speed",
+						"1",
+						"0"
+					]
+				]
+			],
+			[
+				98350.5154639176,
+				[
+					[
+						"Camera Movement",
+						"dad, -50, 50",
+						"4s, expoOut"
+					],
+					[
+						"Set Cam Zoom",
+						"1.5x",
+						"4s, expoOut"
+					]
+				]
+			],
+			[
+				98659.793814433,
+				[
+					[
+						"Cam Boom Speed",
+						"1",
+						"0.5"
+					]
+				]
+			],
+			[
+				98969.0721649485,
+				[
+					[
+						"Set Cam Zoom",
+						"0.85x",
+						"32s, expoOut"
+					],
+					[
+						"Camera Movement",
+						"middle, 20, -150",
+						"32s, expoOut"
+					]
+				]
+			],
+			[
+				116288.659793814,
+				[
+					[
+						"Camera Movement",
+						"middle, 0, 50",
+						"32s, expoInOut"
+					],
+					[
+						"Set Cam Zoom",
+						"1.4x",
+						"32s, expoInOut"
+					],
+					[
+						"Camera Bars",
+						"25",
+						"32s, expoInOut"
+					]
+				]
+			],
+			[
+				118453.608247423,
+				[
+					[
+						"Cam Boom Speed",
+						"4",
+						"1"
+					]
+				]
+			],
+			[
+				118762.886597938,
+				[
+					[
+						"Set Property",
+						"camZoomingDecay",
+						"0.5"
+					],
+					[
+						"Set Cam Zoom",
+						"1.4x",
+						"32s, expoOut"
+					],
+					[
+						"Camera Movement",
+						"middle, 0, 75",
+						"32s, expoOut"
+					],
+					[
+						"Camera Bars",
+						"25",
+						"32s, expoOut"
+					]
+				]
+			],
+			[
+				132371.134020619,
+				[
+					[
+						"Camera Movement",
+						"bf, 0, 75",
+						"16s, expoInOut"
+					],
+					[
+						"Set Cam Zoom",
+						"1.7x",
+						"16s, expoInOut"
+					]
+				]
+			],
+			[
+				134845.360824742,
+				[
+					[
+						"Camera Movement",
+						"dad, 0, 75",
+						"16s, expoInOut"
+					]
+				]
+			],
+			[
+				137783.505154639,
+				[
+					[
+						"Camera Bars",
+						"100",
+						"5s, backIn"
+					]
+				]
+			],
+			[
+				138556.701030928,
+				[
+					[
+						"Set Property",
+						"camZoomingDecay",
+						"1"
 					]
 				]
 			]

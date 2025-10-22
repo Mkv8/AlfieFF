@@ -405,6 +405,8 @@ class PlayState extends MusicBeatState {
 				new states.stages.Desktop(); // Eye of the Beholder
 			case 'mansiontop':
 				new states.stages.MansionTop(); // Rooftop Talkshop
+			case 'mikuStage':
+				new states.stages.MikuStage(); // Miku song
 		}
 
 		if (SONG.song == 'rooftop-talkshop' || SONG.song == 'Rooftop Talkshop' ) {
@@ -517,7 +519,7 @@ class PlayState extends MusicBeatState {
 
 		generateSong();
 
-		var noteSkinMap = [
+		/*var noteSkinMap = [
 			"gf-90s" => "noteSkins/NOTE_assets",
 			"90salfie" => "noteSkins/ALFIENOTE_assets",
 			"90skisston" => "noteSkins/KISSNOTE_assets",
@@ -526,7 +528,7 @@ class PlayState extends MusicBeatState {
 		];
 
 		if(noteSkinMap.exists(dad.curCharacter)) dadNoteSkin = noteSkinMap[dad.curCharacter];
-		if(noteSkinMap.exists(boyfriend.curCharacter)) bfNoteSkin = noteSkinMap[boyfriend.curCharacter];
+		if(noteSkinMap.exists(boyfriend.curCharacter)) bfNoteSkin = noteSkinMap[boyfriend.curCharacter];*/
 
 		trace("Dad note skin: " + dadNoteSkin);
 		trace("BF note skin: " + bfNoteSkin);

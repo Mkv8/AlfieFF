@@ -1,0 +1,15 @@
+{
+	"directory": "shared/images/miku",
+	"defaultZoom": 0.68,
+	"stageUI": "",
+
+	"boyfriend": [740, 110],
+	"girlfriend": [740, 110],
+	"opponent": [740, 110],
+	"hide_girlfriend": true,
+
+	"camera_boyfriend": [0, 0],
+	"camera_opponent": [0, 0],
+	"camera_girlfriend": [0, 0],
+	"camera_speed": 1
+}

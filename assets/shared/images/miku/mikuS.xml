@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="mikuS.png">
+	<!-- Created with Adobe Animate version 20.5.1.31044 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="mikuS0000" x="8" y="8" width="371" height="614" frameX="-2" frameY="-1" frameWidth="375" frameHeight="615"/>
+	<SubTexture name="mikuS0001" x="8" y="8" width="371" height="614" frameX="-2" frameY="-1" frameWidth="375" frameHeight="615"/>
+	<SubTexture name="mikuS0002" x="8" y="8" width="371" height="614" frameX="-2" frameY="-1" frameWidth="375" frameHeight="615"/>
+	<SubTexture name="mikuS0003" x="8" y="8" width="371" height="614" frameX="-2" frameY="-1" frameWidth="375" frameHeight="615"/>
+	<SubTexture name="mikuS0004" x="8" y="8" width="371" height="614" frameX="-2" frameY="-1" frameWidth="375" frameHeight="615"/>
+	<SubTexture name="mikuS0005" x="387" y="8" width="375" height="615"/>
+	<SubTexture name="mikuS0006" x="387" y="8" width="375" height="615"/>
+	<SubTexture name="mikuS0007" x="387" y="8" width="375" height="615"/>
+	<SubTexture name="mikuS0008" x="387" y="8" width="375" height="615"/>
+	<SubTexture name="mikuS0009" x="387" y="8" width="375" height="615"/>
+</TextureAtlas>
