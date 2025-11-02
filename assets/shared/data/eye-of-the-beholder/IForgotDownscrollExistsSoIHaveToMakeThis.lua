@@ -7,7 +7,7 @@ function onCreatePost()
 end
 
 function onStepHit()
-	debugPrint(getProperty('camHUD.y'))
+	--debugPrint(getProperty('camHUD.y'))
 	if curStep == 914 then
 		if downscroll == false then
 			triggerEvent('Tween Variable', 'camHUD.y', '-600, 0, sineOut')

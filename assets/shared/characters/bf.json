@@ -150,9 +150,9 @@
 			],
 			"loop": false,
 			"fps": 24,
-			"anim": "attack",
+			"anim": "firstDeath",
 			"indices": [],
-			"name": "boyfriend attack"
+			"name": "BF dies"
 		},
 		{
 			"offsets": [
@@ -161,13 +161,13 @@
 			],
 			"loop": false,
 			"fps": 24,
-			"anim": "pre-attack",
+			"anim": "deathLoop",
 			"indices": [],
-			"name": "bf pre attack"
+			"name": "BF Dead Loop"
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/BOYFRIEND",
+	"image": "characters/BOYFRIEND_DEAD",
 	"position": [
 		0,
 		350
