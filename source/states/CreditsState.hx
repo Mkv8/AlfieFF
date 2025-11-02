@@ -37,7 +37,7 @@ class CreditsState extends MusicBeatState {
 	//REMINDER THAT THERES A CONCEPT PICTURE ON THE MENU ASSETS FOLDER
 	//For this menu, people are displayed vertically and when you press up and down it swaps between them (just like the original menu!)
 	//When someone is highlighted/selected, their icon and name tweens to the left and it displays a message
-	//Pressing left and right changes categories... categories are: ARTISTS - CODERS - MUSICIANS - CHARTERS - EXTRA HELP - SPECIAL THANKS
+	//Pressing left and right changes categories... categories are: ARTISTS - CODERS - MUSICIANS - CHARTERS - EXTRA HELP & SPECIAL THANKS
 	//I set all the icons as mk for now but i can change them later, theyre already in the tiles
 	//IDK WHAT BUTTON TO MAKE THE CREDITS VIDEO PLAY, the credits video itself is done its "CreditsFilter" in the files
 
