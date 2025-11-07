@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="creds.png">
+	<!-- Created with Adobe Animate version 20.5.1.31044 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="creds0000" x="8" y="8" width="399" height="754"/>
+	<SubTexture name="creds0001" x="8" y="8" width="399" height="754"/>
+	<SubTexture name="creds0002" x="8" y="8" width="399" height="754"/>
+	<SubTexture name="creds0003" x="8" y="8" width="399" height="754"/>
+	<SubTexture name="creds0004" x="415" y="8" width="396" height="753" frameX="-1" frameY="0" frameWidth="399" frameHeight="754"/>
+	<SubTexture name="creds0005" x="415" y="8" width="396" height="753" frameX="-1" frameY="0" frameWidth="399" frameHeight="754"/>
+	<SubTexture name="creds0006" x="415" y="8" width="396" height="753" frameX="-1" frameY="0" frameWidth="399" frameHeight="754"/>
+	<SubTexture name="creds0007" x="415" y="8" width="396" height="753" frameX="-1" frameY="0" frameWidth="399" frameHeight="754"/>
+</TextureAtlas>
