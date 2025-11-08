@@ -630,7 +630,7 @@ class FreeplayState extends MusicBeatState {
 				}
 				case 8:
 				{
-					selectedAlbum.loadGraphic(Paths.image('albums/mikusong'));
+					selectedAlbum.loadGraphic(Paths.image('albums/channelSurfers'));
 				}				
 				case 9:
 				{

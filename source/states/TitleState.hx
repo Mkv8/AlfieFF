@@ -22,6 +22,7 @@ import utils.TransNdll;
 import openfl.filters.ShaderFilter;
 import lime.app.Application;
 import openfl.Lib;
+import hxcodec.VideoSprite;
 
 typedef TitleData = {
 	titlex:Float,
@@ -63,6 +64,8 @@ class TitleState extends MusicBeatState {
 	];*/
 
 	var curveShader = new shaders.CurveShader();
+
+	public var videoSprite:VideoSprite;
 
 	var mustUpdate:Bool = false;
 
@@ -175,6 +178,8 @@ class TitleState extends MusicBeatState {
 	var danceLeft:Bool = false;
 	var titleText:FlxSprite;
 
+		
+
 	function startIntro() {
 		if (!initialized) {
 			if (FlxG.sound.music == null) {
@@ -202,6 +207,18 @@ class TitleState extends MusicBeatState {
 		logoBl = new FlxSprite(titleJSON.titlex, titleJSON.titley);
 		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
 		logoBl.antialiasing = ClientPrefs.data.antialiasing;
+
+		videoSprite = new VideoSprite();
+		videoSprite.playVideo(Paths.video("mksayshi"),false,false,true);//cached but not gonna start to play
+		videoSprite.scale.set(1,1);
+		//videoSprite.screenCenter();
+		videoSprite.x = 0;
+		videoSprite.y= 0;   
+		videoSprite.visible = false;
+		videoSprite.antialiasing = ClientPrefs.data.antialiasing;
+		add(videoSprite);
+		videoSprite.bitmap.startPos = Std.int(Conductor.songPosition);
+		videoSprite.bitmap.playCached(); trace('is it playing lmao');
 
 		logoBl.animation.addByPrefix('bump', 'bump', 24, false);
 		logoBl.animation.play('bump');

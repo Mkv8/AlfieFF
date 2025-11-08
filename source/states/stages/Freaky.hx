@@ -143,7 +143,7 @@ class Freaky extends BaseStage {
 			case 4:
 				{
 					FlxTween.tween(blackUI, {alpha: 0}, 3, {ease: FlxEase.cubeIn});
-
+					songDeets();
 				}
 			
 			}
@@ -156,6 +156,135 @@ class Freaky extends BaseStage {
 			kailip.dance();
 		}*/
 	}
+
+		function songDeets() {
+		var songTitle:FlxText;
+		var musician:FlxText;
+		var charter:FlxText;
+		var moontitle:BGSprite;
+		var bartitle:BGSprite;
+		var introTimer:FlxTimer;
+
+		moontitle = new BGSprite('moonintro', 350, 100, 1, 1);
+		moontitle.updateHitbox();
+		moontitle.antialiasing = ClientPrefs.data.antialiasing;
+		moontitle.alpha = 0;
+		moontitle.angle = -5;
+		moontitle.cameras = [camOther];
+		moontitle.scale.set(0.8, 0.8);
+
+		songTitle = new FlxText(20, 200, FlxG.width - 100, 'Freaky 4eva', 48);
+		songTitle.setFormat(Paths.font("vcr.ttf"), 46, 0xFFffcf53, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		songTitle.scrollFactor.set();
+		songTitle.alpha = 0;
+		songTitle.borderColor = 0xFF3F0000;
+		songTitle.borderSize = 3;
+		songTitle.cameras = [camOther];
+
+		musician = new FlxText(110, 300, FlxG.width - 100, 'Song: Aidan.XD', 32);
+		musician.setFormat(Paths.font("vcr.ttf"), 32, 0xFFffcf53, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		musician.scrollFactor.set();
+		musician.alpha = 0;
+		musician.borderColor = 0xFF3F0000;
+		musician.borderSize = 3;		
+		musician.cameras = [camOther];
+
+		charter = new FlxText(110, 350, FlxG.width - 100, 'Charter: PavDrop', 32);
+		charter.setFormat(Paths.font("vcr.ttf"), 32, 0xFFffcf53, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		charter.scrollFactor.set();
+		charter.alpha = 0;
+		charter.borderColor = 0xFF3F0000;
+		charter.borderSize = 3;		
+		charter.cameras = [camOther];
+		
+		add(moontitle);
+		add(songTitle);
+		add(musician);		
+		add(charter);		
+
+		//STARTING TWEENS
+		FlxTween.tween(moontitle, {
+			alpha: 0.5,
+			angle: 0
+		}, 0.8, {
+			ease: FlxEase.quartInOut,
+		});		
+
+		FlxTween.tween(songTitle, {
+			alpha: 1,
+			x: songTitle.x + 50
+		}, 0.8, {
+			ease: FlxEase.quartInOut,
+			startDelay: 0.2
+		});		
+
+
+		FlxTween.tween(musician, {
+			alpha: 1,
+			x: musician.x - 50
+		}, 0.8, {
+			ease: FlxEase.quartInOut,
+			startDelay: 0.4
+		});				
+		FlxTween.tween(charter, {
+			alpha: 1,
+			x: charter.x - 50
+		}, 0.8, {
+			ease: FlxEase.quartInOut,
+			startDelay: 0.4
+		});			
+		
+		
+		//-----------------------------
+
+		//ENDING TWEENS
+		FlxTween.tween(moontitle, {
+			alpha: 0,
+			angle:  5			
+		}, 1.2, {
+			ease: FlxEase.quartInOut,
+			startDelay: 2.5
+		});		
+
+		FlxTween.tween(songTitle, {
+			alpha: 0,
+			x: songTitle.x + 70,
+			angle:  5			
+		}, 1.2, {
+			ease: FlxEase.quartInOut,
+			startDelay: 2.5
+		});		
+
+
+		FlxTween.tween(musician, {
+			alpha: 0,
+			x: musician.x - 70,
+			angle: 5
+		}, 1.2, {
+			ease: FlxEase.quartInOut,
+			startDelay: 2.5
+		});				
+		FlxTween.tween(charter, {
+			alpha: 0,
+			x: charter.x - 70,
+			angle: 5
+		}, 1.2, {
+			ease: FlxEase.quartInOut,
+			startDelay: 2.5
+		});
+
+
+		//-----------------------------
+
+
+		introTimer = new FlxTimer().start(4, function(tmr:FlxTimer)
+			{
+				songTitle.destroy();
+				musician.destroy();
+				charter.destroy();
+
+			}, 0);
+	}	
 
 	override function sectionHit() {
 		// Code here

@@ -17,6 +17,13 @@ class PauseSubState extends MusicBeatSubstate {
 	var difficultyChoices = [];
 	var curSelected:Int = 0;
 
+	var charRender:Item;
+	var noise:BGSprite;
+	var pausedButton:BGSprite;
+
+	var texts:Array<FlxText> = [];
+
+	var pauseSongs:String = 'pauseAlfie';
 	var pauseMusic:FlxSound;
 	var practiceText:FlxText;
 	var skipTimeText:FlxText;
@@ -52,18 +59,6 @@ class PauseSubState extends MusicBeatSubstate {
 		}
 		difficultyChoices.push('BACK');
 
-		pauseMusic = new FlxSound();
-		try {
-			var pauseSong:String = getPauseSong();
-			if (pauseSong != null)
-				pauseMusic.loadEmbedded(Paths.music(pauseSong), true, true);
-		} catch (e:Dynamic) {
-		}
-		pauseMusic.volume = 0;
-		pauseMusic.play(false, FlxG.random.int(0, Std.int(pauseMusic.length / 2)));
-
-		FlxG.sound.list.add(pauseMusic);
-
 		var bg:FlxSprite = new FlxSprite().makeGraphic(1, 1, FlxColor.BLACK);
 		bg.scale.set(FlxG.width, FlxG.height);
 		bg.updateHitbox();
@@ -71,22 +66,56 @@ class PauseSubState extends MusicBeatSubstate {
 		bg.scrollFactor.set();
 		add(bg);
 
+		noise = new BGSprite('miku/noises', 0, 0, 1, 1, ['noises'], true);
+		noise.updateHitbox();
+		noise.alpha = 0;
+		noise.antialiasing = ClientPrefs.data.antialiasing;
+		noise.animation.play('noises', true, false);
+		noise.scale.set(1, 1);
+		add(noise);		
+
+		/*charRender = new BGSprite('RENDERS/AlfieMSRender', 320, -250, 1, 1);
+		charRender.updateHitbox();
+		charRender.antialiasing = ClientPrefs.data.antialiasing;
+		charRender.alpha = 0;
+		charRender.scale.set(0.5, 0.5);
+
+		add(charRender);*/
+		charRender = new Item(320, -200);
+		charRender.updateHitbox();
+		charRender.alpha = 0;
+		charRender.scale.set(0.5, 0.5);
+		charRender.antialiasing = ClientPrefs.data.antialiasing;		
+		charRender.loadGraphic(Paths.image('RENDERS/AlfieMSRender'));
+		add(charRender);		
+
+		pausedButton = new BGSprite('pause', FlxG.width - 480, 0, 1, 1, ['pause'], true);
+		pausedButton.updateHitbox();
+		pausedButton.alpha = 0;
+		pausedButton.antialiasing = ClientPrefs.data.antialiasing;
+		pausedButton.animation.play('pause', true, false);
+		pausedButton.scale.set(1, 1);
+		add(pausedButton);			
+
 		var levelInfo:FlxText = new FlxText(20, 15, 0, PlayState.SONG.song, 32);
 		levelInfo.scrollFactor.set();
 		levelInfo.setFormat(Paths.font("vcr.ttf"), 32);
 		levelInfo.updateHitbox();
+		levelInfo.color = 0xFF40FF1A;
 		add(levelInfo);
 
 		var levelDifficulty:FlxText = new FlxText(20, 15 + 32, 0, Difficulty.getString().toUpperCase(), 32);
 		levelDifficulty.scrollFactor.set();
 		levelDifficulty.setFormat(Paths.font('vcr.ttf'), 32);
 		levelDifficulty.updateHitbox();
+		levelDifficulty.color = 0xFF40FF1A;
 		add(levelDifficulty);
 
 		var blueballedTxt:FlxText = new FlxText(20, 15 + 64, 0, "Blueballed: " + PlayState.deathCounter, 32);
 		blueballedTxt.scrollFactor.set();
 		blueballedTxt.setFormat(Paths.font('vcr.ttf'), 32);
 		blueballedTxt.updateHitbox();
+		blueballedTxt.color = 0xFF40FF1A;
 		add(blueballedTxt);
 
 		practiceText = new FlxText(20, 15 + 101, 0, "PRACTICE MODE", 32);
@@ -94,6 +123,7 @@ class PauseSubState extends MusicBeatSubstate {
 		practiceText.setFormat(Paths.font('vcr.ttf'), 32);
 		practiceText.x = FlxG.width - (practiceText.width + 20);
 		practiceText.updateHitbox();
+		practiceText.color = 0xFF40FF1A;
 		practiceText.visible = PlayState.instance.practiceMode;
 		add(practiceText);
 
@@ -104,6 +134,7 @@ class PauseSubState extends MusicBeatSubstate {
 		chartingText.y = FlxG.height - (chartingText.height + 20);
 		chartingText.updateHitbox();
 		chartingText.visible = PlayState.chartingMode;
+		chartingText.color = 0xFF40FF1A;
 		add(chartingText);
 
 		blueballedTxt.alpha = 0;
@@ -119,6 +150,18 @@ class PauseSubState extends MusicBeatSubstate {
 		}, 0.4, {
 			ease: FlxEase.quartInOut
 		});
+		FlxTween.tween(noise, {
+			alpha: 0.3
+		}, 0.4, {
+			ease: FlxEase.quartInOut
+		});		
+		FlxTween.tween(pausedButton, {
+			alpha: 1,
+			y: 25
+		}, 0.4, {
+			ease: FlxEase.quartInOut,
+			startDelay: 0.2
+		});				
 		FlxTween.tween(levelInfo, {
 			alpha: 1,
 			y: 20
@@ -139,10 +182,201 @@ class PauseSubState extends MusicBeatSubstate {
 		}, 0.4, {
 			ease: FlxEase.quartInOut,
 			startDelay: 0.7
-		});
+		});					
+
+		switch(PlayState.SONG.song)
+		{
+			case 'Freaky 4eva': //done
+				{
+				charRender.loadGraphic(Paths.image('RENDERS/BFMSRenderAlt'));
+				charRender.scale.set(0.5, 0.5);	
+				charRender.x = 380;
+				charRender.y = -460;
+				FlxTween.tween(charRender, {
+					alpha: 1,
+					x: 260
+				}, 0.8, {
+					ease: FlxEase.quartInOut,
+					startDelay: 1
+				});				
+				pauseSongs = 'pauseBF';		
+				}			
+			case 'Forest Fire': //done
+				{
+				charRender.loadGraphic(Paths.image('RENDERS/AlfieMSRender'));
+				charRender.scale.set(0.5, 0.5);	
+				charRender.x = 320;
+				charRender.y = -280;
+				FlxTween.tween(charRender, {
+					alpha: 1,
+					x: 200
+				}, 0.8, {
+					ease: FlxEase.quartInOut,
+					startDelay: 1
+				});				
+				pauseSongs = 'pauseAlfie';		
+				}
+
+			case 'Convicted Love': //done
+				{
+				charRender.loadGraphic(Paths.image('RENDERS/KisstonMSRender'));
+				charRender.x = 430;
+				charRender.y = -240;
+				charRender.scale.set(0.5, 0.5);	
+				FlxTween.tween(charRender, {
+					alpha: 1,
+					x: 310
+				}, 0.8, {
+					ease: FlxEase.quartInOut,
+					startDelay: 1
+				});				
+				pauseSongs = 'pauseKisston';		
+				}
+				
+			case 'Jammed Cartridge': //done
+				{
+				charRender.loadGraphic(Paths.image('RENDERS/KaiMSRender'));
+				charRender.x = 700;
+				charRender.y = -0;
+				charRender.scale.set(0.7, 0.7);	
+				FlxTween.tween(charRender, {
+					alpha: 1,
+					x: 580
+				}, 0.8, {
+					ease: FlxEase.quartInOut,
+					startDelay: 1
+				});				
+				pauseSongs = 'pauseKai';							
+				}				
+			case 'Anemoia':
+				{
+				charRender.loadGraphic(Paths.image('RENDERS/KaiMSRenderAlt'));
+				charRender.x = 350;
+				charRender.flipX = true;
+				charRender.y = -430;
+				charRender.scale.set(0.4, 0.4);	
+				FlxTween.tween(charRender, {
+					alpha: 1,
+					x: 230
+				}, 0.8, {
+					ease: FlxEase.quartInOut,
+					startDelay: 1
+				});				
+				pauseSongs = 'pauseKai';							
+				}	
+			case 'PUNCH BUGGY!!!':
+				{
+				charRender.loadGraphic(Paths.image('RENDERS/FilipMSRender'));
+				charRender.x = 250;
+				charRender.y = -340;
+				charRender.scale.set(0.48, 0.48);	
+				FlxTween.tween(charRender, {
+					alpha: 1,
+					x: 130
+				}, 0.8, {
+					ease: FlxEase.quartInOut,
+					startDelay: 1
+				});				
+				pauseSongs = 'pauseFilip';							
+				}	
+			case 'Rooftop Talkshop': //done
+				{
+				charRender.loadGraphic(Paths.image('RENDERS/NikkuMSRender'));
+				charRender.x = 720;
+				charRender.y = -250;
+				charRender.scale.set(0.6, 0.6);	
+				FlxTween.tween(charRender, {
+					alpha: 1,
+					x: 600
+				}, 0.8, {
+					ease: FlxEase.quartInOut,
+					startDelay: 1
+				});				
+				pauseSongs = 'pauseNikku';							
+				}		
+			case 'aiSong':
+				{
+				charRender.loadGraphic(Paths.image('RENDERS/AiMSRenderAlt'));
+				charRender.x = 630;
+				charRender.y = -130;
+				charRender.scale.set(0.55, 0.55);	
+				FlxTween.tween(charRender, {
+					alpha: 1,
+					x: 510
+				}, 0.8, {
+					ease: FlxEase.quartInOut,
+					startDelay: 1
+				});				
+				pauseSongs = 'pauseAi';							
+				}	
+			case 'Channel Surfers': //done
+				{
+				charRender.loadGraphic(Paths.image('RENDERS/MikuMSRender'));
+				charRender.x = 500;
+				charRender.y = -280;
+				charRender.scale.set(0.5, 0.5);	
+				FlxTween.tween(charRender, {
+					alpha: 1,
+					x: 380
+				}, 0.8, {
+					ease: FlxEase.quartInOut,
+					startDelay: 1
+				});				
+				pauseSongs = 'pauseMiku';							
+				}	
+			case 'Eye of the Beholder': //done
+				{
+				charRender.loadGraphic(Paths.image('RENDERS/minusMSRender'));
+				charRender.x = 600;
+				charRender.y = -350;
+				charRender.scale.set(0.5, 0.5);	
+				FlxTween.tween(charRender, {
+					alpha: 1,
+					x: 480
+				}, 0.8, {
+					ease: FlxEase.quartInOut,
+					startDelay: 1
+				});				
+				pauseSongs = 'pauseMinus';							
+				}																				
+		}
+
+
+		pauseMusic = new FlxSound();
+		try {
+			var pauseSong:String = getPauseSong();
+			if (pauseSong != null)
+				pauseMusic.loadEmbedded(Paths.music(pauseSongs), true, true);
+		} catch (e:Dynamic) {
+		}
+		pauseMusic.volume = 0;
+		pauseMusic.play(false, FlxG.random.int(0, Std.int(pauseMusic.length / 2)));
+
+		FlxG.sound.list.add(pauseMusic);
+
 
 		grpMenuShit = new FlxTypedGroup<Alphabet>();
 		add(grpMenuShit);
+
+			for (i in 0...menuItems.length)
+		{
+			var optionText:Alphabet = new Alphabet(0, 0, menuItems[i], true);
+			optionText.screenCenter();
+			optionText.y += (100 * (i - (menuItems.length / 2))) + 10;
+			grpMenuShit.add(optionText);
+			optionText.visible = false;
+		}
+
+			for (i in 0...menuItems.length)
+		{
+			var txt:FlxText = new FlxText(40, 80 + (i*60), 0, menuItems[i] , 696969);
+			txt.setFormat(Paths.font("vcr.ttf"), 56, 0xFF40FF1A, LEFT);
+			txt.scrollFactor.set();
+			//txt.screenCenter();
+			//txt.y += (100 * (i - (menuItems.length / 2))) + 50;
+			add(txt);
+			texts.push(txt);
+		}
 
 		missingTextBG = new FlxSprite().makeGraphic(1, 1, FlxColor.BLACK);
 		missingTextBG.scale.set(FlxG.width, FlxG.height);
@@ -165,7 +399,7 @@ class PauseSubState extends MusicBeatSubstate {
 
 	function getPauseSong() {
 		var formattedSongName:String = (songName != null ? Paths.formatToSongPath(songName) : '');
-		var formattedPauseMusic:String = Paths.formatToSongPath(ClientPrefs.data.pauseMusic);
+		var formattedPauseMusic:String = Paths.formatToSongPath(pauseSongs);
 		if (formattedSongName == 'none' || (formattedSongName != 'none' && formattedPauseMusic == 'none'))
 			return null;
 
@@ -193,6 +427,18 @@ class PauseSubState extends MusicBeatSubstate {
 		}
 		if (controls.UI_DOWN_P) {
 			changeSelection(1);
+		}
+
+
+		var lerpVal:Float = Math.exp(-elapsed * 10);
+
+		for (i in texts)
+		{
+			i.scale.set(
+				FlxMath.lerp(i == texts[curSelected] ? 1.05:1, i.scale.x, lerpVal),
+				FlxMath.lerp(i == texts[curSelected] ? 1.05:1, i.scale.y, lerpVal)
+			);
+			i.alpha = FlxMath.lerp(i == texts[curSelected] ? 1: 0.4, i.alpha, lerpVal);
 		}
 
 		var daSelected:String = menuItems[curSelected];
@@ -300,13 +546,14 @@ class PauseSubState extends MusicBeatSubstate {
 					PlayState.instance.paused = true; // For lua
 					PlayState.instance.vocals.volume = 0;
 					MusicBeatState.switchState(new OptionsState());
-					if (ClientPrefs.data.pauseMusic != 'None') {
-						FlxG.sound.playMusic(Paths.music(Paths.formatToSongPath(ClientPrefs.data.pauseMusic)), pauseMusic.volume);
+					//if (ClientPrefs.data.pauseMusic != 'None') {
+						//FlxG.sound.playMusic(Paths.music(Paths.formatToSongPath(ClientPrefs.data.pauseMusic)), pauseMusic.volume);
+						FlxG.sound.playMusic(Paths.music(Paths.formatToSongPath(pauseSongs)), pauseMusic.volume);
 						FlxTween.tween(FlxG.sound.music, {
 							volume: 1
 						}, 0.8);
 						FlxG.sound.music.time = pauseMusic.time;
-					}
+					//}
 					OptionsState.onPlayState = true;
 				case "Exit to menu":
 					#if DISCORD_ALLOWED DiscordClient.resetClientID(); #end
@@ -401,6 +648,7 @@ class PauseSubState extends MusicBeatSubstate {
 			item.isMenuItem = true;
 			item.targetY = i;
 			grpMenuShit.add(item);
+			item.visible = false;
 
 			if (menuItems[i] == 'Skip Time') {
 				skipTimeText = new FlxText(0, 0, 0, '', 64);
