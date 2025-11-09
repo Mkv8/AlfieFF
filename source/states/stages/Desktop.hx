@@ -266,7 +266,11 @@ class Desktop extends BaseStage {
 						FlxTween.tween(camHUD, {alpha: 1}, 0.5);
 						//This is the part where the glass shards fall, he is already visible, so I set his alpha to 1, you dont need to do anything here.
 					}				
-					
+
+				case 972: 
+					{
+						songDeets();
+					}
 	
 				case 2240:
 					{
@@ -369,7 +373,6 @@ class Desktop extends BaseStage {
 				{
 					FlxTween.tween(introtext, {alpha: 0}, 1.5);
 					FlxTween.tween(camHUD, {alpha: 1}, 1.5);
-					songDeets();
 				}
 			
 			}
@@ -384,7 +387,6 @@ class Desktop extends BaseStage {
 		var musician:FlxText;
 		var charter:FlxText;
 		var moontitle:BGSprite;
-		var bartitle:BGSprite;
 		var introTimer:FlxTimer;
 
 		moontitle = new BGSprite('moonintro', 350, 100, 1, 1);
@@ -425,82 +427,31 @@ class Desktop extends BaseStage {
 		add(charter);		
 
 		//STARTING TWEENS
-		FlxTween.tween(moontitle, {
-			alpha: 0.5,
-			angle: 0
-		}, 0.8, {
-			ease: FlxEase.quartInOut,
-		});		
+		FlxTween.tween(moontitle, {alpha: 0.5, angle: 0 }, 0.8, {ease: FlxEase.quartInOut});		
 
-		FlxTween.tween(songTitle, {
-			alpha: 1,
-			x: songTitle.x + 50
-		}, 0.8, {
-			ease: FlxEase.quartInOut,
-			startDelay: 0.2
-		});		
+		FlxTween.tween(songTitle, {alpha: 1, x: songTitle.x + 50}, 0.8, {ease: FlxEase.quartInOut, startDelay: 0.2});		
 
+		FlxTween.tween(musician, {alpha: 1, x: musician.x - 50}, 0.8, {ease: FlxEase.quartInOut, startDelay: 0.4});				
 
-		FlxTween.tween(musician, {
-			alpha: 1,
-			x: musician.x - 50
-		}, 0.8, {
-			ease: FlxEase.quartInOut,
-			startDelay: 0.4
-		});				
-		FlxTween.tween(charter, {
-			alpha: 1,
-			x: charter.x - 50
-		}, 0.8, {
-			ease: FlxEase.quartInOut,
-			startDelay: 0.4
-		});			
-		
+		FlxTween.tween(charter, {alpha: 1, x: charter.x - 50}, 0.8, {ease: FlxEase.quartInOut, startDelay: 0.4});		
 		
 		//-----------------------------
 
 		//ENDING TWEENS
-		FlxTween.tween(moontitle, {
-			alpha: 0,
-			angle:  5			
-		}, 1.2, {
-			ease: FlxEase.quartInOut,
-			startDelay: 2.5
-		});		
+		FlxTween.tween(moontitle, {alpha: 0, angle:  5}, 1.2, {ease: FlxEase.quartInOut, startDelay: 2.5});		
 
-		FlxTween.tween(songTitle, {
-			alpha: 0,
-			x: songTitle.x + 70,
-			angle:  5			
-		}, 1.2, {
-			ease: FlxEase.quartInOut,
-			startDelay: 2.5
-		});		
+		FlxTween.tween(songTitle, {alpha: 0, x: songTitle.x + 70, angle:  5}, 1.2, {ease: FlxEase.quartInOut, startDelay: 2.5});		
 
-
-		FlxTween.tween(musician, {
-			alpha: 0,
-			x: musician.x - 70,
-			angle: 5
-		}, 1.2, {
-			ease: FlxEase.quartInOut,
-			startDelay: 2.5
-		});				
-		FlxTween.tween(charter, {
-			alpha: 0,
-			x: charter.x - 70,
-			angle: 5
-		}, 1.2, {
-			ease: FlxEase.quartInOut,
-			startDelay: 2.5
-		});
-
+		FlxTween.tween(musician, {alpha: 0, x: musician.x - 70, angle: 5}, 1.2, {ease: FlxEase.quartInOut, startDelay: 2.5});				
+		
+		FlxTween.tween(charter, {alpha: 0, x: charter.x - 70, angle: 5}, 1.2, {ease: FlxEase.quartInOut, startDelay: 2.5});
 
 		//-----------------------------
 
 
 		introTimer = new FlxTimer().start(4, function(tmr:FlxTimer)
 			{
+				moontitle.destroy();
 				songTitle.destroy();
 				musician.destroy();
 				charter.destroy();

@@ -439,6 +439,7 @@ class MansionTop extends BaseStage {
 
 		introTimer = new FlxTimer().start(4, function(tmr:FlxTimer)
 			{
+				moontitle.destroy();				
 				songTitle.destroy();
 				musician.destroy();
 				charter.destroy();

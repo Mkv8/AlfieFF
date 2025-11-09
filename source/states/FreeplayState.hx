@@ -421,7 +421,21 @@ class FreeplayState extends MusicBeatState {
 				super.update(elapsed);
 				return;
 			}
-			LoadingState.loadAndSwitchState(new PlayState());
+
+			
+			switch(curSelected)
+			{
+			case 7:
+				{
+				LoadingState.loadAndSwitchState(new AiComic());
+				}
+
+			default: 
+				{
+				LoadingState.loadAndSwitchState(new PlayState());
+				}
+			}
+
 
 			FlxG.sound.music.volume = 0;
 
