@@ -427,6 +427,7 @@ class FreeplayState extends MusicBeatState {
 			{
 			case 7:
 				{
+				AiComic.itsgivingendcard = false;
 				LoadingState.loadAndSwitchState(new AiComic());
 				}
 

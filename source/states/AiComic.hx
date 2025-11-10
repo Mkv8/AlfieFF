@@ -36,6 +36,8 @@ class AiComic extends MusicBeatState {
 	
 	var player:MusicPlayer;
 
+	public static var itsgivingendcard:Bool;
+
 	
 	override function create() {
 	
@@ -75,7 +77,8 @@ class AiComic extends MusicBeatState {
 
 		var ignore:Bool = false;
 
-
+		if (itsgivingendcard == false)
+		{
 		switch(panelNum) 
 		{
 			case 0:
@@ -87,7 +90,6 @@ class AiComic extends MusicBeatState {
 						ease: FlxEase.quartInOut,
 					});							
 			}
-				trace(panelNum);
 			ignore = false;
 			case 1:
 			{
@@ -353,13 +355,38 @@ class AiComic extends MusicBeatState {
 				}
 
 		}
+		}
 
+		else { 
+			switch(panelNum) 
+			{
+				case 0:
+				{
+						panel.y += 900;
+						panel.angle = 20;
+						FlxTween.tween(panel, {
+							alpha: 1,
+							y: panel.y -900,
+							angle: 0
+						}, 4, {
+							ease: FlxEase.quartOut,
+						});							
+				}
+				default: 
+				{
+					exit();
+					ignore = true;
+				}
+			}
+
+		}
    		panelNum++;
 
     	if (!ignore)
         	FlxG.sound.play('assets/shared/sounds/pageFlip' + ".ogg", 1);
 
 	}
+
 
 	override function update(elapsed:Float) {
 	
@@ -377,12 +404,9 @@ class AiComic extends MusicBeatState {
         	transitionSprite.alpha = 0;
         	add(transitionSprite);
 			
-			FlxTween.tween(transitionSprite, {alpha: 1}, 1, {ease: FlxEase.quartOut});		
+			FlxTween.tween(transitionSprite, {alpha: 1}, 1, {ease: FlxEase.quartOut, onComplete:function(twn:FlxTween) {exit();}});		
 
-			if (transitionSprite.alpha == 1)
-			{
-				exit();
-			}
+
 
 			canSpam = false;
   
@@ -409,9 +433,11 @@ class AiComic extends MusicBeatState {
 	}
 
 	function setupPanels() {
+	if (!itsgivingendcard)
+	{
     for (i in 0...19) {
         //var panel = new FlxSprite().loadGraphic('assets/shared/images/aiComic/com' + i + '.png');
-		var panel = new FlxSprite().loadGraphic('assets/shared/images/aiComic/com' + Std.string(i+1) + '.png');
+		var panel = new FlxSprite().loadGraphic('assets/shared/images/aiComic/comic' + Std.string(i+1) + '.png');
         add(panel);
 
         panel.scale.x *= 0.7;
@@ -423,7 +449,18 @@ class AiComic extends MusicBeatState {
 
         panel.alpha = 0;
     }
+	}
+	else {
+		var panel = new FlxSprite().loadGraphic('assets/shared/images/aiComic/aiEnding.png');
+        add(panel);
 
+        panel.scale.x *= 1;
+        panel.scale.y *= 1;
+
+        panel.updateHitbox();
+        panel.screenCenter();
+        panels.push(panel);		
+	}
     object = panels[0];
 
     doPanelEvent();
@@ -436,7 +473,10 @@ function exit(){
         return;
     
     went=true;
-		LoadingState.loadAndSwitchState(new PlayState());
+		if (!itsgivingendcard) {LoadingState.loadAndSwitchState(new PlayState());}
+		else { 	MusicBeatState.switchState(new FreeplayState());
+				FlxG.sound.playMusic(Paths.music('freakyMenu'));
+				PlayState.changedDifficulty = false;	}
     
 }
 

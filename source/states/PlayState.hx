@@ -2485,9 +2485,21 @@ class PlayState extends MusicBeatState {
 				Mods.loadTopMod();
 				#if DISCORD_ALLOWED DiscordClient.resetClientID(); #end
 
-				MusicBeatState.switchState(new FreeplayState());
-				FlxG.sound.playMusic(Paths.music('freakyMenu'));
-				changedDifficulty = false;
+				switch (SONG.song)
+				{
+					case 'aiSong':
+					{
+						AiComic.itsgivingendcard = true;					
+						MusicBeatState.switchState(new AiComic());
+					}
+					default:
+					{
+					MusicBeatState.switchState(new FreeplayState());
+					FlxG.sound.playMusic(Paths.music('freakyMenu'));
+					changedDifficulty = false;					
+					}
+				}
+
 			}
 			transitioning = true;
 		}
