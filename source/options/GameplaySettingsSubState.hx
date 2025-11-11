@@ -15,6 +15,9 @@ class GameplaySettingsSubState extends BaseOptionsMenu {
 		var option:Option = new Option('Middlescroll', 'If checked, your notes get centered.', 'middleScroll', 'bool');
 		addOption(option);
 
+		var option:Option = new Option('Disable Splitscroll', 'If checked, disables splitscroll in songs that use it.', 'disableSplit', 'bool');
+		addOption(option);
+
 		var option:Option = new Option('Opponent Notes', 'If unchecked, opponent notes get hidden.', 'opponentStrums', 'bool');
 		addOption(option);
 

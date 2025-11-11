@@ -370,6 +370,7 @@ class AiComic extends MusicBeatState {
 							angle: 0
 						}, 4, {
 							ease: FlxEase.quartOut,
+							startDelay: 0.3
 						});							
 				}
 				default: 

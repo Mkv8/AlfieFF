@@ -115,17 +115,34 @@ class Freaky extends BaseStage {
 		// Code here
 	}
 
-	/*override function countdownTick(count:BaseStage.Countdown, num:Int)
+	override function countdownTick(count:Countdown, num:Int)
 		{
 			switch(count)
 			{
 				case THREE: //num 0
+					if (ClientPrefs.data.disableSplit == false)
+					{
+						for (i in 0...4)
+						{
+							switch (i)
+							{
+							case 0:
+								PlayState.playerStrums.members[i].x = 250;
+							case 1:
+								PlayState.playerStrums.members[i].x = 400;
+							case 2:
+								PlayState.playerStrums.members[i].x = 750;
+							case 3:
+								PlayState.playerStrums.members[i].x = 900;
+							}
+						}
+					}
 				case TWO: //num 1
 				case ONE: //num 2
 				case GO: //num 3
 				case START: //num 4
 			}
-	}*/
+	}
 	// Steps, Beats and Sections:
 	//    curStep, curDecStep
 	//    curBeat, curDecBeat

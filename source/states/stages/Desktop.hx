@@ -180,20 +180,24 @@ class Desktop extends BaseStage {
 				introVideo.bitmap.playCached();
 				introVideo.alpha = 1;
 				dad.alpha = 0;
-					for (i in 0...4)
+					if (ClientPrefs.data.disableSplit == false)
 					{
-    				switch (i)
-   					{
-			        case 0:
-						PlayState.playerStrums.members[i].x = 250;
-        			case 1:
-						PlayState.playerStrums.members[i].x = 400;
-        			case 2:
-						PlayState.playerStrums.members[i].x = 750;
-					case 3:
-						PlayState.playerStrums.members[i].x = 900;
-    				}
+						for (i in 0...4)
+						{
+							switch (i)
+							{
+							case 0:
+								PlayState.playerStrums.members[i].x = 250;
+							case 1:
+								PlayState.playerStrums.members[i].x = 400;
+							case 2:
+								PlayState.playerStrums.members[i].x = 750;
+							case 3:
+								PlayState.playerStrums.members[i].x = 900;
+							}
+						}
 					}
+
 				FlxTween.tween(blackscreen, {alpha: 0}, 0.5);
 				
 				animtimer = new FlxTimer().start(16, function(tmr:FlxTimer)

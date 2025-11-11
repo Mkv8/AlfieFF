@@ -39,6 +39,7 @@ class MansionTop extends BaseStage {
 
 	var animtimer:FlxTimer;
 
+	var youText:BGSprite;
 
 
 	var shader:Array<BitmapFilter> = [
@@ -179,7 +180,14 @@ class MansionTop extends BaseStage {
 		add(botBar);
 
 
-
+		youText = new BGSprite('nikkurooftop/youText', 0, 0, 1, 1);
+		youText.updateHitbox();
+		youText.scale.set(0.6, 0.6);
+		youText.antialiasing = ClientPrefs.data.antialiasing;
+		youText.screenCenter(XY);
+		youText.cameras = [camOther];
+		youText.alpha = 0;
+		add(youText);
 
 		FlxG.game.setFilters(shader);
 		FlxG.game.filtersEnabled = true;
@@ -272,6 +280,10 @@ class MansionTop extends BaseStage {
 			case 42: 
 				{
 					songDeets();
+
+					FlxTween.tween(youText, {alpha: 1}, 1, {ease: FlxEase.quartOut, startDelay: 6});
+					FlxTween.tween(youText, {alpha: 0}, 2, {ease: FlxEase.quartOut, startDelay: 9});
+
 				}
 			case 60 | 170 |  286 | 360:
 				{
