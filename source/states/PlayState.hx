@@ -694,6 +694,21 @@ class PlayState extends MusicBeatState {
 				//opponentStrums.members[i].visible = false;
 				
 			}		
+
+		if (Paths.formatToSongPath(SONG.song) == "channel-surfers") 
+			{
+				for (i in 0...4)
+				{
+            	playerStrums.members[i].x -= 2000;
+				}
+					for (i in 0...4)
+				{
+            	opponentStrums.members[i].x -= 2000;
+				}			
+				iconP1.visible = false;
+				iconP2.visible = false;
+				healthBar.visible = false;				
+			}		
 	}
 
 	var bfNoteSkin:String = null;

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="monitoringWhites.png">
+	<!-- Created with Adobe Animate version 20.5.1.31044 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="whites0000" x="8" y="8" width="374" height="667" frameX="-109" frameY="16" frameWidth="719" frameHeight="771"/>
+	<SubTexture name="whites0001" x="390" y="8" width="544" height="998" frameX="-690" frameY="226" frameWidth="719" frameHeight="771"/>
+	<SubTexture name="whites0002" x="942" y="8" width="496" height="511" frameX="-61" frameY="-260" frameWidth="719" frameHeight="771"/>
+	<SubTexture name="whites0003" x="1446" y="8" width="780" height="1078" frameX="-259" frameY="311" frameWidth="719" frameHeight="771"/>
+	<SubTexture name="whites0004" x="2234" y="8" width="589" height="1043" frameX="0" frameY="271" frameWidth="719" frameHeight="771"/>
+</TextureAtlas>

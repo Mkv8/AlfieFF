@@ -1,0 +1,181 @@
+{
+	"song": {
+		"events": [
+			[
+				117.1875,
+				[
+					[
+						"Camera Movement",
+						"640, 380",
+						""
+					]
+				]
+			],
+			[
+				7500,
+				[
+					[
+						"Change Character",
+						"dad",
+						"mainMiku"
+					],
+					[
+						"Change Character",
+						"bf",
+						"mainAlfie"
+					]
+				]
+			],
+			[
+				52500,
+				[
+					[
+						"Change Character",
+						"bf",
+						"songAlfie"
+					],
+					[
+						"Change Character",
+						"dad",
+						"songMiku"
+					]
+				]
+			],
+			[
+				82500,
+				[
+					[
+						"Tween Variable",
+						"songSpeed",
+						"+0.2, 4s, sineOut"
+					],
+					[
+						"Change Character",
+						"dad",
+						"mainMiku"
+					],
+					[
+						"Change Character",
+						"bf",
+						"mainAlfie"
+					]
+				]
+			],
+			[
+				103218.75,
+				[
+					[
+						"Change Character",
+						"bf",
+						"wimAlfie"
+					],
+					[
+						"Change Character",
+						"dad",
+						"wimMiku"
+					]
+				]
+			],
+			[
+				126000,
+				[
+					[
+						"Tween Variable",
+						"songSpeed",
+						"+-0.8"
+					]
+				]
+			],
+			[
+				126023.4375,
+				[
+					[
+						"Tween Variable",
+						"songSpeed",
+						"+0.65, 5.75s, sineOut"
+					]
+				]
+			],
+			[
+				126562.5,
+				[
+					[
+						"Tween Variable",
+						"songSpeed",
+						"+-0.8"
+					]
+				]
+			],
+			[
+				126585.9375,
+				[
+					[
+						"Tween Variable",
+						"songSpeed",
+						"+0.65, 5.75s, sineOut"
+					]
+				]
+			],
+			[
+				127125,
+				[
+					[
+						"Tween Variable",
+						"songSpeed",
+						"+-0.8"
+					]
+				]
+			],
+			[
+				127148.4375,
+				[
+					[
+						"Tween Variable",
+						"songSpeed",
+						"+0.6, 5.75s, sineOut"
+					]
+				]
+			],
+			[
+				127500,
+				[
+					[
+						"Change Character",
+						"dad",
+						"aishiteMiku"
+					],
+					[
+						"Change Character",
+						"bf",
+						"aishiteAlfie"
+					]
+				]
+			],
+			[
+				140357.142857143,
+				[
+					[
+						"Tween Variable",
+						"songSpeed",
+						"+0.3, 6s, sineIn"
+					]
+				]
+			],
+			[
+				222357.142857143,
+				[
+					[
+						"Change Character",
+						"dad",
+						"mainMiku"
+					],
+					[
+						"Change Character",
+						"bf",
+						"mainAlfie"
+					]
+				]
+			]
+		]
+	}
+}

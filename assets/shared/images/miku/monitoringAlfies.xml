@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="monitoringAlfies.png">
+	<!-- Created with Adobe Animate version 20.5.1.31044 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Alfies0000" x="8" y="8" width="912" height="1060" frameX="-210" frameY="-20" frameWidth="1626" frameHeight="1080"/>
+	<SubTexture name="Alfies0001" x="928" y="8" width="276" height="490" frameX="-1067" frameY="-549" frameWidth="1626" frameHeight="1080"/>
+	<SubTexture name="Alfies0002" x="1212" y="8" width="476" height="843" frameX="-237" frameY="-237" frameWidth="1626" frameHeight="1080"/>
+	<SubTexture name="Alfies0003" x="1696" y="8" width="812" height="1039" frameX="-541" frameY="-41" frameWidth="1626" frameHeight="1080"/>
+	<SubTexture name="Alfies0004" x="2516" y="8" width="726" height="957" frameX="0" frameY="-123" frameWidth="1626" frameHeight="1080"/>
+	<SubTexture name="Alfies0005" x="3250" y="8" width="484" height="888" frameX="-888" frameY="-192" frameWidth="1626" frameHeight="1080"/>
+	<SubTexture name="Alfies0006" x="8" y="1076" width="1272" height="1080" frameX="-354" frameY="0" frameWidth="1626" frameHeight="1080"/>
+	<SubTexture name="Alfies0007" x="1288" y="1076" width="533" height="972" frameX="-666" frameY="-108" frameWidth="1626" frameHeight="1080"/>
+</TextureAtlas>
