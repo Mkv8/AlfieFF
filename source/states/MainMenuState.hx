@@ -53,7 +53,6 @@ class MainMenuState extends MusicBeatState {
 	public static var psychEngineVersion:String = "0.7.3"; // This is also used for Discord RPC
 
 	var menuItems: FlxSpriteGroup = new FlxSpriteGroup();
-	var magenta: FlxSprite;
 	var camFollow: FlxObject;
 
 	var multiplyBar:BGSprite; //im using bgsprite cuz i think its just like the same thing as flxsprite but easier to use right lmao
@@ -227,9 +226,6 @@ class MainMenuState extends MusicBeatState {
 				FlxG.sound.play(Paths.sound('confirmMenu'));
 
 				selectedSomethin = true;
-
-				if (ClientPrefs.data.flashing)
-					FlxFlicker.flicker(magenta, 1.1, 0.15, false);
 
 				FlxFlicker.flicker(menuItems.members[selection], 1, 0.06, false, false, function(flick:FlxFlicker) {
 					switch (menuOptions[selection]) {
