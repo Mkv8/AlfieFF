@@ -8,20 +8,21 @@ import backend.StageData;
 class OptionsState extends MusicBeatState {
 	var options:Array<String> = [
 		'Controls',
-		'Adjust Delay and Combo',
+		'Adjust Delay',
 		'Graphics',
 		'Visuals and UI',
 		'Gameplay'
 	];
-	private var grpOptions:FlxTypedGroup<Alphabet>;
+	private var grpOptions:FlxTypedGroup<FlxText>;
 
 	private static var curSelected:Int = 0;
-	public static var menuBG:FlxSprite;
-	public static var onPlayState:Bool = false;
 
+	public static var onPlayState:Bool = false;
+	public static var menuBG:FlxSprite;
 	public var gear1:BGSprite;
 	public var gear2:BGSprite;
 	public var alfie:BGSprite;
+	var texts:Array<FlxText> = [];
 
 	//on this menu all you have to do is change the all the letters into the right font, and then reposition the options so that theyre on the left...
 	//idk how the submenus work here? I dont think it will be much of a problem but honestly who knows with fnf......
@@ -48,13 +49,13 @@ class OptionsState extends MusicBeatState {
 				openSubState(new options.VisualsUISubState());
 			case 'Gameplay':
 				openSubState(new options.GameplaySettingsSubState());
-			case 'Adjust Delay and Combo':
+			case 'Adjust Delay':
 				MusicBeatState.switchState(new options.NoteOffsetState());
 		}
 	}
 
-	var selectorLeft:Alphabet;
-	var selectorRight:Alphabet;
+	var selectorLeft:FlxText;
+	var selectorRight:FlxText;
 
 	override function create() {
 		#if DISCORD_ALLOWED
@@ -90,19 +91,32 @@ class OptionsState extends MusicBeatState {
 		alfie.antialiasing = ClientPrefs.data.antialiasing;
 		add(alfie);	
 
-		grpOptions = new FlxTypedGroup<Alphabet>();
-		add(grpOptions);
+		var bigassoptionstextohemgee:FlxText = new FlxText(100, 50, 'OPTIONS', 64);
+			bigassoptionstextohemgee.setFormat(Paths.font("vcr.ttf"), 72, 0xffffffff, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			bigassoptionstextohemgee.borderColor = 0xFF000000;
+			bigassoptionstextohemgee.borderSize = 3;
+			add(bigassoptionstextohemgee);
 
+		grpOptions = new FlxTypedGroup<FlxText>();
+		add(grpOptions);
+		/*var songText:FlxText = new FlxText(500 + (i*420), 630, songs[i].songName, 50);
+		songText.setFormat(Paths.font("vcr.ttf"), 36, 0xFFffcf53, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		songText.borderColor = 0xFF3F0000;
+		songText.borderSize = 3;*/
 		for (i in 0...options.length) {
-			var optionText:Alphabet = new Alphabet(0, 0, options[i], true);
-			optionText.screenCenter();
-			optionText.y += (100 * (i - (options.length / 2))) + 50;
+			var optionText:FlxText = new FlxText(100, 0, options[i], 36);
+			optionText.setFormat(Paths.font("vcr.ttf"), 56, 0xffffffff, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			optionText.borderColor = 0xFF000000;
+			optionText.borderSize = 3;
+			//optionText.screenCenter();
+			optionText.y += (150 + (i*80)) + 10;
 			grpOptions.add(optionText);
+			texts.push(optionText);
 		}
 
-		selectorLeft = new Alphabet(0, 0, '>', true);
+		selectorLeft = new FlxText(0, 0, '>', true);
 		add(selectorLeft);
-		selectorRight = new Alphabet(0, 0, '<', true);
+		selectorRight = new FlxText(0, 0, '<', true);
 		add(selectorRight);
 
 		changeSelection();
@@ -148,6 +162,17 @@ class OptionsState extends MusicBeatState {
 				MusicBeatState.switchState(new MainMenuState());
 		} else if (controls.ACCEPT)
 			openSelectedSubstate(options[curSelected]);
+
+		var lerpVal:Float = Math.exp(-elapsed * 10);
+
+		for (i in texts)
+		{
+			i.scale.set(
+				FlxMath.lerp(i == texts[curSelected] ? 1.05:1, i.scale.x, lerpVal),
+				FlxMath.lerp(i == texts[curSelected] ? 1.05:1, i.scale.y, lerpVal)
+			);
+			i.alpha = FlxMath.lerp(i == texts[curSelected] ? 1: 0.4, i.alpha, lerpVal);
+		}
 	}
 
 	function changeSelection(change:Int = 0) {
@@ -159,7 +184,7 @@ class OptionsState extends MusicBeatState {
 
 		var bullShit:Int = 0;
 
-		for (item in grpOptions.members) {
+		/*for (item in grpOptions.members) {
 			item.targetY = bullShit - curSelected;
 			bullShit++;
 
@@ -171,8 +196,9 @@ class OptionsState extends MusicBeatState {
 				selectorRight.x = item.x + item.width + 15;
 				selectorRight.y = item.y;
 			}
-		}
+		}*/
 		FlxG.sound.play(Paths.sound('scrollMenu'));
+
 	}
 
 	override function destroy() {

@@ -14,9 +14,9 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 	private var curSelected:Int = 0;
 	private var optionsArray:Array<Option>;
 
-	private var grpOptions:FlxTypedGroup<Alphabet>;
+	private var grpOptions:FlxTypedGroup<FlxText>;
 	private var checkboxGroup:FlxTypedGroup<CheckboxThingie>;
-	private var grpTexts:FlxTypedGroup<AttachedText>;
+	private var grpTexts:FlxTypedGroup<FlxText>;
 
 	private var descBox:FlxSprite;
 	private var descText:FlxText;
@@ -29,6 +29,10 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 	public var gear1:BGSprite;
 	public var gear2:BGSprite;
 	public var alfie:BGSprite;
+	var texts:Array<FlxText> = [];
+	public var sprTracker:FlxText;
+	var valueText:FlxText;
+
 	//on this menu all you have to do is change the all the letters into the right font, and then reposition the options so that theyre on the left...
 	//idk how the submenus work here? I dont think it will be much of a problem but honestly who knows with fnf......
 	//reminder that theres concept pics of how they should look like in the menu assets folder!
@@ -52,7 +56,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		add(bg);
 
-		gear1 = new BGSprite('menuassets/gear', FlxG.width * 0.9, -60, 0, 0); //spins counter clock wise
+		gear1 = new BGSprite('menuassets/gear', FlxG.width * 0.75 + 25, -200, 0, 0); //spins counter clock wise
 		gear1.updateHitbox();
 		gear1.alpha = 1;
 		gear1.scale.set(0.8,0.8);
@@ -60,14 +64,14 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 		add(gear1);	
 
 
-		gear2 = new BGSprite('menuassets/gear', -90, FlxG.height * 0.9, 0, 0); //spins counter clock wise
+		gear2 = new BGSprite('menuassets/gear', -180, FlxG.height * 0.71, 0, 0); //spins counter clock wise
 		gear2.updateHitbox();
 		gear2.alpha = 1;
 		gear2.scale.set(0.8,0.8);
 		gear2.antialiasing = ClientPrefs.data.antialiasing;
 		add(gear2);	
 
-		alfie = new BGSprite('menuassets/alfieOptions', FlxG.width * 0.5, 30, 0, 0, ['thonk'], true);
+		alfie = new BGSprite('menuassets/alfieOptions', FlxG.width * 0.5 - 75, 90, 0, 0, ['thonk'], true);
 		alfie.updateHitbox();
 		alfie.alpha = 1;
 		alfie.scale.set(0.8,0.8);
@@ -76,10 +80,10 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 		add(alfie);			
 
 		// avoids lagspikes while scrolling through menus!
-		grpOptions = new FlxTypedGroup<Alphabet>();
+		grpOptions = new FlxTypedGroup<FlxText>();
 		add(grpOptions);
 
-		grpTexts = new FlxTypedGroup<AttachedText>();
+		grpTexts = new FlxTypedGroup<FlxText>();
 		add(grpTexts);
 
 		checkboxGroup = new FlxTypedGroup<CheckboxThingie>();
@@ -89,9 +93,12 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 		descBox.alpha = 0.6;
 		add(descBox);
 
-		var titleText:Alphabet = new Alphabet(75, 45, title, true);
-		titleText.setScale(0.6);
-		titleText.alpha = 0.4;
+		var titleText:FlxText = new FlxText(75, 45, title, 56);
+		titleText.setFormat(Paths.font("vcr.ttf"), 56, 0xffffffff, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		titleText.borderColor = 0xFF000000;
+		titleText.borderSize = 3;
+		titleText.scale.set(1, 1);
+		titleText.alpha = 0.75;
 		add(titleText);
 
 		descText = new FlxText(50, 600, 1180, "", 32);
@@ -101,25 +108,33 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 		add(descText);
 
 		for (i in 0...optionsArray.length) {
-			var optionText:Alphabet = new Alphabet(290, 260, optionsArray[i].name, false);
-			optionText.isMenuItem = true;
+			var optionText:FlxText = new FlxText(310, 1 + (i*30), optionsArray[i].name, 56);
+			optionText.setFormat(Paths.font("vcr.ttf"), 56, 0xffffffff, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			optionText.borderColor = 0xFF000000;
+			optionText.borderSize = 3;
+			//optionText.isMenuItem = true;
 			/*optionText.forceX = 300;
 				optionText.yMult = 90; */
-			optionText.targetY = i;
+			//optionText.targetY = i;
 			grpOptions.add(optionText);
+			texts.push(optionText);
+			optionText.offset.set(-20, -52);
 
 			if (optionsArray[i].type == 'bool') {
-				var checkbox:CheckboxThingie = new CheckboxThingie(optionText.x - 105, optionText.y, Std.string(optionsArray[i].getValue()) == 'true');
+				var checkbox:CheckboxThingie = new CheckboxThingie(optionText.x - 185, optionText.y - 100, Std.string(optionsArray[i].getValue()) == 'true');
 				checkbox.sprTracker = optionText;
 				checkbox.ID = i;
 				checkboxGroup.add(checkbox);
 			} else {
 				optionText.x -= 80;
-				optionText.startPosition.x -= 80;
+				//optionText.startPosition.x -= 80;
 				// optionText.xAdd -= 80;
-				var valueText:AttachedText = new AttachedText('' + optionsArray[i].getValue(), optionText.width + 60);
-				valueText.sprTracker = optionText;
-				valueText.copyAlpha = true;
+				valueText = new FlxText(optionText.x + 560, optionText.y + 150, 200, '' + optionsArray[i].getValue(), 40);
+				valueText.setFormat(Paths.font("vcr.ttf"), 40, 0xffffffff, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+				valueText.borderColor = 0xFF000000;
+				valueText.borderSize = 3;				
+				//valueText.sprTracker = optionText;
+				valueText.alpha = optionText.alpha;
 				valueText.ID = i;
 				grpTexts.add(valueText);
 				optionsArray[i].child = valueText;
@@ -151,7 +166,9 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 
 	override function update(elapsed:Float) {
 		super.update(elapsed);
-
+		gear1.angle -= 5 * elapsed;
+		gear2.angle += 5 * elapsed;
+				
 		if (bindingKey) {
 			bindingKeyUpdate(elapsed);
 			return;
@@ -299,6 +316,21 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 		if (nextAccept > 0) {
 			nextAccept -= 1;
 		}
+		var lerpVal:Float = Math.exp(-elapsed * 10);
+ 		for (e in 0...texts.length) {
+            var i = texts[e];
+            //var item:FlxText = grpSongs.members[i];
+            i.scale.set(
+                FlxMath.lerp(i == texts[curSelected] ? 1.05:1, i.scale.x, lerpVal),
+                FlxMath.lerp(i == texts[curSelected] ? 1.05:1, i.scale.y, lerpVal)
+            );
+            i.alpha = FlxMath.lerp(i == texts[curSelected] ? 1: 0.4, i.alpha, lerpVal);
+
+            var xlerpto = 215 + ((e-curSelected)*130);
+            i.y = FlxMath.lerp(xlerpto, i.y, lerpVal);
+		}
+
+		
 	}
 
 	function bindingKeyUpdate(elapsed:Float) {
@@ -402,13 +434,14 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 				text = InputFormatter.getGamepadName(FlxGamepadInputID.fromString(text));
 		}
 
-		var bind:AttachedText = cast option.child;
-		var attach:AttachedText = new AttachedText(text, bind.offsetX);
-		attach.sprTracker = bind.sprTracker;
-		attach.copyAlpha = true;
+		var bind:FlxText = cast option.child;
+		var attach:FlxText = new FlxText(0,0, 200, text, 40);
+		//bind.offsetX
+		//attach.sprTracker = bind.sprTracker;
+		//attach.copyAlpha = true;
 		attach.ID = bind.ID;
 		playstationCheck(attach);
-		attach.scaleX = Math.min(1, MAX_KEYBIND_WIDTH / attach.width);
+		attach.scale.x = Math.min(1, MAX_KEYBIND_WIDTH / attach.width);
 		attach.x = bind.x;
 		attach.y = bind.y;
 
@@ -418,8 +451,8 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 		bind.destroy();
 	}
 
-	function playstationCheck(alpha:Alphabet) {
-		if (!controls.controllerMode)
+	function playstationCheck(alpha:FlxText) {
+		/*if (!controls.controllerMode)
 			return;
 
 		var gamepad:FlxGamepad = FlxG.gamepads.firstActive;
@@ -434,7 +467,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 					letter.offset.x += 4;
 					letter.offset.y -= 5;
 			}
-		}
+		}*/
 	}
 
 	function closeBinding() {
@@ -477,7 +510,8 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 
 		var bullShit:Int = 0;
 
-		for (item in grpOptions.members) {
+
+		/*for (item in grpOptions.members) {
 			item.targetY = bullShit - curSelected;
 			bullShit++;
 
@@ -489,7 +523,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 			text.alpha = 0.6;
 			if (text.ID == curSelected)
 				text.alpha = 1;
-		}
+		}*/
 
 		descBox.setPosition(descText.x - 10, descText.y - 10);
 		descBox.setGraphicSize(Std.int(descText.width + 20), Std.int(descText.height + 25));

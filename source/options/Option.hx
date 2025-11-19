@@ -6,7 +6,7 @@ typedef Keybind = {
 }
 
 class Option {
-	public var child:Alphabet;
+	public var child:FlxText;
 	public var text(get, set):String;
 	public var onChange:Void->Void = null; // Pressed enter (on Bool type options) or pressed/held left/right (on other types)
 

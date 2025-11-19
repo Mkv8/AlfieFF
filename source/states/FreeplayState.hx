@@ -479,7 +479,7 @@ class FreeplayState extends MusicBeatState {
 			/*for (i in 0...songs.length) {
 			if (Highscore.getScore(songs[i].songName, curDifficulty) == 0 || Highscore.getScore(songs[i].songName, curDifficulty) == null)
 			{
-				scoreText.text = '???';
+				songName.text = '???';
 				selectedAlbum.color = FlxColor.BLACK;		
 			}
 			}*/
@@ -618,7 +618,7 @@ class FreeplayState extends MusicBeatState {
 	}
 
 	private function positionHighscore() {
-		scoreText.x = 1000 - scoreText.width - 6;
+		scoreText.x = 900 - scoreText.width - 6;
 		scoreBG.scale.x = FlxG.width - scoreText.x + 6;
 		scoreBG.x = FlxG.width - (scoreBG.scale.x / 2);
 		diffText.x = Std.int(scoreBG.x + (scoreBG.width / 2));

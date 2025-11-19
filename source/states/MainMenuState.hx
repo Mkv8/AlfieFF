@@ -12,6 +12,8 @@ import options.OptionsState;
 import openfl.filters.BitmapFilter;
 import openfl.display.BlendMode;
 import openfl.filters.ShaderFilter;
+import backend.Highscore;
+
 
 typedef RenderData = {
 	name: String,
@@ -29,25 +31,13 @@ class MainMenuState extends MusicBeatState {
 	private static var selection:Int = 0;
 
 	public static final renderDatas:Array<RenderData> = [
-		{ name: "AlfieMSRender", offset: { x: 0.0, y: 0.0 }, scale: 0.45 },
-		{ name: "AlfieMSRenderAlt", offset: { x: 0.0, y: 0.0 }, scale: 1.0 },
-		{ name: "AiMSRender", offset: { x: 0.0, y: 0.0 }, scale: 1.0 },
-		{ name: "AiMSRenderAlt", offset: { x: 0.0, y: 0.0 }, scale: 1.0 },
-		{ name: "BFMSRender", offset: { x: 0.0, y: 0.0 }, scale: 1.0 },
-		{ name: "BFMSRenderAlt", offset: { x: 0.0, y: 0.0 }, scale: 1.0 },
-		{ name: "FilipMSRender", offset: { x: 0.0, y: 0.0 }, scale: 1.0 },
-		{ name: "FilipMSRenderAlt", offset: { x: 0.0, y: 0.0 }, scale: 1.0 },
-		{ name: "GFMSRender", offset: { x: 0.0, y: 0.0 }, scale: 1.0 },
-		{ name: "GFMSRenderAlt", offset: { x: 0.0, y: 0.0 }, scale: 1.0 },
-		{ name: "KaiMSRender", offset: { x: 0.0, y: 0.0 }, scale: 1.0 },
-		{ name: "KaiMSRenderAlt", offset: { x: 0.0, y: 0.0 }, scale: 1.0 },
-		{ name: "KisstonMSRender", offset: { x: 0.0, y: 0.0 }, scale: 1.0 },
-		{ name: "KisstonMSRenderAlt", offset: { x: 0.0, y: 0.0 }, scale: 1.0 },
-		{ name: "MikuMSRender", offset: { x: 0.0, y: 0.0 }, scale: 1.0 },
-		{ name: "MikuMSRenderAlt", offset: { x: 0.0, y: 0.0 }, scale: 1.0 },
-		{ name: "minusMSRender", offset: { x: 0.0, y: 0.0 }, scale: 1.0 },
-		{ name: "NikkuMSRender", offset: { x: 0.0, y: 0.0 }, scale: 1.0 },
-		{ name: "NikkuMSRenderAlt", offset: { x: 0.0, y: 0.0 }, scale: 1.0 },
+		{ name: "AlfieMSRender", offset: { x: 0.0, y: 0.0 }, scale: 0.5 },  
+		{ name: "AlfieMSRenderAlt", offset: { x: 20.0, y: 40.0 }, scale: 0.30 },
+		{ name: "BFMSRender", offset: { x: 110.0, y: -80.0 }, scale: 0.45 },
+		{ name: "BFMSRenderAlt", offset: { x: 130.0, y: 10.0 }, scale: 0.45 },
+		{ name: "GFMSRender", offset: { x: 75.0, y: 50.0 }, scale: 0.55 },
+		{ name: "GFMSRenderAlt", offset: { x: -480.0, y: 75.0 }, scale: 0.6},
+		//{ name: "NikkuMSRenderAlt", offset: { x: -50.0, y: 50.0 }, scale: 0.5}, this fuckin portrait doesnt look good in this menu im sorry nikku from hotline oh twenty four !
 	];
 
 	public static var psychEngineVersion:String = "0.7.3"; // This is also used for Discord RPC
@@ -57,20 +47,16 @@ class MainMenuState extends MusicBeatState {
 
 	var multiplyBar:BGSprite; //im using bgsprite cuz i think its just like the same thing as flxsprite but easier to use right lmao
 	var randomRender:BGSprite; //this is for the random renders
+	var texts:Array<FlxSprite> = [];
+	static var addedKiss:Bool;
+	static var addedKai:Bool;
+	static var addedFilip:Bool;
+	static var addedNikku:Bool;
+	static var addedAi:Bool;
+	static var addedMiku:Bool;
+	static var addedMinus:Bool;
 
-	//BASIC NOTES:
-	//When you enter the menu, the multiplyBar and the randomRender slide in from the left and right respectedly (check the concept pics i sent, they're also in the files
-	//Everytime you enter the menu it chooses a random render to display... HOWEVER
-	//Would it be possible to make it so a character render would only show up if youve played the song that character is from? so that you don't get spoiled on Nikku
-	//before actually playing her song.....
-
-	//When highlighted, the button would use the songButton animation, while the non highlighted option uses the songButtonUnselected animation... It'd also be good if
-	//the icon got a little bigger when you highlighted it (like a tween for the size..)
-
-	//What I'm gonna do for this menu here is add in all the visuals...... I dunno how to mess with these buttons too much so I won't try it bc i might just break things
-	//For hte random render i'm gonna just make it Alfie for now, but it should pick from any of the renders in the RENDERS folder
-
-	//For the extras menu, you can copy and pastethis one and then just replace stuff as necessary!
+	//Thank you tantalun for the help with the menus..... everyone say thank you tanta......
 
 	var shader:Array<BitmapFilter> = [
 		new ShaderFilter(new shaders.PostProcessing()),
@@ -88,6 +74,48 @@ class MainMenuState extends MusicBeatState {
 		#end
 		Mods.loadTopMod();
 
+		if (Highscore.getScore('convicted-love', 0) != 0 && !addedKiss)
+		{
+		renderDatas.insert(6, { name: "KisstonMSRender", offset: { x: 105.0, y: 30.0 }, scale: 0.55 }); trace('is this fuckin pushed');
+		renderDatas.insert(7, { name: "KisstonMSRenderAlt", offset: { x: -20.0, y: 30.0 }, scale: 0.42 });
+		addedKiss = true;
+		}	
+		if (Highscore.getScore('jammed-cartridge', 0) != 0 && !addedKai|| Highscore.getScore('anemoia', 0) != 0 && !addedKai)
+		{
+		renderDatas.insert(8, { name: "KaiMSRender", offset: { x: 115.0, y: 70.0 }, scale: 0.8 }); trace('is this fuckin pushed');
+		renderDatas.insert(9, { name: "KaiMSRenderAlt", offset: { x: 80.0, y: 20.0 }, scale: 0.45 });
+		addedKai = true;
+		}	
+		if (Highscore.getScore('punch-buggy', 0) != 0 && !addedFilip|| Highscore.getScore('punch-buggy!', 0) != 0  && !addedFilip|| Highscore.getScore('punch-buggy!!', 0) != 0  && !addedFilip|| Highscore.getScore('punch-buggy!!!', 0) != 0  && !addedFilip) 
+		{
+		renderDatas.insert(10, { name: "FilipMSRender", offset: { x: 40.0, y: 70.0 }, scale: 0.45 }); trace('is this fuckin pushed');
+		renderDatas.insert(11, { name: "FilipMSRenderAlt", offset: { x: 50.0, y: 20.0 }, scale: 0.38 });
+		addedFilip = true;
+		}	
+		if (Highscore.getScore('rooftop-talkshop', 0) != 0 && !addedNikku)
+		{
+		renderDatas.insert(12, { name: "NikkuMSRender", offset: { x: 70.0, y: 50.0 }, scale: 0.72});
+		addedNikku = true;
+		}				
+		if (Highscore.getScore('aisong', 0) != 0 && !addedAi)
+		{
+		renderDatas.insert(13, { name: "AiMSRender", offset: { x: 70.0, y: 20.0 }, scale: 0.7 });
+		renderDatas.insert(14, { name: "AiMSRenderAlt", offset: { x: 40.0, y: 20.0 }, scale: 0.6 });
+		addedAi = true;
+		}	
+		if (Highscore.getScore('channel-surfers', 0) != 0 && !addedMiku)
+		{
+		renderDatas.insert(15, { name: "MikuMSRender", offset: { x: 60.0, y: 20.0 }, scale: 0.6 });
+		renderDatas.insert(16, { name: "MikuMSRenderAlt", offset: { x: 70.0, y: 50.0 }, scale: 0.62 });
+		addedMiku = true;
+		}			
+		if (Highscore.getScore('eye-of-the-beholder', 0) != 0 && !addedMinus)
+		{
+		renderDatas.insert(17, { name: "minusMSRender", offset: { x: 100.0, y: 30.0 }, scale: 0.65 });
+		addedMinus = true;
+		}		
+
+		trace(renderDatas);
 		#if DISCORD_ALLOWED
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
@@ -130,47 +158,56 @@ class MainMenuState extends MusicBeatState {
 
 		emitter.start(false, 1, 0);
 
-		this.multiplyBar = new BGSprite("menuassets/mainMenuMultiply", 0, 0, 0, 0);
-		this.multiplyBar.scale.set(0.8, 0.8);
-		this.multiplyBar.updateHitbox();
-		this.multiplyBar.screenCenter(Y);
-		this.multiplyBar.alpha = 1.0;
-		this.multiplyBar.blend = BlendMode.MULTIPLY;
-		this.multiplyBar.antialiasing = ClientPrefs.data.antialiasing;
-		this.add(this.multiplyBar);
+
 
 		if (MainMenuState.renderDatas.length > 0) {
 			var randomRenderData: RenderData = MainMenuState.renderDatas[FlxG.random.int(0, MainMenuState.renderDatas.length - 1)];
+			//var randomRenderData: RenderData = MainMenuState.renderDatas[18];
 
 			this.randomRender = new BGSprite('RENDERS/${randomRenderData.name}');
 			this.randomRender.scale.set(randomRenderData.scale, randomRenderData.scale);
 			this.randomRender.updateHitbox();
-			this.randomRender.x = 580.0 + randomRenderData.offset.x;
+			this.randomRender.x = 580.0 + randomRenderData.offset.x + 650;
 			this.randomRender.y = 0.0 + randomRenderData.offset.y;
 			this.randomRender.alpha = 1.0;
 			this.randomRender.antialiasing = ClientPrefs.data.antialiasing;
 			this.add(this.randomRender);
+			FlxTween.tween(randomRender, {x: randomRender.x - 650, alpha: 1}, 1.2, {ease: FlxEase.quartInOut, startDelay: 0.2});
+
 		}
 
+		this.multiplyBar = new BGSprite("menuassets/mainMenuMultiply", -500, 0, 0, 0);
+		this.multiplyBar.scale.set(0.8, 0.8);
+		this.multiplyBar.updateHitbox();
+		this.multiplyBar.screenCenter(Y);
+		this.multiplyBar.alpha = 0.0;
+		this.multiplyBar.blend = BlendMode.MULTIPLY;
+		this.multiplyBar.antialiasing = ClientPrefs.data.antialiasing;
+		this.add(this.multiplyBar);
+
+		FlxTween.tween(multiplyBar, {x: 0, alpha: 1.0}, 1.2, {ease: FlxEase.quartInOut, startDelay: 0.1});
 		var menuItemAtlas: FlxAtlasFrames = Paths.getSparrowAtlas("menuassets/mainMenuButtons");
 
-		final menuItemSpacing: Float = 10.0;
+		final menuItemSpacing: Float = -10.0;
 
 		var menuItemOffsetY: Float = 0.0;
 
 		for (i in 0...menuOptions.length) {
-			var menuItem: FlxSprite = new FlxSprite(i * 30.0, menuItemOffsetY);
+			var menuItem: FlxSprite = new FlxSprite(i * 30.0, menuItemOffsetY - 800);
 			menuItem.frames = menuItemAtlas;
 			menuItem.animation.addByPrefix("idle", '${menuOptions[i]}ButtonIdle', 24);
 			menuItem.animation.addByPrefix("selected", '${menuOptions[i]}ButtonSelected', 24);
 			menuItem.animation.play("idle");
-			menuItem.scale.set(0.8, 0.8);
+			//menuItem.scale.set(0.8, 0.8);
 			menuItem.scrollFactor.set(0.0, 0.0);
 			menuItem.updateHitbox();
 			menuItem.antialiasing = ClientPrefs.data.antialiasing;
 			this.menuItems.add(menuItem);
+			menuItem.alpha = 0;
+			FlxTween.tween(menuItem, {y: menuItemOffsetY}, 1.2, {ease: FlxEase.quartInOut, startDelay: 0.1});
 
 			menuItemOffsetY += menuItem.height + (i == menuOptions.length - 1 ? 0.0 : menuItemSpacing);
+			texts.push(menuItem);
 		}
 
 		this.menuItems.x = 40.0;
@@ -269,6 +306,16 @@ class MainMenuState extends MusicBeatState {
 				MusicBeatState.switchState(new MasterEditorMenu());
 			}
 		}
+		
+		var lerpVal:Float = Math.exp(-elapsed * 10);
+		for (i in texts)
+		{
+			i.scale.set(
+				FlxMath.lerp(i == texts[selection] ? 0.9:0.75, i.scale.x, lerpVal),
+				FlxMath.lerp(i == texts[selection] ? 0.9:0.75, i.scale.y, lerpVal)
+			);
+			i.alpha = FlxMath.lerp(i == texts[selection] ? 1: 0.4, i.alpha, lerpVal);
+		}
 
 		super.update(elapsed);
 	}
@@ -277,7 +324,7 @@ class MainMenuState extends MusicBeatState {
 		FlxG.sound.play(Paths.sound("scrollMenu"));
 
 		menuItems.members[selection].animation.play("idle");
-		menuItems.members[selection].updateHitbox();
+		//menuItems.members[selection].updateHitbox();
 
 		selection += direction;
 
@@ -288,6 +335,6 @@ class MainMenuState extends MusicBeatState {
 		}
 
 		menuItems.members[selection].animation.play("selected");
-		menuItems.members[selection].updateHitbox();
+		//menuItems.members[selection].updateHitbox();
 	}
 }

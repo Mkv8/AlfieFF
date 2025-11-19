@@ -373,6 +373,8 @@ class MikuStage extends BaseStage {
 			}
 			case 320:
 			{
+				if (ClientPrefs.data.disableSplit == false)
+				{
 					for (i in 0...4)
 					{
     				switch (i)
@@ -400,7 +402,8 @@ class MikuStage extends BaseStage {
 					case 3:
 						FlxTween.tween(PlayState.opponentStrums.members[i], {x: PlayState.opponentStrums.members[i].x - 600}, 12 * Conductor.stepCrochet / 1000, {ease: FlxEase.cubeOut});
     				}
-					}					
+					}		
+				}			
 			}
 			case 442: 
 			{
@@ -441,6 +444,8 @@ class MikuStage extends BaseStage {
 				polkadots.alpha = 1;
 				polkadots2.alpha = 1;
 				bumpMainBG.alpha = 1;	
+				if (ClientPrefs.data.disableSplit == false)
+					{
 					for (i in 0...4)
 					{
 					switch (i)
@@ -468,10 +473,13 @@ class MikuStage extends BaseStage {
 					case 3:
 						FlxTween.tween(PlayState.opponentStrums.members[i], {x: PlayState.opponentStrums.members[i].x + 650}, 16 * Conductor.stepCrochet / 1000, {ease: FlxEase.cubeOut});
     				}
-					}						
+					}		
+					}				
 			}
 			case 768:
 			{
+					if (ClientPrefs.data.disableSplit == false)
+					{				
 					for (i in 0...4)
 					{
     				switch (i)
@@ -485,10 +493,13 @@ class MikuStage extends BaseStage {
 					case 3:
 						FlxTween.tween(PlayState.opponentStrums.members[i], {x: PlayState.opponentStrums.members[i].x - 600}, 14 * Conductor.stepCrochet / 1000, {ease: FlxEase.cubeOut});
     				}
-					}					
+					}			
+					}	
 			}
 			case 784:
 			{
+					if (ClientPrefs.data.disableSplit == false)
+					{				
 					for (i in 0...4)
 					{
     				switch (i)
@@ -502,12 +513,14 @@ class MikuStage extends BaseStage {
 					case 3:
 						FlxTween.tween(PlayState.playerStrums.members[i], {x: 900}, 12 * Conductor.stepCrochet / 1000, {ease: FlxEase.cubeOut});
     				}
-					}				
+					}		
+					}		
 			}
 			case 896: 
 			{
 				blackscreen.alpha = 1;
-
+					if (ClientPrefs.data.disableSplit == false)
+					{
 					for (i in 0...4)
 					{
 					switch (i)
@@ -539,7 +552,8 @@ class MikuStage extends BaseStage {
 						PlayState.opponentStrums.members[i].x += 2000;
 						FlxTween.tween(PlayState.opponentStrums.members[i], {x: 1068}, 14 * Conductor.stepCrochet / 1000, {ease: FlxEase.cubeOut});
     				}
-					}						
+					}		
+					}				
 			}	
 			case 920: 
 			{
@@ -573,6 +587,8 @@ class MikuStage extends BaseStage {
 			{
 				FlxTween.tween(noises, {alpha: 0}, 12 * Conductor.stepCrochet / 1000);
 				aishiteBG.alpha = 1;
+				if (ClientPrefs.data.disableSplit == false)
+					{
 					for (i in 0...4)
 					{
     				switch (i)
@@ -600,6 +616,7 @@ class MikuStage extends BaseStage {
 					case 3:
 						FlxTween.tween(PlayState.opponentStrums.members[i], {x: PlayState.opponentStrums.members[i].x + 600}, 14 * Conductor.stepCrochet / 1000, {ease: FlxEase.cubeOut});
     				}
+					}
 					}
 			}	
 			case 1193: 
@@ -639,6 +656,7 @@ class MikuStage extends BaseStage {
 				monitoringWhites.animation.curAnim.curFrame = 0;
 				FlxG.camera.flash(FlxColor.WHITE,1,false);	
 				FlxTween.tween(monitoringWhites, {x: monitoringWhites.x - 50}, 25 * Conductor.stepCrochet / 1000);
+				FlxTween.tween(monitoringBG1, {"scale.x": 1.08, "scale.y": 1.08}, 25 * Conductor.stepCrochet / 1000);
 			}			
 			case 1568:
 			{
@@ -647,7 +665,7 @@ class MikuStage extends BaseStage {
 				monitoringWhites.animation.curAnim.curFrame = 1;
 				monitoringWhites.x += 50;
 				FlxTween.tween(monitoringWhites, {x: monitoringWhites.x - 50}, 16 * Conductor.stepCrochet / 1000);
-
+				FlxTween.tween(monitoringBG2, {"scale.x": 1.08, "scale.y": 1.08}, 16 * Conductor.stepCrochet / 1000);
 			}		
 			case 1585:
 			{
@@ -661,7 +679,8 @@ class MikuStage extends BaseStage {
 				monitoringBG3.alpha = 0;
 				monitoringBG4.alpha = 1;
 				monitoringWhites.animation.curAnim.curFrame = 3;
-				FlxTween.tween(monitoringWhites, {x: monitoringWhites.x - 50}, 13 * Conductor.stepCrochet / 1000);				
+				FlxTween.tween(monitoringWhites, {x: monitoringWhites.x - 50}, 13 * Conductor.stepCrochet / 1000);			
+				FlxTween.tween(monitoringBG4, {"scale.x": 1.08, "scale.y": 1.08}, 13 * Conductor.stepCrochet / 1000);
 			}			
 			case 1616:
 			{
@@ -670,6 +689,7 @@ class MikuStage extends BaseStage {
 				monitoringWhites.animation.curAnim.curFrame = 4;
 				monitoringWhites.x += 50;
 				FlxTween.tween(monitoringWhites, {x: monitoringWhites.x - 50}, 14 * Conductor.stepCrochet / 1000);				
+				FlxTween.tween(monitoringBG5, {"scale.x": 1.08, "scale.y": 1.08}, 14 * Conductor.stepCrochet / 1000);
 			}	
 			case 1624: 
 			{
@@ -910,6 +930,8 @@ class MikuStage extends BaseStage {
 				polkadots.alpha = 1;
 				polkadots2.alpha = 1;
 				bumpMainBG.alpha = 1;				
+				if (ClientPrefs.data.disableSplit == false)
+					{
 					for (i in 0...4)
 					{
 					switch (i)
@@ -942,8 +964,9 @@ class MikuStage extends BaseStage {
 						FlxTween.tween(PlayState.opponentStrums.members[i], {x: 418}, 14 * Conductor.stepCrochet / 1000, {ease: FlxEase.cubeOut});
     				}
 					}
-
+					}
 			}
+			
 		}
 	}
 

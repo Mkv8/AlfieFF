@@ -1,16 +1,16 @@
 function onCreate()
 	makeLuaSprite('letterboxBottom', 'spotlight', -screenWidth/2, screenHeight)
-	makeLuaSprite('letterboxTop', 'spotlight', -screenWidth/2, -screenHeight*2)
-	makeLuaSprite('pillarboxLeft', 'spotlight', -screenWidth*2, -screenHeight/2)
+	makeLuaSprite('letterboxTop', 'spotlight', -screenWidth/2, -screenHeight*4)
+	makeLuaSprite('pillarboxLeft', 'spotlight', -screenWidth*4, -screenHeight/2)
 	makeLuaSprite('pillarboxRight', 'spotlight', screenWidth, -screenHeight/2)
 	luaSpriteMakeGraphic('letterboxBottom', 1, 1, '000000')
 	luaSpriteMakeGraphic('letterboxTop', 1, 1, '000000')
 	luaSpriteMakeGraphic('pillarboxLeft', 1, 1, '000000')
 	luaSpriteMakeGraphic('pillarboxRight', 1, 1, '000000')
-	scaleObject('letterboxBottom', screenWidth*200, screenHeight*2)
-	scaleObject('letterboxTop', screenWidth*200, screenHeight*2)
-	scaleObject('pillarboxLeft', screenWidth*2, screenHeight*200)
-	scaleObject('pillarboxRight', screenWidth*2, screenHeight*200)
+	scaleObject('letterboxBottom', screenWidth*200, screenHeight*4)
+	scaleObject('letterboxTop', screenWidth*200, screenHeight*4)
+	scaleObject('pillarboxLeft', screenWidth*4, screenHeight*200)
+	scaleObject('pillarboxRight', screenWidth*4, screenHeight*200)
 	setLuaSpriteScrollFactor('letterboxBottom', 0, 0)
 	setLuaSpriteScrollFactor('letterboxTop', 0, 0)
 	setLuaSpriteScrollFactor('pillarboxLeft', 0, 0)
@@ -27,6 +27,8 @@ function onEvent(name, value1, value2)
 	if name == "Camera Bars" then
 		screenPercentage = tonumber(splitStrval1(value1, ',')[1]) or 0
 		barType = splitStrval1(value1, ',')[2] or 'letter'
+		barPosRatio1 = splitStrval1(value1, ',')[3] or 0.5
+		barPosRatio2 = splitStrval1(value1, ',')[4] or 0.5
 		duration = tonumber(splitStrval2(value2, ',')[1]) or stepBullshit(splitStrval2(value2, ',')[1])
 		playRate = getProperty('playbackRate') or 1
 		if playRate == 0 then
@@ -37,7 +39,7 @@ function onEvent(name, value1, value2)
 			duration = 0.000001
 		end
 		easing = splitStrval2(value2, ',')[2] or 'sineInOut'
-		makeBars(screenPercentage, barType, duration, easing)
+		makeBars(screenPercentage, barType, duration, easing, barPosRatio1, barPosRatio2)
 	end
 end
 
@@ -57,17 +59,17 @@ function stepBullshit(stepDur)
 	return dur
 end
 
-function makeBars(percent, boxingType, easeDuration, ease)
+function makeBars(percent, boxingType, easeDuration, ease, ratio1, ratio2)
 	if boxingType == 'letter' or boxingType == 'letterbox' then
-		moveBars('letter', percent, easeDuration, ease)
+		moveBars('letter', percent, easeDuration, ease, ratio1)
 	elseif boxingType == 'pillar' or boxingType == 'pillarbox' then
-		moveBars('pillar', percent, easeDuration, ease)
+		moveBars('pillar', percent, easeDuration, ease, ratio1)
 	elseif boxingType == 'all' then
 		percent = 100 - percent
 		percent = math.sqrt(percent)
 		percent = 100 - (percent*10)
-		moveBars('letter', percent, easeDuration, ease)
-		moveBars('pillar', percent, easeDuration, ease)
+		moveBars('letter', percent, easeDuration, ease, ratio1)
+		moveBars('pillar', percent, easeDuration, ease, ratio2)
 	end
 end
 
@@ -96,7 +98,7 @@ function onUpdate()
 	--debugPrint('pillarright:' .. getObjectOrder('pillarboxRight'))
 end
 --]]
-function moveBars(moveSides, screenCover, easingDuration, easingType)
+function moveBars(moveSides, screenCover, easingDuration, easingType, ratio)
 	if moveSides == 'letter' then
 		if screenCover ~= 0 then
 			removeLetterbox = false
@@ -110,9 +112,11 @@ function moveBars(moveSides, screenCover, easingDuration, easingType)
 		elseif screenCover == 0 and letterboxRemoved == false then
 			removeLetterbox = true
 		end
-		coverY = 360
-		doTweenY('letterBottom', 'letterboxBottom', screenHeight - coverY*screenCover/100, easingDuration, easingType)
-		doTweenY('letterTop', 'letterboxTop', -screenHeight*2 + coverY*screenCover/100, easingDuration, easingType)
+		coverY = screenHeight/2
+		topMult = ratio * 2
+		bottomMult = (1 - ratio) * 2
+		doTweenY('letterBottom', 'letterboxBottom', screenHeight - coverY*screenCover/100*bottomMult, easingDuration, easingType)
+		doTweenY('letterTop', 'letterboxTop', -screenHeight*4 + coverY*screenCover/100*topMult, easingDuration, easingType)
 	else
 		if screenCover ~= 0 then
 			removePillarbox = false
@@ -126,9 +130,11 @@ function moveBars(moveSides, screenCover, easingDuration, easingType)
 		elseif screenCover == 0 and pillarboxRemoved == false then
 			removePillarbox = true
 		end
-		coverX = 640
-		doTweenX('pillarLeft', 'pillarboxLeft', -screenWidth*2 + coverX*screenCover/100, easingDuration, easingType)
-		doTweenX('pillarRight', 'pillarboxRight', screenWidth - coverX*screenCover/100, easingDuration, easingType)
+		coverX = screenWidth/2
+		leftMult = ratio * 2
+		rightMult = (1 - ratio) * 2
+		doTweenX('pillarLeft', 'pillarboxLeft', -screenWidth*4 + coverX*screenCover/100*leftMult, easingDuration, easingType)
+		doTweenX('pillarRight', 'pillarboxRight', screenWidth - coverX*screenCover/100*rightMult, easingDuration, easingType)
 	end
 end
 

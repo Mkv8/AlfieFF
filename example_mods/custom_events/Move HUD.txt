@@ -1,0 +1,7 @@
+Changes the HUD camera position.
+
+Value 1: X Position, Y Position
+Defaults: 400, 400
+
+Value 2: Duration, Easing
+Defaults: 0 (instant), linear

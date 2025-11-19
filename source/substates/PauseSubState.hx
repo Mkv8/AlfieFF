@@ -74,13 +74,6 @@ class PauseSubState extends MusicBeatSubstate {
 		noise.scale.set(1, 1);
 		add(noise);		
 
-		/*charRender = new BGSprite('RENDERS/AlfieMSRender', 320, -250, 1, 1);
-		charRender.updateHitbox();
-		charRender.antialiasing = ClientPrefs.data.antialiasing;
-		charRender.alpha = 0;
-		charRender.scale.set(0.5, 0.5);
-
-		add(charRender);*/
 		charRender = new Item(320, -200);
 		charRender.updateHitbox();
 		charRender.alpha = 0;
