@@ -68,8 +68,9 @@ class FreeplayState extends MusicBeatState {
 	var player:MusicPlayer;
 
 	var radian = Math.PI/180;
-	var radius:Float = 10.0;
-	var circlecenter:FlxPoint = new FlxPoint(640,380);
+	var radius:Float = 1000.0;
+	var circlecenter:FlxPoint = new FlxPoint(FlxG.width/2, 1320);
+	var progamt = 0.0;
 
 	var selectedAlbum:Item;
 	var albumTimer:FlxTimer;
@@ -85,7 +86,7 @@ class FreeplayState extends MusicBeatState {
 	override function create() {
 		// Paths.clearStoredMemory();
 		// Paths.clearUnusedMemory();
-		setupAlbums();
+
 
 		persistentUpdate = true;
 		PlayState.isStoryMode = false;
@@ -126,6 +127,8 @@ class FreeplayState extends MusicBeatState {
 		add(bg);
 		bg.screenCenter(XY);
 
+		setupAlbums();
+		
 		borders = new BGSprite('menuassets/bars', 0, 0, 0, 0);
 		borders.updateHitbox();
 		borders.alpha = 1;
@@ -550,20 +553,14 @@ class FreeplayState extends MusicBeatState {
 		if (curSelected >= songs.length)
 			curSelected = 0;
 
-		/*var newColor:Int = songs[curSelected].color;
-		if (newColor != intendedColor) {
-			if (colorTween != null) {
-				colorTween.cancel();
-			}
-			intendedColor = newColor;
-			colorTween = FlxTween.color(bg, 1, bg.color, intendedColor, {
-				onComplete: function(twn:FlxTween) {
-					colorTween = null;
-				}
-			});
-		}*/
-
-		// selector.y = (70 * curSelected) + 30;
+		if (change == -1)
+		{
+			progamt += 360/albums.length;
+		}
+		if (change == 1)
+		{
+			progamt -= 360/albums.length;
+		}
 
 		var bullShit:Int = 0;
 
@@ -598,7 +595,7 @@ class FreeplayState extends MusicBeatState {
 		changeDiff();
 		_updateSongLastDifficulty();
 
-		FlxTween.cancelTweensOf(selectedAlbum);
+		/*FlxTween.cancelTweensOf(selectedAlbum);
 		if(albumTimer != null) albumTimer.cancel();
 		switchAlbums();
 		selectedAlbum.angle = -4;
@@ -608,7 +605,7 @@ class FreeplayState extends MusicBeatState {
 					FlxTween.angle(selectedAlbum, selectedAlbum.angle, 4, 4, {ease: FlxEase.quartInOut});
 				if (selectedAlbum.angle == 4)
 					FlxTween.angle(selectedAlbum, selectedAlbum.angle, -4, 4, {ease: FlxEase.quartInOut});
-			}, 0);
+			}, 0);*/
 
 
 	}
@@ -652,23 +649,32 @@ class FreeplayState extends MusicBeatState {
             var xlerpto = 480 + ((e-curSelected)*420);
             i.x = FlxMath.lerp(xlerpto, i.x, lerpVal);
 
-            //var icon:HealthIcon = iconArray[i];
-            //icon.visible = icon.active = true;
-            //_lastVisibles.push(i);
+
         }
 
-		/*for (i in texts) {
-			//var item:FlxText = grpSongs.members[i];
-			i.scale.set(
-				FlxMath.lerp(i == texts[curSelected] ? 1.05:1, i.scale.x, lerpVal),
-				FlxMath.lerp(i == texts[curSelected] ? 1.05:1, i.scale.y, lerpVal)
-			);
-			i.alpha = FlxMath.lerp(i == texts[curSelected] ? 1: 0.4, i.alpha, lerpVal);
+		for (i in 0...albumpics.length)
+		{
+			var pic = albumpics[i];
+			var degreeprog = ((360/albumpics.length) * i) + progamt;
+			var picsin = Math.sin((degreeprog*radian) + Math.PI*3/2);
+			var piccos = Math.cos((degreeprog*radian) + Math.PI*3/2);
 
-			//var icon:HealthIcon = iconArray[i];
-			//icon.visible = icon.active = true;
-			//_lastVisibles.push(i);
-		}*/
+			//pic.x = circlecenter.x + (radius*piccos) - (pic.width/2);
+			//pic.y = circlecenter.y + (radius*picsin) - (pic.height/2);
+			var picxlerpto = circlecenter.x + (radius*piccos) - (pic.width/2);
+			pic.x = FlxMath.lerp(picxlerpto, pic.x, lerpVal);
+
+			var picylerpto = circlecenter.y + (radius*picsin) - (pic.height/2);
+			pic.y = FlxMath.lerp(picylerpto, pic.y, lerpVal);
+			
+			var dx = circlecenter.x - (pic.x + pic.width / 2);
+			var dy = circlecenter.y - (pic.y + pic.height / 2);
+			pic.angle = (Math.atan2(dy, dx) * 180/Math.PI + 90) + 180;
+			
+
+		}
+
+
 	}
 
 	private function switchAlbums()
@@ -725,31 +731,20 @@ class FreeplayState extends MusicBeatState {
 
 	function setupAlbums()
 	{
-		 for (i in 0...9) {
+		 for (i in 0...albums.length) {
 		var album = new FlxSprite().loadGraphic('assets/shared/images/albums/' + albums[i] + '.png');
         add(album);
 
-        album.scale.x *= 0.7;
-        album.scale.y *= 0.7;
+        album.scale.x *= 0.35;
+        album.scale.y *= 0.35;
 
         album.updateHitbox();
         album.screenCenter();
         albumpics.push(album);
 
         album.alpha = 1;
+	}
 
-		for (i in 0...albumpics.length)
-		{
-			var pic = albumpics[i];
-			var degreeprog = (360/albumpics.length) * i;
-			var picsin = Math.sin(degreeprog*radian);
-			var piccos = Math.cos(degreeprog*radian);
-
-			pic.x = circlecenter.x + (radius*piccos) - (pic.width/2);
-			pic.y = circlecenter.y + (radius*picsin) - (pic.height/2);
-		}
-
-    }
 	}
 
 	override function destroy():Void {
