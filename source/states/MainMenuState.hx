@@ -141,15 +141,13 @@ class MainMenuState extends MusicBeatState {
 		this.add(this.multiplyBar);
 
 		if (MainMenuState.renderDatas.length > 0) {
-			// var randomRenderData: RenderData = MainMenuState.renderDatas[FlxG.random.int(0, MainMenuState.renderDatas.length - 1)];
-			var randomRenderData: RenderData = MainMenuState.renderDatas[0];
+			var randomRenderData: RenderData = MainMenuState.renderDatas[FlxG.random.int(0, MainMenuState.renderDatas.length - 1)];
 
 			this.randomRender = new BGSprite('RENDERS/${randomRenderData.name}');
 			this.randomRender.scale.set(randomRenderData.scale, randomRenderData.scale);
 			this.randomRender.updateHitbox();
 			this.randomRender.x = 580.0 + randomRenderData.offset.x;
 			this.randomRender.y = 0.0 + randomRenderData.offset.y;
-			// this.randomRender.screenCenter(Y);
 			this.randomRender.alpha = 1.0;
 			this.randomRender.antialiasing = ClientPrefs.data.antialiasing;
 			this.add(this.randomRender);
