@@ -67,8 +67,6 @@ class TitleState extends MusicBeatState {
 
 	public var videoSprite:VideoSprite;
 
-	var mustUpdate:Bool = false;
-
 	var titleJSON:TitleData;
 
 	public static var updateVersion:String = '';
@@ -88,56 +86,17 @@ class TitleState extends MusicBeatState {
 		curWacky = FlxG.random.getObject(getIntroTextShit());
 
 		super.create();
-		
+
 		TransNdll.cacheFunctions();
 
 		FlxG.save.bind('funkin', CoolUtil.getSavePath());
 
 		ClientPrefs.loadPrefs();
 
-		#if CHECK_FOR_UPDATES
-		if (ClientPrefs.data.checkForUpdates && !closedState) {
-			trace('checking for update');
-			var http = new haxe.Http("https://raw.githubusercontent.com/ShadowMario/FNF-PsychEngine/main/gitVersion.txt");
-
-			http.onData = function(data:String) {
-				updateVersion = data.split('\n')[0].trim();
-				var curVersion:String = MainMenuState.psychEngineVersion.trim();
-				trace('version online: ' + updateVersion + ', your version: ' + curVersion);
-				if (updateVersion != curVersion) {
-					trace('versions arent matching!');
-					mustUpdate = true;
-				}
-			}
-
-			http.onError = function(error) {
-				trace('error: $error');
-			}
-
-			http.request();
-		}
-		#end
-
 		Highscore.load();
 
 		// IGNORE THIS!!!
 		titleJSON = tjson.TJSON.parse(Paths.getTextFromFile('images/gfDanceTitle.json'));
-
-		#if TITLE_SCREEN_EASTER_EGG
-		if (FlxG.save.data.psychDevsEasterEgg == null)
-			FlxG.save.data.psychDevsEasterEgg = ''; // Crash prevention
-		switch (FlxG.save.data.psychDevsEasterEgg.toUpperCase()) {
-			case 'SHADOW':
-				titleJSON.gfx += 210;
-				titleJSON.gfy += 40;
-			case 'RIVER':
-				titleJSON.gfx += 180;
-				titleJSON.gfy += 40;
-			case 'BBPANZU':
-				titleJSON.gfx += 45;
-				titleJSON.gfy += 100;
-		}
-		#end
 
 		if (!initialized) {
 			if (FlxG.save.data != null && FlxG.save.data.fullscreen) {
@@ -153,11 +112,7 @@ class TitleState extends MusicBeatState {
 		}
 
 		FlxG.mouse.visible = false;
-		#if FREEPLAY
-		MusicBeatState.switchState(new FreeplayState());
-		#elseif CHARTING
-		MusicBeatState.switchState(new ChartingState());
-		#else
+
 		if (FlxG.save.data.flashing == null && !FlashingState.leftState) {
 			FlxTransitionableState.skipNextTransIn = true;
 			FlxTransitionableState.skipNextTransOut = true;
@@ -171,14 +126,11 @@ class TitleState extends MusicBeatState {
 				});
 			}
 		}
-		#end
 	}
 
 	var logoBl:FlxSprite;
 	var danceLeft:Bool = false;
 	var titleText:FlxSprite;
-
-		
 
 	function startIntro() {
 		if (!initialized) {
@@ -213,7 +165,7 @@ class TitleState extends MusicBeatState {
 		videoSprite.scale.set(1,1);
 		//videoSprite.screenCenter();
 		videoSprite.x = 0;
-		videoSprite.y= 0;   
+		videoSprite.y = 0;
 		videoSprite.visible = false;
 		videoSprite.antialiasing = ClientPrefs.data.antialiasing;
 		add(videoSprite);
@@ -401,11 +353,7 @@ class TitleState extends MusicBeatState {
 				// FlxG.sound.music.stop();
 
 				new FlxTimer().start(1, function(tmr:FlxTimer) {
-					if (mustUpdate) {
-						MusicBeatState.switchState(new OutdatedState());
-					} else {
-						MusicBeatState.switchState(new MainMenuState());
-					}
+					MusicBeatState.switchState(new MainMenuState());
 					closedState = true;
 				});
 				// FlxG.sound.play(Paths.music('titleShoot'), 0.7);
