@@ -194,7 +194,7 @@ class FilipGarage extends BaseStage {
 		musician.borderSize = 3;		
 		musician.cameras = [camOther];
 
-		charter = new FlxText(110, 350, FlxG.width - 100, 'Charter: Chubby & Sire Kirb (Events)', 32);
+		charter = new FlxText(110, 350, FlxG.width - 100, 'Charter: Chubby & sire_kirbz (Events)', 32);
 		charter.setFormat(Paths.font("vcr.ttf"), 32, 0xFFffcf53, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		charter.scrollFactor.set();
 		charter.alpha = 0;

@@ -278,7 +278,7 @@ class Temple extends BaseStage {
 		musician.borderSize = 3;		
 		musician.cameras = [camOther];
 
-		charter = new FlxText(110, 350, FlxG.width - 100, 'Charter: Sire Kirb', 32);
+		charter = new FlxText(110, 350, FlxG.width - 100, 'Charter: sire_kirbz', 32);
 		charter.setFormat(Paths.font("vcr.ttf"), 32, 0xFFffcf53, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		charter.scrollFactor.set();
 		charter.alpha = 0;

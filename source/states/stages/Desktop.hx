@@ -237,14 +237,16 @@ class Desktop extends BaseStage {
 					{
 						dad.dontInterrupt = false;
 					};
+					introtext.x += 100;
+
 	
 				case 896:
 					{
-						FlxTween.tween(midVideo, {alpha: 1}, 1);
+						FlxTween.tween(midVideo, {alpha: 1}, 1.2, {startDelay: 0.1});
 						midVideo.bitmap.startPos = Std.int(Conductor.songPosition);
 						midVideo.bitmap.playCached();
 						FlxTween.tween(dad, {alpha: 0}, 1.5);
-						FlxTween.tween(camHUD, {alpha: 0}, 0.5);
+						FlxTween.tween(camHUD, {alpha: 0}, 1);
 						PlayState.scoreTxt.visible = false;
 
 						Lib.application.window.resizable = false;
@@ -271,7 +273,7 @@ class Desktop extends BaseStage {
 						//This is the part where the glass shards fall, he is already visible, so I set his alpha to 1, you dont need to do anything here.
 					}				
 
-				case 972: 
+				case 974: 
 					{
 						songDeets();
 					}
@@ -417,7 +419,7 @@ class Desktop extends BaseStage {
 		musician.borderSize = 3;		
 		musician.cameras = [camOther];
 
-		charter = new FlxText(110, 350, FlxG.width - 100, 'Charter: PavDrop & Sire Kirb (Events)', 32);
+		charter = new FlxText(110, 350, FlxG.width - 100, 'Charter: PavDrop & sire_kirbz (Events)', 32);
 		charter.setFormat(Paths.font("vcr.ttf"), 32, 0xFFffcf53, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		charter.scrollFactor.set();
 		charter.alpha = 0;

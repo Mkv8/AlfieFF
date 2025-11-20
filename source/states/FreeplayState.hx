@@ -33,7 +33,7 @@ class FreeplayState extends MusicBeatState {
 	var lerpRating:Float = 0;
 	var intendedScore:Int = 0;
 	var intendedRating:Float = 0;
-
+	var album:FlxSprite;
 	var shader:Array<BitmapFilter> = [
 		new ShaderFilter(new shaders.PostProcessing()),
 	];
@@ -70,12 +70,12 @@ class FreeplayState extends MusicBeatState {
 	var radian = Math.PI/180;
 	var radius:Float = 1000.0;
 	var circlecenter:FlxPoint = new FlxPoint(FlxG.width/2, 1320);
-	var progamt = 0.0;
+	static var progamt = 0.0;
 
 	var selectedAlbum:Item;
 	var albumTimer:FlxTimer;
 
-
+	var songText:FlxText;
 	//BASIC NOTES: NEW SONGS YOU HAVENT PLAYED ARE BLACK WITH THE NAMES BEING ???
 	//ONLY EXCEPTIONS TO THIS ARE THE FIRST THREE SONGS: FREAKY 4EVA, FOREST FIRE AND CONVICTED LOVE, THATS BECAUSE THEYRE FROM THE OLD UPDATE! PLEASE KEEP THEM ALREADY REVEALED
 	//AFTER YOU PLAY A SONG IT SHOWS THE ACTUAL SONG NAME AND ALBUM
@@ -147,7 +147,7 @@ class FreeplayState extends MusicBeatState {
 
 		for (i in 0...songs.length) {
 			//var songText:Alphabet = new Alphabet(90, 320, songs[i].songName, true);
-			var songText:FlxText = new FlxText(500 + (i*420), 630, songs[i].songName, 50);
+			songText = new FlxText(500 + (i*420), 630, songs[i].songName, 50);
 			songText.setFormat(Paths.font("vcr.ttf"), 36, 0xFFffcf53, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			songText.borderColor = 0xFF3F0000;
 			songText.borderSize = 3;	
@@ -187,16 +187,22 @@ class FreeplayState extends MusicBeatState {
 			// too laggy with a lot of songs, so i had to recode the logic for it
 			songText.visible = songText.active;
 			icon.visible = icon.active = false;
+			iconArray.push(icon);	
 
-			// using a FlxGroup is too much fuss!
-			iconArray.push(icon);
-			//add(icon);
+		trace(Highscore.getScore(songs[i].songName, 0));
 
-			// songText.x += 40;
-			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
-			// songText.screenCenter(X);
+		//for (i in 0...songs.length) {
+		/*if (Highscore.getScore(songs[i].songName, 0) <= 100)
+			{
+				songText.text = '???';
+				songText.offset.set(-120,0);
+			} else {}*/
+		//}
+
+
 		}
 		WeekData.setDirectoryFromWeek();
+
 
 		scoreText = new FlxText(0, 20, 0, "", 32);
 		scoreText.setFormat(Paths.font("vcr.ttf"), 32, 0xFFffcf53, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -256,6 +262,11 @@ class FreeplayState extends MusicBeatState {
 
 		changeSelection();
 		updateTexts();
+
+		lockShitUp();
+		for (i in 0...songs.length) {
+		trace(Highscore.getScore(songs[i].songName, 0));
+		}
 
 		super.create();
 		FlxG.game.setFilters(shader);
@@ -479,13 +490,7 @@ class FreeplayState extends MusicBeatState {
 				}
 			}
 
-			/*for (i in 0...songs.length) {
-			if (Highscore.getScore(songs[i].songName, curDifficulty) == 0 || Highscore.getScore(songs[i].songName, curDifficulty) == null)
-			{
-				songName.text = '???';
-				selectedAlbum.color = FlxColor.BLACK;		
-			}
-			}*/
+
 			FlxG.sound.music.volume = 0;
 
 			destroyFreeplayVocals();
@@ -595,18 +600,6 @@ class FreeplayState extends MusicBeatState {
 		changeDiff();
 		_updateSongLastDifficulty();
 
-		/*FlxTween.cancelTweensOf(selectedAlbum);
-		if(albumTimer != null) albumTimer.cancel();
-		switchAlbums();
-		selectedAlbum.angle = -4;
-		albumTimer = new FlxTimer().start(1, function(tmr:FlxTimer)
-			{
-				if(selectedAlbum.angle == -4)
-					FlxTween.angle(selectedAlbum, selectedAlbum.angle, 4, 4, {ease: FlxEase.quartInOut});
-				if (selectedAlbum.angle == 4)
-					FlxTween.angle(selectedAlbum, selectedAlbum.angle, -4, 4, {ease: FlxEase.quartInOut});
-			}, 0);*/
-
 
 	}
 
@@ -677,75 +670,44 @@ class FreeplayState extends MusicBeatState {
 
 	}
 
-	private function switchAlbums()
-	{
-		FlxTween.tween(selectedAlbum,{x: 1750}, 0.7, {ease: FlxEase.cubeInOut, 
-		onComplete: function(twn:FlxTween){
-			switch(curSelected){
-
-				case 0:
-				{
-					selectedAlbum.loadGraphic(Paths.image('albums/freaky4eva'));
-				}
-				case 1:
-				{
-					selectedAlbum.loadGraphic(Paths.image('albums/ffNewMix'));
-				}
-				case 2:
-				{
-					selectedAlbum.loadGraphic(Paths.image('albums/convictedLove'));
-				}
-				case 3:
-				{
-					selectedAlbum.loadGraphic(Paths.image('albums/jammedCartridge'));
-				}
-				case 4:
-				{
-					selectedAlbum.loadGraphic(Paths.image('albums/anemoia'));
-				}
-				case 5:
-				{
-					selectedAlbum.loadGraphic(Paths.image('albums/punchBuggy'));
-				}
-				case 6:
-				{
-					selectedAlbum.loadGraphic(Paths.image('albums/rooftopTalkshop'));
-				}
-				case 7:
-				{
-					selectedAlbum.loadGraphic(Paths.image('albums/aisong'));
-				}
-				case 8:
-				{
-					selectedAlbum.loadGraphic(Paths.image('albums/channelSurfers'));
-				}				
-				case 9:
-				{
-					selectedAlbum.loadGraphic(Paths.image('albums/eyeOfTheBeholder'));
-				}
-			}
-		FlxTween.tween(selectedAlbum,{x:380}, 0.7, {ease: FlxEase.cubeInOut});
-		}});	
-
-	}
-
 	function setupAlbums()
 	{
-		 for (i in 0...albums.length) {
-		var album = new FlxSprite().loadGraphic('assets/shared/images/albums/' + albums[i] + '.png');
-        add(album);
+		for (i in 0...albums.length) {
+			album = new FlxSprite().loadGraphic('assets/shared/images/albums/' + albums[i] + '.png');
+			add(album);
+			
+			album.scale.x *= 0.35;
+			album.scale.y *= 0.35;
+			
+			album.updateHitbox();
+			album.screenCenter();
+			albumpics.push(album);
+			
+			album.alpha = 1;
 
-        album.scale.x *= 0.35;
-        album.scale.y *= 0.35;
 
-        album.updateHitbox();
-        album.screenCenter();
-        albumpics.push(album);
+		}
+	
 
-        album.alpha = 1;
 	}
 
+	function lockShitUp()
+	{
+		for (i in 0...songs.length) {
+			if (Highscore.getScore(songs[i].songName, 0) == 0)
+			{
+				texts[i].text = '???';
+				texts[i].offset.set(-120,0);
+			}
+		}
+		for (i in 0... albums.length) {
+			if (Highscore.getScore(songs[i].songName, 0) == 0)
+			{
+				albumpics[i].color = FlxColor.BLACK;
+			}
+		}
 	}
+
 
 	override function destroy():Void {
 		super.destroy();

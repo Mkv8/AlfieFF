@@ -601,8 +601,8 @@
 				[
 					[
 						"FlashingStuff",
-						"000000, 1, mix",
-						"0.5, 5, 0, hud"
+						"000000, 0.75, mix",
+						"4s, 5, 0, hud"
 					]
 				]
 			],
@@ -5300,9 +5300,9 @@
 						"14s, expoOut"
 					],
 					[
-						"Tween Variable",
-						"camHUD.y",
-						"0, 14s, expoOut"
+						"Move HUD",
+						"0, 0",
+						"14s, expoOut"
 					],
 					[
 						"Camera Movement",
@@ -5370,9 +5370,9 @@
 						"4s"
 					],
 					[
-						"Tween Variable",
-						"camHUD.x",
-						"50, 4s, expoOut"
+						"Move HUD",
+						"50, 0",
+						"4s, expoOut"
 					],
 					[
 						"Set Cam Zoom",
@@ -5400,9 +5400,9 @@
 						"8s"
 					],
 					[
-						"Tween Variable",
-						"camHUD.x",
-						"0, 8s, expoInOut"
+						"Move HUD",
+						"0, 0",
+						"8s, expoInOut"
 					],
 					[
 						"Camera Movement",
@@ -5540,9 +5540,9 @@
 						"4s"
 					],
 					[
-						"Tween Variable",
-						"camHUD.y",
-						"25, 4s, expoOut"
+						"Move HUD",
+						"0, 25",
+						"4s, expoOut"
 					],
 					[
 						"Set Cam Zoom",
@@ -5570,9 +5570,9 @@
 						"8s"
 					],
 					[
-						"Tween Variable",
-						"camHUD.y",
-						"0, 8s, expoInOut"
+						"Move HUD",
+						"0, 0",
+						"8s, expoInOut"
 					],
 					[
 						"Camera Movement",
@@ -5720,9 +5720,9 @@
 						"4s"
 					],
 					[
-						"Tween Variable",
-						"camHUD.x",
-						"50, 4s, expoOut"
+						"Move HUD",
+						"50, 0",
+						"4s, expoOut"
 					]
 				]
 			],
@@ -5740,9 +5740,9 @@
 						"8s"
 					],
 					[
-						"Tween Variable",
-						"camHUD.x",
-						"0, 8s, expoInOut"
+						"Move HUD",
+						"0, 0",
+						"8s, expoInOut"
 					]
 				]
 			],
@@ -5860,9 +5860,9 @@
 						"4s"
 					],
 					[
-						"Tween Variable",
-						"camHUD.y",
-						"25, 4s, expoOut"
+						"Move HUD",
+						"0, 25",
+						"4s, expoOut"
 					]
 				]
 			],
@@ -5880,9 +5880,9 @@
 						"8s"
 					],
 					[
-						"Tween Variable",
-						"camHUD.y",
-						"0, 8s, expoInOut"
+						"Move HUD",
+						"0, 0",
+						"8s, expoInOut"
 					]
 				]
 			],
@@ -6020,9 +6020,9 @@
 						"4s"
 					],
 					[
-						"Tween Variable",
-						"camHUD.y",
-						"-25, 4s, expoOut"
+						"Move HUD",
+						"0, -25",
+						"4s, expoOut"
 					]
 				]
 			],
@@ -6040,9 +6040,9 @@
 						"8s"
 					],
 					[
-						"Tween Variable",
-						"camHUD.y",
-						"0, 8s, expoInOut"
+						"Move HUD",
+						"0, 0",
+						"8s, expoInOut"
 					]
 				]
 			],
@@ -6160,9 +6160,9 @@
 						"4s"
 					],
 					[
-						"Tween Variable",
-						"camHUD.x",
-						"-50, 4s, expoOut"
+						"Move HUD",
+						"-50, 0",
+						"4s, expoOut"
 					]
 				]
 			],
@@ -6180,9 +6180,9 @@
 						"8s"
 					],
 					[
-						"Tween Variable",
-						"camHUD.x",
-						"0, 8s, expoInOut"
+						"Move HUD",
+						"0, 0",
+						"8s, expoInOut"
 					]
 				]
 			],
@@ -6310,9 +6310,9 @@
 						"4s"
 					],
 					[
-						"Tween Variable",
-						"camHUD.y",
-						"-25, 4s, expoOut"
+						"Move HUD",
+						"0, -25",
+						"4s, expoOut"
 					]
 				]
 			],
@@ -6330,9 +6330,9 @@
 						"8s"
 					],
 					[
-						"Tween Variable",
-						"camHUD.y",
-						"0, 8s, expoInOut"
+						"Move HUD",
+						"0, 0",
+						"8s, expoInOut"
 					]
 				]
 			],
@@ -6450,9 +6450,9 @@
 						"4s"
 					],
 					[
-						"Tween Variable",
-						"camHUD.x",
-						"-50, 4s, expoOut"
+						"Move HUD",
+						"-50, 0",
+						"4s, expoOut"
 					]
 				]
 			],
@@ -6470,9 +6470,9 @@
 						"8s"
 					],
 					[
-						"Tween Variable",
-						"camHUD.x",
-						"0, 8s, expoInOut"
+						"Move HUD",
+						"0, 0",
+						"8s, expoInOut"
 					]
 				]
 			],
