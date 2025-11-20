@@ -175,8 +175,9 @@ class PauseSubState extends MusicBeatSubstate {
 		}, 0.4, {
 			ease: FlxEase.quartInOut,
 			startDelay: 0.7
-		});					
-
+		});				
+			
+		//region Render positions
 		switch(PlayState.SONG.song)
 		{
 			case 'Freaky 4eva': //done
@@ -334,6 +335,7 @@ class PauseSubState extends MusicBeatSubstate {
 				}																				
 		}
 
+		// endregion
 
 		pauseMusic = new FlxSound();
 		try {

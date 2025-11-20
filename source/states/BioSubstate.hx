@@ -24,7 +24,7 @@ typedef RenderData = {
 	scale: Float,
 }
 
-class MainMenuState extends MusicBeatState {
+class BioSubstate extends ExtrasState {
 	// THE MENU HAS 4 OPTIONS: SONGS, EXTRAS, CREDITS, OPTIONS, YOU CAN USE THE FREEPLAY MENU AS THE SONGS MENU SINCE ITS LITERALLY THE SAME THING
 	private static final menuOptions:Array<String> = ["songs", "extras", "credits", "options"];
 
@@ -214,6 +214,16 @@ class MainMenuState extends MusicBeatState {
 		this.menuItems.screenCenter(Y);
 
 		this.add(this.menuItems);
+
+		// var psychVer:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
+		// psychVer.scrollFactor.set();
+		// psychVer.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		// this.add(psychVer);
+
+		// var fnfVer:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' v" + Application.current.meta.get('version'), 12);
+		// fnfVer.scrollFactor.set();
+		// fnfVer.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		// this.add(fnfVer);
 
 		FlxG.game.setFilters(shader);
 		FlxG.game.filtersEnabled = true;

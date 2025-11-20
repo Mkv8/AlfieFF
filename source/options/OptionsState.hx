@@ -33,10 +33,6 @@ class OptionsState extends MusicBeatState {
 		new ShaderFilter(new shaders.PostProcessing()),
 	];
 
-	/*var curveShader:Array<BitmapFilter> = [
-		new ShaderFilter(new shaders.CurveShader()),
-	];*/
-
 	var curveShader = new shaders.CurveShader();
 
 	function openSelectedSubstate(label:String) {
@@ -99,10 +95,7 @@ class OptionsState extends MusicBeatState {
 
 		grpOptions = new FlxTypedGroup<FlxText>();
 		add(grpOptions);
-		/*var songText:FlxText = new FlxText(500 + (i*420), 630, songs[i].songName, 50);
-		songText.setFormat(Paths.font("vcr.ttf"), 36, 0xFFffcf53, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		songText.borderColor = 0xFF3F0000;
-		songText.borderSize = 3;*/
+
 		for (i in 0...options.length) {
 			var optionText:FlxText = new FlxText(100, 0, options[i], 36);
 			optionText.setFormat(Paths.font("vcr.ttf"), 56, 0xffffffff, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -184,19 +177,6 @@ class OptionsState extends MusicBeatState {
 
 		var bullShit:Int = 0;
 
-		/*for (item in grpOptions.members) {
-			item.targetY = bullShit - curSelected;
-			bullShit++;
-
-			item.alpha = 0.6;
-			if (item.targetY == 0) {
-				item.alpha = 1;
-				selectorLeft.x = item.x - 63;
-				selectorLeft.y = item.y;
-				selectorRight.x = item.x + item.width + 15;
-				selectorRight.y = item.y;
-			}
-		}*/
 		FlxG.sound.play(Paths.sound('scrollMenu'));
 
 	}
