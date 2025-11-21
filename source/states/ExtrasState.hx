@@ -52,8 +52,6 @@ class ExtrasState extends MusicBeatState {
         transIn = FlxTransitionableState.defaultTransIn;
         transOut = FlxTransitionableState.defaultTransOut;
 
-        persistentUpdate = persistentDraw = true;
-
         super.create();
 
         var bg:FlxSprite = new FlxSprite(0).loadGraphic(Paths.image("menuassets/mainExtraBg"));
