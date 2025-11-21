@@ -18,8 +18,6 @@ class ExtrasState extends MusicBeatState {
 
     var texts:Array<FlxText> = [];
 
-    public static var psychEngineVersion:String = "0.7.3"; // This is also used for Discord RPC
-
     var curveShader = new shaders.CurveShader();
 
     var camFollow: FlxObject;
@@ -34,9 +32,9 @@ class ExtrasState extends MusicBeatState {
     function openSelectedSubstate(label:String) {
         switch (label) {
             case 'Character Bios':
-                openSubState(new options.ControlsSubState());
+                this.openSubState(new BioSubstate());
             case 'Artwork':
-                openSubState(new options.GraphicsSettingsSubState());
+                this.openSubState(new options.GraphicsSettingsSubState());
         }
     }
 

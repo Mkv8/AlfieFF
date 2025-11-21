@@ -31,7 +31,7 @@ class MainMenuState extends MusicBeatState {
 	private static var selection:Int = 0;
 
 	public static final renderDatas:Array<RenderData> = [
-		{ name: "AlfieMSRender", offset: { x: 0.0, y: 0.0 }, scale: 0.5 },  
+		{ name: "AlfieMSRender", offset: { x: 0.0, y: 0.0 }, scale: 0.5 },
 		{ name: "AlfieMSRenderAlt", offset: { x: 20.0, y: 40.0 }, scale: 0.30 },
 		{ name: "BFMSRender", offset: { x: 110.0, y: -80.0 }, scale: 0.45 },
 		{ name: "BFMSRenderAlt", offset: { x: 130.0, y: 10.0 }, scale: 0.45 },
@@ -57,6 +57,7 @@ class MainMenuState extends MusicBeatState {
 	static var addedMinus:Bool;
 
 	//Thank you tantalun for the help with the menus..... everyone say thank you tanta......
+	// <TA>: Blow up
 
 	var shader:Array<BitmapFilter> = [
 		new ShaderFilter(new shaders.PostProcessing()),
@@ -79,41 +80,41 @@ class MainMenuState extends MusicBeatState {
 		renderDatas.insert(6, { name: "KisstonMSRender", offset: { x: 105.0, y: 30.0 }, scale: 0.55 }); trace('is this fuckin pushed');
 		renderDatas.insert(7, { name: "KisstonMSRenderAlt", offset: { x: -20.0, y: 30.0 }, scale: 0.42 });
 		addedKiss = true;
-		}	
+		}
 		if (Highscore.getScore('jammed-cartridge', 0) != 0 && !addedKai|| Highscore.getScore('anemoia', 0) != 0 && !addedKai)
 		{
 		renderDatas.insert(8, { name: "KaiMSRender", offset: { x: 115.0, y: 70.0 }, scale: 0.8 }); trace('is this fuckin pushed');
 		renderDatas.insert(9, { name: "KaiMSRenderAlt", offset: { x: 80.0, y: 20.0 }, scale: 0.45 });
 		addedKai = true;
-		}	
-		if (Highscore.getScore('punch-buggy', 0) != 0 && !addedFilip|| Highscore.getScore('punch-buggy!', 0) != 0  && !addedFilip|| Highscore.getScore('punch-buggy!!', 0) != 0  && !addedFilip|| Highscore.getScore('punch-buggy!!!', 0) != 0  && !addedFilip) 
+		}
+		if (Highscore.getScore('punch-buggy', 0) != 0 && !addedFilip|| Highscore.getScore('punch-buggy!', 0) != 0  && !addedFilip|| Highscore.getScore('punch-buggy!!', 0) != 0  && !addedFilip|| Highscore.getScore('punch-buggy!!!', 0) != 0  && !addedFilip)
 		{
 		renderDatas.insert(10, { name: "FilipMSRender", offset: { x: 40.0, y: 70.0 }, scale: 0.45 }); trace('is this fuckin pushed');
 		renderDatas.insert(11, { name: "FilipMSRenderAlt", offset: { x: 50.0, y: 20.0 }, scale: 0.38 });
 		addedFilip = true;
-		}	
+		}
 		if (Highscore.getScore('rooftop-talkshop', 0) != 0 && !addedNikku)
 		{
 		renderDatas.insert(12, { name: "NikkuMSRender", offset: { x: 70.0, y: 50.0 }, scale: 0.72});
 		addedNikku = true;
-		}				
+		}
 		if (Highscore.getScore('aisong', 0) != 0 && !addedAi)
 		{
 		renderDatas.insert(13, { name: "AiMSRender", offset: { x: 70.0, y: 20.0 }, scale: 0.7 });
 		renderDatas.insert(14, { name: "AiMSRenderAlt", offset: { x: 40.0, y: 20.0 }, scale: 0.6 });
 		addedAi = true;
-		}	
+		}
 		if (Highscore.getScore('channel-surfers', 0) != 0 && !addedMiku)
 		{
 		renderDatas.insert(15, { name: "MikuMSRender", offset: { x: 60.0, y: 20.0 }, scale: 0.6 });
 		renderDatas.insert(16, { name: "MikuMSRenderAlt", offset: { x: 70.0, y: 50.0 }, scale: 0.62 });
 		addedMiku = true;
-		}			
+		}
 		if (Highscore.getScore('eye-of-the-beholder', 0) != 0 && !addedMinus)
 		{
 		renderDatas.insert(17, { name: "minusMSRender", offset: { x: 100.0, y: 30.0 }, scale: 0.65 });
 		addedMinus = true;
-		}		
+		}
 
 		//trace(renderDatas);
 		#if DISCORD_ALLOWED
@@ -296,7 +297,7 @@ class MainMenuState extends MusicBeatState {
 				MusicBeatState.switchState(new MasterEditorMenu());
 			}
 		}
-		
+
 		var lerpVal:Float = Math.exp(-elapsed * 10);
 		for (i in texts)
 		{
