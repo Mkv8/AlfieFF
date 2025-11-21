@@ -133,7 +133,7 @@ class ArtworkSubstate extends MusicBeatSubstate {
 			if (controls.BACK) {
 				selectedSomethin = true;
 				FlxG.sound.play(Paths.sound('cancelMenu'));
-				this.closeSubState();
+				this.close();
 			}
 
 			if (controls.ACCEPT) {
