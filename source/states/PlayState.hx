@@ -695,6 +695,16 @@ class PlayState extends MusicBeatState {
 				
 			}		
 
+		if (Paths.formatToSongPath(SONG.song) == "freaky-4eva") 
+			{
+				for(strum in opponentStrums.members) strum.visible = false;
+				for(i in 0...opponentStrums.members.length) opponentStrums.members[i].x = -1000;
+				iconP1.visible = false;
+				iconP2.visible = false;
+				healthBar.visible = false;
+				
+			}	
+
 		if (Paths.formatToSongPath(SONG.song) == "channel-surfers") 
 			{
 				for (i in 0...4)
