@@ -1,11 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="noises.png">
-	<!-- Created with Adobe Animate version 20.5.1.31044 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="noises0000" x="8" y="8" width="1920" height="1080"/>
-	<SubTexture name="noises0001" x="8" y="8" width="1920" height="1080"/>
-	<SubTexture name="noises0002" x="1936" y="8" width="1920" height="1080"/>
-	<SubTexture name="noises0003" x="1936" y="8" width="1920" height="1080"/>
-	<SubTexture name="noises0004" x="8" y="1096" width="1920" height="1080"/>
-	<SubTexture name="noises0005" x="8" y="1096" width="1920" height="1080"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="noises.png" width="5762" height="1080" spritePadding="1" borderPadding="0">
+	<SubTexture name="noises0000" x="0" y="0" width="1920" height="1080" frameX="0" frameY="0" frameWidth="1920" frameHeight="1080"/>
+	<SubTexture name="noises0001" x="0" y="0" width="1920" height="1080" frameX="0" frameY="0" frameWidth="1920" frameHeight="1080"/>
+	<SubTexture name="noises0002" x="1921" y="0" width="1920" height="1080" frameX="0" frameY="0" frameWidth="1920" frameHeight="1080"/>
+	<SubTexture name="noises0003" x="1921" y="0" width="1920" height="1080" frameX="0" frameY="0" frameWidth="1920" frameHeight="1080"/>
+	<SubTexture name="noises0004" x="3842" y="0" width="1920" height="1080" frameX="0" frameY="0" frameWidth="1920" frameHeight="1080"/>
+	<SubTexture name="noises0005" x="3842" y="0" width="1920" height="1080" frameX="0" frameY="0" frameWidth="1920" frameHeight="1080"/>
 </TextureAtlas>

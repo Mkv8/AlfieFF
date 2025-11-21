@@ -10,8 +10,6 @@ import states.FreeplayState;
 import options.OptionsState;
 
 class PauseSubState extends MusicBeatSubstate {
-	var grpMenuShit:FlxTypedGroup<Alphabet>;
-
 	var menuItems:Array<String> = [];
 	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Change Difficulty', 'Options', 'Exit to menu'];
 	var difficultyChoices = [];
@@ -78,8 +76,7 @@ class PauseSubState extends MusicBeatSubstate {
 		charRender.updateHitbox();
 		charRender.alpha = 0;
 		charRender.scale.set(0.5, 0.5);
-		charRender.antialiasing = ClientPrefs.data.antialiasing;		
-		charRender.loadGraphic(Paths.image('RENDERS/AlfieMSRender'));
+		charRender.antialiasing = ClientPrefs.data.antialiasing;
 		add(charRender);		
 
 		pausedButton = new BGSprite('pause', FlxG.width - 480, 0, 1, 1, ['pause'], true);
@@ -178,11 +175,14 @@ class PauseSubState extends MusicBeatSubstate {
 		});				
 			
 		//region Render positions
-		switch(PlayState.SONG.song)
+		var songie = PlayState.SONG.song;
+		var assets = getPauseAsset(songie);
+		charRender.loadGraphic(Paths.image(assets[1]));
+		pauseSongs = assets[0];
+		switch(songie)
 		{
 			case 'Freaky 4eva': //done
 				{
-				charRender.loadGraphic(Paths.image('RENDERS/BFMSRenderAlt'));
 				charRender.scale.set(0.5, 0.5);	
 				charRender.x = 380;
 				charRender.y = -460;
@@ -192,12 +192,10 @@ class PauseSubState extends MusicBeatSubstate {
 				}, 0.8, {
 					ease: FlxEase.quartInOut,
 					startDelay: 1
-				});				
-				pauseSongs = 'pauseBF';		
+				});		
 				}			
 			case 'Forest Fire': //done
 				{
-				charRender.loadGraphic(Paths.image('RENDERS/AlfieMSRender'));
 				charRender.scale.set(0.5, 0.5);	
 				charRender.x = 320;
 				charRender.y = -280;
@@ -207,13 +205,11 @@ class PauseSubState extends MusicBeatSubstate {
 				}, 0.8, {
 					ease: FlxEase.quartInOut,
 					startDelay: 1
-				});				
-				pauseSongs = 'pauseAlfie';		
+				});		
 				}
 
 			case 'Convicted Love': //done
 				{
-				charRender.loadGraphic(Paths.image('RENDERS/KisstonMSRender'));
 				charRender.x = 430;
 				charRender.y = -240;
 				charRender.scale.set(0.5, 0.5);	
@@ -223,13 +219,11 @@ class PauseSubState extends MusicBeatSubstate {
 				}, 0.8, {
 					ease: FlxEase.quartInOut,
 					startDelay: 1
-				});				
-				pauseSongs = 'pauseKisston';		
+				});		
 				}
 				
 			case 'Jammed Cartridge': //done
 				{
-				charRender.loadGraphic(Paths.image('RENDERS/KaiMSRender'));
 				charRender.x = 700;
 				charRender.y = -0;
 				charRender.scale.set(0.7, 0.7);	
@@ -239,12 +233,10 @@ class PauseSubState extends MusicBeatSubstate {
 				}, 0.8, {
 					ease: FlxEase.quartInOut,
 					startDelay: 1
-				});				
-				pauseSongs = 'pauseKai';							
+				});							
 				}				
 			case 'Anemoia':
 				{
-				charRender.loadGraphic(Paths.image('RENDERS/KaiMSRenderAlt'));
 				charRender.x = 350;
 				charRender.flipX = true;
 				charRender.y = -430;
@@ -255,12 +247,10 @@ class PauseSubState extends MusicBeatSubstate {
 				}, 0.8, {
 					ease: FlxEase.quartInOut,
 					startDelay: 1
-				});				
-				pauseSongs = 'pauseKai';							
+				});							
 				}	
 			case 'PUNCH BUGGY!!!':
 				{
-				charRender.loadGraphic(Paths.image('RENDERS/FilipMSRender'));
 				charRender.x = 250;
 				charRender.y = -340;
 				charRender.scale.set(0.48, 0.48);	
@@ -270,12 +260,10 @@ class PauseSubState extends MusicBeatSubstate {
 				}, 0.8, {
 					ease: FlxEase.quartInOut,
 					startDelay: 1
-				});				
-				pauseSongs = 'pauseFilip';							
+				});						
 				}	
 			case 'Rooftop Talkshop': //done
 				{
-				charRender.loadGraphic(Paths.image('RENDERS/NikkuMSRender'));
 				charRender.x = 720;
 				charRender.y = -250;
 				charRender.scale.set(0.6, 0.6);	
@@ -285,12 +273,10 @@ class PauseSubState extends MusicBeatSubstate {
 				}, 0.8, {
 					ease: FlxEase.quartInOut,
 					startDelay: 1
-				});				
-				pauseSongs = 'pauseNikku';							
+				});						
 				}		
 			case 'aiSong':
 				{
-				charRender.loadGraphic(Paths.image('RENDERS/AiMSRenderAlt'));
 				charRender.x = 630;
 				charRender.y = -130;
 				charRender.scale.set(0.55, 0.55);	
@@ -300,12 +286,10 @@ class PauseSubState extends MusicBeatSubstate {
 				}, 0.8, {
 					ease: FlxEase.quartInOut,
 					startDelay: 1
-				});				
-				pauseSongs = 'pauseAi';							
+				});							
 				}	
 			case 'Channel Surfers': //done
 				{
-				charRender.loadGraphic(Paths.image('RENDERS/MikuMSRender'));
 				charRender.x = 500;
 				charRender.y = -280;
 				charRender.scale.set(0.5, 0.5);	
@@ -315,12 +299,10 @@ class PauseSubState extends MusicBeatSubstate {
 				}, 0.8, {
 					ease: FlxEase.quartInOut,
 					startDelay: 1
-				});				
-				pauseSongs = 'pauseMiku';							
+				});						
 				}	
 			case 'Eye of the Beholder': //done
 				{
-				charRender.loadGraphic(Paths.image('RENDERS/minusMSRender'));
 				charRender.x = 600;
 				charRender.y = -350;
 				charRender.scale.set(0.5, 0.5);	
@@ -330,8 +312,7 @@ class PauseSubState extends MusicBeatSubstate {
 				}, 0.8, {
 					ease: FlxEase.quartInOut,
 					startDelay: 1
-				});				
-				pauseSongs = 'pauseMinus';							
+				});					
 				}																				
 		}
 
@@ -350,19 +331,7 @@ class PauseSubState extends MusicBeatSubstate {
 		FlxG.sound.list.add(pauseMusic);
 
 
-		grpMenuShit = new FlxTypedGroup<Alphabet>();
-		add(grpMenuShit);
-
-			for (i in 0...menuItems.length)
-		{
-			var optionText:Alphabet = new Alphabet(0, 0, menuItems[i], true);
-			optionText.screenCenter();
-			optionText.y += (100 * (i - (menuItems.length / 2))) + 10;
-			grpMenuShit.add(optionText);
-			optionText.visible = false;
-		}
-
-			for (i in 0...menuItems.length)
+		for (i in 0...menuItems.length)
 		{
 			var txt:FlxText = new FlxText(40, 80 + (i*60), 0, menuItems[i] , 696969);
 			txt.setFormat(Paths.font("vcr.ttf"), 56, 0xFF40FF1A, LEFT);
@@ -606,46 +575,18 @@ class PauseSubState extends MusicBeatSubstate {
 			curSelected = menuItems.length - 1;
 		if (curSelected >= menuItems.length)
 			curSelected = 0;
-
-		var bullShit:Int = 0;
-
-		for (item in grpMenuShit.members) {
-			item.targetY = bullShit - curSelected;
-			bullShit++;
-
-			item.alpha = 0.6;
-			// item.setGraphicSize(Std.int(item.width * 0.8));
-
-			if (item.targetY == 0) {
-				item.alpha = 1;
-				// item.setGraphicSize(Std.int(item.width));
-
-				if (item == skipTimeTracker) {
-					curTime = Math.max(0, Conductor.songPosition);
-					updateSkipTimeText();
-				}
-			}
-		}
 		missingText.visible = false;
 		missingTextBG.visible = false;
 	}
 
 	function regenMenu():Void {
-		for (i in 0...grpMenuShit.members.length) {
-			var obj = grpMenuShit.members[0];
-			obj.kill();
-			grpMenuShit.remove(obj, true);
-			obj.destroy();
-		}
-
 		for (i in 0...menuItems.length) {
-			var item = new Alphabet(90, 320, menuItems[i], true);
-			item.isMenuItem = true;
-			item.targetY = i;
-			//grpMenuShit.add(item);
-			item.visible = false;
+            if (menuItems[i] == 'Skip Time') {
+                var item = new Alphabet(90, 320, menuItems[i], true);
+                item.isMenuItem = true;
+                item.targetY = i;
+                item.visible = false;
 
-			if (menuItems[i] == 'Skip Time') {
 				skipTimeText = new FlxText(0, 0, 0, '', 64);
 				skipTimeText.setFormat(Paths.font("vcr.ttf"), 64, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 				skipTimeText.scrollFactor.set();
@@ -659,6 +600,45 @@ class PauseSubState extends MusicBeatSubstate {
 		}
 		curSelected = 0;
 		changeSelection();
+	}
+
+	public static function getPauseAsset(songName:String):Array<String> {
+	// basically first is pause name and other is imagfe
+    
+	switch(songName) {
+		case 'Freaky 4eva':
+			return ['pauseBF', 'RENDERS/BFMSRenderAlt'];
+			
+		case 'Forest Fire':
+			return ['pauseAlfie', 'RENDERS/AlfieMSRender'];
+			
+		case 'Convicted Love':
+			return ['pauseKisston', 'RENDERS/KisstonMSRender'];
+			
+		case 'Jammed Cartridge':
+			return ['pauseKai', 'RENDERS/KaiMSRender'];
+
+		case 'Anemoia':
+			return ['pauseKai', 'RENDERS/KaiMSRenderAlt'];
+			
+		case 'PUNCH BUGGY!!!':
+			return ['pauseFilip', 'RENDERS/FilipMSRender'];
+			
+		case 'Rooftop Talkshop':
+			return ['pauseNikku', 'RENDERS/NikkuMSRender'];
+			
+		case 'aiSong':
+			return ['pauseAi', 'RENDERS/AiMSRenderAlt'];
+			
+		case 'Channel Surfers':
+			return ['pauseMiku', 'RENDERS/MikuMSRender'];
+			
+		case 'Eye of the Beholder':
+			return ['pauseMinus', 'RENDERS/minusMSRender'];
+			
+		default:
+			return ['pauseAlfie', 'RENDERS/AlfieMSRender'];
+		}
 	}
 
 	function updateSkipTextStuff() {

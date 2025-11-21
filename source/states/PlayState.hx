@@ -643,7 +643,6 @@ class PlayState extends MusicBeatState {
 
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
-
 		// PRECACHING THINGS THAT GET USED FREQUENTLY TO AVOID LAGSPIKES
 		if (ClientPrefs.data.hitsoundVolume > 0)
 			Paths.sound('hitsound');
@@ -651,10 +650,12 @@ class PlayState extends MusicBeatState {
 			Paths.sound('missnote$i');
 		Paths.image('alphabet');
 
-		if (PauseSubState.songName != null)
-			Paths.music(PauseSubState.songName);
-		else if (Paths.formatToSongPath(ClientPrefs.data.pauseMusic) != 'none')
-			Paths.music(Paths.formatToSongPath(ClientPrefs.data.pauseMusic));
+		//Precaching pause stuff
+		var assets = PauseSubState.getPauseAsset(SONG.song);
+		Paths.music(assets[0]);
+		Paths.image(assets[1]);
+		Paths.getSparrowAtlas('miku/noises');
+		Paths.getSparrowAtlas('pause');
 
 		resetRPC();
 
