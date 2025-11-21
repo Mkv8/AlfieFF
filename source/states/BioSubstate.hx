@@ -7,6 +7,9 @@ import openfl.display.BlendMode;
 import openfl.filters.ShaderFilter;
 
 class BioSubstate extends MusicBeatSubstate {
+	var characters:Map<String, Dynamic> = new Map<String, Dynamic>();
+	var charList = ['Alfie', 'Bella']; //Use this as the order to show them bc maps dont have an order to them
+
 	var menuItems: FlxSpriteGroup = new FlxSpriteGroup();
 	var camFollow: FlxObject;
 
@@ -75,6 +78,22 @@ class BioSubstate extends MusicBeatSubstate {
 
 		FlxG.game.setFilters(shader);
 		FlxG.game.filtersEnabled = true;
+
+		//json
+		var file;
+		if (FileSystem.exists("assets/shared/data/charBioData.json")) {
+			file = File.getContent("assets/shared/data/charBioData.json");
+		} else {
+			trace('couldnt load characters');
+			return;
+		}
+		var parsed = tjson.TJSON.parse(file);
+		for (charName in Reflect.fields(parsed.Characters)) {
+			var charData = Reflect.field(parsed.Characters, charName);
+			characters.set(charName, charData);
+		}
+
+		trace(characters['Alfie'].bio); //Testie
 	}
 
 	var selectedSomethin:Bool = false;

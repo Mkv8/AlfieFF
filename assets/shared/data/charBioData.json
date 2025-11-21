@@ -1,0 +1,12 @@
+{
+  "Characters": {
+    "Alfie": {
+      "imageFile": "foldernamehere/alfie.png",
+      "bio": "A musician living near the abandoned Crypt Mansion. Relatively well-known in town, plays at different gigs every so often. Occasionally, Alfie visits the Crypt Mansion and plays songs to the spirits inside, along with other things to help them move on to the afterlife peacefully. Able to use magic (specifically creation magic), which is somewhat rare in current times."
+    },
+    "TemplateName": {
+      "imageFile": "foldernamehere/Dummy.png",
+      "bio": "Your bio here"
+    }
+  }
+}
