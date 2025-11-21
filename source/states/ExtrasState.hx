@@ -131,8 +131,8 @@ class ExtrasState extends MusicBeatState {
             FlxG.sound.play(Paths.sound('cancelMenu'));
             MusicBeatState.switchState(new MainMenuState());
         } else if (controls.ACCEPT) {
-
-        openSelectedSubstate(menuOptions[curSelected]);
+            FlxG.sound.play(Paths.sound('hitsound'));
+            openSelectedSubstate(menuOptions[curSelected]);
         }
 
         var lerpVal:Float = Math.exp(-elapsed * 10);
