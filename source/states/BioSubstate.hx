@@ -64,35 +64,17 @@ class BioSubstate extends MusicBeatSubstate {
 
 		emitter.start(false, 1, 0);
 
-		this.multiplyBar = new BGSprite("menuassets/mainMenuMultiply", -500, 0, 0, 0);
-		this.multiplyBar.scale.set(0.8, 0.8);
-		this.multiplyBar.updateHitbox();
-		this.multiplyBar.screenCenter(Y);
-		this.multiplyBar.alpha = 0.0;
-		this.multiplyBar.blend = BlendMode.MULTIPLY;
-		this.multiplyBar.antialiasing = ClientPrefs.data.antialiasing;
-		this.add(this.multiplyBar);
-
-		FlxTween.tween(multiplyBar, {x: 0, alpha: 1.0}, 1.2, {ease: FlxEase.quartInOut, startDelay: 0.1});
-
-		// var psychVer:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
-		// psychVer.scrollFactor.set();
-		// psychVer.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		// this.add(psychVer);
-
-		// var fnfVer:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' v" + Application.current.meta.get('version'), 12);
-		// fnfVer.scrollFactor.set();
-		// fnfVer.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		// this.add(fnfVer);
+        this.multiplyBar = new BGSprite("menuassets/extrasMultiply", 0, 0, 0, 0);
+        this.multiplyBar.scale.set(0.8, 0.8);
+        this.multiplyBar.updateHitbox();
+        this.multiplyBar.screenCenter(XY);
+        this.multiplyBar.alpha = 1.0;
+        this.multiplyBar.blend = BlendMode.MULTIPLY;
+        this.multiplyBar.antialiasing = ClientPrefs.data.antialiasing;
+        this.add(this.multiplyBar);
 
 		FlxG.game.setFilters(shader);
 		FlxG.game.filtersEnabled = true;
-
-		//FlxG.camera.setFilters([new ShaderFilter(curveShader)]);
-		//FlxG.camera.filtersEnabled = true;
-
-		//curveShader.chromOff = 4;
-		// FlxG.camera.follow(camFollow, null, 9);
 	}
 
 	var selectedSomethin:Bool = false;
