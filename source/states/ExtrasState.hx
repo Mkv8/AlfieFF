@@ -34,7 +34,7 @@ class ExtrasState extends MusicBeatState {
             case 'Character Bios':
                 this.openSubState(new BioSubstate());
             case 'Artwork':
-                this.openSubState(new options.GraphicsSettingsSubState());
+                this.openSubState(new ArtworkSubstate());
         }
     }
 
