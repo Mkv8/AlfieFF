@@ -108,7 +108,7 @@ class BioSubstate extends MusicBeatSubstate {
 			if (controls.BACK) {
 				selectedSomethin = true;
 				FlxG.sound.play(Paths.sound('cancelMenu'));
-				MusicBeatState.switchState(new TitleState());
+				this.closeSubState();
 			}
 
 			if (controls.ACCEPT) {
