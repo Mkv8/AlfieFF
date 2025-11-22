@@ -131,7 +131,7 @@ class ExtrasState extends MusicBeatState {
             FlxG.sound.play(Paths.sound('cancelMenu'));
             MusicBeatState.switchState(new MainMenuState());
         } else if (controls.ACCEPT) {
-            FlxG.sound.play(Paths.sound('hitsound'));
+            FlxG.sound.play(Paths.sound('scrollMenu'));
             openSelectedSubstate(menuOptions[curSelected]);
         }
 

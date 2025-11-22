@@ -146,16 +146,13 @@ class FreeplayState extends MusicBeatState {
 		add(grpSongs);
 
 		for (i in 0...songs.length) {
-			//var songText:Alphabet = new Alphabet(90, 320, songs[i].songName, true);
 			songText = new FlxText(500 + (i*420), 630, songs[i].songName, 50);
 			songText.setFormat(Paths.font("vcr.ttf"), 36, 0xFFffcf53, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			songText.borderColor = 0xFF3F0000;
 			songText.borderSize = 3;	
-			//songText.targetY = i;
 			grpSongs.add(songText);
 			texts.push(songText);
-			//songText.scaleX = Math.min(1, 980 / songText.width);
-			//songText.snapToPosition();
+
 			switch (i)
 			{
 				case 0: //freaky
@@ -184,23 +181,13 @@ class FreeplayState extends MusicBeatState {
 			var icon:HealthIcon = new HealthIcon(songs[i].songCharacter);
 			icon.sprTracker = songText;
 
-			// too laggy with a lot of songs, so i had to recode the logic for it
 			songText.visible = songText.active;
 			icon.visible = icon.active = false;
 			iconArray.push(icon);	
 
 		trace(Highscore.getScore(songs[i].songName, 0));
-
-		//for (i in 0...songs.length) {
-		/*if (Highscore.getScore(songs[i].songName, 0) <= 100)
-			{
-				songText.text = '???';
-				songText.offset.set(-120,0);
-			} else {}*/
-		//}
-
-
 		}
+		
 		WeekData.setDirectoryFromWeek();
 
 

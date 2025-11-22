@@ -1,12 +1,44 @@
 {
   "Characters": {
     "Alfie": {
-      "imageFile": "foldernamehere/alfie.png",
-      "bio": "A musician living near the abandoned Crypt Mansion. Relatively well-known in town, plays at different gigs every so often. Occasionally, Alfie visits the Crypt Mansion and plays songs to the spirits inside, along with other things to help them move on to the afterlife peacefully. Able to use magic (specifically creation magic), which is somewhat rare in current times."
+      "imageFile": "menuassets/extras/alf",
+      "bio": "   A musician living near the abandoned Crypt Mansion. Relatively well-known in town, plays at different gigs every so often. Occasionally, Alfie visits the Crypt Mansion and plays songs to the spirits inside, along with other things to help them move on to the afterlife peacefully. Able to use magic, which is somewhat rare in current times."
     },
-    "TemplateName": {
-      "imageFile": "foldernamehere/Dummy.png",
-      "bio": "Your bio here"
+    "Boyfriend": {
+      "imageFile": "menuassets/extras/bf",
+      "bio": "   A hotheaded, overzealous rapper. Not the sharpest tool in the shed, but incredibly determined! Has been making a name for himself all over the media. Has countless stories to tell about the situations he and his girlfriend have been in. After meeting Alfie, he’s been singing with him to try out new tracks every so often!"
+    },
+     "Girlfriend": {
+      "imageFile": "menuassets/extras/gf",
+      "bio": "   A demon snake that always seems calm and collected… Or is she just a bit airheaded? Though she doesn’t sing as much as her boyfriend, she’s a talented singer and daughter of a famous rock star. After meeting Alfie, she and her boyfriend have quickly become friends."
+    },
+    "Kisston": {
+      "imageFile": "menuassets/extras/kiss",
+      "bio": "   A cupid! Kisston loves helping people fall in love. In reality, however, he doesn’t have a lot of skill with love himself! Kind, helpful, excitable, and polite, he’ll always be excited to ramble on about his niche interests or help you out with whatever you need. Unfortunately, his helpful nature tends to make him a bit gullible. \n\nKisston by Gigab00ts"
+    },
+    "Kai & Erhardt": {
+      "imageFile": "menuassets/extras/kai",
+      "bio": "   Kai is a friendly slime, tasked to deliver a magical amulet to their proper owner! Kai’s bubbly and curious, and more clever and sassy than you might assume! ... Though you might not be able to hear it, as they don’t speak English. \n\n   Erhardt is a sentient magical amulet. Having slept for hundreds of years, he still feels a bit lost in today’s world. Erhardt is intelligent and wise, and often gets lost in his own ramblings and imagination. They translate Kai’s words into English, though in his own verbose way."
+    },
+    "Filip": {
+      "imageFile": "menuassets/extras/filip",
+      "bio": "   Filip’s trying to make ska cool again! In fact, he’s probably the biggest fan of ska you’ll ever meet… Filip’s fun and very eager to get out there, though he can be a bit clueless or bite off more than he can chew. Tends to take a lot of music gigs to show off dozens of ska songs. \n\nFilip by Josszzol (Abbledacker)"
+    },
+    "Nikku": {
+      "imageFile": "menuassets/extras/nikku",
+      "bio": "   A polygurian of mysterious nature. Able to float and replicate any sound or voice, Nikku is able to sing with any voice she’s heard before. She met with Alfie by pure happenstance, but has since sung with him multiple times. \n\nNikku from Hotline 024 (Non-canon, fanmade description & comments)"
+    },
+    "Ai": {
+      "imageFile": "menuassets/extras/ai",
+      "bio": "   The self-proclaimed “Cupid of the Funktrix”! Ai is a dangerous virus, though she’s also one of the nicest ones you could ever meet! Loves to play matchmaker, and is very excitable and happy-go-lucky… Currently developing a visual novel. \n\nAi from Friday Night Troubleshootin’"
+    },
+    "Hatsune Miku": {
+      "imageFile": "menuassets/extras/miku",
+      "bio": "   “The first sound of the future” ... Well, that’s her title at least! This singer has been making the rounds all over the media! Well-versed in many genres, she’s managed to wow the music industry with every release. Despite all that, she still says humble, claiming that “I do nothing that they could never do”. \n\nHatsune Miku by SEGA"
+    },
+    "?????": {
+      "imageFile": "menuassets/extras/minus",
+      "bio": "   A ghost in the machine. This creature disguises itself as UI elements or takes a form similar to that of Alfie’s. Seemingly a ghost given sentience in the game, he is desperate to come out and be truly alive."
     }
   }
 }
