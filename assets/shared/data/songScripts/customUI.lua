@@ -1,4 +1,4 @@
---Script by FerzyLatte << Awesome!!!!! check him out -mk 
+--Script by FerzyLatte << Awesome!!!!! check him out -mk
 local canCreate = false
 local uiCreated = false
 local comboSize = -1
@@ -15,7 +15,7 @@ function onCreatePost()
 end
 
 function onUpdate()
-	debugPrint(Yoffset)
+	-- debugPrint(Yoffset)
 end
 
 function onCountdownStarted()
@@ -132,7 +132,7 @@ end
 
 function cubeplosion(num, color)
     for i = 1, num do
-       local SHIT = 'cube'..(getRandomInt(2,50)..getRandomInt(1999,3000) * i) 
+       local SHIT = 'cube'..(getRandomInt(2,50)..getRandomInt(1999,3000) * i)
        local x = getProperty('rating.x')+getProperty('rating.width')/2
        local y = getProperty('rating.y')+25
        local ox = getRandomFloat(-10,10)
