@@ -328,7 +328,7 @@ class CreditsState extends MusicBeatState {
 				'BAE2FF'
 			],
 			[
-				'SEGA',
+				'Crypton',
 				'blank',
 				'Created Hatsune Miku!',
 				'https://www.youtube.com/watch?v=Osuhh-TsM7c',

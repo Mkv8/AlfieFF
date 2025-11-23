@@ -134,8 +134,8 @@ function onEvent(name, value1, value2)
 				setTextString('dumbText', value1)
 				setProperty('dumbText2.y', baseTextY)
 				setProperty('dumbText2.alpha', 0)
-				doTweenY('prevTextMove', 'dumbText2', getProperty('dumbText2.y') + 1 * getTextSize('dumbText2'), 0.2, 'circOut')
-				doTweenAlpha('prevTextFadeIn', 'dumbText2', 0.75, 0.2, 'circOut')
+				doTweenY('prevTextMoveUp', 'dumbText2', baseTextY, 0.002, 'circOut')
+				doTweenAlpha('prevTextSetZero', 'dumbText2', 0, 0.002, 'circOut')
 			else
 				setTextString('dumbText', value1)
 				--doTweenAlpha('prevTextFadeOut', 'dumbText2', 0, 0.2)
@@ -350,6 +350,10 @@ function onTweenCompleted(tween)
 		setTextString('dumbText', '')
 	elseif tween == 'textFade2' then
 		setTextString('dumbText2', '')
+	elseif tween == 'prevTextMoveUp' then
+		doTweenY('prevTextMove', 'dumbText2', getProperty('dumbText2.y') + 1 * getTextSize('dumbText2'), 0.2, 'circOut')
+	elseif tween == 'prevTextSetZero' then
+		doTweenAlpha('prevTextFadeIn', 'dumbText2', 0.75, 0.2, 'circOut')
 	elseif tween == 'prevTextFadeIn' then
 		doTweenAlpha('prevTextFadeOut', 'dumbText2', 0, 2.5, 'easeOut')
 	end
