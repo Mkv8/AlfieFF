@@ -245,13 +245,6 @@ class PlayState extends MusicBeatState {
 	var detailsPausedText:String = "";
 	#end
 
-	// Achievement shit
-	#if ACHIEVEMENTS_ALLOWED
-	var keysPressed:Array<Int> = [];
-	var boyfriendIdleTime:Float = 0.0;
-	var boyfriendIdled:Bool = false;
-	#end
-
 	// Lua shit
 	public static var instance:PlayState;
 
@@ -1700,16 +1693,6 @@ class PlayState extends MusicBeatState {
 	override public function update(elapsed:Float) {
 		if (!inCutscene && !paused && !freezeCamera) {
 			FlxG.camera.followLerp = 2.4 * cameraSpeed * playbackRate;
-			#if ACHIEVEMENTS_ALLOWED
-			if (!startingSong && !endingSong && boyfriend.getAnimationName().startsWith('idle')) {
-				boyfriendIdleTime += elapsed;
-				if (boyfriendIdleTime >= 0.15) { // Kind of a mercy thing for making the achievement easier to get as it's apparently frustrating to some playerss
-					boyfriendIdled = true;
-				}
-			} else {
-				boyfriendIdleTime = 0;
-			}
-			#end
 		} else
 			FlxG.camera.followLerp = 0;
 		callOnScripts('onUpdate', [elapsed]);
@@ -2444,11 +2427,6 @@ class PlayState extends MusicBeatState {
 		deathCounter = 0;
 		seenCutscene = false;
 
-		#if ACHIEVEMENTS_ALLOWED
-		var weekNoMiss:String = WeekData.getWeekFileName() + '_nomiss';
-		checkForAchievement([weekNoMiss, 'ur_bad', 'ur_good', 'hype', 'two_keys', 'toastie', 'debugger']);
-		#end
-
 		var ret:Dynamic = callOnScripts('onEndSong', null, true);
 		if (ret != LuaUtils.Function_Stop && !transitioning) {
 			#if !switch
@@ -2729,13 +2707,6 @@ class PlayState extends MusicBeatState {
 			noteMissPress(key);
 		}
 
-		#if ACHIEVEMENTS_ALLOWED
-		// Needed for the  "Just the Two of Us" achievement.
-		//									- Shadow Mario
-		if (!keysPressed.contains(key))
-			keysPressed.push(key);
-		#end
-
 		// more accurate hit time for the ratings? part 2 (Now that the calculations are done, go back to the time it was before for not causing a note stutter)
 		Conductor.songPosition = lastTime;
 
@@ -2830,11 +2801,6 @@ class PlayState extends MusicBeatState {
 
 			if (!holdArray.contains(true) || endingSong)
 				playerDance();
-
-			#if ACHIEVEMENTS_ALLOWED
-			else
-				checkForAchievement(['oversinging']);
-			#end
 		}
 
 		// TO DO: Find a better way to handle controller inputs, this should work for now
@@ -3374,52 +3340,6 @@ class PlayState extends MusicBeatState {
 		setOnScripts('ratingName', ratingName);
 		setOnScripts('ratingFC', ratingFC);
 	}
-
-	#if ACHIEVEMENTS_ALLOWED
-	private function checkForAchievement(achievesToCheck:Array<String> = null) {
-		if (chartingMode)
-			return;
-
-		var usedPractice:Bool = (ClientPrefs.getGameplaySetting('practice') || ClientPrefs.getGameplaySetting('botplay'));
-		if (cpuControlled)
-			return;
-
-		for (name in achievesToCheck) {
-			if (!Achievements.exists(name))
-				continue;
-
-			var unlock:Bool = false;
-			if (name != WeekData.getWeekFileName() + '_nomiss') // common achievements
-			{
-				switch (name) {
-					case 'ur_bad':
-						unlock = (ratingPercent < 0.2 && !practiceMode);
-
-					case 'ur_good':
-						unlock = (ratingPercent >= 1 && !usedPractice);
-
-					case 'oversinging':
-						unlock = (boyfriend.holdTimer >= 10 && !usedPractice);
-
-					case 'hype':
-						unlock = (!boyfriendIdled && !usedPractice);
-
-					case 'two_keys':
-						unlock = (!usedPractice && keysPressed.length <= 2);
-
-					case 'toastie':
-						unlock = (!ClientPrefs.data.cacheOnGPU && !ClientPrefs.data.shaders && ClientPrefs.data.lowQuality && !ClientPrefs.data.antialiasing);
-
-					case 'debugger':
-						unlock = (songName == 'test' && !usedPractice);
-				}
-			}
-
-			if (unlock)
-				Achievements.unlock(name);
-		}
-	}
-	#end
 
 	#if (!flash && sys)
 	public var runtimeShaders:Map<String, Array<String>> = new Map<String, Array<String>>();

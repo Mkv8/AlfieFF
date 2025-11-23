@@ -1476,7 +1476,6 @@ class FunkinLua {
 		});
 
 		#if DISCORD_ALLOWED DiscordClient.addLuaCallbacks(lua); #end
-		#if ACHIEVEMENTS_ALLOWED Achievements.addLuaCallbacks(lua); #end
 		#if flxanimate FlxAnimateFunctions.implement(this); #end
 		ReflectionFunctions.implement(this);
 		TextFunctions.implement(this);
