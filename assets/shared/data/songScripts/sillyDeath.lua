@@ -1,12 +1,12 @@
 function onCreate()
 	deathBegun = false
 	-- these 4 are my custom psych events! - Sire (@sirekirb)
-	addLuaScript('mods/custom_events/Tween Variable.lua')
-	addLuaScript('mods/custom_events/FlashingStuff.lua')
-	addLuaScript('mods/custom_events/Set HUD Zoom.lua')
-	addLuaScript('mods/custom_events/ScreenRot.lua')
+	addLuaScript('events/Tween Variable.lua')
+	addLuaScript('events/FlashingStuff.lua')
+	addLuaScript('events/Set HUD Zoom.lua')
+	addLuaScript('events/ScreenRot.lua')
 	-- Raltyro's zCameraFix script. not super necessary just makes the rotations look better
-	addLuaScript('mods/custom_events/zCameraFix.lua')
+	addLuaScript('events/zCameraFix.lua')
 end
 
 function onGameOver()

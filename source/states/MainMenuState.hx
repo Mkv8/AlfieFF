@@ -70,9 +70,6 @@ class MainMenuState extends MusicBeatState {
 	var curveShader = new shaders.CurveShader();
 
 	override function create() {
-		#if MODS_ALLOWED
-		Mods.pushGlobalMods();
-		#end
 		Mods.loadTopMod();
 
 		if (Highscore.getScore('convicted-love', 0) != 0 && !addedKiss)

@@ -25,7 +25,6 @@ class BaseStage extends FlxBasic
 	// some variables for convenience
 	public var paused(get, never):Bool;
 	public var songName(get, never):String;
-	public var isStoryMode(get, never):Bool;
 	public var seenCutscene(get, never):Bool;
 	public var inCutscene(get, set):Bool;
 	public var canPause(get, set):Bool;
@@ -37,7 +36,7 @@ class BaseStage extends FlxBasic
 	public var boyfriendGroup(get, never):FlxSpriteGroup;
 	public var dadGroup(get, never):FlxSpriteGroup;
 	public var gfGroup(get, never):FlxSpriteGroup;
-	
+
 	public var camGame(get, never):FlxCamera;
 	public var camHUD(get, never):FlxCamera;
 	public var camOther(get, never):FlxCamera;
@@ -54,7 +53,7 @@ class BaseStage extends FlxBasic
 			FlxG.log.warn('Invalid state for the stage added!');
 			destroy();
 		}
-		else 
+		else
 		{
 			this.game.stages.push(this);
 			super();
@@ -93,7 +92,7 @@ class BaseStage extends FlxBasic
 	function add(object:FlxBasic) game.add(object);
 	function remove(object:FlxBasic) game.remove(object);
 	function insert(position:Int, object:FlxBasic) game.insert(position, object);
-	
+
 	public function addBehindGF(obj:FlxBasic) insert(members.indexOf(game.gfGroup), obj);
 	public function addBehindBF(obj:FlxBasic) insert(members.indexOf(game.boyfriendGroup), obj);
 	public function addBehindDad(obj:FlxBasic) insert(members.indexOf(game.dadGroup), obj);
@@ -126,7 +125,6 @@ class BaseStage extends FlxBasic
 	function moveCamera(isDad:Bool) if(onPlayState) moveCamera(isDad);
 	inline private function get_paused() return game.paused;
 	inline private function get_songName() return game.songName;
-	inline private function get_isStoryMode() return PlayState.isStoryMode;
 	inline private function get_seenCutscene() return PlayState.seenCutscene;
 	inline private function get_inCutscene() return game.inCutscene;
 	inline private function set_inCutscene(value:Bool)
@@ -155,7 +153,7 @@ class BaseStage extends FlxBasic
 	inline private function get_boyfriendGroup():FlxSpriteGroup return game.boyfriendGroup;
 	inline private function get_dadGroup():FlxSpriteGroup return game.dadGroup;
 	inline private function get_gfGroup():FlxSpriteGroup return game.gfGroup;
-	
+
 	inline private function get_camGame():FlxCamera return game.camGame;
 	inline private function get_camHUD():FlxCamera return game.camHUD;
 	inline private function get_camOther():FlxCamera return game.camOther;

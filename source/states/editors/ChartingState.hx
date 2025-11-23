@@ -2,7 +2,7 @@ package states.editors;
 
 import flash.geom.Rectangle;
 import haxe.Json;
-import haxe.format.JsonParser;
+import haxe.io.Path;
 import haxe.io.Bytes;
 import flixel.FlxObject;
 import flixel.addons.display.FlxGridOverlay;
@@ -216,6 +216,20 @@ class ChartingState extends MusicBeatState {
 		}
 
 		// Paths.clearMemory();
+
+		final eventDirPath: String = "assets/shared/events/";
+
+		if (FileSystem.exists(eventDirPath) && FileSystem.isDirectory(eventDirPath)) {
+			for (file in FileSystem.readDirectory(eventDirPath)) {
+				var path: String = Path.join([eventDirPath, file]);
+
+				if (file != "readme.txt" && file.endsWith(".txt") && !FileSystem.isDirectory(path)) {
+					var eventName: String = file.substr(0, file.length - 4);
+
+					eventStuff.push([eventName, File.getContent(path)]);
+				}
+			}
+		}
 
 		#if DISCORD_ALLOWED
 		// Updating Discord Rich Presence
@@ -450,11 +464,8 @@ class ChartingState extends MusicBeatState {
 		var loadEventJson:FlxButton = new FlxButton(loadAutosaveBtn.x, loadAutosaveBtn.y + 30, 'Load Events', function() {
 			var songName:String = Paths.formatToSongPath(_song.song);
 			var file:String = Paths.json(songName + '/events');
-			#if sys
-			if (#if MODS_ALLOWED FileSystem.exists(Paths.modsJson(songName + '/events')) || #end FileSystem.exists(file))
-			#else
-			if (OpenFlAssets.exists(file))
-			#end
+
+			if (FileSystem.exists(file))
 			{
 				clearEvents();
 				var events:SwagSong = Song.loadFromJson('events', songName);
@@ -493,17 +504,8 @@ class ChartingState extends MusicBeatState {
 		stepperSpeed.value = _song.speed;
 		stepperSpeed.name = 'song_speed';
 		blockPressWhileTypingOnStepper.push(stepperSpeed);
-		#if MODS_ALLOWED
-		var directories:Array<String> = [
-			Paths.mods('characters/'),
-			Paths.mods(Mods.currentModDirectory + '/characters/'),
-			Paths.getSharedPath('characters/')
-		];
-		for (mod in Mods.getGlobalMods())
-			directories.push(Paths.mods(mod + '/characters/'));
-		#else
+
 		var directories:Array<String> = [Paths.getSharedPath('characters/')];
-		#end
 
 		var tempArray:Array<String> = [];
 		var characters:Array<String> = Mods.mergeAllTextsNamed('data/characterList.txt', Paths.getSharedPath());
@@ -512,7 +514,6 @@ class ChartingState extends MusicBeatState {
 				tempArray.push(character);
 		}
 
-		#if MODS_ALLOWED
 		for (i in 0...directories.length) {
 			var directory:String = directories[i];
 			if (FileSystem.exists(directory)) {
@@ -528,7 +529,7 @@ class ChartingState extends MusicBeatState {
 				}
 			}
 		}
-		#end
+
 		tempArray = [];
 
 		var player1DropDown = new FlxUIDropDownMenu(10, stepperSpeed.y + 45, FlxUIDropDownMenu.makeStrIdLabelArray(characters, true), function(character:String) {
@@ -555,17 +556,7 @@ class ChartingState extends MusicBeatState {
 		player2DropDown.selectedLabel = _song.player2;
 		blockPressWhileScrolling.push(player2DropDown);
 
-		#if MODS_ALLOWED
-		var directories:Array<String> = [
-			Paths.mods('stages/'),
-			Paths.mods(Mods.currentModDirectory + '/stages/'),
-			Paths.getSharedPath('stages/')
-		];
-		for (mod in Mods.getGlobalMods())
-			directories.push(Paths.mods(mod + '/stages/'));
-		#else
 		var directories:Array<String> = [Paths.getSharedPath('stages/')];
-		#end
 
 		var stageFile:Array<String> = Mods.mergeAllTextsNamed('data/stageList.txt', Paths.getSharedPath());
 		var stages:Array<String> = [];
@@ -575,7 +566,7 @@ class ChartingState extends MusicBeatState {
 			}
 			tempArray.push(stage);
 		}
-		#if MODS_ALLOWED
+
 		for (i in 0...directories.length) {
 			var directory:String = directories[i];
 			if (FileSystem.exists(directory)) {
@@ -591,7 +582,6 @@ class ChartingState extends MusicBeatState {
 				}
 			}
 		}
-		#end
 
 		if (stages.length < 1)
 			stages.push('stage');
@@ -944,36 +934,6 @@ class ChartingState extends MusicBeatState {
 	function addEventsUI():Void {
 		var tab_group_event = new FlxUI(null, UI_box);
 		tab_group_event.name = 'Events';
-
-		#if LUA_ALLOWED
-		var eventPushedMap:Map<String, Bool> = new Map<String, Bool>();
-		var directories:Array<String> = [];
-
-		#if MODS_ALLOWED
-		directories.push(Paths.mods('custom_events/'));
-		directories.push(Paths.mods(Mods.currentModDirectory + '/custom_events/'));
-		for (mod in Mods.getGlobalMods())
-			directories.push(Paths.mods(mod + '/custom_events/'));
-		#end
-
-		for (i in 0...directories.length) {
-			var directory:String = directories[i];
-			if (FileSystem.exists(directory)) {
-				for (file in FileSystem.readDirectory(directory)) {
-					var path = haxe.io.Path.join([directory, file]);
-					if (!FileSystem.isDirectory(path) && file != 'readme.txt' && file.endsWith('.txt')) {
-						var fileToCheck:String = file.substr(0, file.length - 4);
-						if (!eventPushedMap.exists(fileToCheck)) {
-							eventPushedMap.set(fileToCheck, true);
-							eventStuff.push([fileToCheck, File.getContent(path)]);
-						}
-					}
-				}
-			}
-		}
-		eventPushedMap.clear();
-		eventPushedMap = null;
-		#end
 
 		descText = new FlxText(20, 200, 0, eventStuff[0][0]);
 
@@ -2559,27 +2519,17 @@ class ChartingState extends MusicBeatState {
 	function loadCharacterFile(char:String):CharacterFile {
 		characterFailed = false;
 		var characterPath:String = 'characters/' + char + '.json';
-		#if MODS_ALLOWED
-		var path:String = Paths.modFolders(characterPath);
-		if (!FileSystem.exists(path)) {
-			path = Paths.getSharedPath(characterPath);
-		}
+
+		var path: String = Paths.getSharedPath(characterPath);
 
 		if (!FileSystem.exists(path))
-		#else
-		var path:String = Paths.getSharedPath(characterPath);
-		if (!OpenFlAssets.exists(path))
-		#end
 		{
 			path = Paths.getSharedPath('characters/' + Character.DEFAULT_CHARACTER + '.json'); // If a character couldn't be found, change him to BF just to prevent a crash
 			characterFailed = true;
 		}
 
-		#if MODS_ALLOWED
 		var rawJson = File.getContent(path);
-		#else
-		var rawJson = OpenFlAssets.getText(path);
-		#end
+
 		return cast Json.parse(rawJson);
 	}
 

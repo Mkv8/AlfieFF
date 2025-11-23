@@ -3,8 +3,7 @@ Settings list: offsetX, offsetY, invertYOffset
 font, text1size, text2size, textsize, icon1scale,
 icon2scale, iconscale, flipicon2, flipicon1, icon1Yoffset,
 icon2Yoffset, iconYoffset, text1Color, text2Color,
-textColor, borderColor1, borderColor2, borderColor,
-borderWidth1, borderWidth2, borderWidth, forcedYPos,
-icon1XOffset, icon2XOffset, iconXOffset, icon1XOffsetMult,
-icon2XOffsetMult, iconXOffsetMult
+textColor, forcedYPos, icon1XOffset, icon2XOffset,
+iconXOffset, icon1XOffsetMult, icon2XOffsetMult, 
+iconXOffsetMult
 Value 2: Setting Value (Empty for Default)

@@ -19,7 +19,6 @@ import objects.Note;
 import objects.NoteSplash;
 import objects.Character;
 import states.MainMenuState;
-import states.StoryMenuState;
 import states.FreeplayState;
 import substates.PauseSubState;
 import substates.GameOverSubstate;
@@ -56,11 +55,6 @@ class FunkinLua {
 		game.luaArray.push(this);
 
 		var myFolder:Array<String> = this.scriptName.split('/');
-		#if MODS_ALLOWED
-		if (myFolder[0] + '/' == Paths.mods()
-			&& (Mods.currentModDirectory == myFolder[1] || Mods.getGlobalMods().contains(myFolder[1]))) // is inside mods folder
-			this.modFolder = myFolder[1];
-		#end
 
 		// Lua shit
 		set('Function_StopLua', LuaUtils.Function_StopLua);
@@ -83,7 +77,6 @@ class FunkinLua {
 		set('startedCountdown', false);
 		set('curStage', PlayState.SONG.stage);
 
-		set('isStoryMode', PlayState.isStoryMode);
 		set('difficulty', PlayState.storyDifficulty);
 
 		set('difficultyName', Difficulty.getString());
@@ -348,20 +341,25 @@ class FunkinLua {
 		});
 
 		Lua_helper.add_callback(lua, "addLuaScript", function(luaFile:String, ?ignoreAlreadyRunning:Bool = false) { // would be dope asf.
-			var foundScript:String = findScript(luaFile);
+			var foundScript: String = this.findScript(luaFile);
+
 			if (foundScript != null) {
-				if (!ignoreAlreadyRunning)
-					for (luaInstance in game.luaArray)
+				if (!ignoreAlreadyRunning) {
+					for (luaInstance in game.luaArray) {
 						if (luaInstance.scriptName == foundScript) {
 							luaTrace('addLuaScript: The script "' + foundScript + '" is already running!');
 							return;
 						}
+					}
+				}
 
 				new FunkinLua(foundScript);
 				return;
 			}
+
 			luaTrace("addLuaScript: Script doesn't exist!", false, false, FlxColor.RED);
 		});
+
 		Lua_helper.add_callback(lua, "removeLuaScript", function(luaFile:String, ?ignoreAlreadyRunning:Bool = false) {
 			var foundScript:String = findScript(luaFile);
 			if (foundScript != null) {
@@ -789,10 +787,7 @@ class FunkinLua {
 				FlxTransitionableState.skipNextTransOut = true;
 			}
 
-			if (PlayState.isStoryMode)
-				MusicBeatState.switchState(new StoryMenuState());
-			else
-				MusicBeatState.switchState(new FreeplayState());
+			MusicBeatState.switchState(new FreeplayState());
 
 			#if DISCORD_ALLOWED DiscordClient.resetClientID(); #end
 
@@ -1225,6 +1220,7 @@ class FunkinLua {
 			luaTrace("setBlendMode: Object " + obj + " doesn't exist!", false, false, FlxColor.RED);
 			return false;
 		});
+
 		Lua_helper.add_callback(lua, "screenCenter", function(obj:String, pos:String = 'xy') {
 			var spr:FlxSprite = game.getLuaObject(obj);
 
@@ -1251,6 +1247,7 @@ class FunkinLua {
 			}
 			luaTrace("screenCenter: Object " + obj + " doesn't exist!", false, false, FlxColor.RED);
 		});
+
 		Lua_helper.add_callback(lua, "objectsOverlap", function(obj1:String, obj2:String) {
 			var namesArray:Array<String> = [obj1, obj2];
 			var objectsArray:Array<FlxSprite> = [];
@@ -1268,6 +1265,7 @@ class FunkinLua {
 			}
 			return false;
 		});
+
 		Lua_helper.add_callback(lua, "getPixelColor", function(obj:String, x:Int, y:Int) {
 			var split:Array<String> = obj.split('.');
 			var spr:FlxSprite = LuaUtils.getObjectDirectly(split[0]);
@@ -1279,23 +1277,15 @@ class FunkinLua {
 				return spr.pixels.getPixel32(x, y);
 			return FlxColor.BLACK;
 		});
+
 		Lua_helper.add_callback(lua, "startDialogue", function(dialogueFile:String, music:String = null) {
-			var path:String;
-			#if MODS_ALLOWED
-			path = Paths.modsJson(Paths.formatToSongPath(PlayState.SONG.song) + '/' + dialogueFile);
-			if (!FileSystem.exists(path))
-			#end
-			path = Paths.json(Paths.formatToSongPath(PlayState.SONG.song) + '/' + dialogueFile);
+			var path: String = Paths.json(Paths.formatToSongPath(PlayState.SONG.song) + '/' + dialogueFile);
 
 			luaTrace('startDialogue: Trying to load dialogue: ' + path);
 
-			#if MODS_ALLOWED
-			if (FileSystem.exists(path))
-			#else
-			if (Assets.exists(path))
-			#end
-			{
-				var shit:DialogueFile = DialogueBoxPsych.parseDialogue(path);
+			if (FileSystem.exists(path)) {
+				var shit: DialogueFile = DialogueBoxPsych.parseDialogue(path);
+
 				if (shit.dialogue.length > 0) {
 					game.startDialogue(shit, music);
 					luaTrace('startDialogue: Successfully loaded dialogue', false, false, FlxColor.GREEN);
@@ -1303,17 +1293,19 @@ class FunkinLua {
 				} else {
 					luaTrace('startDialogue: Your dialogue file is badly formatted!', false, false, FlxColor.RED);
 				}
-			}
-		else {
-			luaTrace('startDialogue: Dialogue file not found', false, false, FlxColor.RED);
-			if (game.endingSong) {
-				game.endSong();
 			} else {
-				game.startCountdown();
+				luaTrace('startDialogue: Dialogue file not found', false, false, FlxColor.RED);
+
+				if (game.endingSong) {
+					game.endSong();
+				} else {
+					game.startCountdown();
+				}
 			}
-		}
+
 			return false;
 		});
+
 		Lua_helper.add_callback(lua, "startVideo", function(videoFile:String) {
 			#if VIDEOS_ALLOWED
 			if (FileSystem.exists(Paths.video(videoFile))) {
@@ -1452,21 +1444,6 @@ class FunkinLua {
 		});
 		#end
 
-		// mod settings
-		#if MODS_ALLOWED
-		addLocalCallback("getModSetting", function(saveTag:String, ?modName:String = null) {
-			if (modName == null) {
-				if (this.modFolder == null) {
-					FunkinLua.luaTrace('getModSetting: Argument #2 is null and script is not inside a packed Mod folder!', false, false, FlxColor.RED);
-					return null;
-				}
-				modName = this.modFolder;
-			}
-			return LuaUtils.getModSetting(saveTag, modName);
-		});
-		#end
-		//
-
 		Lua_helper.add_callback(lua, "debugPrint", function(text:Dynamic = '', color:String = 'WHITE') PlayState.instance.addTextToDebug(text, CoolUtil.colorFromString(color)));
 
 		addLocalCallback("close", function() {
@@ -1476,7 +1453,6 @@ class FunkinLua {
 		});
 
 		#if DISCORD_ALLOWED DiscordClient.addLuaCallbacks(lua); #end
-		#if ACHIEVEMENTS_ALLOWED Achievements.addLuaCallbacks(lua); #end
 		#if flxanimate FlxAnimateFunctions.implement(this); #end
 		ReflectionFunctions.implement(this);
 		TextFunctions.implement(this);
@@ -1628,24 +1604,18 @@ class FunkinLua {
 		return (result == 'true');
 	}
 
-	function findScript(scriptFile:String, ext:String = '.lua') {
-		if (!scriptFile.endsWith(ext))
+	function findScript(scriptFile: String, ext: String = ".lua") {
+		if (!scriptFile.endsWith(ext)) {
 			scriptFile += ext;
-		var preloadPath:String = Paths.getSharedPath(scriptFile);
-		#if MODS_ALLOWED
-		var path:String = Paths.modFolders(scriptFile);
-		if (FileSystem.exists(scriptFile))
-			return scriptFile;
-		else if (FileSystem.exists(path))
-			return path;
+		}
+
+		var preloadPath: String = Paths.getSharedPath(scriptFile);
 
 		if (FileSystem.exists(preloadPath))
-		#else
-		if (Assets.exists(preloadPath))
-		#end
 		{
 			return preloadPath;
 		}
+
 		return null;
 	}
 
@@ -1676,26 +1646,18 @@ class FunkinLua {
 		Lua_helper.add_callback(lua, name, null); // just so that it gets called
 	}
 
-	#if (MODS_ALLOWED && !flash && sys)
 	public var runtimeShaders:Map<String, Array<String>> = new Map<String, Array<String>>();
-	#end
 
 	public function initLuaShader(name:String, ?glslVersion:Int = 120) {
 		if (!ClientPrefs.data.shaders)
 			return false;
 
-		#if (MODS_ALLOWED && !flash && sys)
 		if (runtimeShaders.exists(name)) {
 			luaTrace('Shader $name was already initialized!');
 			return true;
 		}
 
-		var foldersToCheck:Array<String> = [Paths.mods('shaders/')];
-		if (Mods.currentModDirectory != null && Mods.currentModDirectory.length > 0)
-			foldersToCheck.insert(0, Paths.mods(Mods.currentModDirectory + '/shaders/'));
-
-		for (mod in Mods.getGlobalMods())
-			foldersToCheck.insert(0, Paths.mods(mod + '/shaders/'));
+		var foldersToCheck:Array<String> = [Paths.getSharedPath("shaders/")];
 
 		for (folder in foldersToCheck) {
 			if (FileSystem.exists(folder)) {
@@ -1721,10 +1683,9 @@ class FunkinLua {
 				}
 			}
 		}
+
 		luaTrace('Missing shader $name .frag AND .vert files!', false, false, FlxColor.RED);
-		#else
-		luaTrace('This platform doesn\'t support Runtime Shaders!', false, false, FlxColor.RED);
-		#end
+
 		return false;
 	}
 }

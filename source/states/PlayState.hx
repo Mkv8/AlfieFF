@@ -26,7 +26,6 @@ import openfl.events.KeyboardEvent;
 import haxe.Json;
 import cutscenes.CutsceneHandler;
 import cutscenes.DialogueBoxPsych;
-import states.StoryMenuState;
 import states.FreeplayState;
 import states.editors.ChartingState;
 import states.editors.CharacterEditorState;
@@ -132,7 +131,6 @@ class PlayState extends MusicBeatState {
 	//static function get_isPixelStage():Bool return stageUI == "pixel" || stageUI.endsWith("-pixel");
 
 	public static var SONG:SwagSong = null;
-	public static var isStoryMode:Bool = false;
 	public static var storyWeek:Int = 0;
 	public static var storyPlaylist:Array<String> = [];
 	public static var storyDifficulty:Int = 1;
@@ -247,13 +245,6 @@ class PlayState extends MusicBeatState {
 	var detailsPausedText:String = "";
 	#end
 
-	// Achievement shit
-	#if ACHIEVEMENTS_ALLOWED
-	var keysPressed:Array<Int> = [];
-	var boyfriendIdleTime:Float = 0.0;
-	var boyfriendIdled:Bool = false;
-	#end
-
 	// Lua shit
 	public static var instance:PlayState;
 
@@ -327,10 +318,7 @@ class PlayState extends MusicBeatState {
 		// String that contains the mode defined here so it isn't necessary to call changePresence for each mode
 		storyDifficultyText = Difficulty.getString();
 
-		if (isStoryMode)
-			detailsText = "Story Mode: " + WeekData.getCurrentWeek().weekName;
-		else
-			detailsText = WeekData.getCurrentWeek().weekName;
+		detailsText = WeekData.getCurrentWeek().weekName;
 
 		// String for when the game is paused
 		detailsPausedText = "Paused - " + detailsText;
@@ -400,7 +388,7 @@ class PlayState extends MusicBeatState {
 			case 'filipGarage':
 				new states.stages.FilipGarage(); // PUNCH BUGGY!!!
 			case 'aiStage':
-				new states.stages.AiStage(); // Ai song					
+				new states.stages.AiStage(); // Ai song
 			case 'desktop':
 				new states.stages.Desktop(); // Eye of the Beholder
 			case 'mansiontop':
@@ -437,9 +425,7 @@ class PlayState extends MusicBeatState {
 		#end
 
 		// STAGE SCRIPTS
-		#if LUA_ALLOWED
-		startLuasNamed('stages/' + curStage + '.lua');
-		#end
+		startLuasNamed('stages/${curStage}.lua');
 
 		if (!stageData.hide_girlfriend) {
 			if (SONG.gfVersion == null || SONG.gfVersion.length < 1)
@@ -604,12 +590,13 @@ class PlayState extends MusicBeatState {
 
 		startingSong = true;
 
-		#if LUA_ALLOWED
-		for (notetype in noteTypes)
-			startLuasNamed('custom_notetypes/' + notetype + '.lua');
-		for (event in eventsPushed)
-			startLuasNamed('custom_events/' + event + '.lua');
-		#end
+		for (noteType in this.noteTypes) {
+			this.startLuasNamed('notetypes/${noteType}.lua');
+		}
+
+		for (event in this.eventsPushed) {
+			this.startLuasNamed('events/${event}.lua');
+		}
 
 		noteTypes = null;
 		eventsPushed = null;
@@ -680,8 +667,8 @@ class PlayState extends MusicBeatState {
 
 		if (eventNotes.length < 1)
 			checkEventNote();
-		
-		if (Paths.formatToSongPath(SONG.song) == "eye-of-the-beholder") 
+
+		if (Paths.formatToSongPath(SONG.song) == "eye-of-the-beholder")
 			{
 				for(strum in opponentStrums.members) strum.visible = false;
 
@@ -693,20 +680,20 @@ class PlayState extends MusicBeatState {
 				healthBar.visible = false;
 				timeTxt.visible = false;
 				//opponentStrums.members[i].visible = false;
-				
-			}		
 
-		if (Paths.formatToSongPath(SONG.song) == "freaky-4eva") 
+			}
+
+		if (Paths.formatToSongPath(SONG.song) == "freaky-4eva")
 			{
 				for(strum in opponentStrums.members) strum.visible = false;
 				for(i in 0...opponentStrums.members.length) opponentStrums.members[i].x = -1000;
 				iconP1.visible = false;
 				iconP2.visible = false;
 				healthBar.visible = false;
-				
-			}	
 
-		if (Paths.formatToSongPath(SONG.song) == "channel-surfers") 
+			}
+
+		if (Paths.formatToSongPath(SONG.song) == "channel-surfers")
 			{
 				for (i in 0...4)
 				{
@@ -715,11 +702,11 @@ class PlayState extends MusicBeatState {
 					for (i in 0...4)
 				{
             	opponentStrums.members[i].x -= 2000;
-				}			
+				}
 				iconP1.visible = false;
 				iconP2.visible = false;
-				healthBar.visible = false;				
-			}		
+				healthBar.visible = false;
+			}
 	}
 
 	var bfNoteSkin:String = null;
@@ -823,25 +810,13 @@ class PlayState extends MusicBeatState {
 	}
 
 	function startCharacterScripts(name:String) {
-		// Lua
-		#if LUA_ALLOWED
 		var doPush:Bool = false;
 		var luaFile:String = 'characters/$name.lua';
-		#if MODS_ALLOWED
-		var replacePath:String = Paths.modFolders(luaFile);
-		if (FileSystem.exists(replacePath)) {
-			luaFile = replacePath;
-			doPush = true;
-		} else {
-			luaFile = Paths.getSharedPath(luaFile);
-			if (FileSystem.exists(luaFile))
-				doPush = true;
-		}
-		#else
+
 		luaFile = Paths.getSharedPath(luaFile);
-		if (Assets.exists(luaFile))
+
+		if (FileSystem.exists(luaFile))
 			doPush = true;
-		#end
 
 		if (doPush) {
 			for (script in luaArray) {
@@ -853,7 +828,6 @@ class PlayState extends MusicBeatState {
 			if (doPush)
 				new FunkinLua(luaFile);
 		}
-		#end
 	}
 
 	public function getLuaObject(tag:String, text:Bool = true):FlxSprite {
@@ -1351,11 +1325,8 @@ class PlayState extends MusicBeatState {
 		var noteData:Array<SwagSection> = SONG.notes;
 
 		var file:String = Paths.json(songName + '/events');
-		#if MODS_ALLOWED
-		if (FileSystem.exists(Paths.modsJson(songName + '/events')) || FileSystem.exists(file))
-		#else
-		if (OpenFlAssets.exists(file))
-		#end
+
+		if (FileSystem.exists(file))
 		{
 			var eventsData:Array<Dynamic> = Song.loadFromJson('events', songName).events;
 			for (event in eventsData) // Event Notes
@@ -1572,7 +1543,8 @@ class PlayState extends MusicBeatState {
 		for (i in 0...4) {
 			var babyArrow:StrumNote = new StrumNote(strumLineX, strumLineY, i, player, skin);
 			babyArrow.downScroll = ClientPrefs.data.downScroll;
-			if (!isStoryMode && !skipArrowStartTween) {
+
+			if (!skipArrowStartTween) {
 				// babyArrow.y -= 10;
 				babyArrow.alpha = 0;
 				FlxTween.tween(babyArrow, {
@@ -1641,17 +1613,17 @@ class PlayState extends MusicBeatState {
 		override public function onFocus():Void
 		{
 			if (health > 0 && !paused) resetRPC(Conductor.songPosition > 0.0);
-	
+
 			stagesFunc(function(stage:BaseStage) stage.onFocus());
 			super.onFocus();
 		}
-	
+
 		override public function onFocusLost():Void
 		{
 			#if DISCORD_ALLOWED
 			if (health > 0 && !paused && autoUpdateRPC) DiscordClient.changePresence(detailsPausedText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 			#end
-	
+
 			stagesFunc(function(stage:BaseStage) stage.onFocusLost());
 			super.onFocusLost();
 		}
@@ -1705,16 +1677,6 @@ class PlayState extends MusicBeatState {
 	override public function update(elapsed:Float) {
 		if (!inCutscene && !paused && !freezeCamera) {
 			FlxG.camera.followLerp = 2.4 * cameraSpeed * playbackRate;
-			#if ACHIEVEMENTS_ALLOWED
-			if (!startingSong && !endingSong && boyfriend.getAnimationName().startsWith('idle')) {
-				boyfriendIdleTime += elapsed;
-				if (boyfriendIdleTime >= 0.15) { // Kind of a mercy thing for making the achievement easier to get as it's apparently frustrating to some playerss
-					boyfriendIdled = true;
-				}
-			} else {
-				boyfriendIdleTime = 0;
-			}
-			#end
 		} else
 			FlxG.camera.followLerp = 0;
 		callOnScripts('onUpdate', [elapsed]);
@@ -2125,7 +2087,7 @@ class PlayState extends MusicBeatState {
 				if (flValue2 == null) {
 					defaultCamZoom = flValue1;
 				} else {
-                    if(camZoomTween != null) 
+                    if(camZoomTween != null)
                         camZoomTween.cancel();
 
 
@@ -2449,11 +2411,6 @@ class PlayState extends MusicBeatState {
 		deathCounter = 0;
 		seenCutscene = false;
 
-		#if ACHIEVEMENTS_ALLOWED
-		var weekNoMiss:String = WeekData.getWeekFileName() + '_nomiss';
-		checkForAchievement([weekNoMiss, 'ur_bad', 'ur_good', 'hype', 'two_keys', 'toastie', 'debugger']);
-		#end
-
 		var ret:Dynamic = callOnScripts('onEndSong', null, true);
 		if (ret != LuaUtils.Function_Stop && !transitioning) {
 			#if !switch
@@ -2469,64 +2426,25 @@ class PlayState extends MusicBeatState {
 				return false;
 			}
 
-			if (isStoryMode) {
-				campaignScore += songScore;
-				campaignMisses += songMisses;
+			trace('WENT BACK TO FREEPLAY??');
+			Mods.loadTopMod();
+			#if DISCORD_ALLOWED DiscordClient.resetClientID(); #end
 
-				storyPlaylist.remove(storyPlaylist[0]);
-
-				if (storyPlaylist.length <= 0) {
-					Mods.loadTopMod();
-					FlxG.sound.playMusic(Paths.music('freakyMenu'));
-					#if DISCORD_ALLOWED DiscordClient.resetClientID(); #end
-
-					MusicBeatState.switchState(new StoryMenuState());
-
-					// if ()
-					if (!ClientPrefs.getGameplaySetting('practice') && !ClientPrefs.getGameplaySetting('botplay')) {
-						StoryMenuState.weekCompleted.set(WeekData.weeksList[storyWeek], true);
-						Highscore.saveWeekScore(WeekData.getWeekFileName(), campaignScore, storyDifficulty);
-
-						FlxG.save.data.weekCompleted = StoryMenuState.weekCompleted;
-						FlxG.save.flush();
-					}
-					changedDifficulty = false;
-				} else {
-					var difficulty:String = Difficulty.getFilePath();
-
-					trace('LOADING NEXT SONG');
-					trace(Paths.formatToSongPath(PlayState.storyPlaylist[0]) + difficulty);
-
-					FlxTransitionableState.skipNextTransIn = true;
-					FlxTransitionableState.skipNextTransOut = true;
-					prevCamFollow = camFollow;
-
-					PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0] + difficulty, PlayState.storyPlaylist[0]);
-					FlxG.sound.music.stop();
-
-					LoadingState.loadAndSwitchState(new PlayState());
-				}
-			} else {
-				trace('WENT BACK TO FREEPLAY??');
-				Mods.loadTopMod();
-				#if DISCORD_ALLOWED DiscordClient.resetClientID(); #end
-
-				switch (SONG.song)
+			switch (SONG.song)
+			{
+				case 'aiSong':
 				{
-					case 'aiSong':
-					{
-						AiComic.itsgivingendcard = true;					
-						MusicBeatState.switchState(new AiComic());
-					}
-					default:
-					{
-					MusicBeatState.switchState(new FreeplayState());
-					FlxG.sound.playMusic(Paths.music('freakyMenu'));
-					changedDifficulty = false;					
-					}
+					AiComic.itsgivingendcard = true;
+					MusicBeatState.switchState(new AiComic());
 				}
-
+				default:
+				{
+				MusicBeatState.switchState(new FreeplayState());
+				FlxG.sound.playMusic(Paths.music('freakyMenu'));
+				changedDifficulty = false;
+				}
 			}
+
 			transitioning = true;
 		}
 		return true;
@@ -2773,13 +2691,6 @@ class PlayState extends MusicBeatState {
 			noteMissPress(key);
 		}
 
-		#if ACHIEVEMENTS_ALLOWED
-		// Needed for the  "Just the Two of Us" achievement.
-		//									- Shadow Mario
-		if (!keysPressed.contains(key))
-			keysPressed.push(key);
-		#end
-
 		// more accurate hit time for the ratings? part 2 (Now that the calculations are done, go back to the time it was before for not causing a note stutter)
 		Conductor.songPosition = lastTime;
 
@@ -2874,11 +2785,6 @@ class PlayState extends MusicBeatState {
 
 			if (!holdArray.contains(true) || endingSong)
 				playerDance();
-
-			#if ACHIEVEMENTS_ALLOWED
-			else
-				checkForAchievement(['oversinging']);
-			#end
 		}
 
 		// TO DO: Find a better way to handle controller inputs, this should work for now
@@ -3280,29 +3186,21 @@ class PlayState extends MusicBeatState {
 		callOnScripts('onSectionHit');
 	}
 
-	#if LUA_ALLOWED
-	public function startLuasNamed(luaFile:String) {
-		#if MODS_ALLOWED
-		var luaToLoad:String = Paths.modFolders(luaFile);
-		if (!FileSystem.exists(luaToLoad))
-			luaToLoad = Paths.getSharedPath(luaFile);
+	public function startLuasNamed(luaFile: String) {
+		var luaToLoad: String = Paths.getSharedPath(luaFile);
 
 		if (FileSystem.exists(luaToLoad))
-		#elseif sys
-		var luaToLoad:String = Paths.getSharedPath(luaFile);
-		if (OpenFlAssets.exists(luaToLoad))
-		#end
 		{
-			for (script in luaArray)
+			for (script in this.luaArray) {
 				if (script.scriptName == luaToLoad)
 					return false;
+			}
 
 			new FunkinLua(luaToLoad);
 			return true;
 		}
 		return false;
 	}
-	#end
 
 	public function callOnScripts(funcToCall:String, args:Array<Dynamic> = null, ignoreStops = false, exclusions:Array<String> = null, excludeValues:Array<Dynamic> = null):Dynamic {
 		if (args == null)
@@ -3427,61 +3325,6 @@ class PlayState extends MusicBeatState {
 		setOnScripts('ratingFC', ratingFC);
 	}
 
-	#if ACHIEVEMENTS_ALLOWED
-	private function checkForAchievement(achievesToCheck:Array<String> = null) {
-		if (chartingMode)
-			return;
-
-		var usedPractice:Bool = (ClientPrefs.getGameplaySetting('practice') || ClientPrefs.getGameplaySetting('botplay'));
-		if (cpuControlled)
-			return;
-
-		for (name in achievesToCheck) {
-			if (!Achievements.exists(name))
-				continue;
-
-			var unlock:Bool = false;
-			if (name != WeekData.getWeekFileName() + '_nomiss') // common achievements
-			{
-				switch (name) {
-					case 'ur_bad':
-						unlock = (ratingPercent < 0.2 && !practiceMode);
-
-					case 'ur_good':
-						unlock = (ratingPercent >= 1 && !usedPractice);
-
-					case 'oversinging':
-						unlock = (boyfriend.holdTimer >= 10 && !usedPractice);
-
-					case 'hype':
-						unlock = (!boyfriendIdled && !usedPractice);
-
-					case 'two_keys':
-						unlock = (!usedPractice && keysPressed.length <= 2);
-
-					case 'toastie':
-						unlock = (!ClientPrefs.data.cacheOnGPU && !ClientPrefs.data.shaders && ClientPrefs.data.lowQuality && !ClientPrefs.data.antialiasing);
-
-					case 'debugger':
-						unlock = (songName == 'test' && !usedPractice);
-				}
-			} else // any FC achievements, name should be "weekFileName_nomiss", e.g: "week3_nomiss";
-			{
-				if (isStoryMode
-					&& campaignMisses + songMisses < 1
-					&& Difficulty.getString().toUpperCase() == 'HARD'
-					&& storyPlaylist.length <= 1
-					&& !changedDifficulty
-					&& !usedPractice)
-					unlock = true;
-			}
-
-			if (unlock)
-				Achievements.unlock(name);
-		}
-	}
-	#end
-
 	#if (!flash && sys)
 	public var runtimeShaders:Map<String, Array<String>> = new Map<String, Array<String>>();
 
@@ -3489,25 +3332,20 @@ class PlayState extends MusicBeatState {
 		if (!ClientPrefs.data.shaders)
 			return new FlxRuntimeShader();
 
-		#if (!flash && MODS_ALLOWED && sys)
 		if (!runtimeShaders.exists(name) && !initLuaShader(name)) {
 			FlxG.log.warn('Shader $name is missing!');
 			return new FlxRuntimeShader();
 		}
 
 		var arr:Array<String> = runtimeShaders.get(name);
+
 		return new FlxRuntimeShader(arr[0], arr[1]);
-		#else
-		FlxG.log.warn("Platform unsupported for Runtime Shaders!");
-		return null;
-		#end
 	}
 
 	public function initLuaShader(name:String, ?glslVersion:Int = 120) {
 		if (!ClientPrefs.data.shaders)
 			return false;
 
-		#if (MODS_ALLOWED && !flash && sys)
 		if (runtimeShaders.exists(name)) {
 			FlxG.log.warn('Shader $name was already initialized!');
 			return true;
@@ -3535,14 +3373,10 @@ class PlayState extends MusicBeatState {
 				return true;
 			}
 		}
-		#if (LUA_ALLOWED)
+
 		addTextToDebug('Missing shader $name .frag AND .vert files!', FlxColor.RED);
-		#else
 		FlxG.log.warn('Missing shader $name .frag AND .vert files!');
-		#end
-		#else
-		FlxG.log.warn('This platform doesn\'t support Runtime Shaders!');
-		#end
+
 		return false;
 	}
 	#end

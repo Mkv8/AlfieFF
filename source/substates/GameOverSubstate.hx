@@ -4,7 +4,6 @@ import backend.WeekData;
 import objects.Character;
 import flixel.FlxObject;
 import flixel.FlxSubState;
-import states.StoryMenuState;
 import states.FreeplayState;
 
 class GameOverSubstate extends MusicBeatSubstate {
@@ -80,7 +79,7 @@ class GameOverSubstate extends MusicBeatSubstate {
 		crack.screenCenter(XY);
 		add(crack);
 
-		
+
 		retry = new BGSprite('retry', 0, 300, 1, 1, ['idle'], true);
 		retry.updateHitbox();
 		retry.antialiasing = ClientPrefs.data.antialiasing;
@@ -121,10 +120,8 @@ class GameOverSubstate extends MusicBeatSubstate {
 			PlayState.chartingMode = false;
 
 			Mods.loadTopMod();
-			if (PlayState.isStoryMode)
-				MusicBeatState.switchState(new StoryMenuState());
-			else
-				MusicBeatState.switchState(new FreeplayState());
+
+			MusicBeatState.switchState(new FreeplayState());
 
 			FlxG.sound.playMusic(Paths.music('freakyMenu'));
 			PlayState.instance.callOnScripts('onGameOverConfirm', [false]);
@@ -150,7 +147,7 @@ class GameOverSubstate extends MusicBeatSubstate {
 					{
 						playingDeathSound = true;
 						coolStartDeath(0.2);
-						
+
 						var exclude:Array<Int> = [];
 						//if(!ClientPrefs.cursing) exclude = [1, 3, 8, 13, 17, 21];
 

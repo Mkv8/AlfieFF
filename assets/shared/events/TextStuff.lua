@@ -17,7 +17,7 @@ function onCreate()
 	baseTextX = 0 + textXOffset
 	if getPropertyFromClass('backend.ClientPrefs', 'data.downScroll') == true or getPropertyFromClass('ClientPrefs', 'downScroll') == true then
 		if invertYOffset == true then
-			baseTextY = screenHeight/4 - 40 + textYOffset
+			baseTextY = screenHeight/4 + textYOffset
 		else
 			baseTextY = screenHeight/4 - 40 + textYOffset
 		end
@@ -30,13 +30,13 @@ function onCreate()
 	addLuaText('dumbText')
 	setTextSize('dumbText', 30);
 	setProperty('dumbText.alpha', 0)
-	
+
 	makeLuaText('dumbText2', '', textWidth, baseTextX, baseTextY)
 	setTextAlignment('dumbText2', 'center')
 	addLuaText('dumbText2')
 	setTextSize('dumbText2', 30);
 	setProperty('dumbText2.alpha', 0)
-	
+
 	makeLuaSprite('textIcon', 'icons/icon-face')
 	setProperty('textIcon.alpha', 0)
 	icon1Scale = 0.7
@@ -44,7 +44,7 @@ function onCreate()
 	setProperty('textIcon.scale.y', icon1Scale)
 	setObjectCamera('textIcon', 'hud')
 	addLuaSprite('textIcon')
-	
+
 	makeLuaSprite('textIcon2', 'icons/icon-face')
 	setProperty('textIcon2.alpha', 0)
 	setProperty('textIcon2.flipX', true)
@@ -63,16 +63,16 @@ function onEvent(name, value1, value2)
 			icon1Width = getProperty('textIcon.width')
 			icon1Height = getProperty('textIcon.height')
 			icon1Count = icon1Width / icon1Height
-			
+
 			icon2 = splitStrval2(value2, ',')[2] or 'false'
 			icon2 = removeSpaces(icon2) or 'false'
 			icon2Width = getProperty('textIcon2.width')
 			icon2Height = getProperty('textIcon2.height')
 			icon2Count = icon2Width / icon2Height
-			
+
 			textSize = getTextSize('dumbText')
 			textLength = string.len(value1)
-			
+
 			showPrevText = splitStrval2(value2, ',')[3]
 			if showPrevText ~= nil then
 				showPrevText = removeSpaces(showPrevText)
@@ -101,7 +101,7 @@ function onEvent(name, value1, value2)
 			setProperty('textIcon.y', baseTextY - icon1Height / 2.5 + icon1YOffset --[[- 2 * textSize--]])
 			iconOffset = icon1Width / icon1Count / 3 * icon1Scale + textLength * textSize/3
 			setProperty('textIcon.x', textWidth/2 + icon1XOffset - icon1Width / icon1Count /2 - iconOffset * icon1XOffsetMult)
-			
+
 			if icon2 ~= 'false' then
 				loadGraphic('textIcon2', 'icons/icon-' .. icon2)
 				icon2Width = getProperty('textIcon2.width')
@@ -161,13 +161,13 @@ function onEvent(name, value1, value2)
 				setProperty('dumbText.width', textWidth)
 				setProperty('dumbText2.width', textWidth)
 			elseif value1 == "yoffset" or value1 == "offsety" then
-				textYOffset = value2 or 0
+				textYOffset = value2 or -20
 				if invertYOffset == true and getPropertyFromClass('backend.ClientPrefs', 'data.downScroll') == true or getPropertyFromClass('ClientPrefs', 'downScroll') == true then
 					textYOffset = textYOffset * -1
 				end
 				if getPropertyFromClass('backend.ClientPrefs', 'data.downScroll') == true or getPropertyFromClass('ClientPrefs', 'downScroll') == true then
 					if invertYOffset == true then
-						baseTextY = screenHeight/4 - 40 + textYOffset
+						baseTextY = screenHeight/4 + textYOffset
 					else
 						baseTextY = screenHeight/4 - 40 + textYOffset
 					end
@@ -189,7 +189,7 @@ function onEvent(name, value1, value2)
 				end
 				if getPropertyFromClass('backend.ClientPrefs', 'data.downScroll') == true or getPropertyFromClass('ClientPrefs', 'downScroll') == true then
 					if invertYOffset == true then
-						baseTextY = screenHeight/4 - 40 + textYOffset
+						baseTextY = screenHeight/4 + textYOffset
 					else
 						baseTextY = screenHeight/4 - 40 + textYOffset
 					end
@@ -220,7 +220,7 @@ function onEvent(name, value1, value2)
 				setTextSize('dumbText', value2)
 				setTextSize('dumbText2', value2)
 			elseif value1 == "icon1scale" then
-				--debugPrint('work damnit')
+				-- debugPrint('work damnit')
 				icon1Scale = value2 or 0.7
 				setProperty('textIcon.scale.x', icon1Scale)
 				setProperty('textIcon.scale.y', icon1Scale)
@@ -266,59 +266,13 @@ function onEvent(name, value1, value2)
 			elseif value1 == 'text2color' then
 				color = value2 or 'FFFFFF'
 				setTextColor('dumbText2', color)
-			elseif value1 == 'bordercolor' then
-				bordercolor = value2 or '000000'
-				bordercolor2 = value2 or '000000'
-				if tonumber(borderwidth) == nil then
-					borderwidth = 2
-				end
-				if tonumber(borderwidth2) == nil then
-					borderwidth2 = 2
-				end
-				setTextBorder('dumbText', borderwidth, bordercolor)
-				setTextBorder('dumbText2', borderwidth2, bordercolor2)
-			elseif value1 == 'bordercolor1' then
-				bordercolor = value2 or '000000'
-				if tonumber(borderwidth) == nil then
-					borderwidth = 2
-				end
-				setTextBorder('dumbText', borderwidth, bordercolor)
-			elseif value1 == 'bordercolor2' then
-				bordercolor2 = value2 or '000000'
-				if tonumber(borderwidth2) == nil then
-					borderwidth2 = 2
-				end
-				setTextBorder('dumbText2', borderwidth2, bordercolor2)
-			elseif value1 == 'borderwidth' then
-				borderwidth = value2 or 2
-				borderwidth2 = value2 or 2
-				if bordercolor == nil then
-					bordercolor = '000000'
-				end
-				if bordercolor2 == nil then
-					bordercolor2 = '000000'
-				end
-				setTextBorder('dumbText', borderwidth, bordercolor)
-				setTextBorder('dumbText2', borderwidth2, bordercolor2)
-			elseif value1 == 'borderwidth1' then
-				borderwidth = value2 or 2
-				if bordercolor == nil then
-					bordercolor = '000000'
-				end
-				setTextBorder('dumbText', borderwidth, bordercolor)
-			elseif value1 == 'bordercolor2' then
-				borderwidth2 = value2 or 2
-				if bordercolor2 == nil then
-					bordercolor2 = '000000'
-				end
-				setTextBorder('dumbText2', borderwidth2, bordercolor2)
 			elseif value1 == 'forcedypos' or value1 == 'forceypos' then
 				if value2 ~= nil then
 					baseTextY = value2
 				else
 					if getPropertyFromClass('backend.ClientPrefs', 'data.downScroll') == true or getPropertyFromClass('ClientPrefs', 'downScroll') == true then
 						if invertYOffset == true then
-							baseTextY = screenHeight/4 - 40 + textYOffset
+							baseTextY = screenHeight/4 + textYOffset
 						else
 							baseTextY = screenHeight/4 - 40 + textYOffset
 						end
@@ -341,10 +295,10 @@ function onEvent(name, value1, value2)
 			elseif value1 == 'icon2xoffsetmult' then
 				icon2XOffsetMult = value2 or 1
 			end
-		end	
+		end
 	end
 end
-			
+
 function onTweenCompleted(tween)
 	if tween == 'textFade' then
 		setTextString('dumbText', '')

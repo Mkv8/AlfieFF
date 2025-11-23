@@ -89,7 +89,7 @@ class FreeplayState extends MusicBeatState {
 
 
 		persistentUpdate = true;
-		PlayState.isStoryMode = false;
+
 		WeekData.reloadWeekFiles(false);
 
 		#if DISCORD_ALLOWED
@@ -128,14 +128,14 @@ class FreeplayState extends MusicBeatState {
 		bg.screenCenter(XY);
 
 		setupAlbums();
-		
+
 		borders = new BGSprite('menuassets/bars', 0, 0, 0, 0);
 		borders.updateHitbox();
 		borders.alpha = 1;
 		borders.scale.set(0.8,0.8);
 		borders.screenCenter(XY);
 		borders.antialiasing = ClientPrefs.data.antialiasing;
-		add(borders);		
+		add(borders);
 
 		selectedAlbum = new Item(1750, -200);
 		selectedAlbum.loadGraphic(Paths.image('albums/freaky4eva'));
@@ -149,7 +149,7 @@ class FreeplayState extends MusicBeatState {
 			songText = new FlxText(500 + (i*420), 630, songs[i].songName, 50);
 			songText.setFormat(Paths.font("vcr.ttf"), 36, 0xFFffcf53, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			songText.borderColor = 0xFF3F0000;
-			songText.borderSize = 3;	
+			songText.borderSize = 3;
 			grpSongs.add(songText);
 			texts.push(songText);
 
@@ -170,7 +170,7 @@ class FreeplayState extends MusicBeatState {
 				case 5: //punch buggy
 				{
 					    songText.offset.set(-20,0);
-				}	
+				}
 				case 7: //ai song may have to change later
 				{
 					    songText.offset.set(-80,0);
@@ -183,11 +183,11 @@ class FreeplayState extends MusicBeatState {
 
 			songText.visible = songText.active;
 			icon.visible = icon.active = false;
-			iconArray.push(icon);	
+			iconArray.push(icon);
 
 		trace(Highscore.getScore(songs[i].songName, 0));
 		}
-		
+
 		WeekData.setDirectoryFromWeek();
 
 
@@ -195,7 +195,7 @@ class FreeplayState extends MusicBeatState {
 		scoreText.setFormat(Paths.font("vcr.ttf"), 32, 0xFFffcf53, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		//scoreText.screenCenter(X);
 		scoreText.borderColor = 0xFF3F0000;
-		scoreText.borderSize = 3;		
+		scoreText.borderSize = 3;
 		scoreBG = new FlxSprite(scoreText.x - 6, 0).makeGraphic(1, 66, 0xFF000000);
 		scoreBG.alpha = 0.6;
 		add(scoreBG);
@@ -236,7 +236,7 @@ class FreeplayState extends MusicBeatState {
 		bottomText.setFormat(Paths.font("vcr.ttf"), size, FlxColor.WHITE, CENTER);
 		bottomText.scrollFactor.set();
 		add(bottomText);
-		
+
 		player = new MusicPlayer(this);
 		add(player);
 
@@ -278,9 +278,7 @@ class FreeplayState extends MusicBeatState {
 
 	function weekIsLocked(name:String):Bool {
 		var leWeek:WeekData = WeekData.weeksLoaded.get(name);
-		return (!leWeek.startUnlocked
-			&& leWeek.weekBefore.length > 0
-			&& (!StoryMenuState.weekCompleted.exists(leWeek.weekBefore) || !StoryMenuState.weekCompleted.get(leWeek.weekBefore)));
+		return (!leWeek.startUnlocked && leWeek.weekBefore.length > 0);
 	}
 
 	var instPlaying:Int = -1;
@@ -425,20 +423,10 @@ class FreeplayState extends MusicBeatState {
 			persistentUpdate = false;
 			var songLowercase:String = Paths.formatToSongPath(songs[curSelected].songName);
 			var poop:String = Highscore.formatSong(songLowercase, curDifficulty);
-			/*#if MODS_ALLOWED
-				if(!FileSystem.exists(Paths.modsJson(songLowercase + '/' + poop)) && !FileSystem.exists(Paths.json(songLowercase + '/' + poop))) {
-				#else
-				if(!OpenFlAssets.exists(Paths.json(songLowercase + '/' + poop))) {
-				#end
-					poop = songLowercase;
-					curDifficulty = 1;
-					trace('Couldnt find file');
-			}*/
 			trace(poop);
 
 			try {
 				PlayState.SONG = Song.loadFromJson(poop, songLowercase);
-				PlayState.isStoryMode = false;
 				PlayState.storyDifficulty = curDifficulty;
 
 				trace('CURRENT WEEK: ' + WeekData.getWeekFileName());
@@ -462,7 +450,7 @@ class FreeplayState extends MusicBeatState {
 				return;
 			}
 
-			
+
 			switch(curSelected)
 			{
 			case 7:
@@ -471,7 +459,7 @@ class FreeplayState extends MusicBeatState {
 				LoadingState.loadAndSwitchState(new AiComic());
 				}
 
-			default: 
+			default:
 				{
 				LoadingState.loadAndSwitchState(new PlayState());
 				}
@@ -481,9 +469,6 @@ class FreeplayState extends MusicBeatState {
 			FlxG.sound.music.volume = 0;
 
 			destroyFreeplayVocals();
-			#if (MODS_ALLOWED && DISCORD_ALLOWED)
-			DiscordClient.loadModRPC();
-			#end
 		} else if (controls.RESET && !player.playingMusic) {
 			persistentUpdate = false;
 			openSubState(new ResetScoreSubState(songs[curSelected].songName, curDifficulty, songs[curSelected].songCharacter));
@@ -616,7 +601,7 @@ class FreeplayState extends MusicBeatState {
 		var min:Int = Math.round(Math.max(0, Math.min(songs.length, lerpSelected - _drawDistance)));
 		var max:Int = Math.round(Math.max(0, Math.min(songs.length, lerpSelected + _drawDistance)));
 		var lerpVal:Float = Math.exp(-elapsed * 10);
-     
+
 		for (e in 0...texts.length) {
             var i = texts[e];
             //var item:FlxText = grpSongs.members[i];
@@ -646,11 +631,11 @@ class FreeplayState extends MusicBeatState {
 
 			var picylerpto = circlecenter.y + (radius*picsin) - (pic.height/2);
 			pic.y = FlxMath.lerp(picylerpto, pic.y, lerpVal);
-			
+
 			var dx = circlecenter.x - (pic.x + pic.width / 2);
 			var dy = circlecenter.y - (pic.y + pic.height / 2);
 			pic.angle = (Math.atan2(dy, dx) * 180/Math.PI + 90) + 180;
-			
+
 
 		}
 
@@ -662,19 +647,19 @@ class FreeplayState extends MusicBeatState {
 		for (i in 0...albums.length) {
 			album = new FlxSprite().loadGraphic('assets/shared/images/albums/' + albums[i] + '.png');
 			add(album);
-			
+
 			album.scale.x *= 0.35;
 			album.scale.y *= 0.35;
-			
+
 			album.updateHitbox();
 			album.screenCenter();
 			albumpics.push(album);
-			
+
 			album.alpha = 1;
 
 
 		}
-	
+
 
 	}
 
