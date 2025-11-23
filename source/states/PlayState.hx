@@ -26,7 +26,6 @@ import openfl.events.KeyboardEvent;
 import haxe.Json;
 import cutscenes.CutsceneHandler;
 import cutscenes.DialogueBoxPsych;
-import states.StoryMenuState;
 import states.FreeplayState;
 import states.editors.ChartingState;
 import states.editors.CharacterEditorState;
@@ -132,7 +131,6 @@ class PlayState extends MusicBeatState {
 	//static function get_isPixelStage():Bool return stageUI == "pixel" || stageUI.endsWith("-pixel");
 
 	public static var SONG:SwagSong = null;
-	public static var isStoryMode:Bool = false;
 	public static var storyWeek:Int = 0;
 	public static var storyPlaylist:Array<String> = [];
 	public static var storyDifficulty:Int = 1;
@@ -327,10 +325,7 @@ class PlayState extends MusicBeatState {
 		// String that contains the mode defined here so it isn't necessary to call changePresence for each mode
 		storyDifficultyText = Difficulty.getString();
 
-		if (isStoryMode)
-			detailsText = "Story Mode: " + WeekData.getCurrentWeek().weekName;
-		else
-			detailsText = WeekData.getCurrentWeek().weekName;
+		detailsText = WeekData.getCurrentWeek().weekName;
 
 		// String for when the game is paused
 		detailsPausedText = "Paused - " + detailsText;
@@ -1571,7 +1566,8 @@ class PlayState extends MusicBeatState {
 		for (i in 0...4) {
 			var babyArrow:StrumNote = new StrumNote(strumLineX, strumLineY, i, player, skin);
 			babyArrow.downScroll = ClientPrefs.data.downScroll;
-			if (!isStoryMode && !skipArrowStartTween) {
+
+			if (!skipArrowStartTween) {
 				// babyArrow.y -= 10;
 				babyArrow.alpha = 0;
 				FlxTween.tween(babyArrow, {
@@ -2468,64 +2464,25 @@ class PlayState extends MusicBeatState {
 				return false;
 			}
 
-			if (isStoryMode) {
-				campaignScore += songScore;
-				campaignMisses += songMisses;
+			trace('WENT BACK TO FREEPLAY??');
+			Mods.loadTopMod();
+			#if DISCORD_ALLOWED DiscordClient.resetClientID(); #end
 
-				storyPlaylist.remove(storyPlaylist[0]);
-
-				if (storyPlaylist.length <= 0) {
-					Mods.loadTopMod();
-					FlxG.sound.playMusic(Paths.music('freakyMenu'));
-					#if DISCORD_ALLOWED DiscordClient.resetClientID(); #end
-
-					MusicBeatState.switchState(new StoryMenuState());
-
-					// if ()
-					if (!ClientPrefs.getGameplaySetting('practice') && !ClientPrefs.getGameplaySetting('botplay')) {
-						StoryMenuState.weekCompleted.set(WeekData.weeksList[storyWeek], true);
-						Highscore.saveWeekScore(WeekData.getWeekFileName(), campaignScore, storyDifficulty);
-
-						FlxG.save.data.weekCompleted = StoryMenuState.weekCompleted;
-						FlxG.save.flush();
-					}
-					changedDifficulty = false;
-				} else {
-					var difficulty:String = Difficulty.getFilePath();
-
-					trace('LOADING NEXT SONG');
-					trace(Paths.formatToSongPath(PlayState.storyPlaylist[0]) + difficulty);
-
-					FlxTransitionableState.skipNextTransIn = true;
-					FlxTransitionableState.skipNextTransOut = true;
-					prevCamFollow = camFollow;
-
-					PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0] + difficulty, PlayState.storyPlaylist[0]);
-					FlxG.sound.music.stop();
-
-					LoadingState.loadAndSwitchState(new PlayState());
-				}
-			} else {
-				trace('WENT BACK TO FREEPLAY??');
-				Mods.loadTopMod();
-				#if DISCORD_ALLOWED DiscordClient.resetClientID(); #end
-
-				switch (SONG.song)
+			switch (SONG.song)
+			{
+				case 'aiSong':
 				{
-					case 'aiSong':
-					{
-						AiComic.itsgivingendcard = true;
-						MusicBeatState.switchState(new AiComic());
-					}
-					default:
-					{
-					MusicBeatState.switchState(new FreeplayState());
-					FlxG.sound.playMusic(Paths.music('freakyMenu'));
-					changedDifficulty = false;
-					}
+					AiComic.itsgivingendcard = true;
+					MusicBeatState.switchState(new AiComic());
 				}
-
+				default:
+				{
+				MusicBeatState.switchState(new FreeplayState());
+				FlxG.sound.playMusic(Paths.music('freakyMenu'));
+				changedDifficulty = false;
+				}
 			}
+
 			transitioning = true;
 		}
 		return true;
@@ -3456,15 +3413,6 @@ class PlayState extends MusicBeatState {
 					case 'debugger':
 						unlock = (songName == 'test' && !usedPractice);
 				}
-			} else // any FC achievements, name should be "weekFileName_nomiss", e.g: "week3_nomiss";
-			{
-				if (isStoryMode
-					&& campaignMisses + songMisses < 1
-					&& Difficulty.getString().toUpperCase() == 'HARD'
-					&& storyPlaylist.length <= 1
-					&& !changedDifficulty
-					&& !usedPractice)
-					unlock = true;
 			}
 
 			if (unlock)

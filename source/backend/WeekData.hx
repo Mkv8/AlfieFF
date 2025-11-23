@@ -74,7 +74,7 @@ class WeekData {
 		this.fileName = fileName;
 	}
 
-	public static function reloadWeekFiles(isStoryMode:Null<Bool> = false) {
+	public static function reloadWeekFiles(isStoryMode: Bool = false) {
 		weeksList = [];
 		weeksLoaded.clear();
 		#if MODS_ALLOWED
@@ -93,21 +93,18 @@ class WeekData {
 			for (j in 0...directories.length) {
 				var fileToCheck:String = directories[j] + 'weeks/' + sexList[i] + '.json';
 				if (!weeksLoaded.exists(sexList[i])) {
-					var week:WeekFile = getWeekFile(fileToCheck);
-					if (week != null) {
-						var weekFile:WeekData = new WeekData(week, sexList[i]);
+					var weekFile:WeekFile = getWeekFile(fileToCheck);
+					if (weekFile != null) {
+						var weekData: WeekData = new WeekData(weekFile, sexList[i]);
 
 						#if MODS_ALLOWED
 						if (j >= originalLength) {
-							weekFile.folder = directories[j].substring(Paths.mods().length, directories[j].length - 1);
+							weekData.folder = directories[j].substring(Paths.mods().length, directories[j].length - 1);
 						}
 						#end
 
-						if (weekFile != null
-							&& (isStoryMode == null
-								|| (isStoryMode && !weekFile.hideStoryMode)
-								|| (!isStoryMode && !weekFile.hideFreeplay))) {
-							weeksLoaded.set(sexList[i], weekFile);
+						if ((isStoryMode && !weekData.hideStoryMode) || (!isStoryMode && !weekData.hideFreeplay)) {
+							weeksLoaded.set(sexList[i], weekData);
 							weeksList.push(sexList[i]);
 						}
 					}
@@ -148,7 +145,8 @@ class WeekData {
 					weekFile.folder = directory.substring(Paths.mods().length, directory.length - 1);
 					#end
 				}
-				if ((PlayState.isStoryMode && !weekFile.hideStoryMode) || (!PlayState.isStoryMode && !weekFile.hideFreeplay)) {
+
+				if (!weekFile.hideFreeplay) {
 					weeksLoaded.set(weekToCheck, weekFile);
 					weeksList.push(weekToCheck);
 				}

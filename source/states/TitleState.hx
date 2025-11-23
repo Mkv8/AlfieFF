@@ -14,7 +14,6 @@ import haxe.Json;
 import openfl.Assets;
 import openfl.display.Bitmap;
 import openfl.display.BitmapData;
-import states.StoryMenuState;
 import states.OutdatedState;
 import states.MainMenuState;
 import openfl.filters.BitmapFilter;
@@ -105,10 +104,6 @@ class TitleState extends MusicBeatState {
 			}
 			persistentUpdate = true;
 			persistentDraw = true;
-		}
-
-		if (FlxG.save.data.weekCompleted != null) {
-			StoryMenuState.weekCompleted = FlxG.save.data.weekCompleted;
 		}
 
 		FlxG.mouse.visible = false;
