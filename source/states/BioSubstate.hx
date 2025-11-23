@@ -48,7 +48,7 @@ class BioSubstate extends MusicBeatSubstate {
 	override function create() {
 		#if DISCORD_ALLOWED
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		DiscordClient.changePresence("Reading bios!", null);
 		#end
 
 		persistentUpdate = persistentDraw = true;

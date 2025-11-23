@@ -465,13 +465,13 @@ class MikuStage extends BaseStage {
     				switch (i)
    					{
 			        case 0:
-						FlxTween.tween(PlayState.opponentStrums.members[i], {x: PlayState.opponentStrums.members[i].x + 650}, 10 * Conductor.stepCrochet / 1000, {ease: FlxEase.cubeOut});
+						FlxTween.tween(PlayState.opponentStrums.members[i], {x: PlayState.opponentStrums.members[i].x + 600}, 10 * Conductor.stepCrochet / 1000, {ease: FlxEase.cubeOut});
         			case 1:
-						FlxTween.tween(PlayState.opponentStrums.members[i], {x: PlayState.opponentStrums.members[i].x + 650}, 12 * Conductor.stepCrochet / 1000, {ease: FlxEase.cubeOut});
+						FlxTween.tween(PlayState.opponentStrums.members[i], {x: PlayState.opponentStrums.members[i].x + 600}, 12 * Conductor.stepCrochet / 1000, {ease: FlxEase.cubeOut});
         			case 2:
-						FlxTween.tween(PlayState.opponentStrums.members[i], {x: PlayState.opponentStrums.members[i].x + 650}, 14 * Conductor.stepCrochet / 1000, {ease: FlxEase.cubeOut});
+						FlxTween.tween(PlayState.opponentStrums.members[i], {x: PlayState.opponentStrums.members[i].x + 600}, 14 * Conductor.stepCrochet / 1000, {ease: FlxEase.cubeOut});
 					case 3:
-						FlxTween.tween(PlayState.opponentStrums.members[i], {x: PlayState.opponentStrums.members[i].x + 650}, 16 * Conductor.stepCrochet / 1000, {ease: FlxEase.cubeOut});
+						FlxTween.tween(PlayState.opponentStrums.members[i], {x: PlayState.opponentStrums.members[i].x + 600}, 16 * Conductor.stepCrochet / 1000, {ease: FlxEase.cubeOut});
     				}
 					}		
 					}				
@@ -966,6 +966,16 @@ class MikuStage extends BaseStage {
     				}
 					}
 					}
+			}
+
+			case 2056:
+			{
+				mikuBG1.destroy();
+				wimbg1.destroy();
+				wimbg2.destroy();
+				aishiteBG.destroy();
+				wimdance.destroy();
+				mikuBG2.destroy();
 			}
 			
 		}

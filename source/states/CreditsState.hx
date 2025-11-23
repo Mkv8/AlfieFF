@@ -103,8 +103,7 @@ class CreditsState extends MusicBeatState {
 			pushModCreditsToList(mod);
 		#end
 		//Can you remove the bg color part of this? it's not necessary as the whole menu is black and white, idk if removing it from the arrawy without doin other stuff would break
-		//it so i dont wanna do it yet......
-		//I'll add in the links later dw about it
+
 		var defaultList:Array<Array<String>> = [
 			// Name - Icon name - Description - Link - BG Color
 			['Artists'],
@@ -118,14 +117,14 @@ class CreditsState extends MusicBeatState {
 			[
 				'Gigab00ts',
 				'gigaIcon',
-				'This is my super cool template credits message!',
-				'https://twitter.com/GigaB00ts',
+				'This mod would be better if Johnny round was here',
+				'https://bsky.app/profile/gigab00ts.bsky.social',
 				'F74141'
 			],
 			[
 				'Orio',
-				'mk',
-				'This is my super cool template credits message!',
+				'orioIcon',
+				'Featuring Dante from the Devil May Cry series',
 				'https://bsky.app/profile/thatorioguy.bsky.social',
 				'F74141'
 			],
@@ -133,166 +132,271 @@ class CreditsState extends MusicBeatState {
 			['Coders'],
 			[
 				'Mkv8',
-				'mk',
+				'mkIcon',
 				'This is my super cool template credits message!',
 				'https://twitter.com/Mkv8Art',
 				'A66B89'
 			],
 			[
 				'Shadowfi',
-				'mk',
-				'This is my super cool template credits message!',
-				'https://twitter.com/Mkv8Art',
+				'shadowfiIcon',
+				'See my pinky... See my thumb... See my fist you better run >:(',
+				'https://x.com/Shadowfi1385',
 				'A66B89'
 			],
 			[
 				'Tantalun',
-				'mk',
-				'omg hi tanta :333 explodes',
-				'https://twitter.com/Mkv8Art',
+				'tantalunIcon',
+				'omg hi tanta :333 explodes', //put your quote here tanta
+				'https://twitter.com/Mkv8Art', //put your link here tanta
 				'A66B89'
 			],
 			[''],			
 			['Musicians'],	//this section is always huge lmao	
 			[
 				'Aidan.XD', //main theme
-				'mk',
-				'This is my super cool template credits message!',
+				'aidanIcon',
+				'im covered in fiberglass',
 				'https://twitter.com/DEADMAC1',
 				'D65C58'
 			],
 			[
 				'Splatterdash', //Forest Fire, pause/extras/gameover themes/eye of the beholder
-				'mk',
-				'This is my super cool template credits message!',
+				'splatterdashIcon',
+				'I am back again because I love alfredo beta room',
 				'https://twitter.com/DEADMAC1',
 				'D65C58'
 			],
 			[
 				'Tailer', //Convicted Love along with coquers
-				'mk',
-				'This is my super cool template credits message!',
+				'tailerIcon',
+				'you may know me for B2 remixed, but now I am a fan of two icelandic Eurovision bros I love væb',
 				'https://twitter.com/tailer4440',
 				'D65C58'
 			],
 			[
 				'Meroth', //Jammed Cartridge
-				'mk',
-				'This is my super cool template credits message!',
+				'merothIcon',
+				'"uhm, add that" yes        literally that',
 				'https://x.com/MerothIsHere',
 				'D65C58'
 			],									
 			[
 				'PixelatedEngie', //Jammed Cartridge
-				'mk',
-				'This is my super cool template credits message!',
+				'engieIcon',
+				'mmm.. burger..',
 				'https://x.com/PixelatedEngie',
 				'D65C58'
 			],	
 			[
 				'Stardust Tunes', //Anemoia
-				'mk',
-				'This is my super cool template credits message!',
+				'stardustTunesIcon',
+				'Ad Astra',
 				'https://x.com/StardustTunes',
 				'D65C58'
 			],	
 			[
 				'Kamex', //PUNCH BUGGY!!!
-				'mk',
-				'This is my super cool template credits message!',
+				'kamexIcon',
+				'I will never beat the chill music allegations...',
 				'https://x.com/KamexVGM',
 				'D65C58'
 			],	
 			[
 				'Gracio', //RooftopTalkshop
-				'mk',
-				'This is my super cool template credits message!',
+				'gracioIcon',
+				'Bort Simpson is coming Bort Simpson is coming Bort Simpson is coming Bort Simpson is coming Bort Simpson is coming',
 				'https://x.com/Gracio978',
 				'D65C58'
 			],	
 			[
 				'Zeroh', //Helped Eye of the Beholder, and (Troubleshootin song here)
-				'mk',
-				'This is my super cool template credits message!',
+				'zerohIcon',
+				'has anyone seen my zeroh mulch? i still havent found it',
 				'https://x.com/catsmirkk',
 				'D65C58'
 			],	
 			[
-				'Haspecto', //Hatsune Miku Song
-				'mk',
+				'Jospi', //as the clock strikes midnight (Credits theme)
+				'jospiIcon',
+				'sry   i ated all the music',
+				'https://x.com/jospi_music',
+				'D65C58'
+			],			
+			[
+				'Haspecto', //Channel Surfers
+				'haspectoIcon',
 				'This is my super cool template credits message!',
 				'https://x.com/SorrowGuy1',
-				'D65C58'
-			],
-			[
-				'Jospi', //as the clock strikes midnight (Credits theme)
-				'mk',
-				'This is my super cool template credits message!',
-				'https://x.com/catsmirkk',
 				'D65C58'
 			],
 			[''],						
 			['Charters'],						
 			[
 				'ChubbyGamer',
-				'mk',
-				'This is my super cool template credits message!',
+				'chubbyIcon',
+				'That one charter dragon',
 				'https://twitter.com/ChubbyAlt',
 				'C78A58'
 			],
 			[
-				'PpavlikosS',
-				'mk',
-				'This is my super cool template credits message!',
-				'https://twitter.com/ppavlikoss',
+				'PavDrop',
+				'pavIcon',
+				'what the gup?? oh also hi mat doestopher underscore from fnf (fortnite festival)',
+				'https://x.com/PavDrop',
 				'BAE2FF'
 			],
 			[
 				'sire_kirbz',
-				'mk',
+				'sireIcon',
 				'This is my super cool template credits message!',
 				'https://x.com/sirekirb',
 				'BAE2FF'
 			],			
 			[''],
-			['Misc'], //Misc dont get the same icons, theyll get simpler ones methinks, but it can work the same, Special thanks are just names
+			['Extra Help'], //Misc dont get the same icons, theyll get simpler ones methinks, but it can work the same, Special thanks are just names
 			[
 				'coquers_',
-				'mk',
-				'This is my super cool template credits message!',
+				'coquersIcon',
+				'Helped with Convicted Love!',
 				'https://x.com/coquers_',
 				'BAE2FF'
 			],
 			[
 				'ciablue',
-				'mk',
-				'This is my super cool template credits message!',
+				'ciaIcon',
+				'Helped designing Alfie for (ai song) and wrote the comments for Ai in the extras menu',
 				'https://x.com/bluemeows_',
 				'BAE2FF'
 			],
 			[
+				'Jumbo',
+				'jumboIcon',
+				'Helped conceptualize/make a rough concept for one of the EOTB animations',
+				'https://x.com/desikobutreal',
+				'BAE2FF'
+			],	
+			[
+				'Daybreak',
+				'daybreakIcon',
+				'Voiced Minus Alfie',
+				'https://x.com/DaybreakBun',
+				'BAE2FF'
+			],					
+			[
 				'Ferzy',
-				'mk',
-				'This is my super cool template credits message!',
+				'ferzyIcon',
+				'Made the combo/UI script, helped optimize assets and helped with coding the menus',
 				'https://x.com/_Ferzy?s=09', //idk his link
 				'BAE2FF'
 			],		
 			[''],
-			['Special Thanks'],		 //I dont remember who else to add to this one yet ill do it later
+			['Special Thanks'],		 // ON THIS ONE THERES NO ICON
 			[
 				'You!',
 				'blank',
-				'This is my super cool template credits message!',
-				'null',
+				' ',
+				'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+				'BAE2FF'
+			],	
+			[
+				'GigaB00ts',
+				'blank',
+				'Creator of Kisston!',
+				'https://bsky.app/profile/gigab00ts.bsky.social',
 				'BAE2FF'
 			],			
 			[
+				'Josszzol',
+				'blank',
+				'Creator of Filip!',
+				'https://x.com/Abbledacker',
+				'BAE2FF'
+			],
+			[
+				'Hotline 024 Team',
+				'blank',
+				'Thank you to Saruky especially, who created Nikku!',
+				'https://x.com/Saruky__',
+				'BAE2FF'
+			],
+			[
+				'Troubleshootin Team',
+				'blank',
+				'Thanks to Zeroh and the team who created Ai!',
+				'https://x.com/FNFTroubleshoot',
+				'BAE2FF'
+			],
+			[
+				'SEGA',
+				'blank',
+				'Created Hatsune Miku!',
+				'https://www.youtube.com/watch?v=Osuhh-TsM7c',
+				'BAE2FF'
+			],								
+			[
+				'Neomari',
+				'blank',
+				' ',
+				'https://x.com/dilacer8/status/1983644788651126832',
+				'BAE2FF'
+			],		
+			[
+				'Pixelagoon',
+				'blank',
+				' ',
+				'https://youtu.be/KVtLZ3HumkU?si=2y4DfWboKyrb16jW&t=14',
+				'BAE2FF'
+			],	
+			[
 				'MattDoes',
 				'blank',
-				'This is my super cool template credits message!',
+				' ',
 				'null',
 				'BAE2FF'
-			],			
+			],	
+			[
+				'SirSins',
+				'blank',
+				' ',
+				'https://www.youtube.com/live/vw89eMOtRb8?si=jmGGfh8lL5em7FYZ&t=505',
+				'BAE2FF'
+			],	
+			[
+				'AurumArts',
+				'blank',
+				' ',
+				'https://www.youtube.com/shorts/eS-Mt7XLYg4',
+				'BAE2FF'
+			],	
+			[
+				'Sayge',
+				'blank',
+				' ',
+				'https://www.youtube.com/watch?v=JaVNBlMGY8s',
+				'BAE2FF'
+			],	
+			[
+				'Lankaden',
+				'blank',
+				' ',
+				'https://x.com/GianMLG/status/1987654860943069195?s=20',
+				'BAE2FF'
+			],	
+			[
+				'FlarinthK_',
+				'blank',
+				' ',
+				'https://x.com/PostsOfCats/status/1992229104712659226?s=20',
+				'BAE2FF'
+			],	
+			[
+				'Hazelite',
+				'blank',
+				' ',
+				'https://www.youtube.com/watch?v=gucl6y4wli8',
+				'BAE2FF'
+			],				
 			[''],
 
 

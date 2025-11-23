@@ -1,0 +1,64 @@
+{
+  "Characters": {
+    "mikuStage": {
+      "imageFile": "menuassets/extras/pic1",
+      "bio": "Scrapped concept for Miku's song! This was before we went for the music video-ish angle, I'm glad we decided to experiment instead! -Mk"
+    },
+    "aiAlfieDesign": {
+      "imageFile": "menuassets/extras/pic2",
+      "bio": "Concepts for Alfie's outfit in Ai's song! This is also the outfit he uses in the background of Nitro's minigame in week 3. The first concept was by BlueMeows (top) and then I did my own passes as well (bottom). -Mk"
+    },
+    "firstPromo": {
+      "imageFile": "menuassets/extras/pic3",
+      "bio": "First WIP of the promo. I had an idea of what I wanted to do but it was only with Orio's help that it became a reality (also ignore the fact I misspelled moonlight shut up) -Mk"
+    },
+    "secondPromo": {
+      "imageFile": "menuassets/extras/pic4",
+      "bio": "Second WIP of the promo. Here you can see GF was still using the original human designs, we were about to change them into the bunny and snake designs. It was pretty fun to work with and arrange a wide variety of characters -Mk and Orio"
+    },    
+    "hooman": {
+      "imageFile": "menuassets/extras/pic15",
+      "bio": "Human renders for both BF and GF, this is before we changed them into the bunny and snake designs!"
+    },   
+    "artificial": {
+      "imageFile": "menuassets/extras/pic5",
+      "bio": "Scrapped album for a Kai song called Artificial Nostalgia. Kai already has two songs here, but they'd have even more screentime with this song, unfortunately, it was never finished. -Mk"
+    }, 
+    "artificial2": {
+      "imageFile": "menuassets/extras/pic6",
+      "bio": "Second concept for Artificial Nostalgia. This one is less detailed, but it already featured the new album layout. -Mk"
+    }, 
+    "oldAlbums": {
+      "imageFile": "menuassets/extras/pic7",
+      "bio": "Old albums from the first update. Really glad I updated them! These suck now lmao -Mk"
+    }, 
+    "forestFire": {
+      "imageFile": "menuassets/extras/pic8",
+      "bio": "Concept for Forest Fire's stage. Originally this mod was only going to include this song!! Now it's 10x bigger!!! -Mk"
+    },      
+    "deadbf": {
+      "imageFile": "menuassets/extras/pic9",
+      "bio": "Sprite for the game over in the first update, where this ghost sprite would float up... I never coded this... And then later found out the death screen softlocked you in the first release... I don't think anyone ever checked... -Mk"
+    }, 
+    "minusPoses": {
+      "imageFile": "menuassets/extras/pic10",
+      "bio": "Sketches for the Minus Alfie poses in EOTB by GigaB00ts. I've never been very good at the scarier stuff, but Giga had some really great ideas! -Mk"
+    },
+    "minusPoses2": {
+      "imageFile": "menuassets/extras/pic11",
+      "bio": "Sketches for the final phase of EOTB also by GigaB00ts. With both sprites I was going for a sort of unhinged yet sophisticated trickster type of character. Very happy with how these came out -GigaB00ts"
+    },   
+    "fuckinArrested": {
+      "imageFile": "menuassets/extras/pic12",
+      "bio": "real canon totally real footage of our heroes being arrested for TRESPASSING and RAPPING IN A ROOFTOP WITHOUT PROPER AUTHORIZATION. (By GigaB00ts) -Mk"
+    },
+    "wellthissucks": {
+      "imageFile": "menuassets/extras/pic13",
+      "bio": "scary entity escapes your computer and has to live with the much scarier reality of capitalism and working to pay rent. (By SnootHouse) -Mk"
+    },   
+    "alfandquaver": {
+      "imageFile": "menuassets/extras/pic14",
+      "bio": "Designs for Alf and Quaver by GigaB00ts for a scrapped Manual Blast (Alfie Mix). The tiny one is Alf, and the monstrous version is Quaver. I did my best to make Quaver scary, but I think I only made him look like a rock star. Still a win, in my opinion. -GigaB00ts"
+    }                     
+  }
+}

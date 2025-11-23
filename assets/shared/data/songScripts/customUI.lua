@@ -14,20 +14,29 @@ function onCreatePost()
     luaDebugMode = true
 end
 
+function onUpdate()
+	debugPrint(Yoffset)
+end
+
 function onCountdownStarted()
+	if getPropertyFromClass('backend.ClientPrefs', 'data.downScroll') == true then
+		judgementYoffset = 525
+	else
+		judgementYoffset = 0
+	end
     createText()
     canCreate = true
 end
 
 function createText()
-    makeLuaText('score', '1', 200, screenWidth/2, 120)
+    makeLuaText('score', '1', 200, screenWidth/2, 120 + judgementYoffset)
     setTextSize('score', 25)
     setTextFont('score', 'vcr.ttf')
     setTextAlignment('score', 'center')
     screenCenter('score', 'x')
     setObjectCamera('score', 'hud')
 
-    makeLuaText('rating', 'SEX', 200, screenWidth/2, 55)
+    makeLuaText('rating', 'SEX', 200, screenWidth/2, 55 + judgementYoffset)
     setTextSize('rating', 50)
     setTextFont('rating', 'vcr.ttf')
     setProperty('rating.antialiasing', false)
@@ -36,7 +45,7 @@ function createText()
     screenCenter('rating', 'x')
     setObjectCamera('rating', 'hud')
 
-    makeLuaText('combo', 'x1', 200, screenWidth/2, 97)
+    makeLuaText('combo', 'x1', 200, screenWidth/2, 97 + judgementYoffset)
     setTextSize('combo', 20)
     setTextFont('combo', 'vcr.ttf')
     setProperty('combo.antialiasing', false)

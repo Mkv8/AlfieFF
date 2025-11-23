@@ -2,12 +2,47 @@
 	"song": {
 		"events": [
 			[
-				117.1875,
+				0,
 				[
 					[
 						"Camera Movement",
 						"640, 380",
 						""
+					],
+					[
+						"Cam Boom Speed",
+						"default",
+						"0.5"
+					]
+				]
+			],
+			[
+				703.125,
+				[
+					[
+						"Text Settings",
+						"textcolor",
+						"0xFFffcf53"
+					],
+					[
+						"Text Settings",
+						"bordercolor",
+						"0xFF850303"
+					],
+					[
+						"Text Settings",
+						"textsize",
+						"30"
+					],
+					[
+						"Text Settings",
+						"borderwidth",
+						"3"
+					],
+					[
+						"Text Settings",
+						"offsetY",
+						"46"
 					]
 				]
 			],
@@ -23,6 +58,256 @@
 						"Change Character",
 						"bf",
 						"mainAlfie"
+					],
+					[
+						"Camera Movement",
+						"500, 450",
+						"16s, expoOut"
+					],
+					[
+						"Set Cam Zoom",
+						"1.2x",
+						"16s, expoOut"
+					],
+					[
+						"Set Property",
+						"camHUD.alpha",
+						"1"
+					]
+				]
+			],
+			[
+				14062.5,
+				[
+					[
+						"Camera Movement",
+						"820, 450",
+						"16s, expoInOut"
+					]
+				]
+			],
+			[
+				20625,
+				[
+					[
+						"Camera Movement",
+						"766, 420",
+						"6s, expoOut"
+					],
+					[
+						"Set Cam Zoom",
+						"1.15x",
+						"6s, expoOut"
+					]
+				]
+			],
+			[
+				20976.5625,
+				[
+					[
+						"Camera Movement",
+						"713, 390",
+						"6s, expoOut"
+					],
+					[
+						"Set Cam Zoom",
+						"1.1x",
+						"6s, expoOut"
+					],
+					[
+						"Add Camera Zoom",
+						"0.0075",
+						"0.015"
+					]
+				]
+			],
+			[
+				21328.125,
+				[
+					[
+						"Camera Movement",
+						"660, 360",
+						"10s, expoOut"
+					],
+					[
+						"Set Cam Zoom",
+						"1x",
+						"10s, expoOut"
+					],
+					[
+						"Add Camera Zoom",
+						"0.0075",
+						"0.015"
+					]
+				]
+			],
+			[
+				22500,
+				[
+					[
+						"Add Camera Zoom",
+						"",
+						""
+					],
+					[
+						"FlashingStuff",
+						"FFFFFF, 0.3, flash",
+						"16s, expoOut"
+					],
+					[
+						"Set HUD Zoom",
+						"0.95",
+						"16s, expoOut"
+					],
+					[
+						"Camera Movement",
+						"560, 420",
+						"16s, expoOut"
+					],
+					[
+						"Set Cam Zoom",
+						"1.1x",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				22734.375,
+				[
+					[
+						"Cam Boom Speed",
+						"2, 1",
+						"0.5"
+					]
+				]
+			],
+			[
+				29062.5,
+				[
+					[
+						"Camera Movement",
+						"760, 420",
+						"16s, expoInOut"
+					]
+				]
+			],
+			[
+				37265.625,
+				[
+					[
+						"Cam Boom Speed",
+						"1",
+						"0.33"
+					]
+				]
+			],
+			[
+				37500,
+				[
+					[
+						"Camera Movement",
+						"560, 520",
+						"16s, expoOut"
+					],
+					[
+						"Camera Bars",
+						"45",
+						"16s, expoOut"
+					],
+					[
+						"Set HUD Zoom",
+						"1",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				45000,
+				[
+					[
+						"Camera Movement",
+						"760, 520",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				48750,
+				[
+					[
+						"Camera Movement",
+						"1160, 500",
+						"16s, expoIn"
+					],
+					[
+						"Set Cam Zoom",
+						"2.1x",
+						"16s, expoIn"
+					],
+					[
+						"Camera Bars",
+						"35",
+						"16s, expoIn"
+					]
+				]
+			],
+			[
+				50390.625,
+				[
+					[
+						"Cam Boom Speed",
+						"4",
+						"0"
+					]
+				]
+			],
+			[
+				50625,
+				[
+					[
+						"Camera Bars",
+						"100",
+						"10s, backIn"
+					],
+					[
+						"FlashingStuff",
+						"FFFFFF, 1, mix",
+						"10s, 2s, 2s"
+					]
+				]
+			],
+			[
+				51679.6875,
+				[
+					[
+						"Text Settings",
+						"textsize",
+						"35"
+					],
+					[
+						"Text Settings",
+						"borderwidth",
+						"3.5"
+					]
+				]
+			],
+			[
+				51796.875,
+				[
+					[
+						"TextStuff",
+						"I'm thinking Miku,",
+						""
+					]
+				]
+			],
+			[
+				52265.625,
+				[
+					[
+						"Cam Boom Speed",
+						"4",
+						"0.5"
 					]
 				]
 			],
@@ -38,6 +323,231 @@
 						"Change Character",
 						"dad",
 						"songMiku"
+					],
+					[
+						"Camera Movement",
+						"640, 380",
+						"0"
+					],
+					[
+						"Set Cam Zoom",
+						"1x",
+						"0"
+					],
+					[
+						"Camera Bars",
+						"-15",
+						"16s, expoOut"
+					],
+					[
+						"Set HUD Zoom",
+						"0.92x",
+						"128s, sineIn"
+					]
+				]
+			],
+			[
+				52529.296875,
+				[
+					[
+						"Set Cam Zoom",
+						"0.75x",
+						"127.75s, sineIn"
+					],
+					[
+						"Camera Movement",
+						"640, 470",
+						"127.75s, sineIn"
+					]
+				]
+			],
+			[
+				53437.5,
+				[
+					[
+						"TextStuff",
+						"I'm thinking Miku, Miku",
+						",,false"
+					]
+				]
+			],
+			[
+				54375,
+				[
+					[
+						"TextStuff",
+						"(ooh-ee-ooh)",
+						""
+					]
+				]
+			],
+			[
+				55546.875,
+				[
+					[
+						"TextStuff",
+						"I'm thinking Miku,",
+						""
+					]
+				]
+			],
+			[
+				57187.5,
+				[
+					[
+						"TextStuff",
+						"I'm thinking Miku, Miku",
+						",,false"
+					]
+				]
+			],
+			[
+				58125,
+				[
+					[
+						"TextStuff",
+						"(ooh-ee-ooh)",
+						""
+					]
+				]
+			],
+			[
+				59296.875,
+				[
+					[
+						"TextStuff",
+						"I'm thinking Miku,",
+						""
+					]
+				]
+			],
+			[
+				60937.5,
+				[
+					[
+						"TextStuff",
+						"I'm thinking Miku, Miku",
+						",,false"
+					]
+				]
+			],
+			[
+				61875,
+				[
+					[
+						"TextStuff",
+						"(ooh-ee-ooh)",
+						""
+					]
+				]
+			],
+			[
+				63046.875,
+				[
+					[
+						"TextStuff",
+						"I'm thinking Miku",
+						""
+					]
+				]
+			],
+			[
+				64687.5,
+				[
+					[
+						"TextStuff",
+						"I'm thinking Miku, Miku",
+						",,false"
+					]
+				]
+			],
+			[
+				65625,
+				[
+					[
+						"TextStuff",
+						"(ooh-ee-ooh)",
+						""
+					]
+				]
+			],
+			[
+				67500,
+				[
+					[
+						"Camera Movement",
+						"640, 380",
+						"0"
+					],
+					[
+						"Set Cam Zoom",
+						"1x",
+						"0"
+					],
+					[
+						"Set HUD Zoom",
+						"1x",
+						"16s, expoOut"
+					],
+					[
+						"Camera Bars",
+						"35, letter, 0.635",
+						"16s, expoOut"
+					],
+					[
+						"TextStuff",
+						"I'm on top of the world because of you",
+						""
+					],
+					[
+						"Text Settings",
+						"textsize",
+						"30"
+					],
+					[
+						"Text Settings",
+						"borderwidth",
+						"3"
+					]
+				]
+			],
+			[
+				71250,
+				[
+					[
+						"TextStuff",
+						"All I wanted to do is follow you",
+						""
+					]
+				]
+			],
+			[
+				75000,
+				[
+					[
+						"TextStuff",
+						"I'll keep singing along to all of you",
+						""
+					]
+				]
+			],
+			[
+				78750,
+				[
+					[
+						"TextStuff",
+						"I'll keep singing along",
+						""
+					]
+				]
+			],
+			[
+				81562.5,
+				[
+					[
+						"TextStuff",
+						"",
+						""
 					]
 				]
 			],
@@ -58,6 +568,391 @@
 						"Change Character",
 						"bf",
 						"mainAlfie"
+					],
+					[
+						"Camera Bars",
+						"25",
+						"16s, expoOut"
+					],
+					[
+						"Camera Movement",
+						"520, 480",
+						"16s, expoOut"
+					],
+					[
+						"Set Cam Zoom",
+						"1.15x",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				85500,
+				[
+					[
+						"Camera Movement",
+						"800, 480",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				87375,
+				[
+					[
+						"Camera Movement",
+						"660, 480",
+						"24s, expoInOut"
+					],
+					[
+						"Camera Bars",
+						"35",
+						"24s, expoInOut"
+					],
+					[
+						"TextStuff",
+						"Nantoka shite!",
+						""
+					]
+				]
+			],
+			[
+				88125,
+				[
+					[
+						"Cam Boom Speed",
+						"4",
+						"1"
+					]
+				]
+			],
+			[
+				89625,
+				[
+					[
+						"TextStuff",
+						"Betsu ni",
+						""
+					]
+				]
+			],
+			[
+				90750,
+				[
+					[
+						"Camera Bars",
+						"0",
+						"8s, expoIn"
+					],
+					[
+						"Camera Movement",
+						"640, 360",
+						"8s, expoIn"
+					],
+					[
+						"Set Cam Zoom",
+						"1x",
+						"8s, expoIn"
+					]
+				]
+			],
+			[
+				91125,
+				[
+					[
+						"TextStuff",
+						"Wagamama nante",
+						""
+					]
+				]
+			],
+			[
+				91312.5,
+				[
+					[
+						"Cam Boom Speed",
+						"4",
+						"0.5"
+					]
+				]
+			],
+			[
+				92812.5,
+				[
+					[
+						"TextStuff",
+						"ittenain-",
+						""
+					]
+				]
+			],
+			[
+				94125,
+				[
+					[
+						"TextStuff",
+						"ittenainda-",
+						",,false"
+					]
+				]
+			],
+			[
+				94312.5,
+				[
+					[
+						"Cam Boom Speed",
+						"4",
+						"1"
+					],
+					[
+						"TextStuff",
+						"ittenaindaka-",
+						",,false"
+					]
+				]
+			],
+			[
+				94500,
+				[
+					[
+						"TextStuff",
+						"ittenaindakara",
+						",,false"
+					]
+				]
+			],
+			[
+				95625,
+				[
+					[
+						"TextStuff",
+						"Kimi ni",
+						""
+					]
+				]
+			],
+			[
+				97125,
+				[
+					[
+						"TextStuff",
+						"Kokoro kara omotte",
+						""
+					]
+				]
+			],
+			[
+				97312.5,
+				[
+					[
+						"Cam Boom Speed",
+						"4",
+						"0.5"
+					]
+				]
+			],
+			[
+				99750,
+				[
+					[
+						"Camera Bars",
+						"100",
+						"8s, expoIn"
+					]
+				]
+			],
+			[
+				100312.5,
+				[
+					[
+						"Cam Boom Speed",
+						"4",
+						"0"
+					]
+				]
+			],
+			[
+				100500,
+				[
+					[
+						"Camera Bars",
+						"15",
+						"8s, expoOut"
+					],
+					[
+						"Add Camera Zoom",
+						"0.01",
+						"0.02"
+					],
+					[
+						"TextStuff",
+						"Ho-",
+						""
+					]
+				]
+			],
+			[
+				100687.5,
+				[
+					[
+						"Add Camera Zoom",
+						"0.01",
+						"0.02"
+					],
+					[
+						"TextStuff",
+						"Hoshi-",
+						",,false"
+					]
+				]
+			],
+			[
+				100875,
+				[
+					[
+						"Add Camera Zoom",
+						"0.01",
+						"0.02"
+					],
+					[
+						"TextStuff",
+						"Hoshii",
+						",,false"
+					]
+				]
+			],
+			[
+				101250,
+				[
+					[
+						"Add Camera Zoom",
+						"0.01",
+						"0.02"
+					],
+					[
+						"TextStuff",
+						"Hoshii no",
+						",,false"
+					]
+				]
+			],
+			[
+				101625,
+				[
+					[
+						"Add Camera Zoom",
+						"0.01",
+						"0.02"
+					],
+					[
+						"TextStuff",
+						"Hoshii no ka-",
+						",,false"
+					]
+				]
+			],
+			[
+				101812.5,
+				[
+					[
+						"Add Camera Zoom",
+						"0.01",
+						"0.02"
+					],
+					[
+						"TextStuff",
+						"Hoshii no kawa-",
+						",,false"
+					]
+				]
+			],
+			[
+				102187.5,
+				[
+					[
+						"Add Camera Zoom",
+						"0.01",
+						"0.02"
+					],
+					[
+						"TextStuff",
+						"Hoshii no kawai-",
+						",,false"
+					]
+				]
+			],
+			[
+				102375,
+				[
+					[
+						"Add Camera Zoom",
+						"0.01",
+						"0.02"
+					],
+					[
+						"TextStuff",
+						"Hoshii no kawaii-",
+						",,false"
+					]
+				]
+			],
+			[
+				102562.5,
+				[
+					[
+						"Camera Movement",
+						"640, 420",
+						"0"
+					]
+				]
+			],
+			[
+				102750,
+				[
+					[
+						"Set HUD Zoom",
+						"1.15",
+						"8s, expoIn"
+					],
+					[
+						"Add Camera Zoom",
+						"",
+						""
+					],
+					[
+						"TextStuff",
+						"Hoshii no kawaiitte",
+						",,false"
+					]
+				]
+			],
+			[
+				103113.28125,
+				[
+					[
+						"Text Settings",
+						"text2size",
+						"40"
+					]
+				]
+			],
+			[
+				103125,
+				[
+					[
+						"TextStuff",
+						"Sekai de ichiban",
+						""
+					],
+					[
+						"Text Settings",
+						"textsize",
+						"40"
+					],
+					[
+						"Text Settings",
+						"borderwidth",
+						"4"
 					]
 				]
 			],
@@ -77,12 +972,252 @@
 				]
 			],
 			[
+				103312.5,
+				[
+					[
+						"Cam Boom Speed",
+						"1",
+						"0.75"
+					]
+				]
+			],
+			[
+				103500,
+				[
+					[
+						"Set HUD Zoom",
+						"0.9",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				106500,
+				[
+					[
+						"TextStuff",
+						"Sekai de ichiban o-",
+						",,false"
+					]
+				]
+			],
+			[
+				106875,
+				[
+					[
+						"TextStuff",
+						"Sekai de ichiban ohi-",
+						",,false"
+					]
+				]
+			],
+			[
+				107250,
+				[
+					[
+						"TextStuff",
+						"Sekai de ichiban ohime-",
+						",,false"
+					]
+				]
+			],
+			[
+				107625,
+				[
+					[
+						"TextStuff",
+						"Sekai de ichiban ohime-sa-",
+						",,false"
+					]
+				]
+			],
+			[
+				108000,
+				[
+					[
+						"TextStuff",
+						"Sekai de ichiban ohime-sama",
+						",,false"
+					]
+				]
+			],
+			[
+				108750,
+				[
+					[
+						"TextStuff",
+						"Ki ga tsuite ne-",
+						""
+					]
+				]
+			],
+			[
+				111000,
+				[
+					[
+						"TextStuff",
+						"Ki ga tsuite nee",
+						",,false"
+					]
+				]
+			],
+			[
+				111375,
+				[
+					[
+						"TextStuff",
+						"Ki ga tsuite nee ne-",
+						",,false"
+					]
+				]
+			],
+			[
+				111750,
+				[
+					[
+						"TextStuff",
+						"Ki ga tsuite nee nee",
+						",,false"
+					]
+				]
+			],
+			[
+				112312.5,
+				[
+					[
+						"TextStuff",
+						"Mataseru nante rongai yo",
+						""
+					]
+				]
+			],
+			[
+				115125,
+				[
+					[
+						"TextStuff",
+						"Watashi wo dare da to",
+						""
+					]
+				]
+			],
+			[
+				118312.5,
+				[
+					[
+						"TextStuff",
+						"Watashi wo dare da to o-",
+						",,false"
+					]
+				]
+			],
+			[
+				118500,
+				[
+					[
+						"TextStuff",
+						"Watashi wo dare da to omo-",
+						",,false"
+					]
+				]
+			],
+			[
+				119250,
+				[
+					[
+						"TextStuff",
+						"Watashi wo dare da to omotte-",
+						",,false"
+					]
+				]
+			],
+			[
+				119625,
+				[
+					[
+						"TextStuff",
+						"Watashi wo dare da to omotteru",
+						",,false"
+					]
+				]
+			],
+			[
+				120000,
+				[
+					[
+						"TextStuff",
+						"Watashi wo dare da to omotteru no?",
+						",,false"
+					]
+				]
+			],
+			[
+				120750,
+				[
+					[
+						"TextStuff",
+						"Moo nandaka",
+						""
+					]
+				]
+			],
+			[
+				124312.5,
+				[
+					[
+						"TextStuff",
+						"Amai mono ga",
+						""
+					]
+				]
+			],
+			[
+				124500,
+				[
+					[
+						"Camera Movement",
+						"640, 380",
+						"16s, expoIn"
+					],
+					[
+						"Camera Bars",
+						"-15",
+						"16s, expoIn"
+					]
+				]
+			],
+			[
+				125812.5,
+				[
+					[
+						"Cam Boom Speed",
+						"4",
+						"0.75"
+					],
+					[
+						"TextStuff",
+						"Amai mono ga ta-",
+						",,false"
+					]
+				]
+			],
+			[
 				126000,
 				[
 					[
 						"Tween Variable",
 						"songSpeed",
 						"+-0.8"
+					],
+					[
+						"Set HUD Zoom",
+						"0.933",
+						"6s, expoOut"
+					],
+					[
+						"TextStuff",
+						"Amai mono ga tabe",
+						",,false"
 					]
 				]
 			],
@@ -97,12 +1232,37 @@
 				]
 			],
 			[
+				126187.5,
+				[
+					[
+						"Cam Boom Speed",
+						"4",
+						"0"
+					]
+				]
+			],
+			[
 				126562.5,
 				[
 					[
 						"Tween Variable",
 						"songSpeed",
 						"+-0.8"
+					],
+					[
+						"Add Camera Zoom",
+						"0.01125",
+						"0.0225"
+					],
+					[
+						"Set HUD Zoom",
+						"0.966",
+						"6s, expoOut"
+					],
+					[
+						"TextStuff",
+						"Amai mono ga tabe ta-",
+						",,false"
 					]
 				]
 			],
@@ -117,12 +1277,32 @@
 				]
 			],
 			[
+				126750,
+				[
+					[
+						"TextStuff",
+						"Amai mono ga tabe tai!",
+						",,false"
+					]
+				]
+			],
+			[
 				127125,
 				[
 					[
 						"Tween Variable",
 						"songSpeed",
 						"+-0.8"
+					],
+					[
+						"Add Camera Zoom",
+						"0.01125",
+						"0.0225"
+					],
+					[
+						"Set HUD Zoom",
+						"1",
+						"6s, expoOut"
 					]
 				]
 			],
@@ -133,6 +1313,16 @@
 						"Tween Variable",
 						"songSpeed",
 						"+0.6, 5.75s, sineOut"
+					]
+				]
+			],
+			[
+				127312.5,
+				[
+					[
+						"FlashingStuff",
+						"000000, 1, mix",
+						"2s, 0, 13.71"
 					]
 				]
 			],
@@ -148,6 +1338,71 @@
 						"Change Character",
 						"bf",
 						"aishiteAlfie"
+					],
+					[
+						"Set Cam Zoom",
+						"1.7x",
+						"0"
+					],
+					[
+						"Camera Movement",
+						"640, 500",
+						"0"
+					],
+					[
+						"Camera Bars",
+						"0",
+						"0"
+					],
+					[
+						"Add Camera Zoom",
+						"",
+						""
+					],
+					[
+						"Set Property",
+						"camZoomingDecay",
+						"0.33"
+					],
+					[
+						"TextStuff",
+						"",
+						""
+					]
+				]
+			],
+			[
+				129214.285714286,
+				[
+					[
+						"Text Settings",
+						"borderwidth",
+						"3"
+					],
+					[
+						"Text Settings",
+						"textsize",
+						"30"
+					]
+				]
+			],
+			[
+				130642.857142857,
+				[
+					[
+						"Cam Boom Speed",
+						"6, 296",
+						"0.75"
+					]
+				]
+			],
+			[
+				130928.571428571,
+				[
+					[
+						"Set Cam Zoom",
+						"1.55x",
+						"90s, sineInOut"
 					]
 				]
 			],
@@ -158,6 +1413,1336 @@
 						"Tween Variable",
 						"songSpeed",
 						"+0.3, 6s, sineIn"
+					]
+				]
+			],
+			[
+				143785.714285714,
+				[
+					[
+						"Camera Movement",
+						"640, 380",
+						"12s, circInOut"
+					],
+					[
+						"Set Cam Zoom",
+						"0.9x",
+						"12s, circInOut"
+					],
+					[
+						"Camera Bars",
+						"15",
+						"12s, circInOut"
+					]
+				]
+			],
+			[
+				144642.857142857,
+				[
+					[
+						"Set Cam Zoom",
+						"1x",
+						"12s, expoOut"
+					],
+					[
+						"Camera Movement",
+						"640, 380",
+						"12s, expoOut"
+					],
+					[
+						"Camera Bars",
+						"15",
+						"12s, expoOut"
+					],
+					[
+						"Set Property",
+						"camZoomingDecay",
+						"0.75"
+					],
+					[
+						"TextStuff",
+						"Aishite,",
+						""
+					]
+				]
+			],
+			[
+				145214.285714286,
+				[
+					[
+						"Cam Boom Speed",
+						"1.5, 326",
+						"0.5"
+					]
+				]
+			],
+			[
+				146357.142857143,
+				[
+					[
+						"TextStuff",
+						"Aishite, aishite,",
+						",,false"
+					]
+				]
+			],
+			[
+				148071.428571429,
+				[
+					[
+						"TextStuff",
+						"Aishite, aishite, aishite",
+						",,false"
+					]
+				]
+			],
+			[
+				149785.714285714,
+				[
+					[
+						"TextStuff",
+						"motto motto",
+						""
+					]
+				]
+			],
+			[
+				151500,
+				[
+					[
+						"TextStuff",
+						"Aishite,",
+						""
+					]
+				]
+			],
+			[
+				153214.285714286,
+				[
+					[
+						"TextStuff",
+						"Aishite, aishite-",
+						",,false"
+					]
+				]
+			],
+			[
+				154928.571428571,
+				[
+					[
+						"TextStuff",
+						"kuruoshii hodo ni",
+						""
+					]
+				]
+			],
+			[
+				158357.142857143,
+				[
+					[
+						"TextStuff",
+						"Kurushii",
+						""
+					]
+				]
+			],
+			[
+				160071.428571428,
+				[
+					[
+						"TextStuff",
+						"Kurushii, kurushii",
+						",,false"
+					]
+				]
+			],
+			[
+				161785.714285714,
+				[
+					[
+						"TextStuff",
+						"Jubaku o",
+						""
+					]
+				]
+			],
+			[
+				163500,
+				[
+					[
+						"Camera Bars",
+						"45",
+						"24s, expoInOut"
+					],
+					[
+						"Camera Movement",
+						"640, 230",
+						"24s, expoInOut"
+					],
+					[
+						"Set Cam Zoom",
+						"1.05x",
+						"24s, expoInOut"
+					],
+					[
+						"TextStuff",
+						"Jubaku o toite",
+						",,false"
+					]
+				]
+			],
+			[
+				164357.142857143,
+				[
+					[
+						"TextStuff",
+						"Jubaku o toite, toite",
+						",,false"
+					]
+				]
+			],
+			[
+				165214.285714286,
+				[
+					[
+						"TextStuff",
+						"Jubaku o toite, toite ne-",
+						",,false"
+					]
+				]
+			],
+			[
+				165500,
+				[
+					[
+						"Cam Boom Speed",
+						"5",
+						"0"
+					]
+				]
+			],
+			[
+				166500,
+				[
+					[
+						"TextStuff",
+						"Jubaku o toite, toite nee",
+						",,false"
+					]
+				]
+			],
+			[
+				166928.571428571,
+				[
+					[
+						"Camera Movement",
+						"640, 350",
+						"16s, cubeInOut"
+					],
+					[
+						"Camera Bars",
+						"0",
+						"16s, cubeInOut"
+					],
+					[
+						"Set Cam Zoom",
+						"0.95x",
+						"16s, cubeInOut"
+					]
+				]
+			],
+			[
+				167785.714285714,
+				[
+					[
+						"Cam Boom Speed",
+						"1",
+						"0.5"
+					]
+				]
+			],
+			[
+				168071.428571428,
+				[
+					[
+						"Set Cam Zoom",
+						"1x",
+						"4s, expoOut"
+					],
+					[
+						"TextStuff",
+						"To-",
+						""
+					]
+				]
+			],
+			[
+				168642.857142857,
+				[
+					[
+						"Set Cam Zoom",
+						"1.05x",
+						"4s, expoOut"
+					],
+					[
+						"TextStuff",
+						"Tome-",
+						",,false"
+					]
+				]
+			],
+			[
+				169214.285714286,
+				[
+					[
+						"Set Cam Zoom",
+						"1.1x",
+						"4s, expoOut"
+					],
+					[
+						"TextStuff",
+						"Tomera-",
+						",,false"
+					]
+				]
+			],
+			[
+				169785.714285714,
+				[
+					[
+						"Set Cam Zoom",
+						"1.15x",
+						"4s, expoOut"
+					],
+					[
+						"TextStuff",
+						"Tomerare-",
+						",,false"
+					]
+				]
+			],
+			[
+				170357.142857143,
+				[
+					[
+						"Set Cam Zoom",
+						"1.2x",
+						"4s, expoOut"
+					],
+					[
+						"TextStuff",
+						"Tomerarena-",
+						",,false"
+					]
+				]
+			],
+			[
+				170928.571428571,
+				[
+					[
+						"Set Cam Zoom",
+						"1.25x",
+						"4s, expoOut"
+					],
+					[
+						"TextStuff",
+						"Tomerarenai",
+						",,false"
+					]
+				]
+			],
+			[
+				171500,
+				[
+					[
+						"Camera Bars",
+						"100",
+						"24s, expoIn "
+					],
+					[
+						"Set Cam Zoom",
+						"1x",
+						"12s, expoOut"
+					],
+					[
+						"Set Property",
+						"camZoomingDecay",
+						"0.5"
+					],
+					[
+						"Camera Movement",
+						"640, 380",
+						"12s, expoOut"
+					],
+					[
+						"TextStuff",
+						"Tomerarenai aa-",
+						",,false"
+					]
+				]
+			],
+			[
+				172071.428571428,
+				[
+					[
+						"Cam Boom Speed",
+						"4",
+						"0.5"
+					]
+				]
+			],
+			[
+				174071.428571428,
+				[
+					[
+						"TextStuff",
+						"",
+						""
+					]
+				]
+			],
+			[
+				175500,
+				[
+					[
+						"Camera Bars",
+						"0",
+						"8s, expoOut"
+					]
+				]
+			],
+			[
+				176642.857142857,
+				[
+					[
+						"Text Settings",
+						"text1size",
+						"60"
+					],
+					[
+						"Text Settings",
+						"borderwidth1",
+						"6"
+					],
+					[
+						"Text Settings",
+						"text2color",
+						"0x80ffcf53"
+					],
+					[
+						"Text Settings",
+						"bordercolor2",
+						"0x80850303"
+					]
+				]
+			],
+			[
+				177097.402597402,
+				[
+					[
+						"Cam Boom Speed",
+						"4",
+						"0.75"
+					]
+				]
+			],
+			[
+				177248.917748918,
+				[
+					[
+						"TextStuff",
+						"M",
+						",,false"
+					]
+				]
+			],
+			[
+				177324.675324675,
+				[
+					[
+						"TextStuff",
+						"MW",
+						",,false"
+					]
+				]
+			],
+			[
+				177400.432900433,
+				[
+					[
+						"TextStuff",
+						"MWA",
+						",,false"
+					]
+				]
+			],
+			[
+				177476.19047619,
+				[
+					[
+						"TextStuff",
+						"MWAH",
+						",,false"
+					]
+				]
+			],
+			[
+				177551.948051948,
+				[
+					[
+						"TextStuff",
+						"MWAH!",
+						",,false"
+					]
+				]
+			],
+			[
+				177779.220779221,
+				[
+					[
+						"TextStuff",
+						"Onegai kimi ga hoshiino",
+						""
+					],
+					[
+						"Text Settings",
+						"textsize",
+						"30"
+					],
+					[
+						"Text Settings",
+						"borderwidth",
+						"3"
+					]
+				]
+			],
+			[
+				180051.948051948,
+				[
+					[
+						"TextStuff",
+						"Nagusamesasete",
+						""
+					]
+				]
+			],
+			[
+				181188.311688312,
+				[
+					[
+						"TextStuff",
+						"Best",
+						""
+					]
+				]
+			],
+			[
+				181642.857142857,
+				[
+					[
+						"TextStuff",
+						"Best friend",
+						",,false"
+					]
+				]
+			],
+			[
+				182097.402597403,
+				[
+					[
+						"TextStuff",
+						"ai no sainou de",
+						""
+					]
+				]
+			],
+			[
+				183688.311688312,
+				[
+					[
+						"TextStuff",
+						"Naitekurerukai",
+						""
+					]
+				]
+			],
+			[
+				184597.402597403,
+				[
+					[
+						"Cam Boom Speed",
+						"1",
+						"0.5"
+					]
+				]
+			],
+			[
+				184824.675324675,
+				[
+					[
+						"Set Property",
+						"camZoomingDecay",
+						"1"
+					]
+				]
+			],
+			[
+				185165.584415584,
+				[
+					[
+						"TextStuff",
+						"Kimi no tsurai",
+						""
+					]
+				]
+			],
+			[
+				186074.675324675,
+				[
+					[
+						"TextStuff",
+						"Dakishimetai",
+						""
+					]
+				]
+			],
+			[
+				186870.12987013,
+				[
+					[
+						"TextStuff",
+						"Dakishimetai nee iideshou?",
+						",,false"
+					]
+				]
+			],
+			[
+				188006.493506493,
+				[
+					[
+						"TextStuff",
+						"Wakeatte norikoetai n",
+						""
+					]
+				]
+			],
+			[
+				190165.584415584,
+				[
+					[
+						"Cam Boom Speed",
+						"0.5",
+						"0.75"
+					]
+				]
+			],
+			[
+				190279.220779221,
+				[
+					[
+						"TextStuff",
+						"da-",
+						""
+					]
+				]
+			],
+			[
+				190506.493506493,
+				[
+					[
+						"TextStuff",
+						"da- da-",
+						",,false"
+					]
+				]
+			],
+			[
+				190733.766233766,
+				[
+					[
+						"TextStuff",
+						"da- da- da-",
+						",,false"
+					]
+				]
+			],
+			[
+				190961.038961039,
+				[
+					[
+						"TextStuff",
+						"da- da- datte-",
+						",,false"
+					]
+				]
+			],
+			[
+				191074.675324675,
+				[
+					[
+						"Cam Boom Speed",
+						"4",
+						"0.5"
+					],
+					[
+						"Add Camera Zoom",
+						"0.01125",
+						"0.0225"
+					],
+					[
+						"TextStuff",
+						"da- da- datteba",
+						",,false"
+					]
+				]
+			],
+			[
+				191794.372294372,
+				[
+					[
+						"TextStuff",
+						"M",
+						",,false"
+					],
+					[
+						"Text Settings",
+						"text1size",
+						"60"
+					],
+					[
+						"Text Settings",
+						"borderwidth1",
+						"6"
+					]
+				]
+			],
+			[
+				191870.12987013,
+				[
+					[
+						"Cam Boom Speed",
+						"1",
+						"0.75"
+					],
+					[
+						"TextStuff",
+						"MW",
+						",,false"
+					]
+				]
+			],
+			[
+				191945.887445887,
+				[
+					[
+						"TextStuff",
+						"MWA",
+						",,false"
+					]
+				]
+			],
+			[
+				192021.645021645,
+				[
+					[
+						"TextStuff",
+						"MWAH",
+						",,false"
+					]
+				]
+			],
+			[
+				192097.402597403,
+				[
+					[
+						"TextStuff",
+						"MWAH!",
+						",,false"
+					]
+				]
+			],
+			[
+				192324.675324675,
+				[
+					[
+						"TextStuff",
+						"Onegai kimi ga hoshiino",
+						""
+					],
+					[
+						"Text Settings",
+						"text1size",
+						"30"
+					],
+					[
+						"Text Settings",
+						"borderwidth1",
+						"3"
+					]
+				]
+			],
+			[
+				194597.402597403,
+				[
+					[
+						"TextStuff",
+						"Waraitobashite",
+						""
+					]
+				]
+			],
+			[
+				195620.12987013,
+				[
+					[
+						"Cam Boom Speed",
+						"1",
+						"1"
+					]
+				]
+			],
+			[
+				195733.766233766,
+				[
+					[
+						"Camera Bars",
+						"25",
+						"16s, expoOut"
+					],
+					[
+						"TextStuff",
+						"Hop!",
+						""
+					]
+				]
+			],
+			[
+				196188.311688312,
+				[
+					[
+						"TextStuff",
+						"Hop! Step!",
+						",,false"
+					]
+				]
+			],
+			[
+				196642.857142857,
+				[
+					[
+						"TextStuff",
+						"Hop! Step! Jump!",
+						",,false"
+					]
+				]
+			],
+			[
+				196756.493506493,
+				[
+					[
+						"Cam Boom Speed",
+						"1",
+						"0"
+					]
+				]
+			],
+			[
+				196983.766233766,
+				[
+					[
+						"Add Camera Zoom",
+						"",
+						""
+					],
+					[
+						"TextStuff",
+						"saa ikouze",
+						""
+					]
+				]
+			],
+			[
+				197324.675324675,
+				[
+					[
+						"Add Camera Zoom",
+						"",
+						""
+					]
+				]
+			],
+			[
+				198233.766233766,
+				[
+					[
+						"TextStuff",
+						"Waketekurerukai",
+						""
+					]
+				]
+			],
+			[
+				198461.038961039,
+				[
+					[
+						"Add Camera Zoom",
+						"",
+						""
+					]
+				]
+			],
+			[
+				199142.857142857,
+				[
+					[
+						"Cam Boom Speed",
+						"1",
+						"0.75"
+					]
+				]
+			],
+			[
+				199370.12987013,
+				[
+					[
+						"Camera Bars",
+						"0",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				199711.038961039,
+				[
+					[
+						"TextStuff",
+						"Kimi ni omoi",
+						""
+					]
+				]
+			],
+			[
+				200620.12987013,
+				[
+					[
+						"TextStuff",
+						"Kurai omoi",
+						""
+					]
+				]
+			],
+			[
+				201415.584415584,
+				[
+					[
+						"TextStuff",
+						"Nozokitai",
+						""
+					]
+				]
+			],
+			[
+				202324.675324675,
+				[
+					[
+						"Cam Boom Speed",
+						"1",
+						"0"
+					],
+					[
+						"Camera Bars",
+						"45",
+						"12s, expoInOut"
+					]
+				]
+			],
+			[
+				202551.948051948,
+				[
+					[
+						"TextStuff",
+						"Suitotte sukuitai n",
+						""
+					]
+				]
+			],
+			[
+				203006.493506493,
+				[
+					[
+						"Add Camera Zoom",
+						"",
+						""
+					]
+				]
+			],
+			[
+				203347.402597403,
+				[
+					[
+						"Add Camera Zoom",
+						"",
+						""
+					]
+				]
+			],
+			[
+				203915.584415584,
+				[
+					[
+						"Add Camera Zoom",
+						"",
+						""
+					]
+				]
+			],
+			[
+				204256.493506493,
+				[
+					[
+						"Add Camera Zoom",
+						"",
+						""
+					],
+					[
+						"Camera Bars",
+						"0",
+						"12s, expoInOut"
+					]
+				]
+			],
+			[
+				204824.675324675,
+				[
+					[
+						"Add Camera Zoom",
+						"0.01125",
+						"0.0225"
+					],
+					[
+						"TextStuff",
+						"da-",
+						""
+					]
+				]
+			],
+			[
+				205051.948051948,
+				[
+					[
+						"Add Camera Zoom",
+						"0.01125",
+						"0.0225"
+					],
+					[
+						"TextStuff",
+						"da- da-",
+						",,false"
+					]
+				]
+			],
+			[
+				205279.220779221,
+				[
+					[
+						"Add Camera Zoom",
+						"0.01125",
+						"0.0225"
+					],
+					[
+						"TextStuff",
+						"da- da- da-",
+						",,false"
+					]
+				]
+			],
+			[
+				205506.493506493,
+				[
+					[
+						"Add Camera Zoom",
+						"0.01125",
+						"0.0225"
+					],
+					[
+						"TextStuff",
+						"da- da- datte-",
+						",,false"
+					]
+				]
+			],
+			[
+				205620.12987013,
+				[
+					[
+						"Add Camera Zoom",
+						"0.01125",
+						"0.0225"
+					],
+					[
+						"TextStuff",
+						"da- da- datteba",
+						",,false"
+					]
+				]
+			],
+			[
+				205733.766233766,
+				[
+					[
+						"Set HUD Zoom",
+						"1.15",
+						"8s, expoIn"
+					],
+					[
+						"Set Cam Zoom",
+						"1.15x",
+						"8s, expoIn"
+					]
+				]
+			],
+			[
+				205961.038961039,
+				[
+					[
+						"TextStuff",
+						"Nee atashi shitteruyo",
+						""
+					],
+					[
+						"Text Settings",
+						"textsize",
+						"35"
+					],
+					[
+						"Text Settings",
+						"borderwidth",
+						"3.5"
+					]
+				]
+			],
+			[
+				206415.584415584,
+				[
+					[
+						"Cam Boom Speed",
+						"1",
+						"0.75"
+					]
+				]
+			],
+			[
+				206642.857142857,
+				[
+					[
+						"Set HUD Zoom",
+						"0.95",
+						"16s, expoOut"
+					],
+					[
+						"Set Cam Zoom",
+						"1x",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				207665.584415584,
+				[
+					[
+						"TextStuff",
+						"kimi ga hitori kuyashigatte n no,",
+						""
+					]
+				]
+			],
+			[
+				209597.402597403,
+				[
+					[
+						"TextStuff",
+						"shitteruyo",
+						""
+					]
+				]
+			],
+			[
+				210392.857142857,
+				[
+					[
+						"TextStuff",
+						"Gusungusun owaru made kimi o",
+						""
+					]
+				]
+			],
+			[
+				212097.402597403,
+				[
+					[
+						"TextStuff",
+						"kesshite akiramenai",
+						""
+					]
+				]
+			],
+			[
+				213233.766233766,
+				[
+					[
+						"TextStuff",
+						"-sa ga kuru made",
+						""
+					]
+				]
+			],
+			[
+				213915.584415584,
+				[
+					[
+						"TextStuff",
+						"issho touku motto naita tte",
+						""
+					]
+				]
+			],
+			[
+				215733.766233766,
+				[
+					[
+						"TextStuff",
+						"Nan do datte uketometeageru",
+						""
+					]
+				]
+			],
+			[
+				217551.948051948,
+				[
+					[
+						"Set HUD Zoom",
+						"1",
+						"16s, expoIn"
+					]
+				]
+			],
+			[
+				218006.493506494,
+				[
+					[
+						"TextStuff",
+						"Mou gaman shinaide",
+						""
+					],
+					[
+						"Text Settings",
+						"textsize",
+						"30"
+					],
+					[
+						"Text Settings",
+						"borderwidth",
+						"3"
+					]
+				]
+			],
+			[
+				219142.857142857,
+				[
+					[
+						"Cam Boom Speed",
+						"8",
+						"1"
+					]
+				]
+			],
+			[
+				219370.12987013,
+				[
+					[
+						"Add Camera Zoom",
+						"0.01125",
+						"0.0225"
+					],
+					[
+						"TextStuff",
+						"-te-",
+						""
+					]
+				]
+			],
+			[
+				219597.402597403,
+				[
+					[
+						"Add Camera Zoom",
+						"0.01125",
+						"0.0225"
+					],
+					[
+						"TextStuff",
+						"-te- te-",
+						",,false"
+					]
+				]
+			],
+			[
+				219824.675324675,
+				[
+					[
+						"Add Camera Zoom",
+						"0.01125",
+						"0.0225"
+					],
+					[
+						"TextStuff",
+						"-te- te- te-",
+						",,false"
+					]
+				]
+			],
+			[
+				220051.948051948,
+				[
+					[
+						"TextStuff",
+						"-te- te- tette-",
+						",,false"
+					]
+				]
+			],
+			[
+				220165.584415584,
+				[
+					[
+						"Add Camera Zoom",
+						"",
+						""
+					],
+					[
+						"Camera Bars",
+						"100",
+						"5s, expoIn"
+					],
+					[
+						"Set Cam Zoom",
+						"1.7x",
+						"5s, expoIn"
+					],
+					[
+						"TextStuff",
+						"-te- te- tetteba!",
+						",,false"
+					]
+				]
+			],
+			[
+				220733.766233766,
+				[
+					[
+						"TextStuff",
+						"",
+						""
 					]
 				]
 			],
@@ -173,6 +2758,166 @@
 						"Change Character",
 						"dad",
 						"mainMiku"
+					],
+					[
+						"Camera Bars",
+						"25",
+						"16s, expoOut"
+					],
+					[
+						"Camera Movement",
+						"660, 480",
+						"0"
+					],
+					[
+						"Set Cam Zoom",
+						"1x",
+						"0"
+					]
+				]
+			],
+			[
+				221415.584415584,
+				[
+					[
+						"Cam Boom Speed",
+						"1",
+						"0.66"
+					]
+				]
+			],
+			[
+				227779.220779221,
+				[
+					[
+						"Cam Boom Speed",
+						"1",
+						"0"
+					]
+				]
+			],
+			[
+				228233.766233766,
+				[
+					[
+						"Cam Boom Speed",
+						"1",
+						"0.66"
+					]
+				]
+			],
+			[
+				233688.311688312,
+				[
+					[
+						"Cam Boom Speed",
+						"4",
+						"0"
+					]
+				]
+			],
+			[
+				233915.584415584,
+				[
+					[
+						"Add Camera Zoom",
+						"",
+						""
+					],
+					[
+						"Camera Bars",
+						"35",
+						"6s, expoOut"
+					]
+				]
+			],
+			[
+				234597.402597403,
+				[
+					[
+						"Add Camera Zoom",
+						"",
+						""
+					],
+					[
+						"Camera Bars",
+						"45",
+						"6s, expoOut"
+					]
+				]
+			],
+			[
+				235279.220779221,
+				[
+					[
+						"Add Camera Zoom",
+						"",
+						""
+					],
+					[
+						"Camera Bars",
+						"55",
+						"6s, expoOut"
+					]
+				]
+			],
+			[
+				235506.493506494,
+				[
+					[
+						"Cam Boom Speed",
+						"default",
+						"0.5"
+					]
+				]
+			],
+			[
+				235733.766233766,
+				[
+					[
+						"Set Property",
+						"camZoomingDecay",
+						"0.5"
+					],
+					[
+						"Camera Bars",
+						"35",
+						"16s, expoOut"
+					],
+					[
+						"Set Cam Zoom",
+						"1.1x",
+						"16s, expoOut"
+					],
+					[
+						"Camera Movement",
+						"560, 520",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				242296.266233766,
+				[
+					[
+						"Camera Movement",
+						"760, 520",
+						"16s, expoInOut"
+					]
+				]
+			],
+			[
+				250265.016233766,
+				[
+					[
+						"Camera Bars",
+						"100",
+						"8s, expoInOut"
+					],
+					[
+						"FlashingStuff",
+						"FFFFFF, 1, mix",
+						"8s, 8s, 8s"
 					]
 				]
 			]
