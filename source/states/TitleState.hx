@@ -14,7 +14,6 @@ import haxe.Json;
 import openfl.Assets;
 import openfl.display.Bitmap;
 import openfl.display.BitmapData;
-import states.OutdatedState;
 import states.MainMenuState;
 import openfl.filters.BitmapFilter;
 import utils.TransNdll;
