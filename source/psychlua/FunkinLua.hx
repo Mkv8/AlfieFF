@@ -348,20 +348,25 @@ class FunkinLua {
 		});
 
 		Lua_helper.add_callback(lua, "addLuaScript", function(luaFile:String, ?ignoreAlreadyRunning:Bool = false) { // would be dope asf.
-			var foundScript:String = findScript(luaFile);
+			var foundScript: String = this.findScript(luaFile);
+
 			if (foundScript != null) {
-				if (!ignoreAlreadyRunning)
-					for (luaInstance in game.luaArray)
+				if (!ignoreAlreadyRunning) {
+					for (luaInstance in game.luaArray) {
 						if (luaInstance.scriptName == foundScript) {
 							luaTrace('addLuaScript: The script "' + foundScript + '" is already running!');
 							return;
 						}
+					}
+				}
 
 				new FunkinLua(foundScript);
 				return;
 			}
+
 			luaTrace("addLuaScript: Script doesn't exist!", false, false, FlxColor.RED);
 		});
+
 		Lua_helper.add_callback(lua, "removeLuaScript", function(luaFile:String, ?ignoreAlreadyRunning:Bool = false) {
 			var foundScript:String = findScript(luaFile);
 			if (foundScript != null) {
@@ -1628,24 +1633,18 @@ class FunkinLua {
 		return (result == 'true');
 	}
 
-	function findScript(scriptFile:String, ext:String = '.lua') {
-		if (!scriptFile.endsWith(ext))
+	function findScript(scriptFile: String, ext: String = ".lua") {
+		if (!scriptFile.endsWith(ext)) {
 			scriptFile += ext;
-		var preloadPath:String = Paths.getSharedPath(scriptFile);
-		#if MODS_ALLOWED
-		var path:String = Paths.modFolders(scriptFile);
-		if (FileSystem.exists(scriptFile))
-			return scriptFile;
-		else if (FileSystem.exists(path))
-			return path;
+		}
+
+		var preloadPath: String = Paths.getSharedPath(scriptFile);
 
 		if (FileSystem.exists(preloadPath))
-		#else
-		if (Assets.exists(preloadPath))
-		#end
 		{
 			return preloadPath;
 		}
+
 		return null;
 	}
 

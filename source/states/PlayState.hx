@@ -400,7 +400,7 @@ class PlayState extends MusicBeatState {
 			case 'filipGarage':
 				new states.stages.FilipGarage(); // PUNCH BUGGY!!!
 			case 'aiStage':
-				new states.stages.AiStage(); // Ai song					
+				new states.stages.AiStage(); // Ai song
 			case 'desktop':
 				new states.stages.Desktop(); // Eye of the Beholder
 			case 'mansiontop':
@@ -437,9 +437,7 @@ class PlayState extends MusicBeatState {
 		#end
 
 		// STAGE SCRIPTS
-		#if LUA_ALLOWED
-		startLuasNamed('stages/' + curStage + '.lua');
-		#end
+		startLuasNamed('stages/${curStage}.lua');
 
 		if (!stageData.hide_girlfriend) {
 			if (SONG.gfVersion == null || SONG.gfVersion.length < 1)
@@ -604,12 +602,13 @@ class PlayState extends MusicBeatState {
 
 		startingSong = true;
 
-		#if LUA_ALLOWED
-		for (notetype in noteTypes)
-			startLuasNamed('custom_notetypes/' + notetype + '.lua');
-		for (event in eventsPushed)
-			startLuasNamed('custom_events/' + event + '.lua');
-		#end
+		for (noteType in this.noteTypes) {
+			this.startLuasNamed('notetypes/${noteType}.lua');
+		}
+
+		for (event in this.eventsPushed) {
+			this.startLuasNamed('events/${event}.lua');
+		}
 
 		noteTypes = null;
 		eventsPushed = null;
@@ -680,8 +679,8 @@ class PlayState extends MusicBeatState {
 
 		if (eventNotes.length < 1)
 			checkEventNote();
-		
-		if (Paths.formatToSongPath(SONG.song) == "eye-of-the-beholder") 
+
+		if (Paths.formatToSongPath(SONG.song) == "eye-of-the-beholder")
 			{
 				for(strum in opponentStrums.members) strum.visible = false;
 
@@ -693,20 +692,20 @@ class PlayState extends MusicBeatState {
 				healthBar.visible = false;
 				timeTxt.visible = false;
 				//opponentStrums.members[i].visible = false;
-				
-			}		
 
-		if (Paths.formatToSongPath(SONG.song) == "freaky-4eva") 
+			}
+
+		if (Paths.formatToSongPath(SONG.song) == "freaky-4eva")
 			{
 				for(strum in opponentStrums.members) strum.visible = false;
 				for(i in 0...opponentStrums.members.length) opponentStrums.members[i].x = -1000;
 				iconP1.visible = false;
 				iconP2.visible = false;
 				healthBar.visible = false;
-				
-			}	
 
-		if (Paths.formatToSongPath(SONG.song) == "channel-surfers") 
+			}
+
+		if (Paths.formatToSongPath(SONG.song) == "channel-surfers")
 			{
 				for (i in 0...4)
 				{
@@ -715,11 +714,11 @@ class PlayState extends MusicBeatState {
 					for (i in 0...4)
 				{
             	opponentStrums.members[i].x -= 2000;
-				}			
+				}
 				iconP1.visible = false;
 				iconP2.visible = false;
-				healthBar.visible = false;				
-			}		
+				healthBar.visible = false;
+			}
 	}
 
 	var bfNoteSkin:String = null;
@@ -1641,17 +1640,17 @@ class PlayState extends MusicBeatState {
 		override public function onFocus():Void
 		{
 			if (health > 0 && !paused) resetRPC(Conductor.songPosition > 0.0);
-	
+
 			stagesFunc(function(stage:BaseStage) stage.onFocus());
 			super.onFocus();
 		}
-	
+
 		override public function onFocusLost():Void
 		{
 			#if DISCORD_ALLOWED
 			if (health > 0 && !paused && autoUpdateRPC) DiscordClient.changePresence(detailsPausedText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 			#end
-	
+
 			stagesFunc(function(stage:BaseStage) stage.onFocusLost());
 			super.onFocusLost();
 		}
@@ -2125,7 +2124,7 @@ class PlayState extends MusicBeatState {
 				if (flValue2 == null) {
 					defaultCamZoom = flValue1;
 				} else {
-                    if(camZoomTween != null) 
+                    if(camZoomTween != null)
                         camZoomTween.cancel();
 
 
@@ -2515,14 +2514,14 @@ class PlayState extends MusicBeatState {
 				{
 					case 'aiSong':
 					{
-						AiComic.itsgivingendcard = true;					
+						AiComic.itsgivingendcard = true;
 						MusicBeatState.switchState(new AiComic());
 					}
 					default:
 					{
 					MusicBeatState.switchState(new FreeplayState());
 					FlxG.sound.playMusic(Paths.music('freakyMenu'));
-					changedDifficulty = false;					
+					changedDifficulty = false;
 					}
 				}
 
@@ -3280,29 +3279,21 @@ class PlayState extends MusicBeatState {
 		callOnScripts('onSectionHit');
 	}
 
-	#if LUA_ALLOWED
-	public function startLuasNamed(luaFile:String) {
-		#if MODS_ALLOWED
-		var luaToLoad:String = Paths.modFolders(luaFile);
-		if (!FileSystem.exists(luaToLoad))
-			luaToLoad = Paths.getSharedPath(luaFile);
+	public function startLuasNamed(luaFile: String) {
+		var luaToLoad: String = Paths.getSharedPath(luaFile);
 
 		if (FileSystem.exists(luaToLoad))
-		#elseif sys
-		var luaToLoad:String = Paths.getSharedPath(luaFile);
-		if (OpenFlAssets.exists(luaToLoad))
-		#end
 		{
-			for (script in luaArray)
+			for (script in this.luaArray) {
 				if (script.scriptName == luaToLoad)
 					return false;
+			}
 
 			new FunkinLua(luaToLoad);
 			return true;
 		}
 		return false;
 	}
-	#end
 
 	public function callOnScripts(funcToCall:String, args:Array<Dynamic> = null, ignoreStops = false, exclusions:Array<String> = null, excludeValues:Array<Dynamic> = null):Dynamic {
 		if (args == null)

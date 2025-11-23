@@ -2,7 +2,7 @@ package states.editors;
 
 import flash.geom.Rectangle;
 import haxe.Json;
-import haxe.format.JsonParser;
+import haxe.io.Path;
 import haxe.io.Bytes;
 import flixel.FlxObject;
 import flixel.addons.display.FlxGridOverlay;
@@ -216,6 +216,20 @@ class ChartingState extends MusicBeatState {
 		}
 
 		// Paths.clearMemory();
+
+		final eventDirPath: String = "assets/shared/events/";
+
+		if (FileSystem.exists(eventDirPath) && FileSystem.isDirectory(eventDirPath)) {
+			for (file in FileSystem.readDirectory(eventDirPath)) {
+				var path: String = Path.join([eventDirPath, file]);
+
+				if (file != "readme.txt" && file.endsWith(".txt") && !FileSystem.isDirectory(path)) {
+					var eventName: String = file.substr(0, file.length - 4);
+
+					eventStuff.push([eventName, File.getContent(path)]);
+				}
+			}
+		}
 
 		#if DISCORD_ALLOWED
 		// Updating Discord Rich Presence
@@ -944,36 +958,6 @@ class ChartingState extends MusicBeatState {
 	function addEventsUI():Void {
 		var tab_group_event = new FlxUI(null, UI_box);
 		tab_group_event.name = 'Events';
-
-		#if LUA_ALLOWED
-		var eventPushedMap:Map<String, Bool> = new Map<String, Bool>();
-		var directories:Array<String> = [];
-
-		#if MODS_ALLOWED
-		directories.push(Paths.mods('custom_events/'));
-		directories.push(Paths.mods(Mods.currentModDirectory + '/custom_events/'));
-		for (mod in Mods.getGlobalMods())
-			directories.push(Paths.mods(mod + '/custom_events/'));
-		#end
-
-		for (i in 0...directories.length) {
-			var directory:String = directories[i];
-			if (FileSystem.exists(directory)) {
-				for (file in FileSystem.readDirectory(directory)) {
-					var path = haxe.io.Path.join([directory, file]);
-					if (!FileSystem.isDirectory(path) && file != 'readme.txt' && file.endsWith('.txt')) {
-						var fileToCheck:String = file.substr(0, file.length - 4);
-						if (!eventPushedMap.exists(fileToCheck)) {
-							eventPushedMap.set(fileToCheck, true);
-							eventStuff.push([fileToCheck, File.getContent(path)]);
-						}
-					}
-				}
-			}
-		}
-		eventPushedMap.clear();
-		eventPushedMap = null;
-		#end
 
 		descText = new FlxText(20, 200, 0, eventStuff[0][0]);
 
