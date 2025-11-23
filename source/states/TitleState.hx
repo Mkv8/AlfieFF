@@ -72,9 +72,6 @@ class TitleState extends MusicBeatState {
 	override public function create():Void {
 		Paths.clearStoredMemory();
 
-		#if LUA_ALLOWED
-		Mods.pushGlobalMods();
-		#end
 		Mods.loadTopMod();
 
 		FlxG.fixedTimestep = false;
@@ -266,12 +263,9 @@ class TitleState extends MusicBeatState {
 	}
 
 	function getIntroTextShit():Array<Array<String>> {
-		#if MODS_ALLOWED
-		var firstArray:Array<String> = Mods.mergeAllTextsNamed('data/introText.txt', Paths.getSharedPath());
-		#else
 		var fullText:String = Assets.getText(Paths.txt('introText'));
 		var firstArray:Array<String> = fullText.split('\n');
-		#end
+
 		var swagGoodArray:Array<Array<String>> = [];
 
 		for (i in firstArray) {

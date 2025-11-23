@@ -35,7 +35,6 @@ class MusicBeatState extends FlxUIState {
 
 	override function create() {
 		var skip:Bool = FlxTransitionableState.skipNextTransOut;
-		#if MODS_ALLOWED Mods.updatedOnState = false; #end
 
 		if (!_psychCameraInitialized)
 			initPsychCamera();
@@ -234,7 +233,7 @@ class MusicBeatState extends FlxUIState {
 	}
 }
 
-  
+
 class EventStep
 {
 	  public var passed = false;

@@ -63,28 +63,28 @@ class CreditsState extends MusicBeatState {
 		leftSparkles.animation.play('sparkles', true, false);
 		leftSparkles.flipX = true;
 		leftSparkles.antialiasing = ClientPrefs.data.antialiasing;
-		add(leftSparkles);	
+		add(leftSparkles);
 
 		rightSparkles = new BGSprite('menuassets/creditssparkles', FlxG.width * 0.72, 30, 0, 0, ['sparkles'], true);
 		rightSparkles.updateHitbox();
 		rightSparkles.alpha = 1;
 		rightSparkles.scale.set(0.8,0.8);
 		rightSparkles.antialiasing = ClientPrefs.data.antialiasing;
-		add(rightSparkles);	
+		add(rightSparkles);
 
 		moon = new BGSprite('menuassets/creditsmoon', 35, 25, 0, 0);
 		moon.updateHitbox();
 		moon.alpha = 1;
 		moon.scale.set(0.8,0.8);
 		moon.antialiasing = ClientPrefs.data.antialiasing;
-		add(moon);		
+		add(moon);
 
 		leftArrow = new BGSprite('menuassets/creditsarrow', FlxG.width / 2 - 200, 50, 0, 0); //Reposition these arrows better later
 		leftArrow.updateHitbox();
 		leftArrow.alpha = 1;
 		leftArrow.scale.set(0.8,0.8);
 		leftArrow.antialiasing = ClientPrefs.data.antialiasing;
-		add(leftArrow);		
+		add(leftArrow);
 
 		rightArrow = new BGSprite('menuassets/creditsarrow', FlxG.width / 2 + 200, 50, 0, 0);//Reposition these arrows better later
 		rightArrow.updateHitbox();
@@ -92,16 +92,12 @@ class CreditsState extends MusicBeatState {
 		rightArrow.scale.set(0.8,0.8);
 		rightArrow.flipX = true;
 		rightArrow.antialiasing = ClientPrefs.data.antialiasing;
-		add(rightArrow);		
+		add(rightArrow);
 
 
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
 
-		#if MODS_ALLOWED
-		for (mod in Mods.parseList().enabled)
-			pushModCreditsToList(mod);
-		#end
 		//Can you remove the bg color part of this? it's not necessary as the whole menu is black and white, idk if removing it from the arrawy without doin other stuff would break
 
 		var defaultList:Array<Array<String>> = [
@@ -151,8 +147,8 @@ class CreditsState extends MusicBeatState {
 				'https://twitter.com/Mkv8Art', //put your link here tanta
 				'A66B89'
 			],
-			[''],			
-			['Musicians'],	//this section is always huge lmao	
+			[''],
+			['Musicians'],	//this section is always huge lmao
 			[
 				'Aidan.XD', //main theme
 				'aidanIcon',
@@ -180,49 +176,49 @@ class CreditsState extends MusicBeatState {
 				'"uhm, add that" yes        literally that',
 				'https://x.com/MerothIsHere',
 				'D65C58'
-			],									
+			],
 			[
 				'PixelatedEngie', //Jammed Cartridge
 				'engieIcon',
 				'mmm.. burger..',
 				'https://x.com/PixelatedEngie',
 				'D65C58'
-			],	
+			],
 			[
 				'Stardust Tunes', //Anemoia
 				'stardustTunesIcon',
 				'Ad Astra',
 				'https://x.com/StardustTunes',
 				'D65C58'
-			],	
+			],
 			[
 				'Kamex', //PUNCH BUGGY!!!
 				'kamexIcon',
 				'I will never beat the chill music allegations...',
 				'https://x.com/KamexVGM',
 				'D65C58'
-			],	
+			],
 			[
 				'Gracio', //RooftopTalkshop
 				'gracioIcon',
 				'Bort Simpson is coming Bort Simpson is coming Bort Simpson is coming Bort Simpson is coming Bort Simpson is coming',
 				'https://x.com/Gracio978',
 				'D65C58'
-			],	
+			],
 			[
 				'Zeroh', //Helped Eye of the Beholder, and (Troubleshootin song here)
 				'zerohIcon',
 				'has anyone seen my zeroh mulch? i still havent found it',
 				'https://x.com/catsmirkk',
 				'D65C58'
-			],	
+			],
 			[
 				'Jospi', //as the clock strikes midnight (Credits theme)
 				'jospiIcon',
 				'sry   i ated all the music',
 				'https://x.com/jospi_music',
 				'D65C58'
-			],			
+			],
 			[
 				'Haspecto', //Channel Surfers
 				'haspectoIcon',
@@ -230,8 +226,8 @@ class CreditsState extends MusicBeatState {
 				'https://x.com/SorrowGuy1',
 				'D65C58'
 			],
-			[''],						
-			['Charters'],						
+			[''],
+			['Charters'],
 			[
 				'ChubbyGamer',
 				'chubbyIcon',
@@ -252,7 +248,7 @@ class CreditsState extends MusicBeatState {
 				'This is my super cool template credits message!',
 				'https://x.com/sirekirb',
 				'BAE2FF'
-			],			
+			],
 			[''],
 			['Extra Help'], //Misc dont get the same icons, theyll get simpler ones methinks, but it can work the same, Special thanks are just names
 			[
@@ -275,21 +271,21 @@ class CreditsState extends MusicBeatState {
 				'Helped conceptualize/make a rough concept for one of the EOTB animations',
 				'https://x.com/desikobutreal',
 				'BAE2FF'
-			],	
+			],
 			[
 				'Daybreak',
 				'daybreakIcon',
 				'Voiced Minus Alfie',
 				'https://x.com/DaybreakBun',
 				'BAE2FF'
-			],					
+			],
 			[
 				'Ferzy',
 				'ferzyIcon',
 				'Made the combo/UI script, helped optimize assets and helped with coding the menus',
 				'https://x.com/_Ferzy?s=09', //idk his link
 				'BAE2FF'
-			],		
+			],
 			[''],
 			['Special Thanks'],		 // ON THIS ONE THERES NO ICON
 			[
@@ -298,14 +294,14 @@ class CreditsState extends MusicBeatState {
 				' ',
 				'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
 				'BAE2FF'
-			],	
+			],
 			[
 				'GigaB00ts',
 				'blank',
 				'Creator of Kisston!',
 				'https://bsky.app/profile/gigab00ts.bsky.social',
 				'BAE2FF'
-			],			
+			],
 			[
 				'Josszzol',
 				'blank',
@@ -333,70 +329,70 @@ class CreditsState extends MusicBeatState {
 				'Created Hatsune Miku!',
 				'https://www.youtube.com/watch?v=Osuhh-TsM7c',
 				'BAE2FF'
-			],								
+			],
 			[
 				'Neomari',
 				'blank',
 				' ',
 				'https://x.com/dilacer8/status/1983644788651126832',
 				'BAE2FF'
-			],		
+			],
 			[
 				'Pixelagoon',
 				'blank',
 				' ',
 				'https://youtu.be/KVtLZ3HumkU?si=2y4DfWboKyrb16jW&t=14',
 				'BAE2FF'
-			],	
+			],
 			[
 				'MattDoes',
 				'blank',
 				' ',
 				'null',
 				'BAE2FF'
-			],	
+			],
 			[
 				'SirSins',
 				'blank',
 				' ',
 				'https://www.youtube.com/live/vw89eMOtRb8?si=jmGGfh8lL5em7FYZ&t=505',
 				'BAE2FF'
-			],	
+			],
 			[
 				'AurumArts',
 				'blank',
 				' ',
 				'https://www.youtube.com/shorts/eS-Mt7XLYg4',
 				'BAE2FF'
-			],	
+			],
 			[
 				'Sayge',
 				'blank',
 				' ',
 				'https://www.youtube.com/watch?v=JaVNBlMGY8s',
 				'BAE2FF'
-			],	
+			],
 			[
 				'Lankaden',
 				'blank',
 				' ',
 				'https://x.com/GianMLG/status/1987654860943069195?s=20',
 				'BAE2FF'
-			],	
+			],
 			[
 				'FlarinthK_',
 				'blank',
 				' ',
 				'https://x.com/PostsOfCats/status/1992229104712659226?s=20',
 				'BAE2FF'
-			],	
+			],
 			[
 				'Hazelite',
 				'blank',
 				' ',
 				'https://www.youtube.com/watch?v=gucl6y4wli8',
 				'BAE2FF'
-			],				
+			],
 			[''],
 
 
@@ -464,7 +460,7 @@ class CreditsState extends MusicBeatState {
 		//bg.color = CoolUtil.colorFromString(creditsStuff[curSelected][4]);
 		//intendedColor = bg.color;
 		changeSelection();
-		
+
 
 		super.create();
 		FlxG.game.setFilters(shader);
@@ -595,27 +591,6 @@ class CreditsState extends MusicBeatState {
 		descBox.setGraphicSize(Std.int(descText.width + 20), Std.int(descText.height + 25));
 		descBox.updateHitbox();
 	}
-
-	#if MODS_ALLOWED
-	function pushModCreditsToList(folder:String) {
-		var creditsFile:String = null;
-		if (folder != null && folder.trim().length > 0)
-			creditsFile = Paths.mods(folder + '/data/credits.txt');
-		else
-			creditsFile = Paths.mods('data/credits.txt');
-
-		if (FileSystem.exists(creditsFile)) {
-			var firstarray:Array<String> = File.getContent(creditsFile).split('\n');
-			for (i in firstarray) {
-				var arr:Array<String> = i.replace('\\n', '\n').split("::");
-				if (arr.length >= 5)
-					arr.push(folder);
-				creditsStuff.push(arr);
-			}
-			creditsStuff.push(['']);
-		}
-	}
-	#end
 
 	private function unselectableCheck(num:Int):Bool {
 		return creditsStuff[num].length <= 1;

@@ -423,15 +423,6 @@ class FreeplayState extends MusicBeatState {
 			persistentUpdate = false;
 			var songLowercase:String = Paths.formatToSongPath(songs[curSelected].songName);
 			var poop:String = Highscore.formatSong(songLowercase, curDifficulty);
-			/*#if MODS_ALLOWED
-				if(!FileSystem.exists(Paths.modsJson(songLowercase + '/' + poop)) && !FileSystem.exists(Paths.json(songLowercase + '/' + poop))) {
-				#else
-				if(!OpenFlAssets.exists(Paths.json(songLowercase + '/' + poop))) {
-				#end
-					poop = songLowercase;
-					curDifficulty = 1;
-					trace('Couldnt find file');
-			}*/
 			trace(poop);
 
 			try {
@@ -478,9 +469,6 @@ class FreeplayState extends MusicBeatState {
 			FlxG.sound.music.volume = 0;
 
 			destroyFreeplayVocals();
-			#if (MODS_ALLOWED && DISCORD_ALLOWED)
-			DiscordClient.loadModRPC();
-			#end
 		} else if (controls.RESET && !player.playingMusic) {
 			persistentUpdate = false;
 			openSubState(new ResetScoreSubState(songs[curSelected].songName, curDifficulty, songs[curSelected].songCharacter));

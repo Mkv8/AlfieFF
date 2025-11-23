@@ -39,9 +39,6 @@ class ExtrasState extends MusicBeatState {
     }
 
     override function create() {
-        #if MODS_ALLOWED
-        Mods.pushGlobalMods();
-        #end
         Mods.loadTopMod();
 
         #if DISCORD_ALLOWED

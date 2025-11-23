@@ -95,11 +95,8 @@ class Character extends FlxSprite {
 				var characterPath:String = 'characters/$curCharacter.json';
 
 				var path:String = Paths.getPath(characterPath, TEXT, null, true);
-				#if MODS_ALLOWED
+
 				if (!FileSystem.exists(path))
-				#else
-				if (!Assets.exists(path))
-				#end
 				{
 					path = Paths.getSharedPath('characters/' + DEFAULT_CHARACTER + '.json'); // If a character couldn't be found, change him to BF just to prevent a crash
 					color = FlxColor.BLACK;
@@ -107,11 +104,7 @@ class Character extends FlxSprite {
 				}
 
 				try {
-					#if MODS_ALLOWED
 					loadCharacterFile(Json.parse(File.getContent(path)));
-					#else
-					loadCharacterFile(Json.parse(Assets.getText(path)));
-					#end
 				} catch (e:Dynamic) {
 					trace('Error loading character file of "$character": $e');
 				}
@@ -133,9 +126,9 @@ class Character extends FlxSprite {
 	public function loadCharacterFile(json:Dynamic) {
 		#if flxanimate
 		isAnimateAtlas = false;
-		
+
 		var animToFind:String = Paths.getPath('images/' + json.image + '/Animation.json', TEXT, null, true);
-		if (#if MODS_ALLOWED FileSystem.exists(animToFind) || #end Assets.exists(animToFind))
+		if (FileSystem.exists(animToFind))
 			isAnimateAtlas = true;
 		#end
 

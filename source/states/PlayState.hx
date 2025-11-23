@@ -810,25 +810,13 @@ class PlayState extends MusicBeatState {
 	}
 
 	function startCharacterScripts(name:String) {
-		// Lua
-		#if LUA_ALLOWED
 		var doPush:Bool = false;
 		var luaFile:String = 'characters/$name.lua';
-		#if MODS_ALLOWED
-		var replacePath:String = Paths.modFolders(luaFile);
-		if (FileSystem.exists(replacePath)) {
-			luaFile = replacePath;
-			doPush = true;
-		} else {
-			luaFile = Paths.getSharedPath(luaFile);
-			if (FileSystem.exists(luaFile))
-				doPush = true;
-		}
-		#else
+
 		luaFile = Paths.getSharedPath(luaFile);
-		if (Assets.exists(luaFile))
+
+		if (FileSystem.exists(luaFile))
 			doPush = true;
-		#end
 
 		if (doPush) {
 			for (script in luaArray) {
@@ -840,7 +828,6 @@ class PlayState extends MusicBeatState {
 			if (doPush)
 				new FunkinLua(luaFile);
 		}
-		#end
 	}
 
 	public function getLuaObject(tag:String, text:Bool = true):FlxSprite {
@@ -1338,11 +1325,8 @@ class PlayState extends MusicBeatState {
 		var noteData:Array<SwagSection> = SONG.notes;
 
 		var file:String = Paths.json(songName + '/events');
-		#if MODS_ALLOWED
-		if (FileSystem.exists(Paths.modsJson(songName + '/events')) || FileSystem.exists(file))
-		#else
-		if (OpenFlAssets.exists(file))
-		#end
+
+		if (FileSystem.exists(file))
 		{
 			var eventsData:Array<Dynamic> = Song.loadFromJson('events', songName).events;
 			for (event in eventsData) // Event Notes
@@ -3348,25 +3332,20 @@ class PlayState extends MusicBeatState {
 		if (!ClientPrefs.data.shaders)
 			return new FlxRuntimeShader();
 
-		#if (!flash && MODS_ALLOWED && sys)
 		if (!runtimeShaders.exists(name) && !initLuaShader(name)) {
 			FlxG.log.warn('Shader $name is missing!');
 			return new FlxRuntimeShader();
 		}
 
 		var arr:Array<String> = runtimeShaders.get(name);
+
 		return new FlxRuntimeShader(arr[0], arr[1]);
-		#else
-		FlxG.log.warn("Platform unsupported for Runtime Shaders!");
-		return null;
-		#end
 	}
 
 	public function initLuaShader(name:String, ?glslVersion:Int = 120) {
 		if (!ClientPrefs.data.shaders)
 			return false;
 
-		#if (MODS_ALLOWED && !flash && sys)
 		if (runtimeShaders.exists(name)) {
 			FlxG.log.warn('Shader $name was already initialized!');
 			return true;
@@ -3394,14 +3373,10 @@ class PlayState extends MusicBeatState {
 				return true;
 			}
 		}
-		#if (LUA_ALLOWED)
+
 		addTextToDebug('Missing shader $name .frag AND .vert files!', FlxColor.RED);
-		#else
 		FlxG.log.warn('Missing shader $name .frag AND .vert files!');
-		#end
-		#else
-		FlxG.log.warn('This platform doesn\'t support Runtime Shaders!');
-		#end
+
 		return false;
 	}
 	#end
