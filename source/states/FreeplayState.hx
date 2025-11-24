@@ -185,7 +185,7 @@ class FreeplayState extends MusicBeatState {
 			icon.visible = icon.active = false;
 			iconArray.push(icon);
 
-		trace(Highscore.getScore(songs[i].songName, 0));
+		//trace(Highscore.getScore(songs[i].songName, 0));
 		}
 
 		WeekData.setDirectoryFromWeek();

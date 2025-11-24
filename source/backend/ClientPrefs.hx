@@ -75,6 +75,19 @@ import states.TitleState;
 	public var safeFrames:Float = 10;
 	public var guitarHeroSustains:Bool = true;
 	public var discordRPC:Bool = true;
+	public var seenCredits:Bool = false;
+	public var completedSongs:Map<String,Bool> = [ //For credits -Fezry
+		'freaky-4eva' => false,
+		'forest-fire' => false,
+		'convicted-love' => false,
+		'jammed-cartridge' => false,
+		'anemoia' => false,
+		'punch-buggy!' => false,
+		'rooftop-talkshop' => false,
+		'aisong' => false,
+		'channel-surfers' => false,
+		'eye-of-the-beholder' => false
+	];
 }
 
 class ClientPrefs {

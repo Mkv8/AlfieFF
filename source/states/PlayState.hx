@@ -2425,6 +2425,31 @@ class PlayState extends MusicBeatState {
 				openChartEditor();
 				return false;
 			}
+			if (!ClientPrefs.data.seenCredits) {
+				if (ClientPrefs.data.completedSongs[songName] != null)
+				{
+					ClientPrefs.data.completedSongs[songName] = true;
+					FlxG.save.data.completedSongs = ClientPrefs.data.completedSongs;
+					FlxG.save.flush();
+				}
+
+				var completed:Int = 0;
+				var total:Int = 0;
+				for (done in ClientPrefs.data.completedSongs) {
+					total++;
+					if (done) completed++;
+				}
+				var playCredits:Bool = (completed == total);
+				trace('completed $completed/$total Songs, should play credits => ${playCredits}');
+
+				if (playCredits) {
+					//you can play credits here alfie or tanta or whatever gay person
+
+					//This will not let the cutscene be played again
+					//FlxG.save.data.seenCredits = true;
+					//FlxG.save.flush();
+				}
+			}
 
 			trace('WENT BACK TO FREEPLAY??');
 			Mods.loadTopMod();
