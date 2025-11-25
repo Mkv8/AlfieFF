@@ -1199,20 +1199,32 @@ class CharacterEditorState extends MusicBeatState {
 	var characterList:Array<String> = [];
 
 	function reloadCharacterDropDown() {
-		characterList = Mods.mergeAllTextsNamed('data/characterList.txt', Paths.getSharedPath());
-		var foldersToCheck:Array<String> = Mods.directoriesWithFile(Paths.getSharedPath(), 'characters/');
-		for (folder in foldersToCheck)
-			for (file in FileSystem.readDirectory(folder))
-				if (file.toLowerCase().endsWith('.json')) {
-					var charToCheck:String = file.substr(0, file.length - 5);
-					if (!characterList.contains(charToCheck))
-						characterList.push(charToCheck);
-				}
+		static final characterListPath:String = "assets/shared/data/characterList.txt";
 
-		if (characterList.length < 1)
-			characterList.push('');
-		charDropDown.setData(FlxUIDropDownMenu.makeStrIdLabelArray(characterList, true));
-		charDropDown.selectedLabel = _char;
+		if (FileSystem.exists(characterListPath)) {
+			this.characterList = File.getContent(characterListPath).trim().split("\n").map((line:String) -> line.trim()).filter((line:String) -> line.length > 0);
+		}
+
+		static final charactersDirPath:String = "assets/shared/characters";
+
+		if (FileSystem.exists(charactersDirPath) && FileSystem.isDirectory(charactersDirPath)) {
+			for (fileName in FileSystem.readDirectory(charactersDirPath)) {
+				if (fileName.endsWith(".json")) {
+					var characterName:String = fileName.substr(0, fileName.length - 5);
+
+					if (!this.characterList.contains(characterName)) {
+						this.characterList.push(characterName);
+					}
+				}
+			}
+		}
+
+		if (this.characterList.length < 1) {
+			this.characterList.push("");
+		}
+
+		this.charDropDown.setData(FlxUIDropDownMenu.makeStrIdLabelArray(this.characterList, true));
+		this.charDropDown.selectedLabel = this._char;
 	}
 
 	function reloadAnimationDropDown() {

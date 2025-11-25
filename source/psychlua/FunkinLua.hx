@@ -168,7 +168,6 @@ class FunkinLua {
 		set('lowQuality', ClientPrefs.data.lowQuality);
 		set('shadersEnabled', ClientPrefs.data.shaders);
 		set('scriptName', scriptName);
-		set('currentModDirectory', Mods.currentModDirectory);
 
 		// Noteskin/Splash
 		set('splashAlpha', ClientPrefs.data.splashAlpha);
@@ -796,7 +795,7 @@ class FunkinLua {
 			PlayState.chartingMode = false;
 			game.transitioning = true;
 			FlxG.camera.followLerp = 0;
-			Mods.loadTopMod();
+
 			return true;
 		});
 		Lua_helper.add_callback(lua, "getSongPosition", function() {

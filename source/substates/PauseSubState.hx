@@ -523,8 +523,6 @@ class PauseSubState extends MusicBeatSubstate {
 					PlayState.deathCounter = 0;
 					PlayState.seenCutscene = false;
 
-					Mods.loadTopMod();
-
 					MusicBeatState.switchState(new FreeplayState());
 
 					FlxG.sound.playMusic(Paths.music('freakyMenu'));

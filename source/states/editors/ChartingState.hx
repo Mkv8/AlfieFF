@@ -505,32 +505,29 @@ class ChartingState extends MusicBeatState {
 		stepperSpeed.name = 'song_speed';
 		blockPressWhileTypingOnStepper.push(stepperSpeed);
 
-		var directories:Array<String> = [Paths.getSharedPath('characters/')];
+		var characters:Array<String>;
 
-		var tempArray:Array<String> = [];
-		var characters:Array<String> = Mods.mergeAllTextsNamed('data/characterList.txt', Paths.getSharedPath());
-		for (character in characters) {
-			if (character.trim().length > 0)
-				tempArray.push(character);
+		static final characterListPath:String = "assets/shared/data/characterList.txt";
+
+		if (FileSystem.exists(characterListPath)) {
+			characters = File.getContent(characterListPath).trim().split("\n").map((line:String) -> line.trim()).filter((line:String) -> line.length > 0);
+		} else {
+			characters = [];
 		}
 
-		for (i in 0...directories.length) {
-			var directory:String = directories[i];
-			if (FileSystem.exists(directory)) {
-				for (file in FileSystem.readDirectory(directory)) {
-					var path = haxe.io.Path.join([directory, file]);
-					if (!FileSystem.isDirectory(path) && file.endsWith('.json')) {
-						var charToCheck:String = file.substr(0, file.length - 5);
-						if (charToCheck.trim().length > 0 && !charToCheck.endsWith('-dead') && !tempArray.contains(charToCheck)) {
-							tempArray.push(charToCheck);
-							characters.push(charToCheck);
-						}
+		static final charactersDirPath:String = "assets/shared/characters";
+
+		if (FileSystem.exists(charactersDirPath) && FileSystem.isDirectory(charactersDirPath)) {
+			for (file in FileSystem.readDirectory(charactersDirPath)) {
+				if (file.endsWith(".json")) {
+					var characterName:String = file.substr(0, file.length - 5).trim();
+
+					if (characterName.length > 0 && !characterName.endsWith("-dead") && !characters.contains(characterName)) {
+						characters.push(characterName);
 					}
 				}
 			}
 		}
-
-		tempArray = [];
 
 		var player1DropDown = new FlxUIDropDownMenu(10, stepperSpeed.y + 45, FlxUIDropDownMenu.makeStrIdLabelArray(characters, true), function(character:String) {
 			_song.player1 = characters[Std.parseInt(character)];
@@ -556,35 +553,33 @@ class ChartingState extends MusicBeatState {
 		player2DropDown.selectedLabel = _song.player2;
 		blockPressWhileScrolling.push(player2DropDown);
 
-		var directories:Array<String> = [Paths.getSharedPath('stages/')];
+		var stages:Array<String>;
 
-		var stageFile:Array<String> = Mods.mergeAllTextsNamed('data/stageList.txt', Paths.getSharedPath());
-		var stages:Array<String> = [];
-		for (stage in stageFile) {
-			if (stage.trim().length > 0) {
-				stages.push(stage);
-			}
-			tempArray.push(stage);
+		static final stageListPath:String = "assets/shared/data/stageList.txt";
+
+		if (FileSystem.exists(stageListPath)) {
+			stages = File.getContent(stageListPath).trim().split("\n").map((line:String) -> line.trim()).filter((line:String) -> line.length > 0);
+		} else {
+			stages = [];
 		}
 
-		for (i in 0...directories.length) {
-			var directory:String = directories[i];
-			if (FileSystem.exists(directory)) {
-				for (file in FileSystem.readDirectory(directory)) {
-					var path = haxe.io.Path.join([directory, file]);
-					if (!FileSystem.isDirectory(path) && file.endsWith('.json')) {
-						var stageToCheck:String = file.substr(0, file.length - 5);
-						if (stageToCheck.trim().length > 0 && !tempArray.contains(stageToCheck)) {
-							tempArray.push(stageToCheck);
-							stages.push(stageToCheck);
-						}
+		static final stagesDirPath:String = "assets/shared/stages";
+
+		if (FileSystem.exists(stagesDirPath) && FileSystem.isDirectory(stagesDirPath)) {
+			for (file in FileSystem.readDirectory(stagesDirPath)) {
+				if (file.endsWith(".json")) {
+					var stageName:String = file.substr(0, file.length - 5).trim();
+
+					if (stageName.length > 0 && !stages.contains(stageName)) {
+						stages.push(stageName);
 					}
 				}
 			}
 		}
 
-		if (stages.length < 1)
-			stages.push('stage');
+		if (stages.length < 1) {
+			stages.push("stage");
+		}
 
 		stageDropDown = new FlxUIDropDownMenu(player1DropDown.x + 140, player1DropDown.y, FlxUIDropDownMenu.makeStrIdLabelArray(stages, true), function(character:String) {
 			_song.stage = stages[Std.parseInt(character)];
@@ -882,26 +877,25 @@ class ChartingState extends MusicBeatState {
 		blockPressWhileTypingOn.push(strumTimeInputText);
 
 		var key:Int = 0;
+
 		while (key < noteTypeList.length) {
 			curNoteTypes.push(noteTypeList[key]);
 			key++;
 		}
 
-		#if sys
-		var foldersToCheck:Array<String> = Mods.directoriesWithFile(Paths.getSharedPath(), 'custom_notetypes/');
-		for (folder in foldersToCheck)
-			for (file in FileSystem.readDirectory(folder)) {
-				var fileName:String = file.toLowerCase().trim();
-				var wordLen:Int = 4; // length of word ".lua" and ".txt";
-				if ((#if LUA_ALLOWED fileName.endsWith('.lua') || #end fileName.endsWith('.txt')) && fileName != 'readme.txt') {
-					var fileToCheck:String = file.substr(0, file.length - wordLen);
-					if (!curNoteTypes.contains(fileToCheck)) {
-						curNoteTypes.push(fileToCheck);
-						key++;
+		var notetypesDirPath:String = "assets/shared/notetypes";
+
+		if (FileSystem.exists(notetypesDirPath) && FileSystem.isDirectory(notetypesDirPath)) {
+			for (filename in FileSystem.readDirectory(notetypesDirPath)) {
+				if (filename != "readme.txt" && (filename.endsWith(".lua") || filename.endsWith(".txt"))) {
+					var noteType:String = filename.substr(0, filename.length - 4);
+
+					if (!curNoteTypes.contains(noteType)) {
+						curNoteTypes.push(noteType);
 					}
 				}
 			}
-		#end
+		}
 
 		var displayNameList:Array<String> = curNoteTypes.copy();
 		for (i in 1...displayNameList.length) {

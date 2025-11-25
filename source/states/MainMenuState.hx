@@ -70,8 +70,6 @@ class MainMenuState extends MusicBeatState {
 	var curveShader = new shaders.CurveShader();
 
 	override function create() {
-		Mods.loadTopMod();
-
 		if (Highscore.getScore('convicted-love', 0) != 0 && !addedKiss)
 		{
 		renderDatas.insert(6, { name: "KisstonMSRender", offset: { x: 105.0, y: 30.0 }, scale: 0.55 }); trace('is this fuckin pushed');

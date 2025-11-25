@@ -110,7 +110,6 @@ class FreeplayState extends MusicBeatState {
 				leChars.push(leWeek.songs[j][1]);
 			}
 
-			WeekData.setDirectoryFromWeek(leWeek);
 			for (song in leWeek.songs) {
 				var colors:Array<Int> = song[2];
 				if (colors == null || colors.length < 3) {
@@ -119,7 +118,6 @@ class FreeplayState extends MusicBeatState {
 				addSong(song[0], i, song[1], FlxColor.fromRGB(colors[0], colors[1], colors[2]));
 			}
 		}
-		Mods.loadTopMod();
 
 		bg = new FlxSprite().loadGraphic(Paths.image('menuassets/songBG'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
@@ -177,7 +175,6 @@ class FreeplayState extends MusicBeatState {
 				}
 			}
 
-			Mods.currentModDirectory = songs[i].folder;
 			var icon:HealthIcon = new HealthIcon(songs[i].songCharacter);
 			icon.sprTracker = songText;
 
@@ -187,9 +184,6 @@ class FreeplayState extends MusicBeatState {
 
 		//trace(Highscore.getScore(songs[i].songName, 0));
 		}
-
-		WeekData.setDirectoryFromWeek();
-
 
 		scoreText = new FlxText(0, 20, 0, "", 32);
 		scoreText.setFormat(Paths.font("vcr.ttf"), 32, 0xFFffcf53, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -391,7 +385,6 @@ class FreeplayState extends MusicBeatState {
 				destroyFreeplayVocals();
 				FlxG.sound.music.volume = 0;
 
-				Mods.currentModDirectory = songs[curSelected].folder;
 				var poop:String = Highscore.formatSong(songs[curSelected].songName.toLowerCase(), curDifficulty);
 				PlayState.SONG = Song.loadFromJson(poop, songs[curSelected].songName.toLowerCase());
 				if (PlayState.SONG.needsVoices) {
@@ -554,7 +547,6 @@ class FreeplayState extends MusicBeatState {
 				item.alpha = 1;
 		}
 
-		Mods.currentModDirectory = songs[curSelected].folder;
 		PlayState.storyWeek = songs[curSelected].week;
 		Difficulty.loadFromWeek();
 
@@ -703,7 +695,6 @@ class SongMetadata {
 		this.week = week;
 		this.songCharacter = songCharacter;
 		this.color = color;
-		this.folder = Mods.currentModDirectory;
 		if (this.folder == null)
 			this.folder = '';
 	}

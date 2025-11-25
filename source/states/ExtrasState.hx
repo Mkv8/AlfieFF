@@ -39,8 +39,6 @@ class ExtrasState extends MusicBeatState {
     }
 
     override function create() {
-        Mods.loadTopMod();
-
         #if DISCORD_ALLOWED
         // Updating Discord Rich Presence
         DiscordClient.changePresence("Checking out Extras!", null);

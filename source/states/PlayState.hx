@@ -1,5 +1,6 @@
 package states;
 
+import haxe.io.Path;
 import flixel.util.FlxDestroyUtil;
 import backend.Highscore;
 import backend.StageData;
@@ -414,15 +415,15 @@ class PlayState extends MusicBeatState {
 		#end
 
 		// "GLOBAL" SCRIPTS
-		#if (LUA_ALLOWED)
-		for (folder in Mods.directoriesWithFile(Paths.getSharedPath(), 'scripts/'))
-			for (file in FileSystem.readDirectory(folder)) {
-				#if LUA_ALLOWED
-				if (file.toLowerCase().endsWith('.lua'))
-					new FunkinLua(folder + file);
-				#end
+		static final globalLuaScriptsDirPath:String = "assets/shared/scripts";
+
+		if (FileSystem.exists(globalLuaScriptsDirPath) && FileSystem.isDirectory(globalLuaScriptsDirPath)) {
+			for (file in FileSystem.readDirectory(globalLuaScriptsDirPath)) {
+				if (file.endsWith(".lua")) {
+					new FunkinLua('${globalLuaScriptsDirPath}/${file}');
+				}
 			}
-		#end
+		}
 
 		// STAGE SCRIPTS
 		startLuasNamed('stages/${curStage}.lua');
@@ -608,22 +609,25 @@ class PlayState extends MusicBeatState {
 		}
 
 		// SONG SPECIFIC SCRIPTS
-		#if (LUA_ALLOWED)
-		for (folder in Mods.directoriesWithFile(Paths.getSharedPath(), 'data/$songName/'))
-			for (file in FileSystem.readDirectory(folder)) {
-				#if LUA_ALLOWED
-				if (file.toLowerCase().endsWith('.lua'))
-					new FunkinLua(folder + file);
-				#end
+		static final globalSongScriptsDirPath:String = "assets/shared/data/songScripts";
+
+		if (FileSystem.exists(globalSongScriptsDirPath) && FileSystem.isDirectory(globalSongScriptsDirPath)) {
+			for (file in FileSystem.readDirectory(globalSongScriptsDirPath)) {
+				if (file.endsWith(".lua")) {
+					new FunkinLua('${globalSongScriptsDirPath}/${file}');
+				}
 			}
-		for (folder in Mods.directoriesWithFile(Paths.getSharedPath(), 'data/songScripts/'))
-			for (file in FileSystem.readDirectory(folder)) {
-				#if LUA_ALLOWED
-				if (file.toLowerCase().endsWith('.lua'))
-					new FunkinLua(folder + file);
-				#end
+		}
+
+		final songScriptsDirPath:String = 'assets/shared/data/${this.songName}';
+
+		if (FileSystem.exists(songScriptsDirPath) && FileSystem.isDirectory(songScriptsDirPath)) {
+			for (file in FileSystem.readDirectory(songScriptsDirPath)) {
+				if (file.endsWith(".lua")) {
+					new FunkinLua('${songScriptsDirPath}/${file}');
+				}
 			}
-		#end
+		}
 
 		startCallback();
 		RecalculateRating();
@@ -2460,7 +2464,6 @@ class PlayState extends MusicBeatState {
 			trace('completed $completed/$total Songs, should play credits => ${playCredits}');
 
 			trace('WENT BACK TO FREEPLAY??');
-			Mods.loadTopMod();
 			#if DISCORD_ALLOWED DiscordClient.resetClientID(); #end
 
 			switch (SONG.song)
@@ -3389,35 +3392,43 @@ class PlayState extends MusicBeatState {
 		if (!ClientPrefs.data.shaders)
 			return false;
 
-		if (runtimeShaders.exists(name)) {
+		if (this.runtimeShaders.exists(name)) {
 			FlxG.log.warn('Shader $name was already initialized!');
 			return true;
 		}
 
-		for (folder in Mods.directoriesWithFile(Paths.getSharedPath(), 'shaders/')) {
-			var frag:String = folder + name + '.frag';
-			var vert:String = folder + name + '.vert';
-			var found:Bool = false;
-			if (FileSystem.exists(frag)) {
-				frag = File.getContent(frag);
-				found = true;
-			} else
-				frag = null;
+		final shadersDirPath:String = 'assets/shared/shaders';
 
-			if (FileSystem.exists(vert)) {
-				vert = File.getContent(vert);
-				found = true;
-			} else
-				vert = null;
-
-			if (found) {
-				runtimeShaders.set(name, [frag, vert]);
-				// trace('Found shader $name!');
-				return true;
+		if (FileSystem.exists(shadersDirPath) && FileSystem.isDirectory(shadersDirPath)) {
+			for (file in FileSystem.readDirectory(shadersDirPath)) {
+				if (file.endsWith(".lua")) {
+					new FunkinLua('${shadersDirPath}/${file}');
+				}
 			}
 		}
 
-		addTextToDebug('Missing shader $name .frag AND .vert files!', FlxColor.RED);
+		final vertShaderPath:String = '${shadersDirPath}/${name}.vert';
+		final fragShaderPath:String = '${shadersDirPath}/${name}.frag';
+
+		var vertShaderContent:Null<String> = null;
+
+		if (FileSystem.exists(vertShaderPath)) {
+			vertShaderContent = File.getContent(vertShaderPath);
+		}
+
+		var fragShaderContent:Null<String> = null;
+
+		if (FileSystem.exists(fragShaderPath)) {
+			fragShaderContent = File.getContent(fragShaderPath);
+		}
+
+		if (vertShaderContent != null || fragShaderContent != null) {
+			this.runtimeShaders.set(name, [fragShaderContent, vertShaderContent]);
+			// trace('Found shader $name!');
+			return true;
+		}
+
+		this.addTextToDebug('Missing shader $name .frag AND .vert files!', FlxColor.RED);
 		FlxG.log.warn('Missing shader $name .frag AND .vert files!');
 
 		return false;

@@ -72,8 +72,6 @@ class TitleState extends MusicBeatState {
 	override public function create():Void {
 		Paths.clearStoredMemory();
 
-		Mods.loadTopMod();
-
 		FlxG.fixedTimestep = false;
 		FlxG.game.focusLostFramerate = 60;
 		FlxG.keys.preventDefaultKeys = [TAB];
