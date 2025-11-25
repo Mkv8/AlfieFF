@@ -2425,6 +2425,10 @@ class PlayState extends MusicBeatState {
 				openChartEditor();
 				return false;
 			}
+
+
+			var completed:Int = 0;
+			var total:Int = 0;
 			if (!ClientPrefs.data.seenCredits) {
 				if (ClientPrefs.data.completedSongs[songName] != null)
 				{
@@ -2432,32 +2436,28 @@ class PlayState extends MusicBeatState {
 					FlxG.save.data.completedSongs = ClientPrefs.data.completedSongs;
 					FlxG.save.flush();
 				}
-
-				var completed:Int = 0;
-				var total:Int = 0;
 				for (done in ClientPrefs.data.completedSongs) {
-					total++;
-					if (done) completed++;
+				total++;
+				if (done) completed++;
 				}
-				var playCredits:Bool = (completed == total);
-				trace('completed $completed/$total Songs, should play credits => ${playCredits}');
+
 				trace(songName);
 				trace(ClientPrefs.data.completedSongs[songName]);
-				trace(playCredits);
+				//trace(playCredits);
 				trace(ClientPrefs.data.seenCredits);
-				if (playCredits) {
-					//if (FlxG.sound.music != null)
-					//{FlxG.sound.music.stop();}
-					MusicBeatState.switchState(new CreditsVideoState());
-					trace('fuck');
+				//if (playCredits) {
+				//	MusicBeatState.switchState(new CreditsVideoState());
+					//THIS DOESNT WORK BC OF THE SWITCH STATEMENT RIGHT BELOW IT
 					//you can play credits here alfie or tanta or whatever gay person
 					// IM NOT ALFIE >:(
 					//This will not let the cutscene be played again
 					//FlxG.save.data.seenCredits = true;
 					//FlxG.save.flush();
-				}
+			//	}
 
 			}
+			var playCredits:Bool = (completed == total);
+			trace('completed $completed/$total Songs, should play credits => ${playCredits}');
 
 			trace('WENT BACK TO FREEPLAY??');
 			Mods.loadTopMod();
@@ -2469,12 +2469,21 @@ class PlayState extends MusicBeatState {
 				{
 					AiComic.itsgivingendcard = true;
 					MusicBeatState.switchState(new AiComic());
+					
 				}
 				default:
 				{
+				if (playCredits && !ClientPrefs.data.seenCredits) {
+				FlxG.save.data.seenCredits = true;
+				ClientPrefs.data.seenCredits = true;
+				FlxG.save.flush();					
+				MusicBeatState.switchState(new CreditsVideoState());
+				} else {
 				MusicBeatState.switchState(new FreeplayState());
 				FlxG.sound.playMusic(Paths.music('freakyMenu'));
 				changedDifficulty = false;
+				}
+
 
 				}
 			}

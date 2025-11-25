@@ -66,6 +66,7 @@ class CreditsVideoState extends MusicBeatState {
 		videoStart = new FlxTimer().start(0.5, function(tmr:FlxTimer)
 			{videoSprite.bitmap.playCached(); trace('is it playing lmao');}, 0);
 		
+		
 
 		super.create();
 		FlxG.game.setFilters(shader);
@@ -85,15 +86,17 @@ class CreditsVideoState extends MusicBeatState {
 
 		var back = FlxG.keys.justPressed.BACKSPACE || FlxG.keys.justPressed.ESCAPE;
 
-		if (back) {
+		/*if (back) { //I cannot for the life of me figure out the bug so im disabling here for now :(
 			FlxG.sound.play(Paths.sound('cancelMenu'));
-
+			videoSprite.kill();
+			if (FlxG.sound.music != null)
+			{FlxG.sound.music.stop();}
 			var transitionSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
         	transitionSprite.alpha = 0;
         	add(transitionSprite);
 			FlxTween.tween(transitionSprite, {alpha: 1}, 1, {ease: FlxEase.quartOut, onComplete:function(twn:FlxTween) {exit();}});
 			canSpam = false;
-		}
+		}*/
 
 		super.update(elapsed);
 	}
