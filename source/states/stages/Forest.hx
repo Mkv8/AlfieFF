@@ -183,10 +183,11 @@ class Forest extends BaseStage {
 		
 		switch (curBeat) {
 
-			case 1:
+			case 2:
 				{
 					whiteText.animation.play('alfie');
-					FlxTween.tween(whiteText, {alpha: 1}, 1.5);
+					//FlxTween.tween(whiteText, {alpha: 1}, 1.5);
+					songDeets();					
 				}
 
 			case 14:
@@ -201,11 +202,6 @@ class Forest extends BaseStage {
 					blackscreen.cameras = [camHUD];
 					whiteText.cameras = [camHUD];
 				}
-
-			case 18:
-				{
-					songDeets();					
-				}	
 
 			case 179:
 				{
@@ -259,14 +255,14 @@ class Forest extends BaseStage {
 
 			case 416:
 				{
-					whiteText.alpha = 1;
+					//whiteText.alpha = 1;
 					blackscreen.alpha = 1;
-					whiteText.animation.play('thanks');
+					//whiteText.animation.play('thanks');
 				}
 
 			case 421:
 				{
-					FlxTween.tween(whiteText, {alpha: 0}, 1);
+					//FlxTween.tween(whiteText, {alpha: 0}, 1);
 				}
 
 			

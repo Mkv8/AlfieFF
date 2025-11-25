@@ -1682,7 +1682,7 @@ class PlayState extends MusicBeatState {
 		callOnScripts('onUpdate', [elapsed]);
 
 		super.update(elapsed);
-
+		//trace(songName);
 		setOnScripts('curDecStep', curDecStep);
 		setOnScripts('curDecBeat', curDecBeat);
 
@@ -2441,14 +2441,22 @@ class PlayState extends MusicBeatState {
 				}
 				var playCredits:Bool = (completed == total);
 				trace('completed $completed/$total Songs, should play credits => ${playCredits}');
-
+				trace(songName);
+				trace(ClientPrefs.data.completedSongs[songName]);
+				trace(playCredits);
+				trace(ClientPrefs.data.seenCredits);
 				if (playCredits) {
+					//if (FlxG.sound.music != null)
+					//{FlxG.sound.music.stop();}
+					MusicBeatState.switchState(new CreditsVideoState());
+					trace('fuck');
 					//you can play credits here alfie or tanta or whatever gay person
-
+					// IM NOT ALFIE >:(
 					//This will not let the cutscene be played again
 					//FlxG.save.data.seenCredits = true;
 					//FlxG.save.flush();
 				}
+
 			}
 
 			trace('WENT BACK TO FREEPLAY??');
@@ -2467,6 +2475,7 @@ class PlayState extends MusicBeatState {
 				MusicBeatState.switchState(new FreeplayState());
 				FlxG.sound.playMusic(Paths.music('freakyMenu'));
 				changedDifficulty = false;
+
 				}
 			}
 

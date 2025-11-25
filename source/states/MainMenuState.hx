@@ -256,10 +256,8 @@ class MainMenuState extends MusicBeatState {
 					switch (menuOptions[selection]) {
 						case "songs":
 							MusicBeatState.switchState(new FreeplayState());
-
 						case "extras":
 							MusicBeatState.switchState(new ExtrasState());
-
 						case "credits":
 							MusicBeatState.switchState(new CreditsState());
 

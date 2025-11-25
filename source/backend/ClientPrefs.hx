@@ -82,7 +82,7 @@ import states.TitleState;
 		'convicted-love' => false,
 		'jammed-cartridge' => false,
 		'anemoia' => false,
-		'punch-buggy!' => false,
+		'punch-buggy!!' => false,
 		'rooftop-talkshop' => false,
 		'aisong' => false,
 		'channel-surfers' => false,
