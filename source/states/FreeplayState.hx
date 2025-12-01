@@ -246,7 +246,6 @@ class FreeplayState extends MusicBeatState {
 
 		lockShitUp();
 		for (i in 0...songs.length) {
-		trace(Highscore.getScore(songs[i].songName, 0));
 		}
 
 		super.create();
@@ -416,7 +415,6 @@ class FreeplayState extends MusicBeatState {
 			persistentUpdate = false;
 			var songLowercase:String = Paths.formatToSongPath(songs[curSelected].songName);
 			var poop:String = Highscore.formatSong(songLowercase, curDifficulty);
-			trace(poop);
 
 			try {
 				PlayState.SONG = Song.loadFromJson(poop, songLowercase);
