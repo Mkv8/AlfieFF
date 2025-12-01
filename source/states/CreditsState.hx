@@ -810,7 +810,7 @@ class CreditsState extends MusicBeatState {
 			selectedCreditSprites.quote.alpha = 1.0;
 		}
 
-		var selectedSectionCreditsGroup:FlxSpriteGroup = this.sectionCreditsGroups[nextSelectedCredit];
+		var selectedSectionCreditsGroup:FlxSpriteGroup = this.sectionCreditsGroups[nextSelectedSection];
 
 		selectedSectionCreditsGroup.y -= (selectedSection.credits[nextSelectedCredit].name.y - this.selectedCreditY);
 
