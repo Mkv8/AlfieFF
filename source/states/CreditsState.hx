@@ -457,10 +457,10 @@ class CreditsState extends MusicBeatState {
 		this.infoBox = new FlxSprite();
 		this.infoBox.makeGraphic(1, 1, FlxColor.BLACK);
 		this.infoBox.x = -10.0;
-		this.infoBox.alpha = 0.5;
+		this.infoBox.alpha = 0.6;
 
 		this.showInfoTextFirstLine = CreditsState.creditsData[this.selectedSection].credits[this.selectedCredit].link != null;
-		this.showInfoTextSecondLine = CreditsState.playedCreditsCutscene();
+		this.showInfoTextSecondLine = FlxG.save.data.playedCreditsCutscene ?? false;
 
 		if (this.showInfoTextFirstLine && this.showInfoTextSecondLine) {
 			this.infoTextFirstLine.visible = true;
@@ -1094,9 +1094,5 @@ class CreditsState extends MusicBeatState {
 		}
 
 		this.selectCredit(nextSelectedCredit);
-	}
-
-	static function playedCreditsCutscene():Bool {
-		return true;
 	}
 }

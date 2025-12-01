@@ -46,7 +46,7 @@ class CreditsVideoState extends MusicBeatState {
 		add(videoSprite);
 		videoSprite.bitmap.startPos = Std.int(Conductor.songPosition);
 		videoSprite.finishCallback = function() {
-		exit();
+			exit();
 		}
 
 		var blackscreen:BGSprite;
@@ -60,13 +60,13 @@ class CreditsVideoState extends MusicBeatState {
 		}, 1, {
 			ease: FlxEase.quartInOut,
 			startDelay: 0.5
-		});	
+		});
 
 		var videoStart:FlxTimer;
 		videoStart = new FlxTimer().start(0.5, function(tmr:FlxTimer)
 			{videoSprite.bitmap.playCached(); trace('is it playing lmao');}, 0);
-		
-		
+
+
 
 		super.create();
 		FlxG.game.setFilters(shader);
@@ -102,18 +102,26 @@ class CreditsVideoState extends MusicBeatState {
 	}
 
 
-var went:Bool = false;
-function exit(){
+	var went:Bool = false;
 
-    if (went)
-        return;
+	function exit() {
+		if (went)
+			return;
 
-    went=true;
+		went = true;
+
+		FlxG.save.data.playedCreditsCutscene = true;
+		FlxG.save.flush();
+
 		videoSprite.destroy();
-		if (FlxG.sound.music != null)
-		{FlxG.sound.music.stop();}
-		FlxG.sound.playMusic(Paths.music('freakyMenu'));
+
+		if (FlxG.sound.music != null) {
+			FlxG.sound.music.stop();
+		}
+
+		FlxG.sound.playMusic(Paths.music("freakyMenu"));
+
 		MusicBeatState.switchState(new MainMenuState());
-}
+	}
 
 }
