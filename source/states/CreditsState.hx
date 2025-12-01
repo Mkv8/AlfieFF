@@ -544,14 +544,14 @@ class CreditsState extends MusicBeatState {
 				var credit:Credit = section.credits[i];
 				var previousCredit:Credit = section.credits[i - 1];
 
-				credit.name.y = (previousCredit?.name.y ?? 0.0) + (previousCredit?.name.height ?? 0.0) + (previousCredit?.icon != null || previousCredit?.quote != null ? 24.0 : 0.0) + Math.max((previousCredit?.icon?.height ?? 0.0), (previousCredit?.quote?.height ?? 0.0)) + 24.0;
+				credit.name.y = (previousCredit?.name.y ?? 0.0) + (previousCredit?.name.height ?? 0.0) + (previousCredit?.icon != null || previousCredit?.quote != null ? 16.0 : 0.0) + Math.max((previousCredit?.icon?.height ?? 0.0), (previousCredit?.quote?.height ?? 0.0)) + 32.0;
 
 				if (credit.icon != null) {
-					credit.icon.y = credit.name.y + credit.name.height + 24.0;
+					credit.icon.y = credit.name.y + credit.name.height + 16.0;
 				}
 
 				if (credit.quote != null) {
-					credit.quote.y = Math.max(credit.name.y + credit.name.height + 24.0, (credit.icon?.y ?? 0.0) + ((credit.icon?.height ?? 0.0) / 2.0) - (credit.quote.height / 2.0));
+					credit.quote.y = Math.max(credit.name.y + credit.name.height + 16.0, (credit.icon?.y ?? 0.0) + ((credit.icon?.height ?? 0.0) / 2.0) - (credit.quote.height / 2.0));
 				}
 			}
 
