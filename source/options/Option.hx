@@ -41,53 +41,67 @@ class Option {
 		this.type = type;
 		this.options = options;
 
-		if (this.type != 'keybind')
+		if (this.type != 'keybind') {
 			this.defaultValue = Reflect.getProperty(ClientPrefs.defaultData, variable);
+		}
+
 		switch (type) {
 			case 'bool':
-				if (defaultValue == null)
-					defaultValue = false;
+				if (this.defaultValue == null) {
+					this.defaultValue = false;
+				}
+
 			case 'int' | 'float':
-				if (defaultValue == null)
-					defaultValue = 0;
+				if (this.defaultValue == null) {
+					this.defaultValue = 0;
+				}
+
 			case 'percent':
-				if (defaultValue == null)
-					defaultValue = 1;
-				displayFormat = '%v%';
-				changeValue = 0.01;
-				minValue = 0;
-				maxValue = 1;
-				scrollSpeed = 0.5;
-				decimals = 2;
+				if (this.defaultValue == null) {
+					this.defaultValue = 1;
+				}
+
+				this.displayFormat = '%v%';
+				this.changeValue = 0.01;
+				this.minValue = 0;
+				this.maxValue = 1;
+				this.scrollSpeed = 0.5;
+				this.decimals = 2;
+
 			case 'string':
-				if (defaultValue == null)
-					defaultValue = '';
-				if (options.length > 0) {
-					defaultValue = options[0];
+				if (this.defaultValue == null) {
+					if (options.length > 0) {
+						this.defaultValue = options[0];
+					} else {
+						this.defaultValue = '';
+					}
 				}
 
 			case 'keybind':
-				defaultValue = '';
-				defaultKeys = {
+				this.defaultValue = '';
+
+				this.defaultKeys = {
 					gamepad: 'NONE',
 					keyboard: 'NONE'
 				};
-				keys = {
+
+				this.keys = {
 					gamepad: 'NONE',
 					keyboard: 'NONE'
 				};
 		}
 
 		try {
-			if (getValue() == null) {
-				setValue(defaultValue);
+			if (this.getValue() == null) {
+				this.setValue(this.defaultValue);
 			}
 
 			switch (type) {
 				case 'string':
-					var num:Int = options.indexOf(getValue());
+					var num:Int = this.options.indexOf(this.getValue());
+
 					if (num > -1) {
-						curOption = num;
+						this.curOption = num;
 					}
 			}
 		} catch (e) {

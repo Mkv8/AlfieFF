@@ -1,5 +1,6 @@
 package options;
 
+import states.editors.ChartingState.AttachedFlxText;
 import flixel.input.keyboard.FlxKey;
 import flixel.input.gamepad.FlxGamepad;
 import flixel.input.gamepad.FlxGamepadInputID;
@@ -31,7 +32,6 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 	public var alfie:BGSprite;
 	var texts:Array<FlxText> = [];
 	public var sprTracker:FlxText;
-	var valueText:FlxText;
 
 	//on this menu all you have to do is change the all the letters into the right font, and then reposition the options so that theyre on the left...
 	//idk how the submenus work here? I dont think it will be much of a problem but honestly who knows with fnf......
@@ -61,7 +61,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 		gear1.alpha = 1;
 		gear1.scale.set(0.8,0.8);
 		gear1.antialiasing = ClientPrefs.data.antialiasing;
-		add(gear1);	
+		add(gear1);
 
 
 		gear2 = new BGSprite('menuassets/gear', -180, FlxG.height * 0.71, 0, 0); //spins counter clock wise
@@ -69,7 +69,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 		gear2.alpha = 1;
 		gear2.scale.set(0.8,0.8);
 		gear2.antialiasing = ClientPrefs.data.antialiasing;
-		add(gear2);	
+		add(gear2);
 
 		alfie = new BGSprite('menuassets/alfieOptions', FlxG.width * 0.5 - 75, 90, 0, 0, ['thonk'], true);
 		alfie.updateHitbox();
@@ -77,7 +77,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 		alfie.scale.set(0.8,0.8);
 		alfie.animation.play('thonk', true, false);
 		alfie.antialiasing = ClientPrefs.data.antialiasing;
-		add(alfie);			
+		add(alfie);
 
 		// avoids lagspikes while scrolling through menus!
 		grpOptions = new FlxTypedGroup<FlxText>();
@@ -108,7 +108,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 		add(descText);
 
 		for (i in 0...optionsArray.length) {
-			var optionText:FlxText = new FlxText(310, 1 + (i*30), optionsArray[i].name, 56);
+			var optionText:AttachedFlxText = new AttachedFlxText(310, 1 + (i*30), optionsArray[i].name, 56);
 			optionText.setFormat(Paths.font("vcr.ttf"), 56, 0xffffffff, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			optionText.borderColor = 0xFF000000;
 			optionText.borderSize = 3;
@@ -117,8 +117,8 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 				optionText.yMult = 90; */
 			//optionText.targetY = i;
 			grpOptions.add(optionText);
-			texts.push(optionText);
 			optionText.offset.set(-20, -52);
+			texts.push(optionText);
 
 			if (optionsArray[i].type == 'bool') {
 				var checkbox:CheckboxThingie = new CheckboxThingie(optionText.x - 185, optionText.y - 100, Std.string(optionsArray[i].getValue()) == 'true');
@@ -126,14 +126,16 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 				checkbox.ID = i;
 				checkboxGroup.add(checkbox);
 			} else {
-				optionText.x -= 80;
-				//optionText.startPosition.x -= 80;
-				// optionText.xAdd -= 80;
-				valueText = new FlxText(optionText.x + 560, optionText.y + 150, 200, '' + optionsArray[i].getValue(), 40);
+				optionText.x -= 120;
+				optionText.xAdd -= 80;
+
+				var valueText:AttachedFlxText = new AttachedFlxText(optionText.x + 560, optionText.y + 150, 0.0, '' + optionsArray[i].getValue(), 48);
 				valueText.setFormat(Paths.font("vcr.ttf"), 40, 0xffffffff, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 				valueText.borderColor = 0xFF000000;
-				valueText.borderSize = 3;				
-				//valueText.sprTracker = optionText;
+				valueText.borderSize = 3;
+				valueText.sprTracker = optionText;
+				valueText.xAdd = 760;
+				valueText.yAdd = 60;
 				valueText.alpha = optionText.alpha;
 				valueText.ID = i;
 				grpTexts.add(valueText);
@@ -168,7 +170,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
 		super.update(elapsed);
 		gear1.angle -= 5 * elapsed;
 		gear2.angle += 5 * elapsed;
-				
+
 		if (bindingKey) {
 			bindingKeyUpdate(elapsed);
 			return;
@@ -330,7 +332,7 @@ class BaseOptionsMenu extends MusicBeatSubstate {
             i.y = FlxMath.lerp(xlerpto, i.y, lerpVal);
 		}
 
-		
+
 	}
 
 	function bindingKeyUpdate(elapsed:Float) {
