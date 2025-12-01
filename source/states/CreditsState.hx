@@ -1,10 +1,5 @@
 package states;
 
-import flixel.group.FlxGroup;
-import flixel.input.gamepad.mappings.SwitchJoyconRightMapping;
-import objects.AttachedSprite;
-import openfl.filters.BitmapFilter;
-import openfl.filters.ShaderFilter;
 
 typedef CreditData = {
 	name:String,
@@ -331,6 +326,10 @@ class CreditsState extends MusicBeatState {
 	private var leftArrow:BGSprite;
 	private var rightArrow:BGSprite;
 
+	private var infoBox:FlxSprite;
+	private var infoTextFirstLine:FlxText;
+	private var infoTextSecondLine:FlxText;
+
 	private var arrowTweens = {
 		left: null,
 		right: null,
@@ -366,6 +365,9 @@ class CreditsState extends MusicBeatState {
 	}
 
 	private final selectedCreditY:Float = 0.25 * FlxG.height;
+
+	private var showInfoTextFirstLine:Bool = false;
+	private var showInfoTextSecondLine:Bool = false;
 
 	// var shader:Array<BitmapFilter> = [
 	// 	new ShaderFilter(new shaders.PostProcessing()),
@@ -441,6 +443,56 @@ class CreditsState extends MusicBeatState {
 			this.rightArrow.visible = false;
 		}
 
+		this.infoTextFirstLine = new FlxText(0.0, 0.0, 0.0, "Press ENTER to open selected link!", 20);
+		this.infoTextFirstLine.font = Paths.font("vcr.ttf");
+		this.infoTextFirstLine.screenCenter(X);
+
+		this.infoTextSecondLine = new FlxText(0.0, 0.0, 0.0, "Press P to watch the credits cutscene again!", 20);
+		this.infoTextSecondLine.font = Paths.font("vcr.ttf");
+		this.infoTextSecondLine.screenCenter(X);
+
+		this.infoTextSecondLine.y = FlxG.height - 32.0 - this.infoTextSecondLine.height;
+		this.infoTextFirstLine.y = this.infoTextSecondLine.y - 20.0 - this.infoTextFirstLine.height;
+
+		this.infoBox = new FlxSprite();
+		this.infoBox.makeGraphic(1, 1, FlxColor.BLACK);
+		this.infoBox.x = -10.0;
+		this.infoBox.alpha = 0.5;
+
+		this.showInfoTextFirstLine = CreditsState.creditsData[this.selectedSection].credits[this.selectedCredit].link != null;
+		this.showInfoTextSecondLine = CreditsState.playedCreditsCutscene();
+
+		if (this.showInfoTextFirstLine && this.showInfoTextSecondLine) {
+			this.infoTextFirstLine.visible = true;
+			this.infoTextSecondLine.visible = true;
+
+			this.infoBox.setGraphicSize(10.0 + FlxG.width + 10.0, 16.0 + this.infoTextFirstLine.height + 20.0 + this.infoTextSecondLine.height + 16.0);
+			this.infoBox.updateHitbox();
+			this.infoBox.y = this.infoTextFirstLine.y - 16.0;
+			this.infoBox.visible = true;
+		} else if (this.showInfoTextFirstLine) {
+			this.infoTextFirstLine.visible = true;
+			this.infoTextSecondLine.visible = false;
+
+			this.infoBox.setGraphicSize(10.0 + FlxG.width + 10.0, 16.0 + this.infoTextFirstLine.height + 16.0);
+			this.infoBox.updateHitbox();
+			this.infoBox.y = this.infoTextFirstLine.y - 16.0;
+			this.infoBox.visible = true;
+		} else if (this.showInfoTextSecondLine) {
+			this.infoTextFirstLine.visible = false;
+			this.infoTextSecondLine.visible = true;
+
+			this.infoBox.setGraphicSize(10.0 + FlxG.width + 10.0, 16.0 + this.infoTextSecondLine.height + 16.0);
+			this.infoBox.updateHitbox();
+			this.infoBox.y = this.infoTextSecondLine.y - 16.0;
+			this.infoBox.visible = true;
+		} else {
+			this.infoTextFirstLine.visible = false;
+			this.infoTextSecondLine.visible = false;
+
+			this.infoBox.visible = false;
+		}
+
 		for (i in 0...CreditsState.creditsData.length) {
 			var sectionData:CreditsSectionData = CreditsState.creditsData[i];
 
@@ -506,17 +558,17 @@ class CreditsState extends MusicBeatState {
 						icon.x -= 240.0;
 					}
 				} else {
-					name.alpha = 0.8;
+					name.alpha = 0.5;
 
 					if (icon != null) {
-						icon.alpha = 0.6;
+						icon.alpha = 0.5;
 					}
 
 					if (quote != null) {
 						if (icon != null) {
 							quote.alpha = 0.0;
 						} else {
-							quote.alpha = 0.8;
+							quote.alpha = 0.5;
 						}
 					}
 				}
@@ -586,6 +638,10 @@ class CreditsState extends MusicBeatState {
 		this.add(this.leftArrow);
 		this.add(this.rightArrow);
 
+		this.add(this.infoBox);
+		this.add(this.infoTextFirstLine);
+		this.add(this.infoTextSecondLine);
+
 		// FlxG.game.setFilters(shader);
 		// FlxG.game.filtersEnabled = true;
 
@@ -625,19 +681,6 @@ class CreditsState extends MusicBeatState {
 				quitting = true;
 			}
 		}
-
-		// for (item in grpOptions.members) {
-		// 	if (!item.bold) {
-		// 		var lerpVal:Float = Math.exp(-elapsed * 12);
-		// 		if (item.targetY == 0) {
-		// 			var lastX:Float = item.x;
-		// 			item.screenCenter(X);
-		// 			item.x = FlxMath.lerp(item.x - 70, lastX, lerpVal);
-		// 		} else {
-		// 			item.x = FlxMath.lerp(200 + -40 * Math.abs(item.targetY), item.x, lerpVal);
-		// 		}
-		// 	}
-		// }
 
 		super.update(elapsed);
 	}
@@ -768,10 +811,10 @@ class CreditsState extends MusicBeatState {
 
 		var deselectedCreditSprites:Credit = deselectedSection.credits[this.selectedCredit];
 
-		deselectedCreditSprites.name.alpha = 0.8;
+		deselectedCreditSprites.name.alpha = 0.5;
 
 		if (deselectedCreditSprites.icon != null) {
-			deselectedCreditSprites.icon.alpha = 0.6;
+			deselectedCreditSprites.icon.alpha = 0.5;
 
 			if (deselectedCreditSprites.quote != null) {
 				deselectedCreditSprites.icon.x += 240.0;
@@ -782,7 +825,7 @@ class CreditsState extends MusicBeatState {
 			if (deselectedCreditSprites.icon != null) {
 				deselectedCreditSprites.quote.alpha = 0.0;
 			} else {
-				deselectedCreditSprites.quote.alpha = 0.8;
+				deselectedCreditSprites.quote.alpha = 0.5;
 			}
 		}
 
@@ -849,7 +892,7 @@ class CreditsState extends MusicBeatState {
 		this.creditChangeTweens.previous.name = FlxTween.tween(
 			deselectedCredit.name,
 			{
-				alpha: 0.8,
+				alpha: 0.5,
 			},
 			0.2,
 			{
@@ -863,7 +906,7 @@ class CreditsState extends MusicBeatState {
 			this.creditChangeTweens.previous.icon.alphaTween = FlxTween.tween(
 				deselectedCredit.icon,
 				{
-					alpha: 0.6,
+					alpha: 0.5,
 				},
 				0.2,
 				{
@@ -879,8 +922,9 @@ class CreditsState extends MusicBeatState {
 					{
 						x: deselectedCredit.icon.x + 240.0,
 					},
-					0.2,
+					0.16,
 					{
+						ease: FlxEase.cubeOut,
 						onComplete: function (tween) {
 							this.creditChangeTweens.previous.icon.xTween = null;
 						}
@@ -907,7 +951,7 @@ class CreditsState extends MusicBeatState {
 				this.creditChangeTweens.previous.quote = FlxTween.tween(
 					deselectedCredit.quote,
 					{
-						alpha: 0.8,
+						alpha: 0.5,
 					},
 					0.2,
 					{
@@ -957,8 +1001,9 @@ class CreditsState extends MusicBeatState {
 					{
 						x: selectedCredit.icon.x - 240.0,
 					},
-					0.2,
+					0.16,
 					{
+						ease: FlxEase.cubeOut,
 						onComplete: function (tween) {
 							this.creditChangeTweens.next.icon.xTween = null;
 						}
@@ -998,6 +1043,39 @@ class CreditsState extends MusicBeatState {
 				}
 			},
 		);
+
+		this.showInfoTextFirstLine = CreditsState.creditsData[this.selectedSection].credits[this.selectedCredit].link != null;
+
+		if (this.showInfoTextFirstLine && this.showInfoTextSecondLine) {
+			this.infoTextFirstLine.visible = true;
+			this.infoTextSecondLine.visible = true;
+
+			this.infoBox.setGraphicSize(10.0 + FlxG.width + 10.0, 16.0 + this.infoTextFirstLine.height + 20.0 + this.infoTextSecondLine.height + 16.0);
+			this.infoBox.updateHitbox();
+			this.infoBox.y = this.infoTextFirstLine.y - 16.0;
+			this.infoBox.visible = true;
+		} else if (this.showInfoTextFirstLine) {
+			this.infoTextFirstLine.visible = true;
+			this.infoTextSecondLine.visible = false;
+
+			this.infoBox.setGraphicSize(10.0 + FlxG.width + 10.0, 16.0 + this.infoTextFirstLine.height + 16.0);
+			this.infoBox.updateHitbox();
+			this.infoBox.y = this.infoTextFirstLine.y - 16.0;
+			this.infoBox.visible = true;
+		} else if (this.showInfoTextSecondLine) {
+			this.infoTextFirstLine.visible = false;
+			this.infoTextSecondLine.visible = true;
+
+			this.infoBox.setGraphicSize(10.0 + FlxG.width + 10.0, 16.0 + this.infoTextSecondLine.height + 16.0);
+			this.infoBox.updateHitbox();
+			this.infoBox.y = this.infoTextSecondLine.y - 16.0;
+			this.infoBox.visible = true;
+		} else {
+			this.infoTextFirstLine.visible = false;
+			this.infoTextSecondLine.visible = false;
+
+			this.infoBox.visible = false;
+		}
 	}
 
 	function changeCredit(direction:CreditChangeDirection) {
@@ -1016,5 +1094,9 @@ class CreditsState extends MusicBeatState {
 		}
 
 		this.selectCredit(nextSelectedCredit);
+	}
+
+	static function playedCreditsCutscene():Bool {
+		return true;
 	}
 }
