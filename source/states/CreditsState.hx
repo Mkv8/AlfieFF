@@ -78,8 +78,8 @@ class CreditsState extends MusicBeatState {
 				{
 					name: "Tantalun",
 					iconName: "tantalunIcon",
-					quote: "belch", //put your quote here tanta
-					link: null, //put your link here tanta
+					quote: "*explodes*\n[caterpie explosion gif]",
+					link: "https://bsky.app/profile/tantalun.bsky.social",
 				},
 			],
 		},
@@ -364,7 +364,7 @@ class CreditsState extends MusicBeatState {
 		list: null,
 	}
 
-	private final selectedCreditY:Float = 0.25 * FlxG.height;
+	private final selectedCreditY:Float = 0.3 * FlxG.height;
 
 	private var showInfoTextFirstLine:Bool = false;
 	private var showInfoTextSecondLine:Bool = false;
@@ -543,14 +543,14 @@ class CreditsState extends MusicBeatState {
 				var quote:Null<FlxText> = null;
 
 				if (creditData.quote != null) {
-					quote = new FlxText(0.0, 0.0, 360.0, creditData.quote, 24);
+					quote = new FlxText(0.0, 0.0, 400.0, creditData.quote, 28);
 					quote.font = Paths.font("vcr.ttf");
 					quote.alignment = FlxTextAlign.CENTER;
 					quote.screenCenter(X);
 				}
 
 				if (icon != null && quote != null) {
-					quote.x += 60.0;
+					quote.x += 80.0;
 				}
 
 				if (i == this.selectedSection && j == this.selectedCredit) {
@@ -599,11 +599,11 @@ class CreditsState extends MusicBeatState {
 				credit.name.y = (previousCredit?.name.y ?? 0.0) + (previousCredit?.name.height ?? 0.0) + (previousCredit?.icon != null || previousCredit?.quote != null ? 16.0 : 0.0) + Math.max((previousCredit?.icon?.height ?? 0.0), (previousCredit?.quote?.height ?? 0.0)) + 32.0;
 
 				if (credit.icon != null) {
-					credit.icon.y = credit.name.y + credit.name.height + 16.0;
+					credit.icon.y = credit.name.y + credit.name.height + 8.0;
 				}
 
 				if (credit.quote != null) {
-					credit.quote.y = Math.max(credit.name.y + credit.name.height + 16.0, (credit.icon?.y ?? 0.0) + ((credit.icon?.height ?? 0.0) / 2.0) - (credit.quote.height / 2.0));
+					credit.quote.y = Math.max(credit.name.y + credit.name.height + 8.0, (credit.icon?.y ?? 0.0) + ((credit.icon?.height ?? 0.0) / 2.0) - (credit.quote.height / 2.0));
 				}
 			}
 
@@ -894,7 +894,7 @@ class CreditsState extends MusicBeatState {
 			{
 				alpha: 0.5,
 			},
-			0.2,
+			0.16,
 			{
 				onComplete: function (tween) {
 					this.creditChangeTweens.previous.name = null;
@@ -908,7 +908,7 @@ class CreditsState extends MusicBeatState {
 				{
 					alpha: 0.5,
 				},
-				0.2,
+				0.16,
 				{
 					onComplete: function (tween) {
 						this.creditChangeTweens.previous.icon.alphaTween = null;
@@ -940,7 +940,7 @@ class CreditsState extends MusicBeatState {
 					{
 						alpha: 0.0,
 					},
-					0.2,
+					0.16,
 					{
 						onComplete: function (tween) {
 							this.creditChangeTweens.previous.quote = null;
@@ -953,7 +953,7 @@ class CreditsState extends MusicBeatState {
 					{
 						alpha: 0.5,
 					},
-					0.2,
+					0.16,
 					{
 						onComplete: function (tween) {
 							this.creditChangeTweens.previous.quote = null;
@@ -973,7 +973,7 @@ class CreditsState extends MusicBeatState {
 			{
 				alpha: 1.0,
 			},
-			0.2,
+			0.16,
 			{
 				onComplete: function (tween) {
 					this.creditChangeTweens.next.name = null;
@@ -987,7 +987,7 @@ class CreditsState extends MusicBeatState {
 				{
 					alpha: 1.0,
 				},
-				0.2,
+				0.16,
 				{
 					onComplete: function (tween) {
 						this.creditChangeTweens.next.icon.alphaTween = null;
@@ -1018,7 +1018,7 @@ class CreditsState extends MusicBeatState {
 				{
 					alpha: 1.0,
 				},
-				0.2,
+				0.16,
 				{
 					onComplete: function (tween) {
 						this.creditChangeTweens.next.quote = null;
@@ -1035,7 +1035,7 @@ class CreditsState extends MusicBeatState {
 			{
 				y: sectionCreditsGroup.y - (section.credits[this.selectedCredit].name.y - this.selectedCreditY),
 			},
-			0.25,
+			0.20,
 			{
 				ease: FlxEase.cubeInOut,
 				onComplete: function (tween) {
