@@ -2433,7 +2433,7 @@ class PlayState extends MusicBeatState {
 
 			var completed:Int = 0;
 			var total:Int = 0;
-			if (!ClientPrefs.data.seenCredits) {
+			if (!FlxG.save.data.seenCredits) {
 				if (ClientPrefs.data.completedSongs[songName] != null)
 				{
 					ClientPrefs.data.completedSongs[songName] = true;
@@ -2448,7 +2448,7 @@ class PlayState extends MusicBeatState {
 				trace(songName);
 				trace(ClientPrefs.data.completedSongs[songName]);
 				//trace(playCredits);
-				trace(ClientPrefs.data.seenCredits);
+				trace(FlxG.save.data.seenCredits);
 				//if (playCredits) {
 				//	MusicBeatState.switchState(new CreditsVideoState());
 					//THIS DOESNT WORK BC OF THE SWITCH STATEMENT RIGHT BELOW IT
@@ -2472,22 +2472,18 @@ class PlayState extends MusicBeatState {
 				{
 					AiComic.itsgivingendcard = true;
 					MusicBeatState.switchState(new AiComic());
-					
+
 				}
+
 				default:
 				{
-				if (playCredits && !ClientPrefs.data.seenCredits) {
-				FlxG.save.data.seenCredits = true;
-				ClientPrefs.data.seenCredits = true;
-				FlxG.save.flush();					
-				MusicBeatState.switchState(new CreditsVideoState());
-				} else {
-				MusicBeatState.switchState(new FreeplayState());
-				FlxG.sound.playMusic(Paths.music('freakyMenu'));
-				changedDifficulty = false;
-				}
-
-
+					if (playCredits && !FlxG.save.data.seenCredits) {
+						MusicBeatState.switchState(new CreditsVideoState("MainMenuState"));
+					} else {
+						MusicBeatState.switchState(new FreeplayState());
+						FlxG.sound.playMusic(Paths.music('freakyMenu'));
+						changedDifficulty = false;
+					}
 				}
 			}
 

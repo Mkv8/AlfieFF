@@ -460,7 +460,7 @@ class CreditsState extends MusicBeatState {
 		this.infoBox.alpha = 0.6;
 
 		this.showInfoTextFirstLine = CreditsState.creditsData[this.selectedSection].credits[this.selectedCredit].link != null;
-		this.showInfoTextSecondLine = FlxG.save.data.playedCreditsCutscene ?? false;
+		this.showInfoTextSecondLine = FlxG.save.data.seenCredits ?? false;
 
 		if (this.showInfoTextFirstLine && this.showInfoTextSecondLine) {
 			this.infoTextFirstLine.visible = true;
@@ -679,6 +679,11 @@ class CreditsState extends MusicBeatState {
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 				MusicBeatState.switchState(new MainMenuState());
 				quitting = true;
+			}
+
+			if (FlxG.keys.justPressed.P && FlxG.save.data.seenCredits) {
+				FlxG.sound.play(Paths.sound("confirmMenu"));
+				MusicBeatState.switchState(new CreditsVideoState("CreditsState"));
 			}
 		}
 

@@ -1,5 +1,6 @@
 package states;
 
+import flixel.FlxState;
 import backend.WeekData;
 import backend.Highscore;
 import backend.Song;
@@ -16,8 +17,6 @@ import flixel.tweens.FlxTween;
 import hxcodec.VideoSprite;
 
 class CreditsVideoState extends MusicBeatState {
-
-
 	var panelNum:Int = 0;
 	var panels:Array<FlxSprite> = [];
 	var object:FlxSprite = null;
@@ -29,9 +28,17 @@ class CreditsVideoState extends MusicBeatState {
 	var shader:Array<BitmapFilter> = [new ShaderFilter(new shaders.PostProcessing()),];
 	var curveShader = new shaders.CurveShader();
 	var player:MusicPlayer;
+
+	private var exitStateName:String;
+
 	public static var itsgivingendcard:Bool;
 
 	public var videoSprite:VideoSprite;
+
+	override public function new(exitStateName:String) {
+		super();
+		this.exitStateName = exitStateName;
+	}
 
 	override function create() {
 
@@ -44,9 +51,11 @@ class CreditsVideoState extends MusicBeatState {
 		videoSprite.visible = true;
 		videoSprite.antialiasing = ClientPrefs.data.antialiasing;
 		add(videoSprite);
+
 		videoSprite.bitmap.startPos = Std.int(Conductor.songPosition);
+
 		videoSprite.finishCallback = function() {
-			exit();
+			this.exit();
 		}
 
 		var blackscreen:BGSprite;
@@ -62,11 +71,17 @@ class CreditsVideoState extends MusicBeatState {
 			startDelay: 0.5
 		});
 
+		if (FlxG.sound.music != null) {
+			FlxG.sound.music.stop();
+		}
+
 		var videoStart:FlxTimer;
-		videoStart = new FlxTimer().start(0.5, function(tmr:FlxTimer)
-			{videoSprite.bitmap.playCached(); trace('is it playing lmao');}, 0);
-
-
+		videoStart = new FlxTimer().start(
+			0.5,
+			function(tmr:FlxTimer) {
+				videoSprite.bitmap.playCached();
+			},
+		);
 
 		super.create();
 		FlxG.game.setFilters(shader);
@@ -79,49 +94,47 @@ class CreditsVideoState extends MusicBeatState {
 
 	}
 
-
 	override function update(elapsed:Float) {
+		if (FlxG.keys.justPressed.BACKSPACE || FlxG.keys.justPressed.ESCAPE) { //I cannot for the life of me figure out the bug so im disabling here for now :(
+			FlxG.sound.play(Paths.sound("cancelMenu"));
 
-
-
-		var back = FlxG.keys.justPressed.BACKSPACE || FlxG.keys.justPressed.ESCAPE;
-
-		/*if (back) { //I cannot for the life of me figure out the bug so im disabling here for now :(
-			FlxG.sound.play(Paths.sound('cancelMenu'));
-			videoSprite.kill();
-			if (FlxG.sound.music != null)
-			{FlxG.sound.music.stop();}
-			var transitionSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
-        	transitionSprite.alpha = 0;
-        	add(transitionSprite);
-			FlxTween.tween(transitionSprite, {alpha: 1}, 1, {ease: FlxEase.quartOut, onComplete:function(twn:FlxTween) {exit();}});
-			canSpam = false;
-		}*/
+			this.exit();
+		}
 
 		super.update(elapsed);
 	}
 
-
-	var went:Bool = false;
+	private var exiting:Bool = false;
 
 	function exit() {
-		if (went)
+		if (this.exiting) {
 			return;
+		}
 
-		went = true;
+		this.exiting = true;
 
-		FlxG.save.data.playedCreditsCutscene = true;
+		FlxG.save.data.seenCredits = true;
 		FlxG.save.flush();
 
-		videoSprite.destroy();
+		this.videoSprite.stopVideo();
 
-		if (FlxG.sound.music != null) {
-			FlxG.sound.music.stop();
-		}
+		var transitionSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		transitionSprite.alpha = 0;
+		this.add(transitionSprite);
+
+		FlxTween.tween(transitionSprite, {alpha: 1}, 1, {ease: FlxEase.quartOut});
 
 		FlxG.sound.playMusic(Paths.music("freakyMenu"));
 
-		MusicBeatState.switchState(new MainMenuState());
-	}
+		switch (this.exitStateName) {
+			case "MainMenuState":
+				MusicBeatState.switchState(new MainMenuState());
 
+			case "CreditsState":
+				MusicBeatState.switchState(new CreditsState());
+
+			default:
+				MusicBeatState.switchState(new MainMenuState());
+		}
+	}
 }

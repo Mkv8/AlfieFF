@@ -159,7 +159,7 @@ class TitleState extends MusicBeatState {
 		videoSprite.antialiasing = ClientPrefs.data.antialiasing;
 		add(videoSprite);
 		videoSprite.bitmap.startPos = Std.int(Conductor.songPosition);
-		videoSprite.bitmap.playCached(); trace('is it playing lmao');
+		videoSprite.bitmap.playCached();
 
 		logoBl.animation.addByPrefix('bump', 'bump', 24, false);
 		logoBl.animation.play('bump');

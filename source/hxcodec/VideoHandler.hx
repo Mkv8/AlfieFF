@@ -35,8 +35,8 @@ class VideoHandler extends VLCBitmap
 		FlxG.addChildBelowMouse(this, IndexModifier);
 	}
 
-	private function onVLCOpening():Void 
-	{        
+	private function onVLCOpening():Void
+	{
 		#if HXC_DEBUG_TRACE
 		trace("the video is opening!");
 		#end

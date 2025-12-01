@@ -85,4 +85,8 @@ class VideoSprite extends FlxSprite
 	 */
 	public function playVideo(Path:String, Loop:Bool = false, PauseMusic:Bool = false, startPaused = false):Void
 		bitmap.playVideo(Path, Loop, PauseMusic,startPaused);
+
+	public function stopVideo():Void {
+		this.bitmap.stop();
+	}
 }
