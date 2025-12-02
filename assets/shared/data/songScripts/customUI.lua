@@ -20,9 +20,17 @@ end
 
 function onCountdownStarted()
 	if getPropertyFromClass('backend.ClientPrefs', 'data.downScroll') == true then
-		judgementYoffset = 525
+		if getPropertyFromClass('backend.ClientPrefs', 'data.middleScroll') ~= true then
+			judgementYoffset = 525
+		else
+			judgementYoffset = 400
+		end
 	else
-		judgementYoffset = 0
+		if getPropertyFromClass('backend.ClientPrefs', 'data.middleScroll') ~= true then
+			judgementYoffset = 0
+		else
+			judgementYoffset = 125
+		end
 	end
     createText()
     canCreate = true

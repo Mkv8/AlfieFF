@@ -187,7 +187,10 @@ class Forest extends BaseStage {
 				{
 					whiteText.animation.play('alfie');
 					//FlxTween.tween(whiteText, {alpha: 1}, 1.5);
-					songDeets();					
+					songDeets();	
+					blackscreen.alpha = 0.00001;
+					blackscreen.cameras = [camHUD];
+					whiteText.cameras = [camHUD];				
 				}
 
 			case 14:
@@ -197,10 +200,7 @@ class Forest extends BaseStage {
 
 			case 16:
 				{
-					FlxG.camera.flash(FlxColor.WHITE,1,false);
-					blackscreen.alpha = 0.00001;
-					blackscreen.cameras = [camHUD];
-					whiteText.cameras = [camHUD];
+
 				}
 
 			case 179:

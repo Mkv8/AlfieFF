@@ -4532,6 +4532,16 @@
 				]
 			],
 			[
+				167333.333333333,
+				[
+					[
+						"Camera Movement",
+						"bf, -150, 40",
+						"8s, expoIn"
+					]
+				]
+			],
+			[
 				167500,
 				[
 					[
@@ -4548,11 +4558,6 @@
 						"Add Camera Zoom",
 						"0.01",
 						"0.02"
-					],
-					[
-						"Camera Movement",
-						"bf, -150, 40",
-						"4s, expoIn"
 					]
 				]
 			],
@@ -4567,7 +4572,7 @@
 					[
 						"Camera Movement",
 						"bf, -50, 35",
-						"24s, expoOut"
+						"16s, expoOut"
 					]
 				]
 			],

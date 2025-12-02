@@ -120,7 +120,7 @@ class Freaky extends BaseStage {
 			switch(count)
 			{
 				case THREE: //num 0
-					if (ClientPrefs.data.disableSplit == false)
+					/*if (ClientPrefs.data.disableSplit == false)
 					{
 						for (i in 0...4)
 						{
@@ -136,7 +136,7 @@ class Freaky extends BaseStage {
 								PlayState.playerStrums.members[i].x = 900;
 							}
 						}
-					}
+					}*/
 				case TWO: //num 1
 				case ONE: //num 2
 				case GO: //num 3
