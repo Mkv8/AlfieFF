@@ -43,7 +43,7 @@ class CreditsState extends MusicBeatState {
 				{
 					name: "Mkv8",
 					iconName: "mkIcon",
-					quote: "message",
+					quote: "Maybe the real alfies.. were the moonlights we serenaded along the way......",
 					link: "https://twitter.com/Mkv8Art",
 				},
 				{
@@ -66,7 +66,7 @@ class CreditsState extends MusicBeatState {
 				{
 					name: "Mkv8",
 					iconName: "mkIcon",
-					quote: "This is my super cool template credits message!",
+					quote: "2 quotes? \nits like getting half a quote 4 times",
 					link: "https://twitter.com/Mkv8Art",
 				},
 				{
@@ -80,6 +80,12 @@ class CreditsState extends MusicBeatState {
 					iconName: "tantalunIcon",
 					quote: "*explodes*\n[caterpie explosion gif]",
 					link: "https://bsky.app/profile/tantalun.bsky.social",
+				},
+				{
+					name: "Ferzy",
+					iconName: "ferzyIcon",
+					quote: "Made the combo/UI script, helped optimize assets and helped with coding the menus",
+					link: "https://x.com/_Ferzy?s=09", //idk his link
 				},
 			],
 		},
@@ -149,7 +155,7 @@ class CreditsState extends MusicBeatState {
 				{
 					name: "Haspecto", //Channel Surfers
 					iconName: "haspectoIcon",
-					quote: "This is my super cool template credits message!",
+					quote: "Uhhhhhhhhhhh... \n2",
 					link: "https://x.com/SorrowGuy1",
 				},
 			],
@@ -172,7 +178,7 @@ class CreditsState extends MusicBeatState {
 				{
 					name: "sire_kirbz",
 					iconName: "sireIcon",
-					quote: "This is my super cool template credits message!",
+					quote: "COLLECT MY CHARTS (and questionable lua). Jokes aside, getting to work on one of my fav FNF mods is kinda crazy",
 					link: "https://x.com/sirekirb",
 				},
 			],
@@ -203,12 +209,6 @@ class CreditsState extends MusicBeatState {
 					iconName: "daybreakIcon",
 					quote: "Voiced Minus Alfie",
 					link: "https://x.com/DaybreakBun",
-				},
-				{
-					name: "Ferzy",
-					iconName: "ferzyIcon",
-					quote: "Made the combo/UI script, helped optimize assets and helped with coding the menus",
-					link: "https://x.com/_Ferzy?s=09", //idk his link
 				},
 			],
 		},
@@ -267,7 +267,7 @@ class CreditsState extends MusicBeatState {
 					name: "MattDoes",
 					iconName: null,
 					quote: null,
-					link: null,
+					link: "https://youtu.be/pApzw2_UtDg",
 				},
 				{
 					name: "SirSins",
@@ -899,8 +899,9 @@ class CreditsState extends MusicBeatState {
 			{
 				alpha: 0.5,
 			},
-			0.16,
+			0.30,
 			{
+				ease: FlxEase.quartInOut,
 				onComplete: function (tween) {
 					this.creditChangeTweens.previous.name = null;
 				}
@@ -913,8 +914,9 @@ class CreditsState extends MusicBeatState {
 				{
 					alpha: 0.5,
 				},
-				0.16,
+				0.30,
 				{
+					ease: FlxEase.quartInOut,
 					onComplete: function (tween) {
 						this.creditChangeTweens.previous.icon.alphaTween = null;
 					}
@@ -927,7 +929,7 @@ class CreditsState extends MusicBeatState {
 					{
 						x: deselectedCredit.icon.x + 240.0,
 					},
-					0.16,
+					0.30,
 					{
 						ease: FlxEase.cubeOut,
 						onComplete: function (tween) {
@@ -945,8 +947,9 @@ class CreditsState extends MusicBeatState {
 					{
 						alpha: 0.0,
 					},
-					0.16,
+					0.30,
 					{
+						ease: FlxEase.quartInOut,
 						onComplete: function (tween) {
 							this.creditChangeTweens.previous.quote = null;
 						}
@@ -958,8 +961,9 @@ class CreditsState extends MusicBeatState {
 					{
 						alpha: 0.5,
 					},
-					0.16,
+					0.30,
 					{
+						ease: FlxEase.quartInOut,
 						onComplete: function (tween) {
 							this.creditChangeTweens.previous.quote = null;
 						}
@@ -978,8 +982,9 @@ class CreditsState extends MusicBeatState {
 			{
 				alpha: 1.0,
 			},
-			0.16,
+			0.30,
 			{
+				ease: FlxEase.quartInOut,
 				onComplete: function (tween) {
 					this.creditChangeTweens.next.name = null;
 				}
@@ -992,8 +997,9 @@ class CreditsState extends MusicBeatState {
 				{
 					alpha: 1.0,
 				},
-				0.16,
+				0.30,
 				{
+					ease: FlxEase.quartInOut,
 					onComplete: function (tween) {
 						this.creditChangeTweens.next.icon.alphaTween = null;
 					}
@@ -1006,7 +1012,7 @@ class CreditsState extends MusicBeatState {
 					{
 						x: selectedCredit.icon.x - 240.0,
 					},
-					0.16,
+					0.30,
 					{
 						ease: FlxEase.cubeOut,
 						onComplete: function (tween) {
@@ -1023,8 +1029,9 @@ class CreditsState extends MusicBeatState {
 				{
 					alpha: 1.0,
 				},
-				0.16,
+				0.30,
 				{
+					ease: FlxEase.quartInOut,
 					onComplete: function (tween) {
 						this.creditChangeTweens.next.quote = null;
 					}
