@@ -1,0 +1,46 @@
+{
+	"song": {
+		"events": [
+			[
+				45714.2857142857,
+				[
+					[
+						"Play Animation",
+						"balloon",
+						"gf"
+					]
+				]
+			],
+			[
+				47959.1836734694,
+				[
+					[
+						"Play Animation",
+						"balloonPop",
+						"gf"
+					]
+				]
+			],
+			[
+				62040.8163265307,
+				[
+					[
+						"Play Animation",
+						"mute",
+						"gf"
+					]
+				]
+			],
+			[
+				62142.8571428572,
+				[
+					[
+						"Alt Idle Animation",
+						"gf",
+						"-alt"
+					]
+				]
+			]
+		]
+	}
+}

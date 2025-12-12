@@ -62,7 +62,7 @@ class FreeplayState extends MusicBeatState {
 	var bottomBG:FlxSprite;
 
 	var texts:Array<FlxText> = [];
-	var albums:Array<String> = ['freaky4eva', 'ffNewMix', 'convictedLove', 'jammedCartridge', 'anemoia', 'punchBuggy', 'rooftopTalkshop', 'aisong', 'channelSurfers', 'eyeOfTheBeholder'];
+	var albums:Array<String> = ['freaky4eva', 'ffNewMix', 'convictedLove', 'jammedCartridge', 'anemoia', 'punchBuggy', 'rooftopTalkshop', 'dreamMaker', 'channelSurfers', 'eyeOfTheBeholder'];
 	var albumpics:Array<FlxSprite> = [];
 
 	var player:MusicPlayer;
@@ -76,10 +76,7 @@ class FreeplayState extends MusicBeatState {
 	var albumTimer:FlxTimer;
 
 	var songText:FlxText;
-	//BASIC NOTES: NEW SONGS YOU HAVENT PLAYED ARE BLACK WITH THE NAMES BEING ???
-	//ONLY EXCEPTIONS TO THIS ARE THE FIRST THREE SONGS: FREAKY 4EVA, FOREST FIRE AND CONVICTED LOVE, THATS BECAUSE THEYRE FROM THE OLD UPDATE! PLEASE KEEP THEM ALREADY REVEALED
-	//AFTER YOU PLAY A SONG IT SHOWS THE ACTUAL SONG NAME AND ALBUM
-	//CHANGE SONGS WITH LEFT AND RIGHT, THERES ONLY ONE DIFFICULTY SO NOTHING WITH THAT
+
 	//THERES A CONCEPT PICTURE IN THE FILES ON /MENUASSETS
 	//ALSO yellow text: #FF ffcf53 and outline border: #FF 770f0f
 

@@ -27,6 +27,7 @@ class AiStage extends BaseStage {
 	var littleStage:BGSprite;
 	var theseFuckingThings:BGSprite;
 
+	var pringleplatform:BGSprite;
 
 	var leaves:BGSprite;
 
@@ -141,7 +142,7 @@ class AiStage extends BaseStage {
 		FlxTween.tween(block1, {y: block1.y - 15}, 1.5, { type: FlxTween.PINGPONG, ease: FlxEase.sineInOut});
 		FlxTween.angle(block1, 4.5, 0, 3.5, {type: FlxTween.PINGPONG, ease: FlxEase.sineInOut});
 		
-		block2 = new BGSprite('aiStage/block2', 1400, 790, 1, 1);
+		block2 = new BGSprite('aiStage/block2', 1100, 790, 1, 1);
 		block2.updateHitbox();
 		block2.alpha = 1;
 		block2.antialiasing = ClientPrefs.data.antialiasing;
@@ -155,6 +156,12 @@ class AiStage extends BaseStage {
 		leaves.antialiasing = ClientPrefs.data.antialiasing;
 		leaves.animation.play('leaves', true, false);
 		add(leaves);
+
+		pringleplatform = new BGSprite('aiStage/pringlePlatform', 1300, 1080, 1, 1);
+		pringleplatform.updateHitbox();
+		pringleplatform.alpha = 1;
+		pringleplatform.antialiasing = ClientPrefs.data.antialiasing;
+		add(pringleplatform);		
 
 		mainIsland = new BGSprite('aiStage/mainIsland', 0, 55, 1, 1);
 		mainIsland.updateHitbox();
@@ -240,12 +247,16 @@ class AiStage extends BaseStage {
 		
 		switch (curBeat) {
 
-			case 1:
+			case 24:
 				{
 					songDeets();
 				}
 
-			
+			case 112:
+				{
+					FlxTween.tween(pringleplatform, { y: 680}, 1.2, {ease: FlxEase.quartInOut});	
+					FlxTween.tween(gf, { y: 534}, 2.4, {ease: FlxEase.quartInOut});					
+				}			
 
 			
 			}
@@ -268,7 +279,7 @@ class AiStage extends BaseStage {
 		moontitle.cameras = [camOther];
 		moontitle.scale.set(0.8, 0.8);
 
-		songTitle = new FlxText(20, 200, FlxG.width - 100, 'Forest Fire (New Mix)', 48);
+		songTitle = new FlxText(20, 200, FlxG.width - 100, 'Dream Maker', 48);
 		songTitle.setFormat(Paths.font("vcr.ttf"), 46, 0xFFffcf53, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		songTitle.scrollFactor.set();
 		songTitle.alpha = 0;

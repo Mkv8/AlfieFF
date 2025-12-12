@@ -402,6 +402,7 @@ class PlayState extends MusicBeatState {
 			introSoundsSuffix = '-nikku';
 		}
 
+
 		add(gfGroup);
 		add(dadGroup);
 		add(boyfriendGroup);
@@ -703,7 +704,7 @@ class PlayState extends MusicBeatState {
 				{
             	playerStrums.members[i].x -= 2000;
 				}
-					for (i in 0...4)
+				for (i in 0...4)
 				{
             	opponentStrums.members[i].x -= 2000;
 				}
@@ -711,6 +712,15 @@ class PlayState extends MusicBeatState {
 				iconP2.visible = false;
 				healthBar.visible = false;
 			}
+
+			//COMMENT OUT LATER THIS IS JUST FOR THE ALT RECORDING
+			/*for(strum in opponentStrums.members) strum.visible = false;
+			for(strum in playerStrums.members) strum.visible = false;
+			timeTxt.visible = false;
+			botplayTxt.visible = false;
+			scoreTxt.visible = false;
+			splash.visible = false;
+			noteGroup.visible = false;*/
 	}
 
 	var bfNoteSkin:String = null;
@@ -2468,7 +2478,14 @@ class PlayState extends MusicBeatState {
 
 			switch (SONG.song)
 			{
-				case 'aiSong':
+				case 'dream-maker':
+				{
+					AiComic.itsgivingendcard = true;
+					MusicBeatState.switchState(new AiComic());
+
+				}
+				
+				case 'Dream Maker':
 				{
 					AiComic.itsgivingendcard = true;
 					MusicBeatState.switchState(new AiComic());

@@ -1,5 +1,5 @@
 {
-	"storyName": "Ghost in the Machine",
+	"storyName": "Wherever you're goin, I'm goin your way",
 	"difficulties": "hard",
 	"hideFreeplay": false,
 	"weekBackground": "",
@@ -13,7 +13,7 @@
 	"hideStoryMode": false,
 	"songs": [
 		[
-			"aiSong",
+			"Dream Maker",
 			"ai90s",
 			[
 				252,
@@ -28,5 +28,5 @@
 		""
 	],
 	"hiddenUntilUnlocked": false,
-	"weekName": "Ghost in the Machine"
+	"weekName": "Wherever you're goin, I'm goin your way"
 }

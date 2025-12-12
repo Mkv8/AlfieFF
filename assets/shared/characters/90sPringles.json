@@ -1,0 +1,124 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "idle"
+		},
+		{
+			"offsets": [
+				29,
+				-12
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "left"
+		},
+		{
+			"offsets": [
+				-7,
+				-32
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "down"
+		},
+		{
+			"offsets": [
+				2,
+				4
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "up"
+		},
+		{
+			"offsets": [
+				-26,
+				-9
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "right"
+		},
+		{
+			"offsets": [
+				-3,
+				-6
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle-alt",
+			"loop": false,
+			"name": "altIdle"
+		},
+		{
+			"offsets": [
+				-13,
+				516
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "balloon",
+			"loop": false,
+			"name": "balloon0"
+		},
+		{
+			"offsets": [
+				30,
+				520
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "balloonPop",
+			"loop": false,
+			"name": "balloonPop"
+		},
+		{
+			"offsets": [
+				103,
+				20
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "mute",
+			"loop": false,
+			"name": "miss"
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": false,
+	"image": "characters/90sPringles",
+	"position": [
+		310,
+		360
+	],
+	"healthicon": "pringles90s",
+	"flip_x": false,
+	"healthbar_colors": [
+		125,
+		96,
+		230
+	],
+	"camera_position": [
+		-160,
+		50
+	],
+	"sing_duration": 4,
+	"scale": 1,
+	"_editor_isPlayer": false
+}

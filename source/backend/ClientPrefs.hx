@@ -84,7 +84,7 @@ import states.TitleState;
 		'anemoia' => false,
 		'punch-buggy!!' => false,
 		'rooftop-talkshop' => false,
-		'aisong' => false,
+		'dream-maker' => false,
 		'channel-surfers' => false,
 		'eye-of-the-beholder' => false
 	];

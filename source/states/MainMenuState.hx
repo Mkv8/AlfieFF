@@ -93,7 +93,7 @@ class MainMenuState extends MusicBeatState {
 		renderDatas.insert(12, { name: "NikkuMSRender", offset: { x: 70.0, y: 50.0 }, scale: 0.72});
 		addedNikku = true;
 		}
-		if (Highscore.getScore('aisong', 0) != 0 && !addedAi)
+		if (Highscore.getScore('dream-maker', 0) != 0 && !addedAi)
 		{
 		renderDatas.insert(13, { name: "AiMSRender", offset: { x: 70.0, y: 20.0 }, scale: 0.7 });
 		renderDatas.insert(14, { name: "AiMSRenderAlt", offset: { x: 40.0, y: 20.0 }, scale: 0.6 });
