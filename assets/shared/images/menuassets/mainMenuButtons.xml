@@ -1,29 +1,30 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="mainMenuButtons.png">
-	<!-- Created with Adobe Animate version 20.5.1.31044 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="creditsButtonSelected0000" x="8" y="8" width="479" height="165"/>
-	<SubTexture name="creditsButtonSelected0001" x="8" y="8" width="479" height="165"/>
-	<SubTexture name="creditsButtonSelected0002" x="8" y="8" width="479" height="165"/>
-	<SubTexture name="creditsButtonIdle0000" x="495" y="8" width="479" height="165"/>
-	<SubTexture name="creditsButtonIdle0001" x="495" y="8" width="479" height="165"/>
-	<SubTexture name="creditsButtonIdle0002" x="495" y="8" width="479" height="165"/>
-	<SubTexture name="extrasButtonSelected0000" x="8" y="181" width="443" height="169"/>
-	<SubTexture name="extrasButtonSelected0001" x="8" y="181" width="443" height="169"/>
-	<SubTexture name="extrasButtonSelected0002" x="8" y="181" width="443" height="169"/>
-	<SubTexture name="extrasButtonIdle0000" x="459" y="181" width="443" height="169"/>
-	<SubTexture name="extrasButtonIdle0001" x="459" y="181" width="443" height="169"/>
-	<SubTexture name="extrasButtonIdle0002" x="459" y="181" width="443" height="169"/>
-	<SubTexture name="optionsButtonSelected0000" x="8" y="358" width="498" height="212"/>
-	<SubTexture name="optionsButtonSelected0001" x="8" y="358" width="498" height="212"/>
-	<SubTexture name="optionsButtonSelected0002" x="8" y="358" width="498" height="212"/>
-	<SubTexture name="optionsButtonIdle0000" x="514" y="358" width="498" height="212"/>
-	<SubTexture name="optionsButtonIdle0001" x="514" y="358" width="498" height="212"/>
-	<SubTexture name="optionsButtonIdle0002" x="514" y="358" width="498" height="212"/>
-	<SubTexture name="songsButtonSelected0000" x="8" y="578" width="403" height="203"/>
-	<SubTexture name="songsButtonSelected0001" x="8" y="578" width="403" height="203"/>
-	<SubTexture name="songsButtonSelected0002" x="8" y="578" width="403" height="203"/>
-	<SubTexture name="songsButtonIdle0000" x="419" y="578" width="403" height="203"/>
-	<SubTexture name="songsButtonIdle0001" x="419" y="578" width="403" height="203"/>
-	<SubTexture name="songsButtonIdle0002" x="419" y="578" width="403" height="203"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 DEV https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="mainMenuButtons.png" width="1847" height="382" spritePadding="1" borderPadding="0">
+	<SubTexture name="creditsButtonSelected0000" x="480" y="213" width="479" height="165" frameX="0" frameY="0" frameWidth="479" frameHeight="165"/>
+	<SubTexture name="creditsButtonSelected0001" x="480" y="213" width="479" height="165" frameX="0" frameY="0" frameWidth="479" frameHeight="165"/>
+	<SubTexture name="creditsButtonSelected0002" x="480" y="213" width="479" height="165" frameX="0" frameY="0" frameWidth="479" frameHeight="165"/>
+	<SubTexture name="creditsButtonIdle0000" x="0" y="213" width="479" height="165" frameX="0" frameY="0" frameWidth="479" frameHeight="165"/>
+	<SubTexture name="creditsButtonIdle0001" x="0" y="213" width="479" height="165" frameX="0" frameY="0" frameWidth="479" frameHeight="165"/>
+	<SubTexture name="creditsButtonIdle0002" x="0" y="213" width="479" height="165" frameX="0" frameY="0" frameWidth="479" frameHeight="165"/>
+	<SubTexture name="extrasButtonSelected0000" x="1404" y="213" width="443" height="169" frameX="0" frameY="0" frameWidth="443" frameHeight="169"/>
+	<SubTexture name="extrasButtonSelected0001" x="1404" y="213" width="443" height="169" frameX="0" frameY="0" frameWidth="443" frameHeight="169"/>
+	<SubTexture name="extrasButtonSelected0002" x="1404" y="213" width="443" height="169" frameX="0" frameY="0" frameWidth="443" frameHeight="169"/>
+	<SubTexture name="extrasButtonIdle0000" x="960" y="213" width="443" height="169" frameX="0" frameY="0" frameWidth="443" frameHeight="169"/>
+	<SubTexture name="extrasButtonIdle0001" x="960" y="213" width="443" height="169" frameX="0" frameY="0" frameWidth="443" frameHeight="169"/>
+	<SubTexture name="extrasButtonIdle0002" x="960" y="213" width="443" height="169" frameX="0" frameY="0" frameWidth="443" frameHeight="169"/>
+	<SubTexture name="optionsButtonSelected0000" x="499" y="0" width="498" height="212" frameX="0" frameY="0" frameWidth="498" frameHeight="212"/>
+	<SubTexture name="optionsButtonSelected0001" x="499" y="0" width="498" height="212" frameX="0" frameY="0" frameWidth="498" frameHeight="212"/>
+	<SubTexture name="optionsButtonSelected0002" x="499" y="0" width="498" height="212" frameX="0" frameY="0" frameWidth="498" frameHeight="212"/>
+	<SubTexture name="optionsButtonIdle0000" x="0" y="0" width="498" height="212" frameX="0" frameY="0" frameWidth="498" frameHeight="212"/>
+	<SubTexture name="optionsButtonIdle0001" x="0" y="0" width="498" height="212" frameX="0" frameY="0" frameWidth="498" frameHeight="212"/>
+	<SubTexture name="optionsButtonIdle0002" x="0" y="0" width="498" height="212" frameX="0" frameY="0" frameWidth="498" frameHeight="212"/>
+	<SubTexture name="songsButtonSelected0000" x="1402" y="0" width="403" height="203" frameX="0" frameY="0" frameWidth="403" frameHeight="203"/>
+	<SubTexture name="songsButtonSelected0001" x="1402" y="0" width="403" height="203" frameX="0" frameY="0" frameWidth="403" frameHeight="203"/>
+	<SubTexture name="songsButtonSelected0002" x="1402" y="0" width="403" height="203" frameX="0" frameY="0" frameWidth="403" frameHeight="203"/>
+	<SubTexture name="songsButtonIdle0000" x="998" y="0" width="403" height="203" frameX="0" frameY="0" frameWidth="403" frameHeight="203"/>
+	<SubTexture name="songsButtonIdle0001" x="998" y="0" width="403" height="203" frameX="0" frameY="0" frameWidth="403" frameHeight="203"/>
+	<SubTexture name="songsButtonIdle0002" x="998" y="0" width="403" height="203" frameX="0" frameY="0" frameWidth="403" frameHeight="203"/>
 </TextureAtlas>

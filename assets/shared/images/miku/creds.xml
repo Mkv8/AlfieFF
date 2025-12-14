@@ -1,13 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="creds.png">
-	<!-- Created with Adobe Animate version 20.5.1.31044 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="creds0000" x="8" y="8" width="399" height="754"/>
-	<SubTexture name="creds0001" x="8" y="8" width="399" height="754"/>
-	<SubTexture name="creds0002" x="8" y="8" width="399" height="754"/>
-	<SubTexture name="creds0003" x="8" y="8" width="399" height="754"/>
-	<SubTexture name="creds0004" x="415" y="8" width="396" height="753" frameX="-1" frameY="0" frameWidth="399" frameHeight="754"/>
-	<SubTexture name="creds0005" x="415" y="8" width="396" height="753" frameX="-1" frameY="0" frameWidth="399" frameHeight="754"/>
-	<SubTexture name="creds0006" x="415" y="8" width="396" height="753" frameX="-1" frameY="0" frameWidth="399" frameHeight="754"/>
-	<SubTexture name="creds0007" x="415" y="8" width="396" height="753" frameX="-1" frameY="0" frameWidth="399" frameHeight="754"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 DEV https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="creds.png" width="796" height="754" spritePadding="1" borderPadding="0">
+	<SubTexture name="creds0000" x="0" y="0" width="399" height="754" frameX="0" frameY="0" frameWidth="399" frameHeight="754"/>
+	<SubTexture name="creds0001" x="0" y="0" width="399" height="754" frameX="0" frameY="0" frameWidth="399" frameHeight="754"/>
+	<SubTexture name="creds0002" x="0" y="0" width="399" height="754" frameX="0" frameY="0" frameWidth="399" frameHeight="754"/>
+	<SubTexture name="creds0003" x="0" y="0" width="399" height="754" frameX="0" frameY="0" frameWidth="399" frameHeight="754"/>
+	<SubTexture name="creds0004" x="400" y="0" width="396" height="753" frameX="-1" frameY="0" frameWidth="399" frameHeight="754"/>
+	<SubTexture name="creds0005" x="400" y="0" width="396" height="753" frameX="-1" frameY="0" frameWidth="399" frameHeight="754"/>
+	<SubTexture name="creds0006" x="400" y="0" width="396" height="753" frameX="-1" frameY="0" frameWidth="399" frameHeight="754"/>
+	<SubTexture name="creds0007" x="400" y="0" width="396" height="753" frameX="-1" frameY="0" frameWidth="399" frameHeight="754"/>
 </TextureAtlas>

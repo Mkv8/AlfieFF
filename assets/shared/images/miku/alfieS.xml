@@ -1,15 +1,16 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="alfieS.png">
-	<!-- Created with Adobe Animate version 20.5.1.31044 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="alfieS0000" x="8" y="8" width="314" height="575" frameX="-4" frameY="-2" frameWidth="319" frameHeight="577"/>
-	<SubTexture name="alfieS0001" x="8" y="8" width="314" height="575" frameX="-4" frameY="-2" frameWidth="319" frameHeight="577"/>
-	<SubTexture name="alfieS0002" x="8" y="8" width="314" height="575" frameX="-4" frameY="-2" frameWidth="319" frameHeight="577"/>
-	<SubTexture name="alfieS0003" x="8" y="8" width="314" height="575" frameX="-4" frameY="-2" frameWidth="319" frameHeight="577"/>
-	<SubTexture name="alfieS0004" x="8" y="8" width="314" height="575" frameX="-4" frameY="-2" frameWidth="319" frameHeight="577"/>
-	<SubTexture name="alfieS0005" x="330" y="8" width="319" height="577"/>
-	<SubTexture name="alfieS0006" x="330" y="8" width="319" height="577"/>
-	<SubTexture name="alfieS0007" x="330" y="8" width="319" height="577"/>
-	<SubTexture name="alfieS0008" x="330" y="8" width="319" height="577"/>
-	<SubTexture name="alfieS0009" x="330" y="8" width="319" height="577"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 DEV https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="alfieS.png" width="634" height="577" spritePadding="1" borderPadding="0">
+	<SubTexture name="alfieS0000" x="320" y="0" width="314" height="575" frameX="-4" frameY="-2" frameWidth="319" frameHeight="577"/>
+	<SubTexture name="alfieS0001" x="320" y="0" width="314" height="575" frameX="-4" frameY="-2" frameWidth="319" frameHeight="577"/>
+	<SubTexture name="alfieS0002" x="320" y="0" width="314" height="575" frameX="-4" frameY="-2" frameWidth="319" frameHeight="577"/>
+	<SubTexture name="alfieS0003" x="320" y="0" width="314" height="575" frameX="-4" frameY="-2" frameWidth="319" frameHeight="577"/>
+	<SubTexture name="alfieS0004" x="320" y="0" width="314" height="575" frameX="-4" frameY="-2" frameWidth="319" frameHeight="577"/>
+	<SubTexture name="alfieS0005" x="0" y="0" width="319" height="577" frameX="0" frameY="0" frameWidth="319" frameHeight="577"/>
+	<SubTexture name="alfieS0006" x="0" y="0" width="319" height="577" frameX="0" frameY="0" frameWidth="319" frameHeight="577"/>
+	<SubTexture name="alfieS0007" x="0" y="0" width="319" height="577" frameX="0" frameY="0" frameWidth="319" frameHeight="577"/>
+	<SubTexture name="alfieS0008" x="0" y="0" width="319" height="577" frameX="0" frameY="0" frameWidth="319" frameHeight="577"/>
+	<SubTexture name="alfieS0009" x="0" y="0" width="319" height="577" frameX="0" frameY="0" frameWidth="319" frameHeight="577"/>
 </TextureAtlas>
