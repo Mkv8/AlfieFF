@@ -69,6 +69,8 @@ class NoteOffsetState extends MusicBeatState {
 		add(gf);
 		add(boyfriend);
 
+		gf.alpha = 0;
+		boyfriend.alpha = 0;
 		// Combo stuff
 		coolText = new FlxText(0, 0, 0, '', 32);
 		coolText.screenCenter();
@@ -81,10 +83,12 @@ class NoteOffsetState extends MusicBeatState {
 		rating.updateHitbox();
 
 		add(rating);
+		rating.alpha = 0;
 
 		comboNums = new FlxSpriteGroup();
 		comboNums.cameras = [camHUD];
 		add(comboNums);
+		comboNums.alpha = 0;
 
 		var seperatedScore:Array<Int> = [];
 		for (i in 0...3) {

@@ -14,19 +14,8 @@
 		{
 			"loop": false,
 			"offsets": [
-				-42,
-				-16
-			],
-			"anim": "singLEFT",
-			"fps": 24,
-			"name": "left",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
 				152,
-				-61
+				-58
 			],
 			"anim": "singDOWN",
 			"fps": 24,
@@ -45,66 +34,77 @@
 			"indices": []
 		},
 		{
+			"offsets": [
+				-70,
+				-10
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFTmiss",
+			"indices": [],
+			"name": "alfmiss"
+		},
+		{
+			"offsets": [
+				-70,
+				-10
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUPmiss",
+			"indices": [],
+			"name": "alfmiss"
+		},
+		{
+			"offsets": [
+				-70,
+				-10
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWNmiss",
+			"indices": [],
+			"name": "alfmiss"
+		},
+		{
+			"offsets": [
+				-70,
+				-10
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHTmiss",
+			"indices": [],
+			"name": "alfmiss"
+		},
+		{
 			"loop": false,
 			"offsets": [
-				164,
-				-37
+				166,
+				-30
 			],
-			"anim": "singRIGHT",
+			"anim": "singLEFT",
 			"fps": 24,
 			"name": "right",
 			"indices": []
 		},
 		{
-			"offsets": [
-				-70,
-				-10
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singLEFTmiss",
 			"loop": false,
-			"name": "alfmiss"
-		},
-		{
 			"offsets": [
-				-70,
-				-10
+				-52,
+				-18
 			],
-			"indices": [],
+			"anim": "singRIGHT",
 			"fps": 24,
-			"anim": "singUPmiss",
-			"loop": false,
-			"name": "alfmiss"
-		},
-		{
-			"offsets": [
-				-70,
-				-10
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singDOWNmiss",
-			"loop": false,
-			"name": "alfmiss"
-		},
-		{
-			"offsets": [
-				-70,
-				-10
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singRIGHTmiss",
-			"loop": false,
-			"name": "alfmiss"
+			"name": "left",
+			"indices": []
 		}
 	],
 	"vocals_file": "",
 	"no_antialiasing": false,
 	"image": "characters/90sAlfieAi",
 	"position": [
-		40,
+		30,
 		190
 	],
 	"healthicon": "alfie90s",
@@ -115,7 +115,7 @@
 		70
 	],
 	"camera_position": [
-		-10,
+		50,
 		0
 	],
 	"sing_duration": 4,

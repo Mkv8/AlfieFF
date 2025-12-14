@@ -14,7 +14,7 @@ function onEvent(n,v1,v2)
 		else
 			makeGraphic('flash', 1, 1, v2)
 		end
-		scaleObject('flash', 1280, 720, false)
+		scaleObject('flash', 7000, 7000)
 
 		if flashingLights or v2 == '000000' then
 			setProperty('flash.alpha', 1)

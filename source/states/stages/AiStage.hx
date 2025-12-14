@@ -35,7 +35,7 @@ class AiStage extends BaseStage {
 
 	var multiplyDark:BGSprite;
 	var shadow:BGSprite;
-
+	var vignette:BGSprite;
 	var blackscreen:BGSprite;
 
 	
@@ -58,8 +58,8 @@ class AiStage extends BaseStage {
 		// concept.updateHitbox();
 		// add(concept);
 		bg = new BGSprite('aiStage/Bg', 0, 0, 1, 1);
-		bg.updateHitbox();
 		bg.scale.x = 2845;
+		bg.updateHitbox();		
 		bg.alpha = 1;
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		add(bg);
@@ -193,6 +193,14 @@ class AiStage extends BaseStage {
 		shadow.blend = BlendMode.MULTIPLY;
 		add(shadow);
 
+		vignette = new BGSprite('aiStage/vignette', 0, 0, 1, 1);
+		vignette.updateHitbox();
+		vignette.screenCenter();
+		vignette.alpha = 0;
+		vignette.cameras = [camOther];
+		vignette.blend = BlendMode.MULTIPLY;
+		add(vignette);
+
 		concept = new BGSprite('aiStage/conceptFull', 0, 0, 1, 1);
 		concept.updateHitbox();
 		concept.alpha = 0.3;
@@ -259,7 +267,18 @@ class AiStage extends BaseStage {
 					FlxTween.tween(gf, { y: 534}, 2.4, {ease: FlxEase.quartInOut});					
 				}			
 
-			
+			case 249:
+				{
+					FlxTween.tween(vignette, {alpha: 1}, 1.5, {ease: FlxEase.quartIn});	
+				}			
+			case 312:
+				{
+					FlxTween.tween(vignette, {alpha: 0}, 1.5, {ease: FlxEase.quartInOut});	
+				}		
+			case 408:
+				{
+					FlxTween.tween(vignette, {alpha: 1}, 3, {ease: FlxEase.quartInOut});	
+				}								
 			}
 	}
 
