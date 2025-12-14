@@ -274,7 +274,7 @@ class PauseSubState extends MusicBeatSubstate {
 					startDelay: 1
 				});
 				}
-			case 'Dream Maker':
+			case 'Dreamcatcher':
 				{
 				charRender.x = 630;
 				charRender.y = -130;
@@ -622,7 +622,7 @@ class PauseSubState extends MusicBeatSubstate {
 		case 'Rooftop Talkshop':
 			return ['pauseNikku', 'RENDERS/NikkuMSRender'];
 
-		case 'Dream Maker':
+		case 'Dreamcatcher':
 			return ['pauseAi', 'RENDERS/AiMSRenderAlt'];
 
 		case 'Channel Surfers':

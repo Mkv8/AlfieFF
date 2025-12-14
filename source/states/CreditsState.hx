@@ -141,13 +141,13 @@ class CreditsState extends MusicBeatState {
 					link: "https://x.com/Gracio978",
 				},
 				{
-					name: "Zeroh", //Helped Eye of the Beholder, and Dream Maker
+					name: "Zeroh", //Helped Eye of the Beholder, and Dreamcatcher
 					iconName: "zerohIcon",
 					quote: "has anyone seen my zeroh mulch? i still havent found it",
 					link: "https://x.com/catsmirkk",
 				},
 				{
-					name: "Jospi", //as the clock strikes midnight and Dream Maker
+					name: "Jospi", //as the clock strikes midnight and Dreamcatcher
 					iconName: "jospiIcon",
 					quote: "sry\ni ated all the music",
 					link: "https://x.com/jospi_music",
@@ -195,7 +195,7 @@ class CreditsState extends MusicBeatState {
 				{
 					name: "ciablue",
 					iconName: "ciaIcon",
-					quote: "Helped designing Alfie for Dream Maker and wrote the comments for Ai in the extras menu",
+					quote: "Helped designing Alfie for Dreamcatcher and wrote the comments for Ai in the extras menu",
 					link: "https://x.com/bluemeows_",
 				},
 				{

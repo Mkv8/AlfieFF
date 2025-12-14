@@ -2478,14 +2478,14 @@ class PlayState extends MusicBeatState {
 
 			switch (SONG.song)
 			{
-				case 'dream-maker':
+				case 'dreamcatcher':
 				{
 					AiComic.itsgivingendcard = true;
 					MusicBeatState.switchState(new AiComic());
 
 				}
 				
-				case 'Dream Maker':
+				case 'Dreamcatcher':
 				{
 					AiComic.itsgivingendcard = true;
 					MusicBeatState.switchState(new AiComic());

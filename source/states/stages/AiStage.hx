@@ -279,7 +279,7 @@ class AiStage extends BaseStage {
 		moontitle.cameras = [camOther];
 		moontitle.scale.set(0.8, 0.8);
 
-		songTitle = new FlxText(20, 200, FlxG.width - 100, 'Dream Maker', 48);
+		songTitle = new FlxText(20, 200, FlxG.width - 100, 'Dreamcatcher', 48);
 		songTitle.setFormat(Paths.font("vcr.ttf"), 46, 0xFFffcf53, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		songTitle.scrollFactor.set();
 		songTitle.alpha = 0;

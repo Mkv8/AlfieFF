@@ -62,7 +62,7 @@ class FreeplayState extends MusicBeatState {
 	var bottomBG:FlxSprite;
 
 	var texts:Array<FlxText> = [];
-	var albums:Array<String> = ['freaky4eva', 'ffNewMix', 'convictedLove', 'jammedCartridge', 'anemoia', 'punchBuggy', 'rooftopTalkshop', 'dreamMaker', 'channelSurfers', 'eyeOfTheBeholder'];
+	var albums:Array<String> = ['freaky4eva', 'ffNewMix', 'convictedLove', 'jammedCartridge', 'anemoia', 'punchBuggy', 'rooftopTalkshop', 'dreamcatcher', 'channelSurfers', 'eyeOfTheBeholder'];
 	var albumpics:Array<FlxSprite> = [];
 
 	var player:MusicPlayer;
@@ -168,7 +168,7 @@ class FreeplayState extends MusicBeatState {
 				}
 				case 7: //ai song may have to change later
 				{
-					    songText.offset.set(-80,0);
+					    songText.offset.set(-40,0);
 				}
 			}
 
