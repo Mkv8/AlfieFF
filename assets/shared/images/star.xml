@@ -1,9 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="star.png">
-	<!-- Created with Adobe Animate version 20.5.1.31044 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="stars0000" x="8" y="8" width="59" height="61"/>
-	<SubTexture name="stars0001" x="77" y="8" width="59" height="61"/>
-	<SubTexture name="stars0002" x="146" y="8" width="59" height="61"/>
-	<SubTexture name="stars0003" x="8" y="79" width="59" height="61"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 DEV https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="star.png" width="107" height="92" spritePadding="1" borderPadding="0">
+	<SubTexture name="stars0000" x="0" y="0" width="59" height="61" frameX="0" frameY="0" frameWidth="59" frameHeight="61"/>
+	<SubTexture name="stars0001" x="60" y="48" width="44" height="44" frameX="-4" frameY="-10" frameWidth="59" frameHeight="61"/>
+	<SubTexture name="stars0002" x="0" y="62" width="17" height="17" frameX="-19" frameY="-23" frameWidth="59" frameHeight="61"/>
+	<SubTexture name="stars0003" x="60" y="0" width="47" height="47" frameX="-4" frameY="-7" frameWidth="59" frameHeight="61"/>
 </TextureAtlas>
