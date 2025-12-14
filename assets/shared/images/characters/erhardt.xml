@@ -1,149 +1,150 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="erhardt.png">
-	<!-- Created with Adobe Animate version 20.5.1.31044 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="Edown0000" x="8" y="8" width="132" height="174"/>
-	<SubTexture name="Edown0001" x="8" y="8" width="132" height="174"/>
-	<SubTexture name="Edown0002" x="150" y="8" width="132" height="174"/>
-	<SubTexture name="Edown0003" x="150" y="8" width="132" height="174"/>
-	<SubTexture name="Edown0004" x="292" y="8" width="132" height="174"/>
-	<SubTexture name="Edown0005" x="292" y="8" width="132" height="174"/>
-	<SubTexture name="Edown0006" x="434" y="8" width="132" height="174"/>
-	<SubTexture name="Edown0007" x="434" y="8" width="132" height="174"/>
-	<SubTexture name="Edown0008" x="576" y="8" width="132" height="174"/>
-	<SubTexture name="Edown0009" x="576" y="8" width="132" height="174"/>
-	<SubTexture name="Edown0010" x="576" y="8" width="132" height="174"/>
-	<SubTexture name="Edown0011" x="576" y="8" width="132" height="174"/>
-	<SubTexture name="Edown0012" x="576" y="8" width="132" height="174"/>
-	<SubTexture name="Edown0013" x="576" y="8" width="132" height="174"/>
-	<SubTexture name="Edown0014" x="576" y="8" width="132" height="174"/>
-	<SubTexture name="Edown0015" x="576" y="8" width="132" height="174"/>
-	<SubTexture name="EdownMiss0000" x="718" y="8" width="85" height="157"/>
-	<SubTexture name="EdownMiss0001" x="718" y="8" width="85" height="157"/>
-	<SubTexture name="EdownMiss0002" x="813" y="8" width="85" height="157"/>
-	<SubTexture name="EdownMiss0003" x="813" y="8" width="85" height="157"/>
-	<SubTexture name="EdownMiss0004" x="908" y="8" width="85" height="157"/>
-	<SubTexture name="EdownMiss0005" x="908" y="8" width="85" height="157"/>
-	<SubTexture name="EdownMiss0006" x="1003" y="8" width="85" height="157"/>
-	<SubTexture name="EdownMiss0007" x="1003" y="8" width="85" height="157"/>
-	<SubTexture name="EdownMiss0008" x="1003" y="8" width="85" height="157"/>
-	<SubTexture name="EdownMiss0009" x="1003" y="8" width="85" height="157"/>
-	<SubTexture name="EdownMiss0010" x="1003" y="8" width="85" height="157"/>
-	<SubTexture name="EdownMiss0011" x="1003" y="8" width="85" height="157"/>
-	<SubTexture name="EdownMiss0012" x="1003" y="8" width="85" height="157"/>
-	<SubTexture name="EdownMiss0013" x="1003" y="8" width="85" height="157"/>
-	<SubTexture name="EdownMiss0014" x="1003" y="8" width="85" height="157"/>
-	<SubTexture name="EdownMiss0015" x="1003" y="8" width="85" height="157"/>
-	<SubTexture name="Eidle0000" x="1098" y="8" width="153" height="171"/>
-	<SubTexture name="Eidle0001" x="1098" y="8" width="153" height="171"/>
-	<SubTexture name="Eidle0002" x="1261" y="8" width="153" height="171"/>
-	<SubTexture name="Eidle0003" x="1261" y="8" width="153" height="171"/>
-	<SubTexture name="Eidle0004" x="1424" y="8" width="153" height="171"/>
-	<SubTexture name="Eidle0005" x="1424" y="8" width="153" height="171"/>
-	<SubTexture name="Eidle0006" x="1587" y="8" width="153" height="171"/>
-	<SubTexture name="Eidle0007" x="1587" y="8" width="153" height="171"/>
-	<SubTexture name="Eidle0008" x="1750" y="8" width="153" height="171"/>
-	<SubTexture name="Eidle0009" x="8" y="192" width="153" height="171"/>
-	<SubTexture name="Eidle0010" x="8" y="192" width="153" height="171"/>
-	<SubTexture name="Eidle0011" x="8" y="192" width="153" height="171"/>
-	<SubTexture name="Eidle0012" x="8" y="192" width="153" height="171"/>
-	<SubTexture name="Eidle0013" x="8" y="192" width="153" height="171"/>
-	<SubTexture name="Eleft0000" x="171" y="192" width="208" height="151"/>
-	<SubTexture name="Eleft0001" x="171" y="192" width="208" height="151"/>
-	<SubTexture name="Eleft0002" x="389" y="192" width="208" height="151"/>
-	<SubTexture name="Eleft0003" x="389" y="192" width="208" height="151"/>
-	<SubTexture name="Eleft0004" x="607" y="192" width="208" height="151"/>
-	<SubTexture name="Eleft0005" x="607" y="192" width="208" height="151"/>
-	<SubTexture name="Eleft0006" x="825" y="192" width="208" height="151"/>
-	<SubTexture name="Eleft0007" x="825" y="192" width="208" height="151"/>
-	<SubTexture name="Eleft0008" x="1043" y="192" width="208" height="151"/>
-	<SubTexture name="Eleft0009" x="1043" y="192" width="208" height="151"/>
-	<SubTexture name="Eleft0010" x="1043" y="192" width="208" height="151"/>
-	<SubTexture name="Eleft0011" x="1043" y="192" width="208" height="151"/>
-	<SubTexture name="Eleft0012" x="1043" y="192" width="208" height="151"/>
-	<SubTexture name="Eleft0013" x="1043" y="192" width="208" height="151"/>
-	<SubTexture name="Eleft0014" x="1043" y="192" width="208" height="151"/>
-	<SubTexture name="Eleft0015" x="1043" y="192" width="208" height="151"/>
-	<SubTexture name="Eleft0016" x="1043" y="192" width="208" height="151"/>
-	<SubTexture name="EleftMiss0000" x="1261" y="192" width="190" height="96"/>
-	<SubTexture name="EleftMiss0001" x="1261" y="192" width="190" height="96"/>
-	<SubTexture name="EleftMiss0002" x="1461" y="192" width="190" height="96"/>
-	<SubTexture name="EleftMiss0003" x="1461" y="192" width="190" height="96"/>
-	<SubTexture name="EleftMiss0004" x="1661" y="192" width="190" height="96"/>
-	<SubTexture name="EleftMiss0005" x="1661" y="192" width="190" height="96"/>
-	<SubTexture name="EleftMiss0006" x="8" y="373" width="190" height="96"/>
-	<SubTexture name="EleftMiss0007" x="8" y="373" width="190" height="96"/>
-	<SubTexture name="EleftMiss0008" x="8" y="373" width="190" height="96"/>
-	<SubTexture name="EleftMiss0009" x="8" y="373" width="190" height="96"/>
-	<SubTexture name="EleftMiss0010" x="8" y="373" width="190" height="96"/>
-	<SubTexture name="EleftMiss0011" x="8" y="373" width="190" height="96"/>
-	<SubTexture name="EleftMiss0012" x="8" y="373" width="190" height="96"/>
-	<SubTexture name="EleftMiss0013" x="8" y="373" width="190" height="96"/>
-	<SubTexture name="EleftMiss0014" x="8" y="373" width="190" height="96"/>
-	<SubTexture name="EleftMiss0015" x="8" y="373" width="190" height="96"/>
-	<SubTexture name="EleftMiss0016" x="8" y="373" width="190" height="96"/>
-	<SubTexture name="Eright0000" x="208" y="373" width="222" height="139"/>
-	<SubTexture name="Eright0001" x="208" y="373" width="222" height="139"/>
-	<SubTexture name="Eright0002" x="440" y="373" width="222" height="139"/>
-	<SubTexture name="Eright0003" x="440" y="373" width="222" height="139"/>
-	<SubTexture name="Eright0004" x="672" y="373" width="222" height="139"/>
-	<SubTexture name="Eright0005" x="672" y="373" width="222" height="139"/>
-	<SubTexture name="Eright0006" x="904" y="373" width="222" height="139"/>
-	<SubTexture name="Eright0007" x="904" y="373" width="222" height="139"/>
-	<SubTexture name="Eright0008" x="1136" y="373" width="222" height="139"/>
-	<SubTexture name="Eright0009" x="1136" y="373" width="222" height="139"/>
-	<SubTexture name="Eright0010" x="1136" y="373" width="222" height="139"/>
-	<SubTexture name="Eright0011" x="1136" y="373" width="222" height="139"/>
-	<SubTexture name="Eright0012" x="1136" y="373" width="222" height="139"/>
-	<SubTexture name="Eright0013" x="1136" y="373" width="222" height="139"/>
-	<SubTexture name="Eright0014" x="1136" y="373" width="222" height="139"/>
-	<SubTexture name="Eright0015" x="1136" y="373" width="222" height="139"/>
-	<SubTexture name="ErightMiss0000" x="1368" y="373" width="192" height="88"/>
-	<SubTexture name="ErightMiss0001" x="1368" y="373" width="192" height="88"/>
-	<SubTexture name="ErightMiss0002" x="1570" y="373" width="192" height="88"/>
-	<SubTexture name="ErightMiss0003" x="1570" y="373" width="192" height="88"/>
-	<SubTexture name="ErightMiss0004" x="1772" y="373" width="192" height="88"/>
-	<SubTexture name="ErightMiss0005" x="1772" y="373" width="192" height="88"/>
-	<SubTexture name="ErightMiss0006" x="8" y="522" width="192" height="88"/>
-	<SubTexture name="ErightMiss0007" x="8" y="522" width="192" height="88"/>
-	<SubTexture name="ErightMiss0008" x="8" y="522" width="192" height="88"/>
-	<SubTexture name="ErightMiss0009" x="8" y="522" width="192" height="88"/>
-	<SubTexture name="ErightMiss0010" x="8" y="522" width="192" height="88"/>
-	<SubTexture name="ErightMiss0011" x="8" y="522" width="192" height="88"/>
-	<SubTexture name="ErightMiss0012" x="8" y="522" width="192" height="88"/>
-	<SubTexture name="ErightMiss0013" x="8" y="522" width="192" height="88"/>
-	<SubTexture name="ErightMiss0014" x="8" y="522" width="192" height="88"/>
-	<SubTexture name="ErightMiss0015" x="8" y="522" width="192" height="88"/>
-	<SubTexture name="Eup0000" x="210" y="522" width="140" height="216"/>
-	<SubTexture name="Eup0001" x="210" y="522" width="140" height="216"/>
-	<SubTexture name="Eup0002" x="360" y="522" width="140" height="216"/>
-	<SubTexture name="Eup0003" x="360" y="522" width="140" height="216"/>
-	<SubTexture name="Eup0004" x="510" y="522" width="140" height="216"/>
-	<SubTexture name="Eup0005" x="510" y="522" width="140" height="216"/>
-	<SubTexture name="Eup0006" x="660" y="522" width="140" height="216"/>
-	<SubTexture name="Eup0007" x="660" y="522" width="140" height="216"/>
-	<SubTexture name="Eup0008" x="810" y="522" width="140" height="216"/>
-	<SubTexture name="Eup0009" x="810" y="522" width="140" height="216"/>
-	<SubTexture name="Eup0010" x="810" y="522" width="140" height="216"/>
-	<SubTexture name="Eup0011" x="810" y="522" width="140" height="216"/>
-	<SubTexture name="Eup0012" x="810" y="522" width="140" height="216"/>
-	<SubTexture name="Eup0013" x="810" y="522" width="140" height="216"/>
-	<SubTexture name="Eup0014" x="810" y="522" width="140" height="216"/>
-	<SubTexture name="Eup0015" x="810" y="522" width="140" height="216"/>
-	<SubTexture name="EupMiss0000" x="960" y="522" width="98" height="168"/>
-	<SubTexture name="EupMiss0001" x="960" y="522" width="98" height="168"/>
-	<SubTexture name="EupMiss0002" x="1068" y="522" width="98" height="168"/>
-	<SubTexture name="EupMiss0003" x="1068" y="522" width="98" height="168"/>
-	<SubTexture name="EupMiss0004" x="1176" y="522" width="98" height="168"/>
-	<SubTexture name="EupMiss0005" x="1176" y="522" width="98" height="168"/>
-	<SubTexture name="EupMiss0006" x="1284" y="522" width="98" height="168"/>
-	<SubTexture name="EupMiss0007" x="1284" y="522" width="98" height="168"/>
-	<SubTexture name="EupMiss0008" x="1284" y="522" width="98" height="168"/>
-	<SubTexture name="EupMiss0009" x="1284" y="522" width="98" height="168"/>
-	<SubTexture name="EupMiss0010" x="1284" y="522" width="98" height="168"/>
-	<SubTexture name="EupMiss0011" x="1284" y="522" width="98" height="168"/>
-	<SubTexture name="EupMiss0012" x="1284" y="522" width="98" height="168"/>
-	<SubTexture name="EupMiss0013" x="1284" y="522" width="98" height="168"/>
-	<SubTexture name="EupMiss0014" x="1284" y="522" width="98" height="168"/>
-	<SubTexture name="EupMiss0015" x="1284" y="522" width="98" height="168"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 DEV https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="erhardt.png" width="991" height="1001" spritePadding="2" borderPadding="0">
+	<SubTexture name="Edown0000" x="850" y="157" width="121" height="150" frameX="-6" frameY="-12" frameWidth="132" frameHeight="174"/>
+	<SubTexture name="Edown0001" x="850" y="157" width="121" height="150" frameX="-6" frameY="-12" frameWidth="132" frameHeight="174"/>
+	<SubTexture name="Edown0002" x="837" y="693" width="151" height="125" rotated="true" frameX="-3" frameY="-9" frameWidth="132" frameHeight="174"/>
+	<SubTexture name="Edown0003" x="837" y="693" width="151" height="125" rotated="true" frameX="-3" frameY="-9" frameWidth="132" frameHeight="174"/>
+	<SubTexture name="Edown0004" x="843" y="309" width="123" height="149" frameX="-7" frameY="-4" frameWidth="132" frameHeight="174"/>
+	<SubTexture name="Edown0005" x="843" y="309" width="123" height="149" frameX="-7" frameY="-4" frameWidth="132" frameHeight="174"/>
+	<SubTexture name="Edown0006" x="643" y="871" width="147" height="121" rotated="true" frameX="-10" frameY="-4" frameWidth="132" frameHeight="174"/>
+	<SubTexture name="Edown0007" x="643" y="871" width="147" height="121" rotated="true" frameX="-10" frameY="-4" frameWidth="132" frameHeight="174"/>
+	<SubTexture name="Edown0008" x="493" y="871" width="148" height="119" rotated="true" frameX="-12" frameY="0" frameWidth="132" frameHeight="174"/>
+	<SubTexture name="Edown0009" x="493" y="871" width="148" height="119" rotated="true" frameX="-12" frameY="0" frameWidth="132" frameHeight="174"/>
+	<SubTexture name="Edown0010" x="493" y="871" width="148" height="119" rotated="true" frameX="-12" frameY="0" frameWidth="132" frameHeight="174"/>
+	<SubTexture name="Edown0011" x="493" y="871" width="148" height="119" rotated="true" frameX="-12" frameY="0" frameWidth="132" frameHeight="174"/>
+	<SubTexture name="Edown0012" x="493" y="871" width="148" height="119" rotated="true" frameX="-12" frameY="0" frameWidth="132" frameHeight="174"/>
+	<SubTexture name="Edown0013" x="493" y="871" width="148" height="119" rotated="true" frameX="-12" frameY="0" frameWidth="132" frameHeight="174"/>
+	<SubTexture name="Edown0014" x="493" y="871" width="148" height="119" rotated="true" frameX="-12" frameY="0" frameWidth="132" frameHeight="174"/>
+	<SubTexture name="Edown0015" x="493" y="871" width="148" height="119" rotated="true" frameX="-12" frameY="0" frameWidth="132" frameHeight="174"/>
+	<SubTexture name="EdownMiss0000" x="760" y="184" width="81" height="150" frameX="0" frameY="-3" frameWidth="85" frameHeight="157"/>
+	<SubTexture name="EdownMiss0001" x="760" y="184" width="81" height="150" frameX="0" frameY="-3" frameWidth="85" frameHeight="157"/>
+	<SubTexture name="EdownMiss0002" x="817" y="820" width="149" height="83" rotated="true" frameX="0" frameY="-1" frameWidth="85" frameHeight="157"/>
+	<SubTexture name="EdownMiss0003" x="817" y="820" width="149" height="83" rotated="true" frameX="0" frameY="-1" frameWidth="85" frameHeight="157"/>
+	<SubTexture name="EdownMiss0004" x="0" y="920" width="149" height="81" rotated="true" frameX="0" frameY="-2" frameWidth="85" frameHeight="157"/>
+	<SubTexture name="EdownMiss0005" x="0" y="920" width="149" height="81" rotated="true" frameX="0" frameY="-2" frameWidth="85" frameHeight="157"/>
+	<SubTexture name="EdownMiss0006" x="843" y="460" width="148" height="81" rotated="true" frameX="0" frameY="-2" frameWidth="85" frameHeight="157"/>
+	<SubTexture name="EdownMiss0007" x="843" y="460" width="148" height="81" rotated="true" frameX="0" frameY="-2" frameWidth="85" frameHeight="157"/>
+	<SubTexture name="EdownMiss0008" x="843" y="460" width="148" height="81" rotated="true" frameX="0" frameY="-2" frameWidth="85" frameHeight="157"/>
+	<SubTexture name="EdownMiss0009" x="843" y="460" width="148" height="81" rotated="true" frameX="0" frameY="-2" frameWidth="85" frameHeight="157"/>
+	<SubTexture name="EdownMiss0010" x="843" y="460" width="148" height="81" rotated="true" frameX="0" frameY="-2" frameWidth="85" frameHeight="157"/>
+	<SubTexture name="EdownMiss0011" x="843" y="460" width="148" height="81" rotated="true" frameX="0" frameY="-2" frameWidth="85" frameHeight="157"/>
+	<SubTexture name="EdownMiss0012" x="843" y="460" width="148" height="81" rotated="true" frameX="0" frameY="-2" frameWidth="85" frameHeight="157"/>
+	<SubTexture name="EdownMiss0013" x="843" y="460" width="148" height="81" rotated="true" frameX="0" frameY="-2" frameWidth="85" frameHeight="157"/>
+	<SubTexture name="EdownMiss0014" x="843" y="460" width="148" height="81" rotated="true" frameX="0" frameY="-2" frameWidth="85" frameHeight="157"/>
+	<SubTexture name="EdownMiss0015" x="843" y="460" width="148" height="81" rotated="true" frameX="0" frameY="-2" frameWidth="85" frameHeight="157"/>
+	<SubTexture name="Eidle0000" x="168" y="773" width="162" height="141" rotated="true" frameX="-6" frameY="-6" frameWidth="153" frameHeight="171"/>
+	<SubTexture name="Eidle0001" x="168" y="773" width="162" height="141" rotated="true" frameX="-6" frameY="-6" frameWidth="153" frameHeight="171"/>
+	<SubTexture name="Eidle0002" x="0" y="773" width="166" height="145" rotated="true" frameX="-3" frameY="-3" frameWidth="153" frameHeight="171"/>
+	<SubTexture name="Eidle0003" x="0" y="773" width="166" height="145" rotated="true" frameX="-3" frameY="-3" frameWidth="153" frameHeight="171"/>
+	<SubTexture name="Eidle0004" x="332" y="770" width="159" height="143" rotated="true" frameX="-7" frameY="-9" frameWidth="153" frameHeight="171"/>
+	<SubTexture name="Eidle0005" x="332" y="770" width="159" height="143" rotated="true" frameX="-7" frameY="-9" frameWidth="153" frameHeight="171"/>
+	<SubTexture name="Eidle0006" x="850" y="0" width="141" height="155" frameX="-10" frameY="-12" frameWidth="153" frameHeight="171"/>
+	<SubTexture name="Eidle0007" x="850" y="0" width="141" height="155" frameX="-10" frameY="-12" frameWidth="153" frameHeight="171"/>
+	<SubTexture name="Eidle0008" x="837" y="551" width="153" height="140" rotated="true" frameX="-12" frameY="-13" frameWidth="153" frameHeight="171"/>
+	<SubTexture name="Eidle0009" x="151" y="920" width="146" height="81" rotated="true" frameX="-38" frameY="-20" frameWidth="153" frameHeight="171"/>
+	<SubTexture name="Eidle0010" x="151" y="920" width="146" height="81" rotated="true" frameX="-38" frameY="-20" frameWidth="153" frameHeight="171"/>
+	<SubTexture name="Eidle0011" x="151" y="920" width="146" height="81" rotated="true" frameX="-38" frameY="-20" frameWidth="153" frameHeight="171"/>
+	<SubTexture name="Eidle0012" x="151" y="920" width="146" height="81" rotated="true" frameX="-38" frameY="-20" frameWidth="153" frameHeight="171"/>
+	<SubTexture name="Eidle0013" x="151" y="920" width="146" height="81" rotated="true" frameX="-38" frameY="-20" frameWidth="153" frameHeight="171"/>
+	<SubTexture name="Eleft0000" x="189" y="623" width="185" height="145" frameX="-6" frameY="0" frameWidth="208" frameHeight="151"/>
+	<SubTexture name="Eleft0001" x="189" y="623" width="185" height="145" frameX="-6" frameY="0" frameWidth="208" frameHeight="151"/>
+	<SubTexture name="Eleft0002" x="0" y="623" width="187" height="148" frameX="-3" frameY="0" frameWidth="208" frameHeight="151"/>
+	<SubTexture name="Eleft0003" x="0" y="623" width="187" height="148" frameX="-3" frameY="0" frameWidth="208" frameHeight="151"/>
+	<SubTexture name="Eleft0004" x="485" y="402" width="143" height="191" rotated="true" frameX="-7" frameY="0" frameWidth="208" frameHeight="151"/>
+	<SubTexture name="Eleft0005" x="485" y="402" width="143" height="191" rotated="true" frameX="-7" frameY="0" frameWidth="208" frameHeight="151"/>
+	<SubTexture name="Eleft0006" x="204" y="407" width="139" height="196" rotated="true" frameX="-10" frameY="0" frameWidth="208" frameHeight="151"/>
+	<SubTexture name="Eleft0007" x="204" y="407" width="139" height="196" rotated="true" frameX="-10" frameY="0" frameWidth="208" frameHeight="151"/>
+	<SubTexture name="Eleft0008" x="345" y="407" width="138" height="196" rotated="true" frameX="-12" frameY="0" frameWidth="208" frameHeight="151"/>
+	<SubTexture name="Eleft0009" x="345" y="407" width="138" height="196" rotated="true" frameX="-12" frameY="0" frameWidth="208" frameHeight="151"/>
+	<SubTexture name="Eleft0010" x="345" y="407" width="138" height="196" rotated="true" frameX="-12" frameY="0" frameWidth="208" frameHeight="151"/>
+	<SubTexture name="Eleft0011" x="345" y="407" width="138" height="196" rotated="true" frameX="-12" frameY="0" frameWidth="208" frameHeight="151"/>
+	<SubTexture name="Eleft0012" x="345" y="407" width="138" height="196" rotated="true" frameX="-12" frameY="0" frameWidth="208" frameHeight="151"/>
+	<SubTexture name="Eleft0013" x="345" y="407" width="138" height="196" rotated="true" frameX="-12" frameY="0" frameWidth="208" frameHeight="151"/>
+	<SubTexture name="Eleft0014" x="345" y="407" width="138" height="196" rotated="true" frameX="-12" frameY="0" frameWidth="208" frameHeight="151"/>
+	<SubTexture name="Eleft0015" x="345" y="407" width="138" height="196" rotated="true" frameX="-12" frameY="0" frameWidth="208" frameHeight="151"/>
+	<SubTexture name="Eleft0016" x="345" y="407" width="138" height="196" rotated="true" frameX="-12" frameY="0" frameWidth="208" frameHeight="151"/>
+	<SubTexture name="EleftMiss0000" x="745" y="368" width="96" height="181" rotated="true" frameX="-1" frameY="0" frameWidth="190" frameHeight="96"/>
+	<SubTexture name="EleftMiss0001" x="745" y="368" width="96" height="181" rotated="true" frameX="-1" frameY="0" frameWidth="190" frameHeight="96"/>
+	<SubTexture name="EleftMiss0002" x="525" y="203" width="96" height="184" rotated="true" frameX="-6" frameY="0" frameWidth="190" frameHeight="96"/>
+	<SubTexture name="EleftMiss0003" x="525" y="203" width="96" height="184" rotated="true" frameX="-6" frameY="0" frameWidth="190" frameHeight="96"/>
+	<SubTexture name="EleftMiss0004" x="662" y="0" width="96" height="182" rotated="true" frameX="-4" frameY="0" frameWidth="190" frameHeight="96"/>
+	<SubTexture name="EleftMiss0005" x="662" y="0" width="96" height="182" rotated="true" frameX="-4" frameY="0" frameWidth="190" frameHeight="96"/>
+	<SubTexture name="EleftMiss0006" x="662" y="184" width="96" height="182" rotated="true" frameX="-5" frameY="0" frameWidth="190" frameHeight="96"/>
+	<SubTexture name="EleftMiss0007" x="662" y="184" width="96" height="182" rotated="true" frameX="-5" frameY="0" frameWidth="190" frameHeight="96"/>
+	<SubTexture name="EleftMiss0008" x="662" y="184" width="96" height="182" rotated="true" frameX="-5" frameY="0" frameWidth="190" frameHeight="96"/>
+	<SubTexture name="EleftMiss0009" x="662" y="184" width="96" height="182" rotated="true" frameX="-5" frameY="0" frameWidth="190" frameHeight="96"/>
+	<SubTexture name="EleftMiss0010" x="662" y="184" width="96" height="182" rotated="true" frameX="-5" frameY="0" frameWidth="190" frameHeight="96"/>
+	<SubTexture name="EleftMiss0011" x="662" y="184" width="96" height="182" rotated="true" frameX="-5" frameY="0" frameWidth="190" frameHeight="96"/>
+	<SubTexture name="EleftMiss0012" x="662" y="184" width="96" height="182" rotated="true" frameX="-5" frameY="0" frameWidth="190" frameHeight="96"/>
+	<SubTexture name="EleftMiss0013" x="662" y="184" width="96" height="182" rotated="true" frameX="-5" frameY="0" frameWidth="190" frameHeight="96"/>
+	<SubTexture name="EleftMiss0014" x="662" y="184" width="96" height="182" rotated="true" frameX="-5" frameY="0" frameWidth="190" frameHeight="96"/>
+	<SubTexture name="EleftMiss0015" x="662" y="184" width="96" height="182" rotated="true" frameX="-5" frameY="0" frameWidth="190" frameHeight="96"/>
+	<SubTexture name="EleftMiss0016" x="662" y="184" width="96" height="182" rotated="true" frameX="-5" frameY="0" frameWidth="190" frameHeight="96"/>
+	<SubTexture name="Eright0000" x="390" y="204" width="133" height="196" rotated="true" frameX="-21" frameY="0" frameWidth="222" frameHeight="139"/>
+	<SubTexture name="Eright0001" x="390" y="204" width="133" height="196" rotated="true" frameX="-21" frameY="0" frameWidth="222" frameHeight="139"/>
+	<SubTexture name="Eright0002" x="0" y="485" width="199" height="136" frameX="-19" frameY="0" frameWidth="222" frameHeight="139"/>
+	<SubTexture name="Eright0003" x="0" y="485" width="199" height="136" frameX="-19" frameY="0" frameWidth="222" frameHeight="139"/>
+	<SubTexture name="Eright0004" x="0" y="223" width="211" height="131" frameX="-9" frameY="0" frameWidth="222" frameHeight="139"/>
+	<SubTexture name="Eright0005" x="0" y="223" width="211" height="131" frameX="-9" frameY="0" frameWidth="222" frameHeight="139"/>
+	<SubTexture name="Eright0006" x="128" y="0" width="127" height="218" rotated="true" frameX="-3" frameY="0" frameWidth="222" frameHeight="139"/>
+	<SubTexture name="Eright0007" x="128" y="0" width="127" height="218" rotated="true" frameX="-3" frameY="0" frameWidth="222" frameHeight="139"/>
+	<SubTexture name="Eright0008" x="0" y="0" width="126" height="221" rotated="true" frameX="0" frameY="0" frameWidth="222" frameHeight="139"/>
+	<SubTexture name="Eright0009" x="0" y="0" width="126" height="221" rotated="true" frameX="0" frameY="0" frameWidth="222" frameHeight="139"/>
+	<SubTexture name="Eright0010" x="0" y="0" width="126" height="221" rotated="true" frameX="0" frameY="0" frameWidth="222" frameHeight="139"/>
+	<SubTexture name="Eright0011" x="0" y="0" width="126" height="221" rotated="true" frameX="0" frameY="0" frameWidth="222" frameHeight="139"/>
+	<SubTexture name="Eright0012" x="0" y="0" width="126" height="221" rotated="true" frameX="0" frameY="0" frameWidth="222" frameHeight="139"/>
+	<SubTexture name="Eright0013" x="0" y="0" width="126" height="221" rotated="true" frameX="0" frameY="0" frameWidth="222" frameHeight="139"/>
+	<SubTexture name="Eright0014" x="0" y="0" width="126" height="221" rotated="true" frameX="0" frameY="0" frameWidth="222" frameHeight="139"/>
+	<SubTexture name="Eright0015" x="0" y="0" width="126" height="221" rotated="true" frameX="0" frameY="0" frameWidth="222" frameHeight="139"/>
+	<SubTexture name="ErightMiss0000" x="561" y="595" width="182" height="88" frameX="-7" frameY="0" frameWidth="192" frameHeight="88"/>
+	<SubTexture name="ErightMiss0001" x="561" y="595" width="182" height="88" frameX="-7" frameY="0" frameWidth="192" frameHeight="88"/>
+	<SubTexture name="ErightMiss0002" x="376" y="605" width="183" height="88" frameX="0" frameY="0" frameWidth="192" frameHeight="88"/>
+	<SubTexture name="ErightMiss0003" x="376" y="605" width="183" height="88" frameX="0" frameY="0" frameWidth="192" frameHeight="88"/>
+	<SubTexture name="ErightMiss0004" x="630" y="368" width="88" height="182" rotated="true" frameX="-4" frameY="0" frameWidth="192" frameHeight="88"/>
+	<SubTexture name="ErightMiss0005" x="630" y="368" width="88" height="182" rotated="true" frameX="-4" frameY="0" frameWidth="192" frameHeight="88"/>
+	<SubTexture name="ErightMiss0006" x="760" y="0" width="88" height="182" rotated="true" frameX="-2" frameY="0" frameWidth="192" frameHeight="88"/>
+	<SubTexture name="ErightMiss0007" x="760" y="0" width="88" height="182" rotated="true" frameX="-2" frameY="0" frameWidth="192" frameHeight="88"/>
+	<SubTexture name="ErightMiss0008" x="760" y="0" width="88" height="182" rotated="true" frameX="-2" frameY="0" frameWidth="192" frameHeight="88"/>
+	<SubTexture name="ErightMiss0009" x="760" y="0" width="88" height="182" rotated="true" frameX="-2" frameY="0" frameWidth="192" frameHeight="88"/>
+	<SubTexture name="ErightMiss0010" x="760" y="0" width="88" height="182" rotated="true" frameX="-2" frameY="0" frameWidth="192" frameHeight="88"/>
+	<SubTexture name="ErightMiss0011" x="760" y="0" width="88" height="182" rotated="true" frameX="-2" frameY="0" frameWidth="192" frameHeight="88"/>
+	<SubTexture name="ErightMiss0012" x="760" y="0" width="88" height="182" rotated="true" frameX="-2" frameY="0" frameWidth="192" frameHeight="88"/>
+	<SubTexture name="ErightMiss0013" x="760" y="0" width="88" height="182" rotated="true" frameX="-2" frameY="0" frameWidth="192" frameHeight="88"/>
+	<SubTexture name="ErightMiss0014" x="760" y="0" width="88" height="182" rotated="true" frameX="-2" frameY="0" frameWidth="192" frameHeight="88"/>
+	<SubTexture name="ErightMiss0015" x="760" y="0" width="88" height="182" rotated="true" frameX="-2" frameY="0" frameWidth="192" frameHeight="88"/>
+	<SubTexture name="Eup0000" x="526" y="0" width="134" height="196" frameX="0" frameY="-6" frameWidth="140" frameHeight="216"/>
+	<SubTexture name="Eup0001" x="526" y="0" width="134" height="196" frameX="0" frameY="-6" frameWidth="140" frameHeight="216"/>
+	<SubTexture name="Eup0002" x="257" y="0" width="137" height="202" frameX="0" frameY="-3" frameWidth="140" frameHeight="216"/>
+	<SubTexture name="Eup0003" x="257" y="0" width="137" height="202" frameX="0" frameY="-3" frameWidth="140" frameHeight="216"/>
+	<SubTexture name="Eup0004" x="257" y="204" width="131" height="201" frameX="0" frameY="-9" frameWidth="140" frameHeight="216"/>
+	<SubTexture name="Eup0005" x="257" y="204" width="131" height="201" frameX="0" frameY="-9" frameWidth="140" frameHeight="216"/>
+	<SubTexture name="Eup0006" x="396" y="0" width="128" height="201" frameX="0" frameY="-13" frameWidth="140" frameHeight="216"/>
+	<SubTexture name="Eup0007" x="396" y="0" width="128" height="201" frameX="0" frameY="-13" frameWidth="140" frameHeight="216"/>
+	<SubTexture name="Eup0008" x="0" y="356" width="202" height="127" rotated="true" frameX="0" frameY="-14" frameWidth="140" frameHeight="216"/>
+	<SubTexture name="Eup0009" x="0" y="356" width="202" height="127" rotated="true" frameX="0" frameY="-14" frameWidth="140" frameHeight="216"/>
+	<SubTexture name="Eup0010" x="0" y="356" width="202" height="127" rotated="true" frameX="0" frameY="-14" frameWidth="140" frameHeight="216"/>
+	<SubTexture name="Eup0011" x="0" y="356" width="202" height="127" rotated="true" frameX="0" frameY="-14" frameWidth="140" frameHeight="216"/>
+	<SubTexture name="Eup0012" x="0" y="356" width="202" height="127" rotated="true" frameX="0" frameY="-14" frameWidth="140" frameHeight="216"/>
+	<SubTexture name="Eup0013" x="0" y="356" width="202" height="127" rotated="true" frameX="0" frameY="-14" frameWidth="140" frameHeight="216"/>
+	<SubTexture name="Eup0014" x="0" y="356" width="202" height="127" rotated="true" frameX="0" frameY="-14" frameWidth="140" frameHeight="216"/>
+	<SubTexture name="Eup0015" x="0" y="356" width="202" height="127" rotated="true" frameX="0" frameY="-14" frameWidth="140" frameHeight="216"/>
+	<SubTexture name="EupMiss0000" x="721" y="712" width="94" height="157" frameX="0" frameY="-1" frameWidth="98" frameHeight="168"/>
+	<SubTexture name="EupMiss0001" x="721" y="712" width="94" height="157" frameX="0" frameY="-1" frameWidth="98" frameHeight="168"/>
+	<SubTexture name="EupMiss0002" x="745" y="551" width="90" height="159" frameX="0" frameY="-9" frameWidth="98" frameHeight="168"/>
+	<SubTexture name="EupMiss0003" x="745" y="551" width="90" height="159" frameX="0" frameY="-9" frameWidth="98" frameHeight="168"/>
+	<SubTexture name="EupMiss0004" x="561" y="685" width="158" height="92" rotated="true" frameX="0" frameY="-5" frameWidth="98" frameHeight="168"/>
+	<SubTexture name="EupMiss0005" x="561" y="685" width="158" height="92" rotated="true" frameX="0" frameY="-5" frameWidth="98" frameHeight="168"/>
+	<SubTexture name="EupMiss0006" x="493" y="779" width="157" height="90" rotated="true" frameX="0" frameY="-8" frameWidth="98" frameHeight="168"/>
+	<SubTexture name="EupMiss0007" x="493" y="779" width="157" height="90" rotated="true" frameX="0" frameY="-8" frameWidth="98" frameHeight="168"/>
+	<SubTexture name="EupMiss0008" x="493" y="779" width="157" height="90" rotated="true" frameX="0" frameY="-8" frameWidth="98" frameHeight="168"/>
+	<SubTexture name="EupMiss0009" x="493" y="779" width="157" height="90" rotated="true" frameX="0" frameY="-8" frameWidth="98" frameHeight="168"/>
+	<SubTexture name="EupMiss0010" x="493" y="779" width="157" height="90" rotated="true" frameX="0" frameY="-8" frameWidth="98" frameHeight="168"/>
+	<SubTexture name="EupMiss0011" x="493" y="779" width="157" height="90" rotated="true" frameX="0" frameY="-8" frameWidth="98" frameHeight="168"/>
+	<SubTexture name="EupMiss0012" x="493" y="779" width="157" height="90" rotated="true" frameX="0" frameY="-8" frameWidth="98" frameHeight="168"/>
+	<SubTexture name="EupMiss0013" x="493" y="779" width="157" height="90" rotated="true" frameX="0" frameY="-8" frameWidth="98" frameHeight="168"/>
+	<SubTexture name="EupMiss0014" x="493" y="779" width="157" height="90" rotated="true" frameX="0" frameY="-8" frameWidth="98" frameHeight="168"/>
+	<SubTexture name="EupMiss0015" x="493" y="779" width="157" height="90" rotated="true" frameX="0" frameY="-8" frameWidth="98" frameHeight="168"/>
 </TextureAtlas>

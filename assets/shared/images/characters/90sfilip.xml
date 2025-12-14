@@ -1,497 +1,498 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="90sfilip.png">
-	<!-- Created with Adobe Animate version 20.5.1.31044 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="down0000" x="8" y="8" width="614" height="541" frameX="0" frameY="-2" frameWidth="614" frameHeight="543"/>
-	<SubTexture name="down0001" x="8" y="8" width="614" height="541" frameX="0" frameY="-2" frameWidth="614" frameHeight="543"/>
-	<SubTexture name="down0002" x="630" y="8" width="595" height="535" frameX="-14" frameY="0" frameWidth="614" frameHeight="543"/>
-	<SubTexture name="down0003" x="630" y="8" width="595" height="535" frameX="-14" frameY="0" frameWidth="614" frameHeight="543"/>
-	<SubTexture name="down0004" x="1233" y="8" width="576" height="521" frameX="-23" frameY="-6" frameWidth="614" frameHeight="543"/>
-	<SubTexture name="down0005" x="1233" y="8" width="576" height="521" frameX="-23" frameY="-6" frameWidth="614" frameHeight="543"/>
-	<SubTexture name="down0006" x="1817" y="8" width="568" height="516" frameX="-27" frameY="-7" frameWidth="614" frameHeight="543"/>
-	<SubTexture name="down0007" x="1817" y="8" width="568" height="516" frameX="-27" frameY="-7" frameWidth="614" frameHeight="543"/>
-	<SubTexture name="down0008" x="1817" y="8" width="568" height="516" frameX="-27" frameY="-7" frameWidth="614" frameHeight="543"/>
-	<SubTexture name="down0009" x="1817" y="8" width="568" height="516" frameX="-27" frameY="-7" frameWidth="614" frameHeight="543"/>
-	<SubTexture name="down0010" x="1817" y="8" width="568" height="516" frameX="-27" frameY="-7" frameWidth="614" frameHeight="543"/>
-	<SubTexture name="down0011" x="1817" y="8" width="568" height="516" frameX="-27" frameY="-7" frameWidth="614" frameHeight="543"/>
-	<SubTexture name="down0012" x="1817" y="8" width="568" height="516" frameX="-27" frameY="-7" frameWidth="614" frameHeight="543"/>
-	<SubTexture name="down0013" x="1817" y="8" width="568" height="516" frameX="-27" frameY="-7" frameWidth="614" frameHeight="543"/>
-	<SubTexture name="down0014" x="1817" y="8" width="568" height="516" frameX="-27" frameY="-7" frameWidth="614" frameHeight="543"/>
-	<SubTexture name="down0015" x="1817" y="8" width="568" height="516" frameX="-27" frameY="-7" frameWidth="614" frameHeight="543"/>
-	<SubTexture name="idle0000" x="2393" y="8" width="612" height="517" frameX="0" frameY="-7" frameWidth="612" frameHeight="524"/>
-	<SubTexture name="idle0001" x="2393" y="8" width="612" height="517" frameX="0" frameY="-7" frameWidth="612" frameHeight="524"/>
-	<SubTexture name="idle0002" x="3013" y="8" width="609" height="522" frameX="-1" frameY="-2" frameWidth="612" frameHeight="524"/>
-	<SubTexture name="idle0003" x="3013" y="8" width="609" height="522" frameX="-1" frameY="-2" frameWidth="612" frameHeight="524"/>
-	<SubTexture name="idle0004" x="8" y="557" width="598" height="522" frameX="-9" frameY="-2" frameWidth="612" frameHeight="524"/>
-	<SubTexture name="idle0005" x="8" y="557" width="598" height="522" frameX="-9" frameY="-2" frameWidth="612" frameHeight="524"/>
-	<SubTexture name="idle0006" x="614" y="557" width="592" height="523" frameX="-14" frameY="-1" frameWidth="612" frameHeight="524"/>
-	<SubTexture name="idle0007" x="614" y="557" width="592" height="523" frameX="-14" frameY="-1" frameWidth="612" frameHeight="524"/>
-	<SubTexture name="idle0008" x="1214" y="557" width="589" height="523" frameX="-15" frameY="0" frameWidth="612" frameHeight="524"/>
-	<SubTexture name="idle0009" x="1214" y="557" width="589" height="523" frameX="-15" frameY="0" frameWidth="612" frameHeight="524"/>
-	<SubTexture name="idle0010" x="1214" y="557" width="589" height="523" frameX="-15" frameY="0" frameWidth="612" frameHeight="524"/>
-	<SubTexture name="idle0011" x="1214" y="557" width="589" height="523" frameX="-15" frameY="0" frameWidth="612" frameHeight="524"/>
-	<SubTexture name="idle0012" x="1214" y="557" width="589" height="523" frameX="-15" frameY="0" frameWidth="612" frameHeight="524"/>
-	<SubTexture name="idle0013" x="1214" y="557" width="589" height="523" frameX="-15" frameY="0" frameWidth="612" frameHeight="524"/>
-	<SubTexture name="idle0014" x="1214" y="557" width="589" height="523" frameX="-15" frameY="0" frameWidth="612" frameHeight="524"/>
-	<SubTexture name="idle0015" x="1214" y="557" width="589" height="523" frameX="-15" frameY="0" frameWidth="612" frameHeight="524"/>
-	<SubTexture name="idle0016" x="1214" y="557" width="589" height="523" frameX="-15" frameY="0" frameWidth="612" frameHeight="524"/>
-	<SubTexture name="idle0017" x="1214" y="557" width="589" height="523" frameX="-15" frameY="0" frameWidth="612" frameHeight="524"/>
-	<SubTexture name="idle0018" x="1214" y="557" width="589" height="523" frameX="-15" frameY="0" frameWidth="612" frameHeight="524"/>
-	<SubTexture name="left0000" x="1811" y="557" width="581" height="523" frameX="0" frameY="-5" frameWidth="586" frameHeight="528"/>
-	<SubTexture name="left0001" x="1811" y="557" width="581" height="523" frameX="0" frameY="-5" frameWidth="586" frameHeight="528"/>
-	<SubTexture name="left0002" x="2400" y="557" width="576" height="521" frameX="-10" frameY="0" frameWidth="586" frameHeight="528"/>
-	<SubTexture name="left0003" x="2400" y="557" width="576" height="521" frameX="-10" frameY="0" frameWidth="586" frameHeight="528"/>
-	<SubTexture name="left0004" x="2984" y="557" width="565" height="510" frameX="-15" frameY="-2" frameWidth="586" frameHeight="528"/>
-	<SubTexture name="left0005" x="2984" y="557" width="565" height="510" frameX="-15" frameY="-2" frameWidth="586" frameHeight="528"/>
-	<SubTexture name="left0006" x="8" y="1088" width="557" height="505" frameX="-18" frameY="0" frameWidth="586" frameHeight="528"/>
-	<SubTexture name="left0007" x="8" y="1088" width="557" height="505" frameX="-18" frameY="0" frameWidth="586" frameHeight="528"/>
-	<SubTexture name="left0008" x="8" y="1088" width="557" height="505" frameX="-18" frameY="0" frameWidth="586" frameHeight="528"/>
-	<SubTexture name="left0009" x="8" y="1088" width="557" height="505" frameX="-18" frameY="0" frameWidth="586" frameHeight="528"/>
-	<SubTexture name="left0010" x="8" y="1088" width="557" height="505" frameX="-18" frameY="0" frameWidth="586" frameHeight="528"/>
-	<SubTexture name="left0011" x="8" y="1088" width="557" height="505" frameX="-18" frameY="0" frameWidth="586" frameHeight="528"/>
-	<SubTexture name="left0012" x="8" y="1088" width="557" height="505" frameX="-18" frameY="0" frameWidth="586" frameHeight="528"/>
-	<SubTexture name="left0013" x="8" y="1088" width="557" height="505" frameX="-18" frameY="0" frameWidth="586" frameHeight="528"/>
-	<SubTexture name="left0014" x="8" y="1088" width="557" height="505" frameX="-18" frameY="0" frameWidth="586" frameHeight="528"/>
-	<SubTexture name="left0015" x="8" y="1088" width="557" height="505" frameX="-18" frameY="0" frameWidth="586" frameHeight="528"/>
-	<SubTexture name="left0016" x="8" y="1088" width="557" height="505" frameX="-18" frameY="0" frameWidth="586" frameHeight="528"/>
-	<SubTexture name="pissed0000" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0001" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0002" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0003" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0004" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0005" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0006" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0007" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0008" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0009" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0010" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0011" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0012" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0013" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0014" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0015" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0016" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0017" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0018" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0019" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0020" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0021" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0022" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0023" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0024" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0025" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0026" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0027" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0028" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0029" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0030" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0031" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0032" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0033" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0034" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0035" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0036" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0037" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0038" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0039" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0040" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0041" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0042" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0043" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0044" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0045" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0046" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0047" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0048" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0049" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0050" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0051" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0052" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0053" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0054" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0055" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0056" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0057" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0058" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0059" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0060" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0061" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0062" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0063" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0064" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0065" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0066" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0067" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0068" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0069" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0070" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0071" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0072" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0073" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0074" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0075" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0076" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0077" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0078" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0079" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0080" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0081" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0082" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0083" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0084" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0085" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0086" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0087" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0088" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0089" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0090" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0091" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0092" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0093" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0094" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0095" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0096" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0097" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0098" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0099" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0100" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0101" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0102" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0103" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0104" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0105" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0106" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0107" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0108" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0109" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0110" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0111" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0112" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0113" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0114" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0115" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0116" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0117" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0118" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0119" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0120" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0121" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0122" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0123" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0124" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0125" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0126" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0127" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0128" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0129" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0130" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0131" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0132" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0133" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0134" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0135" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0136" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0137" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0138" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0139" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0140" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0141" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0142" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0143" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0144" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0145" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0146" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0147" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0148" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0149" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0150" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0151" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0152" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0153" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0154" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0155" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0156" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0157" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0158" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0159" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0160" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0161" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0162" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0163" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0164" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0165" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0166" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0167" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0168" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0169" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0170" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0171" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0172" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0173" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0174" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0175" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0176" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0177" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0178" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0179" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0180" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0181" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0182" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0183" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0184" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0185" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0186" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0187" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0188" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0189" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0190" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0191" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0192" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0193" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0194" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0195" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0196" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0197" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0198" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0199" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0200" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0201" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0202" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0203" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0204" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0205" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0206" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0207" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0208" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0209" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0210" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0211" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0212" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0213" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0214" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0215" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0216" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0217" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0218" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0219" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0220" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0221" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0222" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0223" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0224" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0225" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0226" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0227" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0228" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0229" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0230" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0231" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0232" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0233" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0234" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0235" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0236" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0237" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0238" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0239" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0240" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0241" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0242" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0243" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0244" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0245" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0246" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0247" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0248" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0249" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0250" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0251" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0252" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0253" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0254" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0255" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0256" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0257" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0258" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0259" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0260" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0261" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0262" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0263" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0264" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0265" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0266" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0267" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0268" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0269" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0270" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0271" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0272" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0273" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0274" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0275" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0276" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0277" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0278" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0279" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0280" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0281" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0282" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0283" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0284" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0285" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0286" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0287" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0288" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0289" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0290" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0291" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0292" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0293" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0294" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0295" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0296" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0297" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0298" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0299" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0300" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0301" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0302" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0303" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0304" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0305" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0306" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0307" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0308" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0309" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0310" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0311" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0312" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0313" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0314" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0315" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0316" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0317" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0318" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0319" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0320" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0321" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0322" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0323" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0324" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0325" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0326" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0327" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0328" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0329" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0330" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0331" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0332" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0333" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0334" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0335" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0336" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0337" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0338" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0339" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0340" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0341" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0342" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0343" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0344" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0345" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0346" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0347" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0348" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0349" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0350" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0351" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0352" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0353" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0354" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0355" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0356" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0357" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0358" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0359" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0360" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0361" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0362" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0363" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0364" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0365" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0366" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0367" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0368" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0369" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0370" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0371" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0372" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0373" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0374" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0375" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0376" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0377" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0378" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0379" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0380" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0381" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0382" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0383" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0384" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0385" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0386" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0387" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="pissed0388" x="573" y="1088" width="529" height="570"/>
-	<SubTexture name="right0000" x="1110" y="1088" width="777" height="502" frameX="-12" frameY="-1" frameWidth="789" frameHeight="504"/>
-	<SubTexture name="right0001" x="1110" y="1088" width="777" height="502" frameX="-12" frameY="-1" frameWidth="789" frameHeight="504"/>
-	<SubTexture name="right0002" x="1895" y="1088" width="780" height="504" frameX="0" frameY="0" frameWidth="789" frameHeight="504"/>
-	<SubTexture name="right0003" x="1895" y="1088" width="780" height="504" frameX="0" frameY="0" frameWidth="789" frameHeight="504"/>
-	<SubTexture name="right0004" x="2683" y="1088" width="761" height="498" frameX="-14" frameY="-4" frameWidth="789" frameHeight="504"/>
-	<SubTexture name="right0005" x="2683" y="1088" width="761" height="498" frameX="-14" frameY="-4" frameWidth="789" frameHeight="504"/>
-	<SubTexture name="right0006" x="8" y="1666" width="754" height="494" frameX="-15" frameY="-6" frameWidth="789" frameHeight="504"/>
-	<SubTexture name="right0007" x="8" y="1666" width="754" height="494" frameX="-15" frameY="-6" frameWidth="789" frameHeight="504"/>
-	<SubTexture name="right0008" x="8" y="1666" width="754" height="494" frameX="-15" frameY="-6" frameWidth="789" frameHeight="504"/>
-	<SubTexture name="right0009" x="8" y="1666" width="754" height="494" frameX="-15" frameY="-6" frameWidth="789" frameHeight="504"/>
-	<SubTexture name="right0010" x="8" y="1666" width="754" height="494" frameX="-15" frameY="-6" frameWidth="789" frameHeight="504"/>
-	<SubTexture name="right0011" x="8" y="1666" width="754" height="494" frameX="-15" frameY="-6" frameWidth="789" frameHeight="504"/>
-	<SubTexture name="right0012" x="8" y="1666" width="754" height="494" frameX="-15" frameY="-6" frameWidth="789" frameHeight="504"/>
-	<SubTexture name="right0013" x="8" y="1666" width="754" height="494" frameX="-15" frameY="-6" frameWidth="789" frameHeight="504"/>
-	<SubTexture name="right0014" x="8" y="1666" width="754" height="494" frameX="-15" frameY="-6" frameWidth="789" frameHeight="504"/>
-	<SubTexture name="right0015" x="8" y="1666" width="754" height="494" frameX="-15" frameY="-6" frameWidth="789" frameHeight="504"/>
-	<SubTexture name="uh0000" x="770" y="1666" width="551" height="479" frameX="0" frameY="-10" frameWidth="551" frameHeight="489"/>
-	<SubTexture name="uh0001" x="770" y="1666" width="551" height="479" frameX="0" frameY="-10" frameWidth="551" frameHeight="489"/>
-	<SubTexture name="uh0002" x="1329" y="1666" width="551" height="485" frameX="0" frameY="-4" frameWidth="551" frameHeight="489"/>
-	<SubTexture name="uh0003" x="1329" y="1666" width="551" height="485" frameX="0" frameY="-4" frameWidth="551" frameHeight="489"/>
-	<SubTexture name="uh0004" x="1888" y="1666" width="551" height="489"/>
-	<SubTexture name="uh0005" x="1888" y="1666" width="551" height="489"/>
-	<SubTexture name="uh0006" x="2447" y="1666" width="551" height="487" frameX="0" frameY="-1" frameWidth="551" frameHeight="489"/>
-	<SubTexture name="uh0007" x="2447" y="1666" width="551" height="487" frameX="0" frameY="-1" frameWidth="551" frameHeight="489"/>
-	<SubTexture name="uh0008" x="2447" y="1666" width="551" height="487" frameX="0" frameY="-1" frameWidth="551" frameHeight="489"/>
-	<SubTexture name="uh0009" x="2447" y="1666" width="551" height="487" frameX="0" frameY="-1" frameWidth="551" frameHeight="489"/>
-	<SubTexture name="uh0010" x="2447" y="1666" width="551" height="487" frameX="0" frameY="-1" frameWidth="551" frameHeight="489"/>
-	<SubTexture name="uh0011" x="2447" y="1666" width="551" height="487" frameX="0" frameY="-1" frameWidth="551" frameHeight="489"/>
-	<SubTexture name="uh0012" x="2447" y="1666" width="551" height="487" frameX="0" frameY="-1" frameWidth="551" frameHeight="489"/>
-	<SubTexture name="uh0013" x="2447" y="1666" width="551" height="487" frameX="0" frameY="-1" frameWidth="551" frameHeight="489"/>
-	<SubTexture name="uh0014" x="2447" y="1666" width="551" height="487" frameX="0" frameY="-1" frameWidth="551" frameHeight="489"/>
-	<SubTexture name="uh0015" x="2447" y="1666" width="551" height="487" frameX="0" frameY="-1" frameWidth="551" frameHeight="489"/>
-	<SubTexture name="uh0016" x="2447" y="1666" width="551" height="487" frameX="0" frameY="-1" frameWidth="551" frameHeight="489"/>
-	<SubTexture name="uh0017" x="2447" y="1666" width="551" height="487" frameX="0" frameY="-1" frameWidth="551" frameHeight="489"/>
-	<SubTexture name="uh0018" x="2447" y="1666" width="551" height="487" frameX="0" frameY="-1" frameWidth="551" frameHeight="489"/>
-	<SubTexture name="up0000" x="3006" y="1666" width="458" height="709" frameX="0" frameY="0" frameWidth="459" frameHeight="710"/>
-	<SubTexture name="up0001" x="3006" y="1666" width="458" height="709" frameX="0" frameY="0" frameWidth="459" frameHeight="710"/>
-	<SubTexture name="up0002" x="3472" y="1666" width="459" height="703" frameX="0" frameY="-6" frameWidth="459" frameHeight="710"/>
-	<SubTexture name="up0003" x="3472" y="1666" width="459" height="703" frameX="0" frameY="-6" frameWidth="459" frameHeight="710"/>
-	<SubTexture name="up0004" x="8" y="2383" width="454" height="694" frameX="0" frameY="-16" frameWidth="459" frameHeight="710"/>
-	<SubTexture name="up0005" x="8" y="2383" width="454" height="694" frameX="0" frameY="-16" frameWidth="459" frameHeight="710"/>
-	<SubTexture name="up0006" x="470" y="2383" width="452" height="688" frameX="0" frameY="-21" frameWidth="459" frameHeight="710"/>
-	<SubTexture name="up0007" x="470" y="2383" width="452" height="688" frameX="0" frameY="-21" frameWidth="459" frameHeight="710"/>
-	<SubTexture name="up0008" x="470" y="2383" width="452" height="688" frameX="0" frameY="-21" frameWidth="459" frameHeight="710"/>
-	<SubTexture name="up0009" x="470" y="2383" width="452" height="688" frameX="0" frameY="-21" frameWidth="459" frameHeight="710"/>
-	<SubTexture name="up0010" x="470" y="2383" width="452" height="688" frameX="0" frameY="-21" frameWidth="459" frameHeight="710"/>
-	<SubTexture name="up0011" x="470" y="2383" width="452" height="688" frameX="0" frameY="-21" frameWidth="459" frameHeight="710"/>
-	<SubTexture name="up0012" x="470" y="2383" width="452" height="688" frameX="0" frameY="-21" frameWidth="459" frameHeight="710"/>
-	<SubTexture name="up0013" x="470" y="2383" width="452" height="688" frameX="0" frameY="-21" frameWidth="459" frameHeight="710"/>
-	<SubTexture name="up0014" x="470" y="2383" width="452" height="688" frameX="0" frameY="-21" frameWidth="459" frameHeight="710"/>
-	<SubTexture name="up0015" x="470" y="2383" width="452" height="688" frameX="0" frameY="-21" frameWidth="459" frameHeight="710"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 DEV https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="90sfilip.png" width="1821" height="4802" spritePadding="1" borderPadding="0">
+	<SubTexture name="down0000" x="570" y="3302" width="573" height="502" frameX="-31" frameY="-20" frameWidth="614" frameHeight="541"/>
+	<SubTexture name="down0001" x="570" y="3302" width="573" height="502" frameX="-31" frameY="-20" frameWidth="614" frameHeight="541"/>
+	<SubTexture name="down0002" x="1139" y="2785" width="570" height="506" frameX="-30" frameY="-17" frameWidth="614" frameHeight="541"/>
+	<SubTexture name="down0003" x="1139" y="2785" width="570" height="506" frameX="-30" frameY="-17" frameWidth="614" frameHeight="541"/>
+	<SubTexture name="down0004" x="569" y="2785" width="569" height="513" frameX="-27" frameY="-10" frameWidth="614" frameHeight="541"/>
+	<SubTexture name="down0005" x="569" y="2785" width="569" height="513" frameX="-27" frameY="-10" frameWidth="614" frameHeight="541"/>
+	<SubTexture name="down0006" x="0" y="2785" width="568" height="516" frameX="-27" frameY="-7" frameWidth="614" frameHeight="541"/>
+	<SubTexture name="down0007" x="0" y="2785" width="568" height="516" frameX="-27" frameY="-7" frameWidth="614" frameHeight="541"/>
+	<SubTexture name="down0008" x="0" y="2785" width="568" height="516" frameX="-27" frameY="-7" frameWidth="614" frameHeight="541"/>
+	<SubTexture name="down0009" x="0" y="2785" width="568" height="516" frameX="-27" frameY="-7" frameWidth="614" frameHeight="541"/>
+	<SubTexture name="down0010" x="0" y="2785" width="568" height="516" frameX="-27" frameY="-7" frameWidth="614" frameHeight="541"/>
+	<SubTexture name="down0011" x="0" y="2785" width="568" height="516" frameX="-27" frameY="-7" frameWidth="614" frameHeight="541"/>
+	<SubTexture name="down0012" x="0" y="2785" width="568" height="516" frameX="-27" frameY="-7" frameWidth="614" frameHeight="541"/>
+	<SubTexture name="down0013" x="0" y="2785" width="568" height="516" frameX="-27" frameY="-7" frameWidth="614" frameHeight="541"/>
+	<SubTexture name="down0014" x="0" y="2785" width="568" height="516" frameX="-27" frameY="-7" frameWidth="614" frameHeight="541"/>
+	<SubTexture name="down0015" x="0" y="2785" width="568" height="516" frameX="-27" frameY="-7" frameWidth="614" frameHeight="541"/>
+	<SubTexture name="idle0000" x="0" y="1692" width="605" height="513" frameX="-7" frameY="-10" frameWidth="612" frameHeight="523"/>
+	<SubTexture name="idle0001" x="0" y="1692" width="605" height="513" frameX="-7" frameY="-10" frameWidth="612" frameHeight="523"/>
+	<SubTexture name="idle0002" x="1202" y="1692" width="599" height="517" frameX="-10" frameY="-6" frameWidth="612" frameHeight="523"/>
+	<SubTexture name="idle0003" x="1202" y="1692" width="599" height="517" frameX="-10" frameY="-6" frameWidth="612" frameHeight="523"/>
+	<SubTexture name="idle0004" x="606" y="1692" width="595" height="521" frameX="-12" frameY="-3" frameWidth="612" frameHeight="523"/>
+	<SubTexture name="idle0005" x="606" y="1692" width="595" height="521" frameX="-12" frameY="-3" frameWidth="612" frameHeight="523"/>
+	<SubTexture name="idle0006" x="0" y="2214" width="592" height="522" frameX="-14" frameY="-2" frameWidth="612" frameHeight="523"/>
+	<SubTexture name="idle0007" x="0" y="2214" width="592" height="522" frameX="-14" frameY="-2" frameWidth="612" frameHeight="523"/>
+	<SubTexture name="idle0008" x="593" y="2214" width="589" height="523" frameX="-15" frameY="0" frameWidth="612" frameHeight="523"/>
+	<SubTexture name="idle0009" x="593" y="2214" width="589" height="523" frameX="-15" frameY="0" frameWidth="612" frameHeight="523"/>
+	<SubTexture name="idle0010" x="593" y="2214" width="589" height="523" frameX="-15" frameY="0" frameWidth="612" frameHeight="523"/>
+	<SubTexture name="idle0011" x="593" y="2214" width="589" height="523" frameX="-15" frameY="0" frameWidth="612" frameHeight="523"/>
+	<SubTexture name="idle0012" x="593" y="2214" width="589" height="523" frameX="-15" frameY="0" frameWidth="612" frameHeight="523"/>
+	<SubTexture name="idle0013" x="593" y="2214" width="589" height="523" frameX="-15" frameY="0" frameWidth="612" frameHeight="523"/>
+	<SubTexture name="idle0014" x="593" y="2214" width="589" height="523" frameX="-15" frameY="0" frameWidth="612" frameHeight="523"/>
+	<SubTexture name="idle0015" x="593" y="2214" width="589" height="523" frameX="-15" frameY="0" frameWidth="612" frameHeight="523"/>
+	<SubTexture name="idle0016" x="593" y="2214" width="589" height="523" frameX="-15" frameY="0" frameWidth="612" frameHeight="523"/>
+	<SubTexture name="idle0017" x="593" y="2214" width="589" height="523" frameX="-15" frameY="0" frameWidth="612" frameHeight="523"/>
+	<SubTexture name="idle0018" x="593" y="2214" width="589" height="523" frameX="-15" frameY="0" frameWidth="612" frameHeight="523"/>
+	<SubTexture name="left0000" x="0" y="3302" width="569" height="506" frameX="-7" frameY="-5" frameWidth="581" frameHeight="523"/>
+	<SubTexture name="left0001" x="0" y="3302" width="569" height="506" frameX="-7" frameY="-5" frameWidth="581" frameHeight="523"/>
+	<SubTexture name="left0002" x="1144" y="3302" width="567" height="506" frameX="-15" frameY="-1" frameWidth="581" frameHeight="523"/>
+	<SubTexture name="left0003" x="1144" y="3302" width="567" height="506" frameX="-15" frameY="-1" frameWidth="581" frameHeight="523"/>
+	<SubTexture name="left0004" x="0" y="3809" width="562" height="504" frameX="-17" frameY="-2" frameWidth="581" frameHeight="523"/>
+	<SubTexture name="left0005" x="0" y="3809" width="562" height="504" frameX="-17" frameY="-2" frameWidth="581" frameHeight="523"/>
+	<SubTexture name="left0006" x="563" y="3809" width="557" height="505" frameX="-18" frameY="0" frameWidth="581" frameHeight="523"/>
+	<SubTexture name="left0007" x="563" y="3809" width="557" height="505" frameX="-18" frameY="0" frameWidth="581" frameHeight="523"/>
+	<SubTexture name="left0008" x="563" y="3809" width="557" height="505" frameX="-18" frameY="0" frameWidth="581" frameHeight="523"/>
+	<SubTexture name="left0009" x="563" y="3809" width="557" height="505" frameX="-18" frameY="0" frameWidth="581" frameHeight="523"/>
+	<SubTexture name="left0010" x="563" y="3809" width="557" height="505" frameX="-18" frameY="0" frameWidth="581" frameHeight="523"/>
+	<SubTexture name="left0011" x="563" y="3809" width="557" height="505" frameX="-18" frameY="0" frameWidth="581" frameHeight="523"/>
+	<SubTexture name="left0012" x="563" y="3809" width="557" height="505" frameX="-18" frameY="0" frameWidth="581" frameHeight="523"/>
+	<SubTexture name="left0013" x="563" y="3809" width="557" height="505" frameX="-18" frameY="0" frameWidth="581" frameHeight="523"/>
+	<SubTexture name="left0014" x="563" y="3809" width="557" height="505" frameX="-18" frameY="0" frameWidth="581" frameHeight="523"/>
+	<SubTexture name="left0015" x="563" y="3809" width="557" height="505" frameX="-18" frameY="0" frameWidth="581" frameHeight="523"/>
+	<SubTexture name="left0016" x="563" y="3809" width="557" height="505" frameX="-18" frameY="0" frameWidth="581" frameHeight="523"/>
+	<SubTexture name="pissed0000" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0001" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0002" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0003" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0004" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0005" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0006" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0007" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0008" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0009" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0010" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0011" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0012" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0013" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0014" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0015" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0016" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0017" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0018" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0019" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0020" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0021" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0022" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0023" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0024" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0025" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0026" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0027" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0028" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0029" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0030" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0031" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0032" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0033" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0034" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0035" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0036" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0037" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0038" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0039" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0040" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0041" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0042" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0043" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0044" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0045" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0046" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0047" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0048" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0049" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0050" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0051" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0052" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0053" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0054" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0055" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0056" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0057" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0058" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0059" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0060" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0061" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0062" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0063" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0064" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0065" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0066" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0067" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0068" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0069" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0070" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0071" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0072" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0073" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0074" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0075" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0076" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0077" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0078" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0079" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0080" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0081" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0082" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0083" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0084" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0085" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0086" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0087" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0088" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0089" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0090" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0091" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0092" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0093" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0094" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0095" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0096" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0097" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0098" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0099" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0100" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0101" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0102" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0103" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0104" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0105" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0106" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0107" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0108" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0109" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0110" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0111" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0112" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0113" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0114" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0115" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0116" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0117" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0118" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0119" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0120" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0121" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0122" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0123" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0124" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0125" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0126" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0127" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0128" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0129" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0130" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0131" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0132" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0133" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0134" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0135" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0136" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0137" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0138" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0139" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0140" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0141" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0142" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0143" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0144" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0145" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0146" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0147" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0148" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0149" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0150" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0151" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0152" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0153" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0154" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0155" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0156" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0157" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0158" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0159" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0160" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0161" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0162" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0163" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0164" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0165" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0166" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0167" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0168" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0169" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0170" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0171" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0172" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0173" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0174" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0175" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0176" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0177" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0178" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0179" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0180" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0181" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0182" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0183" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0184" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0185" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0186" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0187" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0188" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0189" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0190" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0191" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0192" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0193" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0194" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0195" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0196" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0197" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0198" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0199" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0200" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0201" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0202" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0203" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0204" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0205" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0206" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0207" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0208" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0209" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0210" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0211" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0212" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0213" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0214" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0215" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0216" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0217" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0218" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0219" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0220" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0221" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0222" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0223" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0224" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0225" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0226" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0227" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0228" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0229" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0230" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0231" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0232" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0233" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0234" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0235" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0236" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0237" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0238" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0239" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0240" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0241" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0242" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0243" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0244" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0245" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0246" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0247" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0248" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0249" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0250" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0251" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0252" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0253" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0254" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0255" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0256" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0257" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0258" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0259" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0260" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0261" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0262" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0263" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0264" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0265" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0266" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0267" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0268" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0269" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0270" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0271" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0272" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0273" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0274" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0275" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0276" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0277" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0278" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0279" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0280" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0281" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0282" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0283" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0284" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0285" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0286" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0287" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0288" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0289" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0290" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0291" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0292" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0293" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0294" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0295" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0296" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0297" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0298" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0299" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0300" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0301" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0302" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0303" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0304" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0305" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0306" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0307" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0308" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0309" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0310" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0311" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0312" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0313" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0314" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0315" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0316" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0317" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0318" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0319" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0320" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0321" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0322" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0323" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0324" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0325" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0326" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0327" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0328" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0329" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0330" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0331" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0332" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0333" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0334" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0335" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0336" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0337" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0338" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0339" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0340" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0341" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0342" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0343" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0344" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0345" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0346" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0347" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0348" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0349" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0350" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0351" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0352" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0353" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0354" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0355" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0356" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0357" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0358" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0359" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0360" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0361" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0362" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0363" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0364" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0365" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0366" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0367" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0368" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0369" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0370" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0371" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0372" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0373" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0374" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0375" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0376" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0377" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0378" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0379" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0380" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0381" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0382" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0383" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0384" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0385" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0386" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0387" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="pissed0388" x="1183" y="2214" width="529" height="570" frameX="0" frameY="0" frameWidth="529" frameHeight="570"/>
+	<SubTexture name="right0000" x="0" y="0" width="768" height="490" frameX="-20" frameY="-4" frameWidth="780" frameHeight="504"/>
+	<SubTexture name="right0001" x="0" y="0" width="768" height="490" frameX="-20" frameY="-4" frameWidth="780" frameHeight="504"/>
+	<SubTexture name="right0002" x="769" y="0" width="768" height="489" frameX="-11" frameY="-5" frameWidth="780" frameHeight="504"/>
+	<SubTexture name="right0003" x="769" y="0" width="768" height="489" frameX="-11" frameY="-5" frameWidth="780" frameHeight="504"/>
+	<SubTexture name="right0004" x="0" y="491" width="760" height="492" frameX="-15" frameY="-6" frameWidth="780" frameHeight="504"/>
+	<SubTexture name="right0005" x="0" y="491" width="760" height="492" frameX="-15" frameY="-6" frameWidth="780" frameHeight="504"/>
+	<SubTexture name="right0006" x="761" y="491" width="754" height="494" frameX="-15" frameY="-6" frameWidth="780" frameHeight="504"/>
+	<SubTexture name="right0007" x="761" y="491" width="754" height="494" frameX="-15" frameY="-6" frameWidth="780" frameHeight="504"/>
+	<SubTexture name="right0008" x="761" y="491" width="754" height="494" frameX="-15" frameY="-6" frameWidth="780" frameHeight="504"/>
+	<SubTexture name="right0009" x="761" y="491" width="754" height="494" frameX="-15" frameY="-6" frameWidth="780" frameHeight="504"/>
+	<SubTexture name="right0010" x="761" y="491" width="754" height="494" frameX="-15" frameY="-6" frameWidth="780" frameHeight="504"/>
+	<SubTexture name="right0011" x="761" y="491" width="754" height="494" frameX="-15" frameY="-6" frameWidth="780" frameHeight="504"/>
+	<SubTexture name="right0012" x="761" y="491" width="754" height="494" frameX="-15" frameY="-6" frameWidth="780" frameHeight="504"/>
+	<SubTexture name="right0013" x="761" y="491" width="754" height="494" frameX="-15" frameY="-6" frameWidth="780" frameHeight="504"/>
+	<SubTexture name="right0014" x="761" y="491" width="754" height="494" frameX="-15" frameY="-6" frameWidth="780" frameHeight="504"/>
+	<SubTexture name="right0015" x="761" y="491" width="754" height="494" frameX="-15" frameY="-6" frameWidth="780" frameHeight="504"/>
+	<SubTexture name="uh0000" x="1104" y="4315" width="551" height="479" frameX="0" frameY="-10" frameWidth="551" frameHeight="489"/>
+	<SubTexture name="uh0001" x="1104" y="4315" width="551" height="479" frameX="0" frameY="-10" frameWidth="551" frameHeight="489"/>
+	<SubTexture name="uh0002" x="552" y="4315" width="551" height="485" frameX="0" frameY="-4" frameWidth="551" frameHeight="489"/>
+	<SubTexture name="uh0003" x="552" y="4315" width="551" height="485" frameX="0" frameY="-4" frameWidth="551" frameHeight="489"/>
+	<SubTexture name="uh0004" x="1121" y="3809" width="551" height="489" frameX="0" frameY="0" frameWidth="551" frameHeight="489"/>
+	<SubTexture name="uh0005" x="1121" y="3809" width="551" height="489" frameX="0" frameY="0" frameWidth="551" frameHeight="489"/>
+	<SubTexture name="uh0006" x="0" y="4315" width="551" height="487" frameX="0" frameY="-1" frameWidth="551" frameHeight="489"/>
+	<SubTexture name="uh0007" x="0" y="4315" width="551" height="487" frameX="0" frameY="-1" frameWidth="551" frameHeight="489"/>
+	<SubTexture name="uh0008" x="0" y="4315" width="551" height="487" frameX="0" frameY="-1" frameWidth="551" frameHeight="489"/>
+	<SubTexture name="uh0009" x="0" y="4315" width="551" height="487" frameX="0" frameY="-1" frameWidth="551" frameHeight="489"/>
+	<SubTexture name="uh0010" x="0" y="4315" width="551" height="487" frameX="0" frameY="-1" frameWidth="551" frameHeight="489"/>
+	<SubTexture name="uh0011" x="0" y="4315" width="551" height="487" frameX="0" frameY="-1" frameWidth="551" frameHeight="489"/>
+	<SubTexture name="uh0012" x="0" y="4315" width="551" height="487" frameX="0" frameY="-1" frameWidth="551" frameHeight="489"/>
+	<SubTexture name="uh0013" x="0" y="4315" width="551" height="487" frameX="0" frameY="-1" frameWidth="551" frameHeight="489"/>
+	<SubTexture name="uh0014" x="0" y="4315" width="551" height="487" frameX="0" frameY="-1" frameWidth="551" frameHeight="489"/>
+	<SubTexture name="uh0015" x="0" y="4315" width="551" height="487" frameX="0" frameY="-1" frameWidth="551" frameHeight="489"/>
+	<SubTexture name="uh0016" x="0" y="4315" width="551" height="487" frameX="0" frameY="-1" frameWidth="551" frameHeight="489"/>
+	<SubTexture name="uh0017" x="0" y="4315" width="551" height="487" frameX="0" frameY="-1" frameWidth="551" frameHeight="489"/>
+	<SubTexture name="uh0018" x="0" y="4315" width="551" height="487" frameX="0" frameY="-1" frameWidth="551" frameHeight="489"/>
+	<SubTexture name="up0000" x="0" y="986" width="456" height="705" frameX="0" frameY="-4" frameWidth="459" frameHeight="709"/>
+	<SubTexture name="up0001" x="0" y="986" width="456" height="705" frameX="0" frameY="-4" frameWidth="459" frameHeight="709"/>
+	<SubTexture name="up0002" x="457" y="986" width="457" height="697" frameX="0" frameY="-12" frameWidth="459" frameHeight="709"/>
+	<SubTexture name="up0003" x="457" y="986" width="457" height="697" frameX="0" frameY="-12" frameWidth="459" frameHeight="709"/>
+	<SubTexture name="up0004" x="915" y="986" width="453" height="692" frameX="0" frameY="-17" frameWidth="459" frameHeight="709"/>
+	<SubTexture name="up0005" x="915" y="986" width="453" height="692" frameX="0" frameY="-17" frameWidth="459" frameHeight="709"/>
+	<SubTexture name="up0006" x="1369" y="986" width="452" height="688" frameX="0" frameY="-21" frameWidth="459" frameHeight="709"/>
+	<SubTexture name="up0007" x="1369" y="986" width="452" height="688" frameX="0" frameY="-21" frameWidth="459" frameHeight="709"/>
+	<SubTexture name="up0008" x="1369" y="986" width="452" height="688" frameX="0" frameY="-21" frameWidth="459" frameHeight="709"/>
+	<SubTexture name="up0009" x="1369" y="986" width="452" height="688" frameX="0" frameY="-21" frameWidth="459" frameHeight="709"/>
+	<SubTexture name="up0010" x="1369" y="986" width="452" height="688" frameX="0" frameY="-21" frameWidth="459" frameHeight="709"/>
+	<SubTexture name="up0011" x="1369" y="986" width="452" height="688" frameX="0" frameY="-21" frameWidth="459" frameHeight="709"/>
+	<SubTexture name="up0012" x="1369" y="986" width="452" height="688" frameX="0" frameY="-21" frameWidth="459" frameHeight="709"/>
+	<SubTexture name="up0013" x="1369" y="986" width="452" height="688" frameX="0" frameY="-21" frameWidth="459" frameHeight="709"/>
+	<SubTexture name="up0014" x="1369" y="986" width="452" height="688" frameX="0" frameY="-21" frameWidth="459" frameHeight="709"/>
+	<SubTexture name="up0015" x="1369" y="986" width="452" height="688" frameX="0" frameY="-21" frameWidth="459" frameHeight="709"/>
 </TextureAtlas>
