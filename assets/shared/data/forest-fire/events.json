@@ -2,6 +2,126 @@
 	"song": {
 		"events": [
 			[
+				0,
+				[
+					[
+						"Move HUD",
+						"0, 720",
+						""
+					],
+					[
+						"camOtherbars",
+						"100",
+						"0"
+					],
+					[
+						"Camera Movement",
+						"middle",
+						""
+					]
+				]
+			],
+			[
+				3571.42857142857,
+				[
+					[
+						"camOtherbars",
+						"45",
+						"16s, expoOut"
+					]
+				]
+			],
+			[
+				5142.85714285714,
+				[
+					[
+						"camOtherbars",
+						"125",
+						"8s, expoIn"
+					]
+				]
+			],
+			[
+				5571.42857142857,
+				[
+					[
+						"Set Property",
+						"camZooming",
+						"1"
+					]
+				]
+			],
+			[
+				5714.28571428571,
+				[
+					[
+						"Set Property",
+						"camZoomingDecay",
+						"2"
+					],
+					[
+						"Set Property",
+						"cameraSpeed",
+						"2"
+					]
+				]
+			],
+			[
+				5928.57142857143,
+				[
+					[
+						"camOtherbars",
+						"0",
+						"8s, expoOut"
+					],
+					[
+						"Move HUD",
+						"0, 0",
+						"8s, expoOut"
+					],
+					[
+						"Camera Movement",
+						"dad",
+						""
+					],
+					[
+						"Set Cam Zoom",
+						"1.3x",
+						""
+					]
+				]
+			],
+			[
+				6357.14285714286,
+				[
+					[
+						"Set Cam Zoom",
+						"1.6x",
+						""
+					]
+				]
+			],
+			[
+				6857.14285714286,
+				[
+					[
+						"Set Cam Zoom",
+						"1x",
+						""
+					],
+					[
+						"Set Property",
+						"camZoomingDecay",
+						"1"
+					],
+					[
+						"Set Property",
+						"cameraSpeed",
+						"1"
+					]
+				]
+			],
+			[
 				7285.71428571429,
 				[
 					[
@@ -26,6 +146,16 @@
 				[
 					[
 						"Add Camera Zoom",
+						"",
+						""
+					]
+				]
+			],
+			[
+				8357.14285714286,
+				[
+					[
+						"Camera Movement",
 						"",
 						""
 					]
