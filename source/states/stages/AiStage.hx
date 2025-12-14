@@ -59,6 +59,7 @@ class AiStage extends BaseStage {
 		// add(concept);
 		bg = new BGSprite('aiStage/Bg', 0, 0, 1, 1);
 		bg.updateHitbox();
+		bg.scale.x = 2845;
 		bg.alpha = 1;
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		add(bg);

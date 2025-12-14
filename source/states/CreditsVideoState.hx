@@ -118,7 +118,7 @@ class CreditsVideoState extends MusicBeatState {
 
 		this.videoSprite.stopVideo();
 
-		var transitionSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		var transitionSprite = new FlxSolid().makeSolid(FlxG.width, FlxG.height, FlxColor.BLACK);
 		transitionSprite.alpha = 0;
 		this.add(transitionSprite);
 

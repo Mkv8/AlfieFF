@@ -13,7 +13,7 @@ class FlashingState extends MusicBeatState {
 	override function create() {
 		super.create();
 
-		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		var bg:FlxSprite = new FlxSolid().makeSolid(FlxG.width, FlxG.height, FlxColor.BLACK);
 		add(bg);
 
 		warnText = new FlxText(0, 0, FlxG.width, "Hey, watch out!\n

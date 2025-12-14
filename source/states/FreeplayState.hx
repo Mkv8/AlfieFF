@@ -54,7 +54,7 @@ class FreeplayState extends MusicBeatState {
 	var intendedColor:Int;
 	var colorTween:FlxTween;
 
-	var missingTextBG:FlxSprite;
+	var missingTextBG:FlxSolid;
 	var missingText:FlxText;
 
 	var bottomString:String;
@@ -81,8 +81,8 @@ class FreeplayState extends MusicBeatState {
 	//ALSO yellow text: #FF ffcf53 and outline border: #FF 770f0f
 
 	override function create() {
-		// Paths.clearStoredMemory();
-		// Paths.clearUnusedMemory();
+		Paths.clearStoredMemory();
+		Paths.clearUnusedMemory();
 
 
 		persistentUpdate = true;
@@ -197,7 +197,7 @@ class FreeplayState extends MusicBeatState {
 
 		add(scoreText);
 
-		missingTextBG = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		missingTextBG = new FlxSolid().makeSolid(FlxG.width, FlxG.height, FlxColor.BLACK);
 		missingTextBG.alpha = 0.6;
 		missingTextBG.visible = false;
 		add(missingTextBG);

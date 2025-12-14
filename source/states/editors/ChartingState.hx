@@ -137,7 +137,7 @@ class ChartingState extends MusicBeatState {
 
 	var CAM_OFFSET:Int = 360;
 
-	var dummyArrow:FlxSprite;
+	var dummyArrow:FlxSolid;
 
 	var curRenderedSustains:FlxTypedGroup<FlxSprite>;
 	var curRenderedNotes:FlxTypedGroup<ChartNote>;
@@ -321,7 +321,7 @@ class ChartingState extends MusicBeatState {
 		camPos = new FlxObject(0, 0, 1, 1);
 		camPos.setPosition(strumLine.x + CAM_OFFSET, strumLine.y);
 
-		dummyArrow = new FlxSprite().makeGraphic(GRID_SIZE, GRID_SIZE);
+		dummyArrow = new FlxSolid().makeSolid(GRID_SIZE, GRID_SIZE);
 		dummyArrow.antialiasing = ClientPrefs.data.antialiasing;
 		add(dummyArrow);
 

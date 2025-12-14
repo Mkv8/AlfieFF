@@ -146,6 +146,7 @@ class MikuStage extends BaseStage {
 		add(wimbg1);
 		wimbg2 = new BGSprite('miku/wimBG', -300, -170, 1, 1); //DONE
 		wimbg2.updateHitbox();
+		wimbg2.scale.x = 1920;
 		wimbg2.antialiasing = ClientPrefs.data.antialiasing;
 		wimbg2.alpha = 0;
 		add(wimbg2);

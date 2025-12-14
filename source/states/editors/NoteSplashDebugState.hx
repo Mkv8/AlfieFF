@@ -27,7 +27,7 @@ class NoteSplashDebugState extends MusicBeatState {
 	var savedText:FlxText;
 	var selecArr:Array<Float> = null;
 
-	var missingTextBG:FlxSprite;
+	var missingTextBG:FlxSolid;
 	var missingText:FlxText;
 
 	public static final defaultTexture:String = 'noteSplashes';
@@ -152,7 +152,7 @@ class NoteSplashDebugState extends MusicBeatState {
 		savedText.scrollFactor.set();
 		add(savedText);
 
-		missingTextBG = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		missingTextBG = new FlxSolid().makeSolid(FlxG.width, FlxG.height, FlxColor.BLACK);
 		missingTextBG.alpha = 0.6;
 		missingTextBG.visible = false;
 		add(missingTextBG);

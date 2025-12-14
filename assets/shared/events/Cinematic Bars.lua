@@ -3,10 +3,12 @@
 
 function onCreate()
 	makeLuaSprite('bartop','',0,-100);
-	makeGraphic('bartop',1280,100,'000000');
+	makeGraphic('bartop',1,1,'000000');
+	scaleObject('bartop',1280,100,false);
 	addLuaSprite('bartop',false);
 	makeLuaSprite('barbot','',0,720);
-	makeGraphic('barbot',1280,100,'000000');
+	makeGraphic('barbot',1,1,'000000');
+	scaleObject('bot',1280,100,false);
 	addLuaSprite('barbot',false);
 	setScrollFactor('bartop',0,0);
 	setScrollFactor('barbot',0,0);

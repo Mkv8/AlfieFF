@@ -401,7 +401,7 @@ class AiComic extends MusicBeatState {
 		if (back) {
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 
-			var transitionSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+			var transitionSprite = new FlxSolid().makeSolid(FlxG.width, FlxG.height, FlxColor.BLACK);
         	transitionSprite.alpha = 0;
         	add(transitionSprite);
 

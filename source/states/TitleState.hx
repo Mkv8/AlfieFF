@@ -40,7 +40,7 @@ class TitleState extends MusicBeatState {
 
 	public static var initialized:Bool = false;
 
-	var blackScreen:FlxSprite;
+	var blackScreen:FlxSolid;
 	var credGroup:FlxGroup;
 	var credTextShit:Alphabet;
 	var textGroup:FlxGroup;
@@ -225,7 +225,7 @@ class TitleState extends MusicBeatState {
 		add(credGroup);
 		textGroup = new FlxGroup();
 
-		blackScreen = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		blackScreen = new FlxSolid().makeSolid(FlxG.width, FlxG.height, FlxColor.BLACK);
 		credGroup.add(blackScreen);
 
 		credTextShit = new Alphabet(0, 0, "", true);

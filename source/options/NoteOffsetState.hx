@@ -140,7 +140,7 @@ class NoteOffsetState extends MusicBeatState {
 
 		///////////////////////
 
-		var blackBox:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, 40, FlxColor.BLACK);
+		var blackBox:FlxSolid = new FlxSolid().makeSolid(FlxG.width, 40, FlxColor.BLACK);
 		blackBox.scrollFactor.set();
 		blackBox.alpha = 0.6;
 		blackBox.cameras = [camHUD];

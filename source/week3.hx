@@ -484,7 +484,7 @@ function doPanelEvent(){
                 panel.scale.y = v;
             }));
         case 19:
-            var transitionSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+            var transitionSprite = new FlxSolid().makeSolid(FlxG.width, FlxG.height, FlxColor.BLACK);
             transitionSprite.alpha = 0;
             add(transitionSprite);
 
@@ -530,7 +530,7 @@ function onUpdate(elapsed:Float) {
         if (FlxG.sound.music != null)
             FlxG.sound.music.stop();
 
-        var transitionSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+        var transitionSprite = new FlxSolid().makeSolid(FlxG.width, FlxG.height, FlxColor.BLACK);
         transitionSprite.alpha = 0;
         add(transitionSprite);
 

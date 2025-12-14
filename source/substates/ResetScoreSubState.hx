@@ -6,7 +6,7 @@ import flixel.FlxSubState;
 import objects.HealthIcon;
 
 class ResetScoreSubState extends MusicBeatSubstate {
-	var bg:FlxSprite;
+	var bg:FlxSolid;
 	var alphabetArray:Array<Alphabet> = [];
 	var icon:HealthIcon;
 	var onYes:Bool = false;
@@ -31,7 +31,7 @@ class ResetScoreSubState extends MusicBeatSubstate {
 		}
 		name += ' (' + Difficulty.getString(difficulty) + ')?';
 
-		bg = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		bg = new FlxSolid().makeSolid(FlxG.width, FlxG.height, FlxColor.BLACK);
 		bg.alpha = 0;
 		bg.scrollFactor.set();
 		add(bg);

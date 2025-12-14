@@ -57,7 +57,7 @@ class WeekEditorState extends MusicBeatState {
 		weekThing.antialiasing = ClientPrefs.data.antialiasing;
 		add(weekThing);
 
-		var blackBarThingie:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, 56, FlxColor.BLACK);
+		var blackBarThingie:FlxSolid = new FlxSolid().makeSolid(FlxG.width, 56, FlxColor.BLACK);
 		add(blackBarThingie);
 
 		grpWeekCharacters = new FlxTypedGroup<MenuCharacter>();

@@ -10,9 +10,9 @@ class CustomFadeTransition extends MusicBeatSubstate {
 
 	var isTransIn:Bool = false;
 
-	var transBlack:FlxSprite;
-	var transBlack2:FlxSprite;
-	var transWhite:FlxSprite;
+	var transBlack:FlxSolid;
+	var transBlack2:FlxSolid;
+	var transWhite:FlxSolid;
 	var transIdle:FlxTimer;
 	var transGradient:FlxSprite;
 
@@ -29,21 +29,21 @@ class CustomFadeTransition extends MusicBeatSubstate {
 		var width:Int = Std.int(FlxG.width / Math.max(camera.zoom, 0.001));
 		var height:Int = Std.int(FlxG.height / Math.max(camera.zoom, 0.001));
 
-		transWhite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.WHITE);
+		transWhite = new FlxSolid().makeSolid(FlxG.width, FlxG.height, FlxColor.WHITE);
 		transWhite.updateHitbox();
 		transWhite.scrollFactor.set();
 		transWhite.screenCenter(XY);
 		transWhite.alpha = 0;
 		add(transWhite);
 
-		transBlack = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		transBlack = new FlxSolid().makeSolid(FlxG.width, FlxG.height, FlxColor.BLACK);
 		transBlack.updateHitbox();
 		transBlack.scrollFactor.set();
 		transBlack.screenCenter(X);
 		transBlack.alpha = 1;
 		add(transBlack);
 
-		transBlack2 = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		transBlack2 = new FlxSolid().makeSolid(FlxG.width, FlxG.height, FlxColor.BLACK);
 		transBlack2.updateHitbox();
 		transBlack2.scrollFactor.set();
 		transBlack2.screenCenter(X);
