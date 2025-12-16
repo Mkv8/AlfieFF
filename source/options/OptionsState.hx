@@ -116,13 +116,19 @@ class OptionsState extends MusicBeatState {
 		ClientPrefs.saveSettings();
 
 		super.create();
+
+
+		if (ClientPrefs.data.shaders == true)
+		{
 		FlxG.game.setFilters(shader);
 		FlxG.game.filtersEnabled = true;
 
 		FlxG.camera.setFilters([new ShaderFilter(curveShader)]);
 		FlxG.camera.filtersEnabled = true;
 
-		curveShader.chromOff = 4;
+		curveShader.chromOff = 3;
+		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
+
 	}
 
 	override function closeSubState() {

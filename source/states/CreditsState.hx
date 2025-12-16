@@ -1,4 +1,6 @@
 package states;
+import openfl.filters.ShaderFilter;
+import openfl.filters.BitmapFilter;
 
 
 typedef CreditData = {
@@ -330,6 +332,13 @@ class CreditsState extends MusicBeatState {
 	private var infoTextFirstLine:FlxText;
 	private var infoTextSecondLine:FlxText;
 
+	
+	var shader:Array<BitmapFilter> = [
+		new ShaderFilter(new shaders.PostProcessing()),
+	];
+
+	var curveShader = new shaders.CurveShader();
+
 	private var arrowTweens = {
 		left: null,
 		right: null,
@@ -642,13 +651,17 @@ class CreditsState extends MusicBeatState {
 		this.add(this.infoTextFirstLine);
 		this.add(this.infoTextSecondLine);
 
-		// FlxG.game.setFilters(shader);
-		// FlxG.game.filtersEnabled = true;
+		if (ClientPrefs.data.shaders == true)
+		{
+		FlxG.game.setFilters(shader);
+		FlxG.game.filtersEnabled = true;
 
-		// FlxG.camera.setFilters([new ShaderFilter(curveShader)]);
-		// FlxG.camera.filtersEnabled = true;
+		FlxG.camera.setFilters([new ShaderFilter(curveShader)]);
+		FlxG.camera.filtersEnabled = true;
 
-		// curveShader.chromOff = 4;
+		curveShader.chromOff = 3;
+		//curveShader.effect = -0.15;
+		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
 	}
 
 	var quitting:Bool = false;

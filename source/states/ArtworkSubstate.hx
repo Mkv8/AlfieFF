@@ -126,10 +126,11 @@ class ArtworkSubstate extends MusicBeatSubstate {
 		bioText.borderColor = 0xFF850303;
 		bioText.borderSize = 2;	
 		add(bioText);			
-
+		if (ClientPrefs.data.shaders == true)
+		{
 		FlxG.game.setFilters(shader);
 		FlxG.game.filtersEnabled = true;
-
+		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
 		//json
 		var file;
 		if (FileSystem.exists("assets/shared/data/artworkData.json")) {

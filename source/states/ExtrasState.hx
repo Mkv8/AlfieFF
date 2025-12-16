@@ -103,10 +103,12 @@ class ExtrasState extends MusicBeatState {
         this.menuItems.screenCenter(Y);
 
         this.add(this.menuItems);
-
+		if (ClientPrefs.data.shaders == true)
+		{
         FlxG.game.setFilters(shader);
         FlxG.game.filtersEnabled = true;
-
+		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
+        
         this.changeSelection();
     }
 

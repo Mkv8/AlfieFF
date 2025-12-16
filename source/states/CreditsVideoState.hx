@@ -84,6 +84,8 @@ class CreditsVideoState extends MusicBeatState {
 		);
 
 		super.create();
+		if (ClientPrefs.data.shaders == true)
+		{
 		FlxG.game.setFilters(shader);
 		FlxG.game.filtersEnabled = true;
 
@@ -91,7 +93,8 @@ class CreditsVideoState extends MusicBeatState {
 		FlxG.camera.filtersEnabled = true;
 
 		curveShader.chromOff = 2;
-
+		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
+		
 	}
 
 	override function update(elapsed:Float) {

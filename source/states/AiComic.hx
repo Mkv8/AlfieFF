@@ -58,6 +58,8 @@ class AiComic extends MusicBeatState {
         FlxG.sound.playMusic("assets/shared/music/pauseAi.ogg", 0.1);
 
 		super.create();
+		if (ClientPrefs.data.shaders == true)
+		{
 		FlxG.game.setFilters(shader);
 		FlxG.game.filtersEnabled = true;
 
@@ -65,7 +67,7 @@ class AiComic extends MusicBeatState {
 		FlxG.camera.filtersEnabled = true;
 
 		curveShader.chromOff = 2;
-
+		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
 	}
 
 	function doPanelEvent()

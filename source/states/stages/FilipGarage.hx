@@ -91,8 +91,8 @@ class FilipGarage extends BaseStage {
 		blackscreen.alpha = 0;
 		add(blackscreen);
 
-
-
+		if (ClientPrefs.data.shaders == true)
+		{
 		FlxG.game.setFilters(shader);
 		FlxG.game.filtersEnabled = true;
 
@@ -103,6 +103,7 @@ class FilipGarage extends BaseStage {
 		PlayState.instance.camGame.filtersEnabled = true;
 
 		curveShader.chromOff = 3.5;
+		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
 
 	}
 

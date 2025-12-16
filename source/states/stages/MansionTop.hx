@@ -189,6 +189,8 @@ class MansionTop extends BaseStage {
 		youText.alpha = 0;
 		add(youText);
 
+		if (ClientPrefs.data.shaders == true)
+		{
 		FlxG.game.setFilters(shader);
 		FlxG.game.filtersEnabled = true;
 
@@ -199,6 +201,7 @@ class MansionTop extends BaseStage {
 		PlayState.instance.camGame.filtersEnabled = true;
 
 		curveShader.chromOff = 3.5;
+		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
 
 	}
 

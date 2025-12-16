@@ -285,6 +285,8 @@ class MikuStage extends BaseStage {
 		noises.animation.play('noises', true, false);
 		add(noises);
 		
+		if (ClientPrefs.data.shaders == true)
+		{
 		FlxG.game.setFilters(shader);
 		FlxG.game.filtersEnabled = true;
 
@@ -294,7 +296,8 @@ class MikuStage extends BaseStage {
 		PlayState.instance.camGame.setFilters([new ShaderFilter(curveShader)]);
 		PlayState.instance.camGame.filtersEnabled = true;
 
-		curveShader.chromOff = 4;
+		curveShader.chromOff = 3.5;
+		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
 	}
 
 	override function destroy() {

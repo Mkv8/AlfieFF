@@ -250,6 +250,8 @@ class TitleState extends MusicBeatState {
 
 		Paths.clearUnusedMemory();
 		// credGroup.add(credTextShit);
+		if (ClientPrefs.data.shaders == true)
+		{
 		FlxG.game.setFilters(shader);
 		FlxG.game.filtersEnabled = true;
 
@@ -257,7 +259,8 @@ class TitleState extends MusicBeatState {
 		FlxG.camera.filtersEnabled = true;
 
 		curveShader.chromOff = 4;
-		//curveShader.effect = -0.15;
+		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
+		
 	}
 
 	function getIntroTextShit():Array<Array<String>> {

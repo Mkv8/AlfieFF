@@ -157,10 +157,11 @@ class BioSubstate extends MusicBeatSubstate {
 		infoText.borderSize = 2;
 		infoText.alpha = 0.75;	
 		add(infoText);		
-
+		if (ClientPrefs.data.shaders == true)
+		{
 		FlxG.game.setFilters(shader);
 		FlxG.game.filtersEnabled = true;
-
+		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
 		//json
 		var file;
 		if (FileSystem.exists("assets/shared/data/charBioData.json")) {

@@ -210,12 +210,14 @@ class MainMenuState extends MusicBeatState {
 		this.menuItems.screenCenter(Y);
 
 		this.add(this.menuItems);
-
+		if (ClientPrefs.data.shaders == true)
+		{
 		FlxG.game.setFilters(shader);
 		FlxG.game.filtersEnabled = true;
+		FlxG.camera.setFilters([new ShaderFilter(curveShader)]);
+		FlxG.camera.filtersEnabled = true;		
+		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
 
-		//FlxG.camera.setFilters([new ShaderFilter(curveShader)]);
-		//FlxG.camera.filtersEnabled = true;
 
 		//curveShader.chromOff = 4;
 		// FlxG.camera.follow(camFollow, null, 9);

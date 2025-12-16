@@ -111,7 +111,8 @@ class Skidhouse extends BaseStage {
 		concept.antialiasing = ClientPrefs.data.antialiasing;
 		//add(concept);
 
-
+		if (ClientPrefs.data.shaders == true)
+		{
 		FlxG.game.setFilters(shader);
 		FlxG.game.filtersEnabled = true;
 
@@ -122,7 +123,7 @@ class Skidhouse extends BaseStage {
 		PlayState.instance.camGame.filtersEnabled = true;
 
 		curveShader.chromOff = 3.5;
-
+		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
 	}
 
 	override function update(elapsed:Float) {
