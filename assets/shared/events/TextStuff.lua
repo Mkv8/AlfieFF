@@ -25,17 +25,17 @@ function onCreate()
 		baseTextY = screenHeight/4*3 - 20 + textYOffset
 	end
 	textWidth = screenWidth + textXOffset*2
-	makeLuaText('dumbText', '', textWidth, baseTextX, baseTextY)
-	setTextAlignment('dumbText', 'center')
-	addLuaText('dumbText')
-	setTextSize('dumbText', 30);
-	setProperty('dumbText.alpha', 0)
-	
 	makeLuaText('dumbText2', '', textWidth, baseTextX, baseTextY)
 	setTextAlignment('dumbText2', 'center')
 	addLuaText('dumbText2')
 	setTextSize('dumbText2', 30);
 	setProperty('dumbText2.alpha', 0)
+	
+	makeLuaText('dumbText', '', textWidth, baseTextX, baseTextY)
+	setTextAlignment('dumbText', 'center')
+	addLuaText('dumbText')
+	setTextSize('dumbText', 30);
+	setProperty('dumbText.alpha', 0)
 	
 	makeLuaSprite('textIcon', 'icons/icon-face')
 	setProperty('textIcon.alpha', 0)

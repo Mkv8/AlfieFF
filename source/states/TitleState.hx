@@ -78,6 +78,17 @@ class TitleState extends MusicBeatState {
 
 		curWacky = FlxG.random.getObject(getIntroTextShit());
 
+		if (ClientPrefs.data.shaders == true)
+		{
+		FlxG.game.setFilters(shader);
+		FlxG.game.filtersEnabled = true;
+
+		FlxG.camera.setFilters([new ShaderFilter(curveShader)]);
+		FlxG.camera.filtersEnabled = true;
+
+		curveShader.chromOff = 4;
+		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
+
 		super.create();
 
 		TransNdll.cacheFunctions();
@@ -220,6 +231,16 @@ class TitleState extends MusicBeatState {
 
 		// FlxTween.tween(logoBl, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG});
 		// FlxTween.tween(logo, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 0.1});
+		if (ClientPrefs.data.shaders == true)
+		{
+		FlxG.game.setFilters(shader);
+		FlxG.game.filtersEnabled = true;
+
+		FlxG.camera.setFilters([new ShaderFilter(curveShader)]);
+		FlxG.camera.filtersEnabled = true;
+
+		curveShader.chromOff = 4;
+		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
 
 		credGroup = new FlxGroup();
 		add(credGroup);
@@ -250,16 +271,7 @@ class TitleState extends MusicBeatState {
 
 		Paths.clearUnusedMemory();
 		// credGroup.add(credTextShit);
-		if (ClientPrefs.data.shaders == true)
-		{
-		FlxG.game.setFilters(shader);
-		FlxG.game.filtersEnabled = true;
 
-		FlxG.camera.setFilters([new ShaderFilter(curveShader)]);
-		FlxG.camera.filtersEnabled = true;
-
-		curveShader.chromOff = 4;
-		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
 		
 	}
 

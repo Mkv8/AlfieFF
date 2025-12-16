@@ -104,11 +104,13 @@ class ControlsSubState extends MusicBeatSubstate {
 		controllerSpr.antialiasing = ClientPrefs.data.antialiasing;
 		controllerSpr.animation.add('keyboard', [0], 1, false);
 		controllerSpr.animation.add('gamepad', [1], 1, false);
+		controllerSpr.alpha = 0;
 		add(controllerSpr);
 
 		var text:Alphabet = new Alphabet(60, 90, 'CTRL', false);
 		text.alignment = CENTERED;
 		text.setScale(0.4);
+		text.alpha = 0;
 		add(text);
 
 		createTexts();
