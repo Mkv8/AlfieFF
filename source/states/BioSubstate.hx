@@ -269,7 +269,7 @@ class BioSubstate extends MusicBeatSubstate {
 	}
 	function switchBio() {
 		FlxTween.cancelTweensOf(bioText);
-		FlxTween.cancelTweensOf(renders);
+
 		FlxTween.cancelTweensOf(comment1);
 		FlxTween.cancelTweensOf(comment2);
 		FlxTween.cancelTweensOf(comment3);
@@ -277,10 +277,16 @@ class BioSubstate extends MusicBeatSubstate {
 		comment2.alpha = 0;
 		comment3.alpha = 0;
 		bioText.alpha = 0;
+
+		var cooldown:FlxTimer;
+		cooldown = new FlxTimer().start(1, function(tmr:FlxTimer)
+		{selectedSomethin = false;}, 0);
+
 		FlxTween.tween(bioText, {alpha: 1}, 0.9, {ease: FlxEase.quartInOut});
 
 		if (!readingComments)
 		{
+		FlxTween.cancelTweensOf(renders);
 		renders.alpha = 0;
 		renders.x = -280;
 		FlxTween.tween(renders, {alpha: 1, x: -80}, 0.9, {ease: FlxEase.quartInOut});

@@ -85,6 +85,7 @@ class AiComic extends MusicBeatState {
 		{
 			case 0:
 			{
+					FlxTween.cancelTweensOf(panel);
 					FlxTween.tween(panel, {
 						alpha: 1,
 						y: panel.y -100
@@ -95,6 +96,9 @@ class AiComic extends MusicBeatState {
 			ignore = false;
 			case 1:
 			{
+				FlxTween.cancelTweensOf(panel);
+				FlxTween.cancelTweensOf(lastpanel);
+
 				lastpanel.alpha = 0.4;
 					panel.y += 100;
 					FlxTween.tween(panel, {
@@ -107,12 +111,18 @@ class AiComic extends MusicBeatState {
 			}
 			case 2:
 			{
+				FlxTween.cancelTweensOf(panel);
+				FlxTween.cancelTweensOf(lastpanel);
+			
 				lastpanel.alpha = 0;
 				//panel.y += 100;
 				panel.alpha = 1;
 			}
 			case 3:
 			{
+				FlxTween.cancelTweensOf(panel);
+				FlxTween.cancelTweensOf(lastpanel);
+				FlxTween.cancelTweensOf(lastlastlastpanel);
 				lastpanel.alpha = 0;
 				lastlastlastpanel.alpha = 0;
 				panel.y += 100;
@@ -125,6 +135,9 @@ class AiComic extends MusicBeatState {
 			}
 			case 4:
 			{
+				FlxTween.cancelTweensOf(panel);
+				FlxTween.cancelTweensOf(lastpanel);
+
 				lastpanel.alpha = 0;
 				panel.alpha = 1;
 				FlxG.camera.shake(0.005, 0.4);
@@ -134,6 +147,8 @@ class AiComic extends MusicBeatState {
 			}
 			case 5:
 			{
+				FlxTween.cancelTweensOf(panel);
+				FlxTween.cancelTweensOf(lastpanel);
 				FlxTween.tween(lastpanel, {
 						alpha: 0,
 						y: panel.y + 250,
@@ -149,6 +164,9 @@ class AiComic extends MusicBeatState {
 			}
 			case 6:
 			{
+				FlxTween.cancelTweensOf(panel);
+				FlxTween.cancelTweensOf(lastpanel);
+
 				ignore = false;
 
 				FlxTween.tween(lastpanel, {
@@ -169,6 +187,9 @@ class AiComic extends MusicBeatState {
 			}
 			case 7:
 			{
+				FlxTween.cancelTweensOf(panel);
+				FlxTween.cancelTweensOf(lastpanel);
+
 					FlxTween.tween(lastpanel, {
 						alpha: 0.5,
 					}, 1, {
@@ -187,6 +208,11 @@ class AiComic extends MusicBeatState {
 			}
 			case 8:
 			{
+				FlxTween.cancelTweensOf(panel);
+				FlxTween.cancelTweensOf(lastpanel);
+				FlxTween.cancelTweensOf(lastlastpanel);
+				FlxTween.cancelTweensOf(lastlastlastpanel);
+
 				lastlastlastpanel.alpha = 0;
 				lastlastpanel.alpha = 0;
 				lastpanel.alpha = 0;
@@ -201,6 +227,9 @@ class AiComic extends MusicBeatState {
 			}
 			case 9:
 			{
+				FlxTween.cancelTweensOf(panel);
+				FlxTween.cancelTweensOf(lastpanel);
+
 				lastpanel.alpha = 0;
 				panel.y += 300;
 				FlxTween.tween(panel, {
@@ -213,6 +242,9 @@ class AiComic extends MusicBeatState {
 			}
 			case 10: //reminder this is com11.png
 			{
+				FlxTween.cancelTweensOf(panel);
+				FlxTween.cancelTweensOf(lastpanel);
+
 				lastpanel.alpha = 0;
 				panel.y +=100;
 				FlxTween.tween(panel, {
@@ -224,6 +256,9 @@ class AiComic extends MusicBeatState {
 			}
 			case 11:
 			{
+				FlxTween.cancelTweensOf(panel);
+				FlxTween.cancelTweensOf(lastpanel);
+				
 				FlxTween.tween(lastpanel, {
 						alpha: 0.5,
 						x: panel.x -300
@@ -239,6 +274,10 @@ class AiComic extends MusicBeatState {
 			}
 			case 12:
 			{
+				FlxTween.cancelTweensOf(panel);
+				FlxTween.cancelTweensOf(lastpanel);
+				FlxTween.cancelTweensOf(lastlastpanel);
+
 				lastlastpanel.alpha = 0;
 				lastpanel.alpha =0;
 				panel.y += 100;
@@ -251,6 +290,9 @@ class AiComic extends MusicBeatState {
 			}
 			case 13:
 			{
+				FlxTween.cancelTweensOf(panel);
+				FlxTween.cancelTweensOf(lastpanel);
+								
 				lastpanel.alpha = 0;
 				panel.alpha =1;
 				ignore = true;
@@ -259,6 +301,9 @@ class AiComic extends MusicBeatState {
 			}
 			case 14:
 			{
+				FlxTween.cancelTweensOf(panel);
+				FlxTween.cancelTweensOf(lastpanel);
+
 				FlxTween.tween(lastpanel, {
 						alpha: 0.5
 					}, 1, {
@@ -274,6 +319,10 @@ class AiComic extends MusicBeatState {
 			}
 			case 15:
 			{
+				FlxTween.cancelTweensOf(panel);
+				FlxTween.cancelTweensOf(lastpanel);
+				FlxTween.cancelTweensOf(lastlastpanel);
+
 				FlxTween.tween(lastlastpanel, {
 						alpha: 0
 					}, 1, {
@@ -295,6 +344,10 @@ class AiComic extends MusicBeatState {
 			}
 			case 16:
 			{
+				FlxTween.cancelTweensOf(panel);
+				FlxTween.cancelTweensOf(lastpanel);
+				FlxTween.cancelTweensOf(lastlastpanel);
+
 				FlxTween.tween(lastlastpanel, {
 						alpha: 0.4
 					}, 1, {
@@ -315,6 +368,11 @@ class AiComic extends MusicBeatState {
 			}
 			case 17:
 			{
+				FlxTween.cancelTweensOf(panel);
+				FlxTween.cancelTweensOf(lastpanel);
+				FlxTween.cancelTweensOf(lastlastpanel);
+				FlxTween.cancelTweensOf(lastlastlastpanel);
+
 				lastlastlastpanel.alpha = 0;
 				lastlastpanel.alpha = 0;
 				FlxTween.tween(lastpanel, {
@@ -334,6 +392,10 @@ class AiComic extends MusicBeatState {
 			}
 			case 18:
 			{
+				FlxTween.cancelTweensOf(panel);
+				FlxTween.cancelTweensOf(lastpanel);
+				FlxTween.cancelTweensOf(lastlastpanel);
+								
 				FlxTween.tween(lastlastpanel, {
 						alpha: 0
 					}, 1.5, {

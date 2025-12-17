@@ -49,11 +49,11 @@ class Freaky extends BaseStage {
 		boombox.updateHitbox();
 		add(boombox);*/
 
-		bg = new BGSprite('title bg', 1, 1, 1, 1);
+		bg = new BGSprite('title bg', -80, 1, 1, 1);
 		bg.updateHitbox();
 		bg.alpha = 1;
 		bg.antialiasing = ClientPrefs.data.antialiasing;
-		bg.scale.set(0.67, 0.67);
+		bg.scale.set(0.75, 0.75);
 		bg.screenCenter();
 		add(bg);
 

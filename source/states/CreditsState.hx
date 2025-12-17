@@ -86,7 +86,7 @@ class CreditsState extends MusicBeatState {
 				{
 					name: "Ferzy",
 					iconName: "ferzyIcon",
-					quote: "i still need your quote ferzy >:(",
+					quote: "I LOVE optimization\nI LOVE legoshi\nI LOVE Kasane Teto\nI LOVE dragons",
 					link: "https://x.com/_Ferzy?s=09",
 				},
 			],
