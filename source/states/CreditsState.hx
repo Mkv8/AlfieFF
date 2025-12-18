@@ -104,7 +104,7 @@ class CreditsState extends MusicBeatState {
 					name: "Splatterdash", //Forest Fire, pause/extras/gameover themes/eye of the beholder
 					iconName: "splatterdashIcon",
 					quote: "I am back again because I love alfredo beta room",
-					link: "https://twitter.com/DEADMAC1",
+					link: "https://splatterdash.newgrounds.com/",
 				},
 				{
 					name: "Tailer", //Convicted Love along with coquers
