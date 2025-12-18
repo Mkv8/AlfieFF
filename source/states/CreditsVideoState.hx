@@ -55,8 +55,11 @@ class CreditsVideoState extends MusicBeatState {
 		videoSprite.bitmap.startPos = Std.int(Conductor.songPosition);
 
 		videoSprite.finishCallback = function() {
-			this.exit();
+			FlxG.sound.volume = FlxG.save.data.volume;
+			this.exit();			
 		}
+
+		FlxG.sound.volume = 0.7;
 
 		var blackscreen:BGSprite;
 		blackscreen = new BGSprite(null, 0, 0, 1, 1);
@@ -100,7 +103,7 @@ class CreditsVideoState extends MusicBeatState {
 	override function update(elapsed:Float) {
 		if (FlxG.keys.justPressed.BACKSPACE || FlxG.keys.justPressed.ESCAPE) { //I cannot for the life of me figure out the bug so im disabling here for now :(
 			FlxG.sound.play(Paths.sound("cancelMenu"));
-
+			FlxG.sound.volume = FlxG.save.data.volume;
 			this.exit();
 		}
 
@@ -115,7 +118,6 @@ class CreditsVideoState extends MusicBeatState {
 		}
 
 		this.exiting = true;
-
 		FlxG.save.data.seenCredits = true;
 		FlxG.save.flush();
 

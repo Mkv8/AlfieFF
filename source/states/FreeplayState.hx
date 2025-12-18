@@ -127,7 +127,7 @@ class FreeplayState extends MusicBeatState {
 		borders = new BGSprite('menuassets/bars', 0, 0, 0, 0);
 		borders.updateHitbox();
 		borders.alpha = 1;
-		borders.scale.set(0.8,0.8);
+		borders.scale.set(0.82,0.82);
 		borders.screenCenter(XY);
 		borders.antialiasing = ClientPrefs.data.antialiasing;
 		add(borders);
@@ -237,6 +237,15 @@ class FreeplayState extends MusicBeatState {
 		scoreBG.visible = false;
 		diffText.visible = false;
 
+		var pressEnterText:FlxText;
+		pressEnterText = new FlxText (0, FlxG.height - 30, FlxG.width, "Press ENTER to play a song!", 20);
+		pressEnterText.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER);
+		pressEnterText.screenCenter(X);
+		add(pressEnterText);
+
+		var timer:FlxTimer;
+		timer = new FlxTimer().start(3, function(tmr:FlxTimer)
+		{FlxTween.tween(pressEnterText, {alpha: 0}, 4, {ease: FlxEase.quartInOut});}, 0);
 
 		changeSelection();
 		updateTexts();
