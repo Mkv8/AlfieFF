@@ -72,19 +72,19 @@ class MainMenuState extends MusicBeatState {
 	override function create() {
 		if (Highscore.getScore('convicted-love', 0) != 0 && !addedKiss)
 		{
-		renderDatas.insert(6, { name: "KisstonMSRender", offset: { x: 105.0, y: 30.0 }, scale: 0.55 }); trace('is this fuckin pushed');
+		renderDatas.insert(6, { name: "KisstonMSRender", offset: { x: 105.0, y: 30.0 }, scale: 0.55 });
 		renderDatas.insert(7, { name: "KisstonMSRenderAlt", offset: { x: -20.0, y: 30.0 }, scale: 0.42 });
 		addedKiss = true;
 		}
 		if (Highscore.getScore('jammed-cartridge', 0) != 0 && !addedKai|| Highscore.getScore('anemoia', 0) != 0 && !addedKai)
 		{
-		renderDatas.insert(8, { name: "KaiMSRender", offset: { x: 115.0, y: 70.0 }, scale: 0.8 }); trace('is this fuckin pushed');
+		renderDatas.insert(8, { name: "KaiMSRender", offset: { x: 115.0, y: 70.0 }, scale: 0.8 });
 		renderDatas.insert(9, { name: "KaiMSRenderAlt", offset: { x: 80.0, y: 20.0 }, scale: 0.45 });
 		addedKai = true;
 		}
 		if (Highscore.getScore('punch-buggy', 0) != 0 && !addedFilip|| Highscore.getScore('punch-buggy!', 0) != 0  && !addedFilip|| Highscore.getScore('punch-buggy!!', 0) != 0  && !addedFilip|| Highscore.getScore('punch-buggy!!!', 0) != 0  && !addedFilip)
 		{
-		renderDatas.insert(10, { name: "FilipMSRender", offset: { x: 40.0, y: 70.0 }, scale: 0.45 }); trace('is this fuckin pushed');
+		renderDatas.insert(10, { name: "FilipMSRender", offset: { x: 40.0, y: 70.0 }, scale: 0.45 });
 		renderDatas.insert(11, { name: "FilipMSRenderAlt", offset: { x: 50.0, y: 20.0 }, scale: 0.38 });
 		addedFilip = true;
 		}
@@ -215,7 +215,7 @@ class MainMenuState extends MusicBeatState {
 		FlxG.game.setFilters(shader);
 		FlxG.game.filtersEnabled = true;
 		FlxG.camera.setFilters([new ShaderFilter(curveShader)]);
-		FlxG.camera.filtersEnabled = true;		
+		FlxG.camera.filtersEnabled = true;
 		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
 
 
