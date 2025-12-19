@@ -17,20 +17,8 @@ class Freaky extends BaseStage {
 	var blackUI:BGSprite;
 	var blackscreen:BGSprite;
 
-<<<<<<< Updated upstream
 	var warmup:FlxText;
 
-	var shader:Array<BitmapFilter> = [
-		new ShaderFilter(new shaders.PostProcessing()),
-	];
-
-	/*var curveShader:Array<BitmapFilter> = [
-		new ShaderFilter(new shaders.CurveShader()),
-	];*/
-
-	var curveShader = new shaders.CurveShader();
-=======
->>>>>>> Stashed changes
 
 	override function create() {
 		// Spawn your stage sprites here.
