@@ -1,12 +1,8 @@
 package states.stages;
 
-import openfl.display.BlendMode;
+import shaders.GameShaders;
 import backend.BaseStage;
-import states.stages.objects.*;
 import flixel.effects.particles.FlxEmitter;
-import flixel.effects.particles.FlxEmitter;
-import openfl.filters.BitmapFilter;
-import openfl.filters.ShaderFilter;
 
 class Freaky extends BaseStage {
 	// If you're moving your stage from PlayState to a stage file,
@@ -18,11 +14,10 @@ class Freaky extends BaseStage {
 	var leaf: StarParticle = new StarParticle();
 	var emitter: FlxEmitter = new FlxEmitter(0, 0);
 
-
-
 	var blackUI:BGSprite;
 	var blackscreen:BGSprite;
 
+<<<<<<< Updated upstream
 	var warmup:FlxText;
 
 	var shader:Array<BitmapFilter> = [
@@ -34,6 +29,8 @@ class Freaky extends BaseStage {
 	];*/
 
 	var curveShader = new shaders.CurveShader();
+=======
+>>>>>>> Stashed changes
 
 	override function create() {
 		// Spawn your stage sprites here.
@@ -107,25 +104,12 @@ class Freaky extends BaseStage {
 		warmup.borderSize = 3;
 		warmup.cameras = [camOther];
 		add(warmup);
-
-		if (ClientPrefs.data.shaders == true)
-		{
-		FlxG.game.setFilters(shader);
-		FlxG.game.filtersEnabled = true;
-
-		PlayState.instance.camHUD.setFilters([new ShaderFilter(curveShader)]);
-		PlayState.instance.camHUD.filtersEnabled = true;
-
-		PlayState.instance.camGame.setFilters([new ShaderFilter(curveShader)]);
-		PlayState.instance.camGame.filtersEnabled = true;
-
-		curveShader.chromOff = 3.5;
-		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
-
 	}
 
-	override function update(elapsed:Float) {
-		// Code here
+	override function update(elapsed:Float)
+	{
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 3.5;
 	}
 
 	override function countdownTick(count:Countdown, num:Int)
@@ -167,15 +151,15 @@ class Freaky extends BaseStage {
 	override function beatHit() {
 		everyoneDance();
 
-		
+
 		switch (curBeat) {
 
-			case 3: 
+			case 3:
 				{
 				FlxTween.tween(warmup, {alpha: 1}, 1.5, {ease: FlxEase.cubeIn});
 				}
 
-			case 10: 
+			case 10:
 				{
 				FlxTween.tween(warmup, {alpha: 0}, 1.5, {ease: FlxEase.cubeIn});
 				}
@@ -185,7 +169,7 @@ class Freaky extends BaseStage {
 					FlxTween.tween(blackUI, {alpha: 0}, 3, {ease: FlxEase.cubeIn});
 					songDeets();
 				}
-			
+
 			}
 	}
 
@@ -226,7 +210,7 @@ class Freaky extends BaseStage {
 		musician.scrollFactor.set();
 		musician.alpha = 0;
 		musician.borderColor = 0xFF3F0000;
-		musician.borderSize = 3;		
+		musician.borderSize = 3;
 		musician.cameras = [camOther];
 
 		charter = new FlxText(110, 350, FlxG.width - 100, 'Charter: PavDrop', 32);
@@ -234,13 +218,13 @@ class Freaky extends BaseStage {
 		charter.scrollFactor.set();
 		charter.alpha = 0;
 		charter.borderColor = 0xFF3F0000;
-		charter.borderSize = 3;		
+		charter.borderSize = 3;
 		charter.cameras = [camOther];
-		
+
 		add(moontitle);
 		add(songTitle);
-		add(musician);		
-		add(charter);		
+		add(musician);
+		add(charter);
 
 		//STARTING TWEENS
 		FlxTween.tween(moontitle, {
@@ -248,7 +232,7 @@ class Freaky extends BaseStage {
 			angle: 0
 		}, 0.8, {
 			ease: FlxEase.quartInOut,
-		});		
+		});
 
 		FlxTween.tween(songTitle, {
 			alpha: 1,
@@ -256,7 +240,7 @@ class Freaky extends BaseStage {
 		}, 0.8, {
 			ease: FlxEase.quartInOut,
 			startDelay: 0.2
-		});		
+		});
 
 
 		FlxTween.tween(musician, {
@@ -265,35 +249,35 @@ class Freaky extends BaseStage {
 		}, 0.8, {
 			ease: FlxEase.quartInOut,
 			startDelay: 0.4
-		});				
+		});
 		FlxTween.tween(charter, {
 			alpha: 1,
 			x: charter.x - 50
 		}, 0.8, {
 			ease: FlxEase.quartInOut,
 			startDelay: 0.4
-		});			
-		
-		
+		});
+
+
 		//-----------------------------
 
 		//ENDING TWEENS
 		FlxTween.tween(moontitle, {
 			alpha: 0,
-			angle:  5			
+			angle:  5
 		}, 1.2, {
 			ease: FlxEase.quartInOut,
 			startDelay: 2.5
-		});		
+		});
 
 		FlxTween.tween(songTitle, {
 			alpha: 0,
 			x: songTitle.x + 70,
-			angle:  5			
+			angle:  5
 		}, 1.2, {
 			ease: FlxEase.quartInOut,
 			startDelay: 2.5
-		});		
+		});
 
 
 		FlxTween.tween(musician, {
@@ -303,7 +287,7 @@ class Freaky extends BaseStage {
 		}, 1.2, {
 			ease: FlxEase.quartInOut,
 			startDelay: 2.5
-		});				
+		});
 		FlxTween.tween(charter, {
 			alpha: 0,
 			x: charter.x - 70,
@@ -325,7 +309,7 @@ class Freaky extends BaseStage {
 				charter.destroy();
 
 			}, 0);
-	}	
+	}
 
 	override function sectionHit() {
 		// Code here

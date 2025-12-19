@@ -1,5 +1,6 @@
 package states.stages;
 
+import shaders.GameShaders;
 import objects.Character;
 import backend.BaseStage;
 
@@ -33,19 +34,6 @@ class Desktop extends BaseStage {
 	var animtimer:FlxTimer;
 	var gs:ReplaceCol;
 
-	//THIS IS COMMENTED SHADER CODE
-	//I COMMENTED IT BECAUSE I THINK THE CHROMATIC ABBERRATION EFFECT MIGHT LOOK BAD HERE, IF YOU THINK WE SHOULD KEEP IT, FEEL FREE TO PLAY AROUND WITH IT
-	//EVEN THOUGH I DISABLED THE SHADERS, FOR SOME REASON THE SCANLINE EFFECT WON'T GO AWAY, IDK WHY
-
-	/*var shader:Array<BitmapFilter> = [
-		new ShaderFilter(new shaders.PostProcessing()),
-	];*/
-
-	/*var curveShader:Array<BitmapFilter> = [
-		new ShaderFilter(new shaders.CurveShader()),
-	];*/
-
-	//var curveShader = new shaders.CurveShader();
 
 	function windowsFullscreen()
 	{
@@ -69,10 +57,10 @@ class Desktop extends BaseStage {
 			trace("destroying desktop stage");
 		};
 
-		
+
 
 		/*bg = new BGSprite(null, 0, 0, 1, 1); //idk if this is even needed but i made a black bg anyways
-		bg.makeGraphic(Std.int(FlxG.width), Std.int(FlxG.height), FlxColor.BLACK); 
+		bg.makeGraphic(Std.int(FlxG.width), Std.int(FlxG.height), FlxColor.BLACK);
 		bg.screenCenter(XY);
 		bg.updateHitbox();
 		bg.antialiasing = ClientPrefs.data.antialiasing;
@@ -86,7 +74,7 @@ class Desktop extends BaseStage {
 			Lib.application.window.maximized = true;
 		});
 
-		introtext = new BGSprite('eotbAssets/introText', -340, -220, 1, 1, ['textExport']); 
+		introtext = new BGSprite('eotbAssets/introText', -340, -220, 1, 1, ['textExport']);
 		introtext.updateHitbox();
 		introtext.scale.set(1.35,1.35);
 		introtext.antialiasing = ClientPrefs.data.antialiasing;
@@ -101,7 +89,7 @@ class Desktop extends BaseStage {
 		lasteye.cameras = [camOther];
 		add(lasteye);
 
-		crack = new BGSprite('eotbAssets/lastPhaseCrack', -440, -250, 1, 1, ['LAST SHARDS']); 
+		crack = new BGSprite('eotbAssets/lastPhaseCrack', -440, -250, 1, 1, ['LAST SHARDS']);
 		crack.updateHitbox();
 		crack.alpha = 0;
 		crack.scale.set(1.35,1.35);
@@ -115,16 +103,15 @@ class Desktop extends BaseStage {
 		Application.current.window.onFullscreen.add(windowsFullscreen);
 	}
 
-	override function createPost() {
-
-
+	override function createPost()
+	{
 		introVideo = new VideoSprite();
 		introVideo.playVideo(Paths.video("EOTBintro"),false,false,true);
 		introVideo.cameras = [camOther];
 		introVideo.scale.set(1,1);
 		introVideo.x = 0;
-		introVideo.y= 0;   
-		
+		introVideo.y= 0;
+
 		introVideo.antialiasing = ClientPrefs.data.antialiasing;
 		add(introVideo);
 
@@ -134,8 +121,8 @@ class Desktop extends BaseStage {
 		midVideo.scale.set(1,1);
 		midVideo.shader = gs.shader;
 		midVideo.x = 0;
-		midVideo.y= 0;   
-		
+		midVideo.y= 0;
+
 		midVideo.antialiasing = ClientPrefs.data.antialiasing;
 		add(midVideo);
 
@@ -145,24 +132,13 @@ class Desktop extends BaseStage {
 		blackscreen.cameras = [camOther];
 		blackscreen.alpha = 1;
 		add(blackscreen);
-
-		//THIS IS COMMENTED SHADER CODE
-		/*FlxG.game.setFilters(shader);
-		FlxG.game.filtersEnabled = true;
-
-		PlayState.instance.camHUD.setFilters([new ShaderFilter(curveShader)]);
-		PlayState.instance.camHUD.filtersEnabled = true;
-
-		PlayState.instance.camGame.setFilters([new ShaderFilter(curveShader)]);
-		PlayState.instance.camGame.filtersEnabled = true;
-
-		curveShader.chromOff = 3.5;*/
-
-		
 	}
 
-	override function update(elapsed:Float) {
-		// Code here
+	override function update(elapsed:Float)
+	{
+		// <Tantalun>: if you think the shaders might look bad here you can disable them by replacing the follong line with FlxG.game.filtersEnabled = false;
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 3.5;
 	}
 
 	override function countdownTick(count:Countdown, num:Int)
@@ -199,7 +175,7 @@ class Desktop extends BaseStage {
 					}
 
 				FlxTween.tween(blackscreen, {alpha: 0}, 0.5);
-				
+
 				animtimer = new FlxTimer().start(16, function(tmr:FlxTimer)
 						{
 							introVideo.alpha = 0;
@@ -217,7 +193,7 @@ class Desktop extends BaseStage {
 	override function stepHit() {
 
 			switch (curStep) {
-	
+
 				case 136:
 					{
 						FlxTween.tween(introtext, {alpha: 1}, 0.5);
@@ -226,20 +202,20 @@ class Desktop extends BaseStage {
 						dad.dontInterrupt = true;
 						dad.animation.play('open', true);
 						dad.animation.pause();
-						
-	
+
+
 
 					}
 
 				case 168:
 					dad.animation.play('open', true);
-					dad.animation.finishCallback = function(name:String) 
+					dad.animation.finishCallback = function(name:String)
 					{
 						dad.dontInterrupt = false;
 					};
 					introtext.x += 100;
 
-	
+
 				case 896:
 					{
 						FlxTween.tween(midVideo, {alpha: 1}, 1.2, {startDelay: 0.1});
@@ -257,31 +233,31 @@ class Desktop extends BaseStage {
 							Lib.application.window.maximized = true;
 						});
 						Application.current.window.title = "???";
-					}	
-								
+					}
+
 
 				case 950:
 					TransNdll.setWindowTransparent(true);
 				case 961:
 					{
-						
+
 						Lib.application.window.borderless = true;
 						Main.fpsVar.x = -1280;
-						
+
 						dad.alpha = 1;
 						FlxTween.tween(camHUD, {alpha: 1}, 0.5);
 						//This is the part where the glass shards fall, he is already visible, so I set his alpha to 1, you dont need to do anything here.
-					}				
+					}
 
-				case 974: 
+				case 974:
 					{
 						songDeets();
 					}
-	
+
 				case 2240:
 					{
 						crack.alpha = 1;
-						crack.animation.play('LAST SHARDS', true, false); 
+						crack.animation.play('LAST SHARDS', true, false);
 						crack.animation.finishCallback = function(name:String){
 							crack.destroy();
 						}
@@ -293,22 +269,22 @@ class Desktop extends BaseStage {
 							for (camera in FlxG.cameras.list) camera.y += 32;
 							camOther.y -= 32;
 						});
-						
+
 						//Lib.application.window.borderless = false;
 						//Main.fpsVar.x = 10;
 						//THIS IS WHERE HE HITS THE SCREEN
-					}	
+					}
 				case 2256:
 					dad.alpha = 0;
 				case 2307:
 					{
-						
+
 						dad.setZoom(0.875, 0.875); //I feel like this doesn't work, or at least I didn't see any difference, can you check?
-					}	
+					}
 				case 2336:
 					{
 						FlxTween.tween(dad, {alpha: 1}, 1);
-					}	
+					}
 				case 3392:
 					{
 						game.fakeBotplay = true;
@@ -323,10 +299,10 @@ class Desktop extends BaseStage {
 						blackscreen.alpha = 0.55;
 						blackscreen.cameras = [camOther];
 						crack.visible = false;
-						//THIS IS WHERE HE BUGS OUT AND THE SONG ENDS... 
+						//THIS IS WHERE HE BUGS OUT AND THE SONG ENDS...
 						//Can you make him disappear in some way? either fade him out or move him in some way, I'm leavin this to your personal preference
-					}	
-				case 3432:	
+					}
+				case 3432:
 					FlxTween.num(extraY, Lib.application.window.display.bounds.height*1.5, 2, {ease:FlxEase.cubeInOut}, function (v:Float) {
 						extraY = Std.int(v);
 					});
@@ -355,14 +331,14 @@ class Desktop extends BaseStage {
 							if (!changeY)
 								Yto = curY = 0.6+Math.cos(elapsed)*0.0215;
 						});
-					}	
+					}
 				case 3600:
 					changeY = true;
 					FlxTween.num(curY, 0, 2.4, {ease:FlxEase.sineOut}, function (v:Float) {
 						Yto = v;
-					});						
+					});
 			}
-	
+
 	}
 
 	var extraY = 0;
@@ -373,14 +349,14 @@ class Desktop extends BaseStage {
 	override function beatHit() {
 		everyoneDance();
 
-		
+
 		switch (curBeat) {
 			case 48:
 				{
 					FlxTween.tween(introtext, {alpha: 0}, 1.5);
 					FlxTween.tween(camHUD, {alpha: 1}, 1.5);
 				}
-			
+
 			}
 	}
 
@@ -416,7 +392,7 @@ class Desktop extends BaseStage {
 		musician.scrollFactor.set();
 		musician.alpha = 0;
 		musician.borderColor = 0xFF3F0000;
-		musician.borderSize = 3;		
+		musician.borderSize = 3;
 		musician.cameras = [camOther];
 
 		charter = new FlxText(110, 350, FlxG.width - 100, 'Charter: PavDrop & sire_kirbz (Events)', 32);
@@ -424,32 +400,32 @@ class Desktop extends BaseStage {
 		charter.scrollFactor.set();
 		charter.alpha = 0;
 		charter.borderColor = 0xFF3F0000;
-		charter.borderSize = 3;		
+		charter.borderSize = 3;
 		charter.cameras = [camOther];
-		
+
 		add(moontitle);
 		add(songTitle);
-		add(musician);		
-		add(charter);		
+		add(musician);
+		add(charter);
 
 		//STARTING TWEENS
-		FlxTween.tween(moontitle, {alpha: 0.5, angle: 0 }, 0.8, {ease: FlxEase.quartInOut});		
+		FlxTween.tween(moontitle, {alpha: 0.5, angle: 0 }, 0.8, {ease: FlxEase.quartInOut});
 
-		FlxTween.tween(songTitle, {alpha: 1, x: songTitle.x + 50}, 0.8, {ease: FlxEase.quartInOut, startDelay: 0.2});		
+		FlxTween.tween(songTitle, {alpha: 1, x: songTitle.x + 50}, 0.8, {ease: FlxEase.quartInOut, startDelay: 0.2});
 
-		FlxTween.tween(musician, {alpha: 1, x: musician.x - 50}, 0.8, {ease: FlxEase.quartInOut, startDelay: 0.4});				
+		FlxTween.tween(musician, {alpha: 1, x: musician.x - 50}, 0.8, {ease: FlxEase.quartInOut, startDelay: 0.4});
 
-		FlxTween.tween(charter, {alpha: 1, x: charter.x - 50}, 0.8, {ease: FlxEase.quartInOut, startDelay: 0.4});		
-		
+		FlxTween.tween(charter, {alpha: 1, x: charter.x - 50}, 0.8, {ease: FlxEase.quartInOut, startDelay: 0.4});
+
 		//-----------------------------
 
 		//ENDING TWEENS
-		FlxTween.tween(moontitle, {alpha: 0, angle:  5}, 1.2, {ease: FlxEase.quartInOut, startDelay: 2.5});		
+		FlxTween.tween(moontitle, {alpha: 0, angle:  5}, 1.2, {ease: FlxEase.quartInOut, startDelay: 2.5});
 
-		FlxTween.tween(songTitle, {alpha: 0, x: songTitle.x + 70, angle:  5}, 1.2, {ease: FlxEase.quartInOut, startDelay: 2.5});		
+		FlxTween.tween(songTitle, {alpha: 0, x: songTitle.x + 70, angle:  5}, 1.2, {ease: FlxEase.quartInOut, startDelay: 2.5});
 
-		FlxTween.tween(musician, {alpha: 0, x: musician.x - 70, angle: 5}, 1.2, {ease: FlxEase.quartInOut, startDelay: 2.5});				
-		
+		FlxTween.tween(musician, {alpha: 0, x: musician.x - 70, angle: 5}, 1.2, {ease: FlxEase.quartInOut, startDelay: 2.5});
+
 		FlxTween.tween(charter, {alpha: 0, x: charter.x - 70, angle: 5}, 1.2, {ease: FlxEase.quartInOut, startDelay: 2.5});
 
 		//-----------------------------
@@ -463,7 +439,7 @@ class Desktop extends BaseStage {
 				charter.destroy();
 
 			}, 0);
-	}	
+	}
 
 	override function sectionHit() {
 		// Code here
@@ -477,11 +453,11 @@ class Desktop extends BaseStage {
 			// Code here
 			if (introVideo != null)
 				introVideo.bitmap.pause();
-			
+
 			if (midVideo != null)
-				midVideo.bitmap.pause();			
+				midVideo.bitmap.pause();
 		}
-	
+
 		override function onFocus()
 		{
 			if (introVideo != null && !paused)
@@ -490,7 +466,7 @@ class Desktop extends BaseStage {
 			if (midVideo != null && !paused)
 				midVideo.bitmap.resume();
 		}
-	
+
 
 	override function closeSubState() {
 		if(paused)
@@ -499,7 +475,7 @@ class Desktop extends BaseStage {
 					introVideo.bitmap.resume();
 
 				if (midVideo != null && midVideo.alpha == 1)
-					midVideo.bitmap.resume();				
+					midVideo.bitmap.resume();
 			}
 	}
 
@@ -510,7 +486,7 @@ class Desktop extends BaseStage {
 					introVideo.bitmap.pause();
 
 				if (midVideo != null)
-					midVideo.bitmap.pause();				
+					midVideo.bitmap.pause();
 			}
 	}
 

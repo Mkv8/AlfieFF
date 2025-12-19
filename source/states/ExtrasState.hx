@@ -1,11 +1,11 @@
 package states;
 
+import shaders.GameShaders;
 import flixel.effects.particles.FlxEmitter;
 import flixel.FlxObject;
 import flixel.addons.transition.FlxTransitionableState;
 import openfl.filters.BitmapFilter;
 import openfl.display.BlendMode;
-import openfl.filters.ShaderFilter;
 
 class ExtrasState extends MusicBeatState {
     private static final menuOptions:Array<String> = ["Character Bios", "Artwork"];
@@ -18,15 +18,9 @@ class ExtrasState extends MusicBeatState {
 
     var texts:Array<FlxText> = [];
 
-    var curveShader = new shaders.CurveShader();
-
     var camFollow: FlxObject;
 
     var multiplyBar:BGSprite; //im using bgsprite cuz i think its just like the same thing as flxsprite but easier to use right lmao
-
-    var shader:Array<BitmapFilter> = [
-        new ShaderFilter(new shaders.PostProcessing()),
-    ];
 
 
     function openSelectedSubstate(label:String) {
@@ -38,7 +32,8 @@ class ExtrasState extends MusicBeatState {
         }
     }
 
-    override function create() {
+    override function create()
+    {
         #if DISCORD_ALLOWED
         // Updating Discord Rich Presence
         DiscordClient.changePresence("Checking out Extras!", null);
@@ -103,19 +98,19 @@ class ExtrasState extends MusicBeatState {
         this.menuItems.screenCenter(Y);
 
         this.add(this.menuItems);
-		if (ClientPrefs.data.shaders == true)
-		{
-        FlxG.game.setFilters(shader);
-        FlxG.game.filtersEnabled = true;
-		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
-        
+
         this.changeSelection();
     }
 
     var selectedSomethin:Bool = false;
 
-    override function update(elapsed:Float) {
+    override function update(elapsed:Float)
+    {
+        FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+        GameShaders.CHROMATIC_ABBERATION.chromOff = 2.0;
+
         super.update(elapsed);
+
         if (controls.UI_UP_P) {
             changeSelection(-1);
         }

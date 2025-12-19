@@ -1,5 +1,6 @@
 package states;
 
+import shaders.GameShaders;
 import openfl.display.Window;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.effects.particles.FlxEmitter;
@@ -9,9 +10,7 @@ import flixel.effects.FlxFlicker;
 import lime.app.Application;
 import states.editors.MasterEditorMenu;
 import options.OptionsState;
-import openfl.filters.BitmapFilter;
 import openfl.display.BlendMode;
-import openfl.filters.ShaderFilter;
 import backend.Highscore;
 
 
@@ -57,19 +56,10 @@ class MainMenuState extends MusicBeatState {
 	static var addedMinus:Bool;
 
 	//Thank you tantalun for the help with the menus..... everyone say thank you tanta......
-	// <TA>: Blow up
+	// <Tantalun>: blow up
 
-	var shader:Array<BitmapFilter> = [
-		new ShaderFilter(new shaders.PostProcessing()),
-	];
-
-	/*var curveShader:Array<BitmapFilter> = [
-		new ShaderFilter(new shaders.CurveShader()),
-	];*/
-
-	var curveShader = new shaders.CurveShader();
-
-	override function create() {
+	override function create()
+	{
 		if (Highscore.getScore('convicted-love', 0) != 0 && !addedKiss)
 		{
 		renderDatas.insert(6, { name: "KisstonMSRender", offset: { x: 105.0, y: 30.0 }, scale: 0.55 });
@@ -154,8 +144,6 @@ class MainMenuState extends MusicBeatState {
 
 		emitter.start(false, 1, 0);
 
-
-
 		if (MainMenuState.renderDatas.length > 0) {
 			var randomRenderData: RenderData = MainMenuState.renderDatas[FlxG.random.int(0, MainMenuState.renderDatas.length - 1)];
 			//var randomRenderData: RenderData = MainMenuState.renderDatas[18];
@@ -210,16 +198,7 @@ class MainMenuState extends MusicBeatState {
 		this.menuItems.screenCenter(Y);
 
 		this.add(this.menuItems);
-		if (ClientPrefs.data.shaders == true)
-		{
-		FlxG.game.setFilters(shader);
-		FlxG.game.filtersEnabled = true;
-		FlxG.camera.setFilters([new ShaderFilter(curveShader)]);
-		FlxG.camera.filtersEnabled = true;
-		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
 
-
-		//curveShader.chromOff = 4;
 		// FlxG.camera.follow(camFollow, null, 9);
 
 		this.changeSelection();
@@ -227,7 +206,11 @@ class MainMenuState extends MusicBeatState {
 
 	var selectedSomethin:Bool = false;
 
-	override function update(elapsed:Float) {
+	override function update(elapsed:Float)
+	{
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 4.0;
+
 		if (FlxG.sound.music.volume < 0.8) {
 			FlxG.sound.music.volume += 0.5 * elapsed;
 			if (FreeplayState.vocals != null)

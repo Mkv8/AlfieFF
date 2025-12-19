@@ -1,12 +1,12 @@
 package states.stages;
 
+import shaders.GameShaders;
 import openfl.display.BlendMode;
 import backend.BaseStage;
 import states.stages.objects.*;
 import flixel.effects.particles.FlxEmitter;
 import flixel.effects.particles.FlxEmitter;
-import openfl.filters.BitmapFilter;
-import openfl.filters.ShaderFilter;
+
 
 class AiStage extends BaseStage {
 	// If you're moving your stage from PlayState to a stage file,
@@ -38,17 +38,6 @@ class AiStage extends BaseStage {
 	var vignette:BGSprite;
 	var blackscreen:BGSprite;
 
-	
-
-	var shader:Array<BitmapFilter> = [
-		new ShaderFilter(new shaders.PostProcessing()),
-	];
-
-	/*var curveShader:Array<BitmapFilter> = [
-		new ShaderFilter(new shaders.CurveShader()),
-	];*/
-
-	var curveShader = new shaders.CurveShader();
 
 	override function create() {
 		// Spawn your stage sprites here.
@@ -59,11 +48,11 @@ class AiStage extends BaseStage {
 		// add(concept);
 		bg = new BGSprite('aiStage/Bg', 0, 0, 1, 1);
 		bg.scale.x = 2845;
-		bg.updateHitbox();		
+		bg.updateHitbox();
 		bg.alpha = 1;
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		add(bg);
-		
+
 		greenGrid = new BGSprite('aiStage/greenGrid', 0, 0, 1, 1);
 		greenGrid.updateHitbox();
 		greenGrid.alpha = 1;
@@ -134,7 +123,7 @@ class AiStage extends BaseStage {
 		littleStage.antialiasing = ClientPrefs.data.antialiasing;
 		add(littleStage);
 		FlxTween.tween(littleStage, {y: littleStage.y + 15}, 3.5, { type: FlxTween.PINGPONG, ease: FlxEase.sineInOut});
-		
+
 		block1 = new BGSprite('aiStage/block1', 2120, 570, 1, 1);
 		block1.updateHitbox();
 		block1.alpha = 1;
@@ -142,7 +131,7 @@ class AiStage extends BaseStage {
 		add(block1);
 		FlxTween.tween(block1, {y: block1.y - 15}, 1.5, { type: FlxTween.PINGPONG, ease: FlxEase.sineInOut});
 		FlxTween.angle(block1, 4.5, 0, 3.5, {type: FlxTween.PINGPONG, ease: FlxEase.sineInOut});
-		
+
 		block2 = new BGSprite('aiStage/block2', 1100, 790, 1, 1);
 		block2.updateHitbox();
 		block2.alpha = 1;
@@ -162,7 +151,7 @@ class AiStage extends BaseStage {
 		pringleplatform.updateHitbox();
 		pringleplatform.alpha = 1;
 		pringleplatform.antialiasing = ClientPrefs.data.antialiasing;
-		add(pringleplatform);		
+		add(pringleplatform);
 
 		mainIsland = new BGSprite('aiStage/mainIsland', 0, 55, 1, 1);
 		mainIsland.updateHitbox();
@@ -175,7 +164,7 @@ class AiStage extends BaseStage {
 		board.alpha = 1;
 		board.antialiasing = ClientPrefs.data.antialiasing;
 		add(board);
-		
+
 	}
 
 	override function createPost() {
@@ -211,25 +200,12 @@ class AiStage extends BaseStage {
 		blackscreen.cameras = [camOther];
 		blackscreen.alpha = 0;
 		add(blackscreen);
-
-		if (ClientPrefs.data.shaders == true)
-		{
-		FlxG.game.setFilters(shader);
-		FlxG.game.filtersEnabled = true;
-
-		PlayState.instance.camHUD.setFilters([new ShaderFilter(curveShader)]);
-		PlayState.instance.camHUD.filtersEnabled = true;
-
-		PlayState.instance.camGame.setFilters([new ShaderFilter(curveShader)]);
-		PlayState.instance.camGame.filtersEnabled = true;
-
-		curveShader.chromOff = 3.5;
-		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
-
 	}
 
-	override function update(elapsed:Float) {
-		// Code here
+	override function update(elapsed:Float)
+	{
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 3.5;
 	}
 
 	/*override function countdownTick(count:BaseStage.Countdown, num:Int)
@@ -254,7 +230,7 @@ class AiStage extends BaseStage {
 	override function beatHit() {
 		everyoneDance();
 
-		
+
 		switch (curBeat) {
 
 			case 24:
@@ -264,22 +240,22 @@ class AiStage extends BaseStage {
 
 			case 112:
 				{
-					FlxTween.tween(pringleplatform, { y: 680}, 1.2, {ease: FlxEase.quartInOut});	
-					FlxTween.tween(gf, { y: 534}, 2.4, {ease: FlxEase.quartInOut});					
-				}			
+					FlxTween.tween(pringleplatform, { y: 680}, 1.2, {ease: FlxEase.quartInOut});
+					FlxTween.tween(gf, { y: 534}, 2.4, {ease: FlxEase.quartInOut});
+				}
 
 			case 249:
 				{
-					FlxTween.tween(vignette, {alpha: 1}, 1.5, {ease: FlxEase.quartIn});	
-				}			
+					FlxTween.tween(vignette, {alpha: 1}, 1.5, {ease: FlxEase.quartIn});
+				}
 			case 312:
 				{
-					FlxTween.tween(vignette, {alpha: 0}, 1.5, {ease: FlxEase.quartInOut});	
-				}		
+					FlxTween.tween(vignette, {alpha: 0}, 1.5, {ease: FlxEase.quartInOut});
+				}
 			case 408:
 				{
-					FlxTween.tween(vignette, {alpha: 1}, 3, {ease: FlxEase.quartInOut});	
-				}								
+					FlxTween.tween(vignette, {alpha: 1}, 3, {ease: FlxEase.quartInOut});
+				}
 			}
 	}
 
@@ -313,7 +289,7 @@ class AiStage extends BaseStage {
 		musician.scrollFactor.set();
 		musician.alpha = 0;
 		musician.borderColor = 0xFF3F0000;
-		musician.borderSize = 3;		
+		musician.borderSize = 3;
 		musician.cameras = [camOther];
 
 		charter = new FlxText(110, 350, FlxG.width - 100, 'Charter: sire_kirbz', 32);
@@ -321,13 +297,13 @@ class AiStage extends BaseStage {
 		charter.scrollFactor.set();
 		charter.alpha = 0;
 		charter.borderColor = 0xFF3F0000;
-		charter.borderSize = 3;		
+		charter.borderSize = 3;
 		charter.cameras = [camOther];
-		
+
 		add(moontitle);
 		add(songTitle);
-		add(musician);		
-		add(charter);		
+		add(musician);
+		add(charter);
 
 		//STARTING TWEENS
 		FlxTween.tween(moontitle, {
@@ -335,7 +311,7 @@ class AiStage extends BaseStage {
 			angle: 0
 		}, 0.8, {
 			ease: FlxEase.quartInOut,
-		});		
+		});
 
 		FlxTween.tween(songTitle, {
 			alpha: 1,
@@ -343,7 +319,7 @@ class AiStage extends BaseStage {
 		}, 0.8, {
 			ease: FlxEase.quartInOut,
 			startDelay: 0.2
-		});		
+		});
 
 
 		FlxTween.tween(musician, {
@@ -352,35 +328,35 @@ class AiStage extends BaseStage {
 		}, 0.8, {
 			ease: FlxEase.quartInOut,
 			startDelay: 0.4
-		});				
+		});
 		FlxTween.tween(charter, {
 			alpha: 1,
 			x: charter.x - 50
 		}, 0.8, {
 			ease: FlxEase.quartInOut,
 			startDelay: 0.4
-		});			
-		
-		
+		});
+
+
 		//-----------------------------
 
 		//ENDING TWEENS
 		FlxTween.tween(moontitle, {
 			alpha: 0,
-			angle:  5			
+			angle:  5
 		}, 1.2, {
 			ease: FlxEase.quartInOut,
 			startDelay: 2.5
-		});		
+		});
 
 		FlxTween.tween(songTitle, {
 			alpha: 0,
 			x: songTitle.x + 70,
-			angle:  5			
+			angle:  5
 		}, 1.2, {
 			ease: FlxEase.quartInOut,
 			startDelay: 2.5
-		});		
+		});
 
 
 		FlxTween.tween(musician, {
@@ -390,7 +366,7 @@ class AiStage extends BaseStage {
 		}, 1.2, {
 			ease: FlxEase.quartInOut,
 			startDelay: 2.5
-		});				
+		});
 		FlxTween.tween(charter, {
 			alpha: 0,
 			x: charter.x - 70,
@@ -412,7 +388,7 @@ class AiStage extends BaseStage {
 				charter.destroy();
 
 			}, 0);
-	}		
+	}
 	function everyoneDance() {
 		/*if (!ClientPrefs.data.lowQuality) {
 			kailip.dance();

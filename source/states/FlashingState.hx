@@ -1,5 +1,6 @@
 package states;
 
+import shaders.GameShaders;
 import flixel.FlxSubState;
 import flixel.effects.FlxFlicker;
 import lime.app.Application;
@@ -10,7 +11,8 @@ class FlashingState extends MusicBeatState {
 
 	var warnText:FlxText;
 
-	override function create() {
+	override function create()
+	{
 		super.create();
 
 		var bg:FlxSprite = new FlxSolid().makeSolid(FlxG.width, FlxG.height, FlxColor.BLACK);
@@ -27,7 +29,11 @@ class FlashingState extends MusicBeatState {
 		add(warnText);
 	}
 
-	override function update(elapsed:Float) {
+	override function update(elapsed:Float)
+	{
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 0.0;
+
 		if (!leftState) {
 			var back:Bool = controls.BACK;
 			if (controls.ACCEPT || back) {
@@ -53,6 +59,7 @@ class FlashingState extends MusicBeatState {
 				}
 			}
 		}
+
 		super.update(elapsed);
 	}
 }

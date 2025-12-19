@@ -1,5 +1,6 @@
 package states;
 
+import shaders.GameShaders;
 import backend.WeekData;
 import backend.Highscore;
 import backend.Song;
@@ -8,8 +9,6 @@ import objects.MusicPlayer;
 import substates.GameplayChangersSubstate;
 import substates.ResetScoreSubState;
 import flixel.math.FlxMath;
-import openfl.filters.BitmapFilter;
-import openfl.filters.ShaderFilter;
 import flixel.util.FlxTimer;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
@@ -34,15 +33,6 @@ class FreeplayState extends MusicBeatState {
 	var intendedScore:Int = 0;
 	var intendedRating:Float = 0;
 	var album:FlxSprite;
-	var shader:Array<BitmapFilter> = [
-		new ShaderFilter(new shaders.PostProcessing()),
-	];
-
-	/*var curveShader:Array<BitmapFilter> = [
-		new ShaderFilter(new shaders.CurveShader()),
-	];*/
-
-	var curveShader = new shaders.CurveShader();
 
 	private var grpSongs:FlxTypedGroup<FlxText>;
 	private var curPlaying:Bool = false;
@@ -83,7 +73,6 @@ class FreeplayState extends MusicBeatState {
 	override function create() {
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
-
 
 		persistentUpdate = true;
 
@@ -255,17 +244,6 @@ class FreeplayState extends MusicBeatState {
 		}
 
 		super.create();
-		if (ClientPrefs.data.shaders == true)
-		{
-		FlxG.game.setFilters(shader);
-		FlxG.game.filtersEnabled = true;
-
-		FlxG.camera.setFilters([new ShaderFilter(curveShader)]);
-		FlxG.camera.filtersEnabled = true;
-
-		curveShader.chromOff = 2;
-		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
-		
 	}
 
 	override function closeSubState() {
@@ -290,7 +268,11 @@ class FreeplayState extends MusicBeatState {
 
 	var holdTime:Float = 0;
 
-	override function update(elapsed:Float) {
+	override function update(elapsed:Float)
+	{
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 2.0;
+
 		if (FlxG.sound.music.volume < 0.7) {
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}

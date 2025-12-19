@@ -1,5 +1,7 @@
 package;
 
+import openfl.filters.ShaderFilter;
+import shaders.GameShaders;
 #if android
 import android.content.Context;
 #end
@@ -139,6 +141,17 @@ class Main extends Sprite {
 		});
 
 		Application.current.window.title = Main.appTitle;
+
+		FlxG.save.bind('funkin', CoolUtil.getSavePath());
+
+		ClientPrefs.loadPrefs();
+
+		FlxG.game.setFilters([
+			new ShaderFilter(GameShaders.SCANLINES),
+			new ShaderFilter(GameShaders.CHROMATIC_ABBERATION),
+		]);
+
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
 	}
 
 	static function resetSpriteCache(sprite:Sprite):Void {

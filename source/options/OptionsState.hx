@@ -1,9 +1,9 @@
 package options;
 
+import shaders.GameShaders;
 import states.MainMenuState;
-import openfl.filters.BitmapFilter;
-import openfl.filters.ShaderFilter;
 import backend.StageData;
+
 
 class OptionsState extends MusicBeatState {
 	var options:Array<String> = [
@@ -28,12 +28,6 @@ class OptionsState extends MusicBeatState {
 	//idk how the submenus work here? I dont think it will be much of a problem but honestly who knows with fnf......
 	//reminder that theres concept pics of how they should look like in the menu assets folder!
 	// use this one and not BaseOptionsMenu
-
-	var shader:Array<BitmapFilter> = [
-		new ShaderFilter(new shaders.PostProcessing()),
-	];
-
-	var curveShader = new shaders.CurveShader();
 
 	function openSelectedSubstate(label:String) {
 		switch (label) {
@@ -69,7 +63,7 @@ class OptionsState extends MusicBeatState {
 		gear1.alpha = 1;
 		gear1.scale.set(0.8,0.8);
 		gear1.antialiasing = ClientPrefs.data.antialiasing;
-		add(gear1);	
+		add(gear1);
 
 
 		gear2 = new BGSprite('menuassets/gear', -180, FlxG.height * 0.71, 0, 0); //spins counter clock wise
@@ -77,7 +71,7 @@ class OptionsState extends MusicBeatState {
 		gear2.alpha = 1;
 		gear2.scale.set(0.8,0.8);
 		gear2.antialiasing = ClientPrefs.data.antialiasing;
-		add(gear2);	
+		add(gear2);
 
 		alfie = new BGSprite('menuassets/alfieOptions', FlxG.width * 0.5 - 75, 90, 0, 0, ['thonk'], true);
 		alfie.updateHitbox();
@@ -85,7 +79,7 @@ class OptionsState extends MusicBeatState {
 		alfie.scale.set(0.8,0.8);
 		alfie.animation.play('thonk', true, false);
 		alfie.antialiasing = ClientPrefs.data.antialiasing;
-		add(alfie);	
+		add(alfie);
 
 		var bigassoptionstextohemgee:FlxText = new FlxText(100, 50, 'OPTIONS', 64);
 			bigassoptionstextohemgee.setFormat(Paths.font("vcr.ttf"), 72, 0xffffffff, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -116,19 +110,6 @@ class OptionsState extends MusicBeatState {
 		ClientPrefs.saveSettings();
 
 		super.create();
-
-
-		if (ClientPrefs.data.shaders == true)
-		{
-		FlxG.game.setFilters(shader);
-		FlxG.game.filtersEnabled = true;
-
-		FlxG.camera.setFilters([new ShaderFilter(curveShader)]);
-		FlxG.camera.filtersEnabled = true;
-
-		curveShader.chromOff = 3;
-		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
-
 	}
 
 	override function closeSubState() {
@@ -139,8 +120,13 @@ class OptionsState extends MusicBeatState {
 		#end
 	}
 
-	override function update(elapsed:Float) {
+	override function update(elapsed:Float)
+	{
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 3.0;
+
 		super.update(elapsed);
+
 		gear1.angle -= 5 * elapsed;
 		gear2.angle += 5 * elapsed;
 

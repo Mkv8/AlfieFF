@@ -1,5 +1,6 @@
 package states;
 
+import shaders.GameShaders;
 import flixel.effects.particles.FlxEmitter;
 import flixel.effects.particles.FlxEmitter;
 import backend.WeekData;
@@ -53,16 +54,6 @@ class TitleState extends MusicBeatState {
 
 	var wackyImage:FlxSprite;
 
-	var shader:Array<BitmapFilter> = [
-		new ShaderFilter(new shaders.PostProcessing()),
-	];
-
-	/*var curveShader:Array<BitmapFilter> = [
-		new ShaderFilter(new shaders.CurveShader()),
-	];*/
-
-	var curveShader = new shaders.CurveShader();
-
 	public var videoSprite:VideoSprite;
 
 	var titleJSON:TitleData;
@@ -78,24 +69,9 @@ class TitleState extends MusicBeatState {
 
 		curWacky = FlxG.random.getObject(getIntroTextShit());
 
-		if (ClientPrefs.data.shaders == true)
-		{
-		FlxG.game.setFilters(shader);
-		FlxG.game.filtersEnabled = true;
-
-		FlxG.camera.setFilters([new ShaderFilter(curveShader)]);
-		FlxG.camera.filtersEnabled = true;
-
-		curveShader.chromOff = 4;
-		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
-
 		super.create();
 
 		TransNdll.cacheFunctions();
-
-		FlxG.save.bind('funkin', CoolUtil.getSavePath());
-
-		ClientPrefs.loadPrefs();
 
 		Highscore.load();
 
@@ -231,16 +207,6 @@ class TitleState extends MusicBeatState {
 
 		// FlxTween.tween(logoBl, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG});
 		// FlxTween.tween(logo, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 0.1});
-		if (ClientPrefs.data.shaders == true)
-		{
-		FlxG.game.setFilters(shader);
-		FlxG.game.filtersEnabled = true;
-
-		FlxG.camera.setFilters([new ShaderFilter(curveShader)]);
-		FlxG.camera.filtersEnabled = true;
-
-		curveShader.chromOff = 4;
-		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
 
 		credGroup = new FlxGroup();
 		add(credGroup);
@@ -271,8 +237,6 @@ class TitleState extends MusicBeatState {
 
 		Paths.clearUnusedMemory();
 		// credGroup.add(credTextShit);
-
-		
 	}
 
 	function getIntroTextShit():Array<Array<String>> {
@@ -293,7 +257,11 @@ class TitleState extends MusicBeatState {
 	var newTitle:Bool = false;
 	var titleTimer:Float = 0;
 
-	override function update(elapsed:Float) {
+	override function update(elapsed:Float)
+	{
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 4.0;
+
 		if (FlxG.sound.music != null)
 			Conductor.songPosition = FlxG.sound.music.time;
 		// FlxG.watch.addQuick('amp', FlxG.sound.music.amplitude);

@@ -1,5 +1,6 @@
 package substates;
 
+import shaders.GameShaders;
 import backend.WeekData;
 import backend.Highscore;
 import backend.Song;
@@ -32,7 +33,8 @@ class PauseSubState extends MusicBeatSubstate {
 
 	public static var songName:String = null;
 
-	override function create() {
+	override function create()
+	{
 		if (Difficulty.list.length < 2)
 			menuItemsOG.remove('Change Difficulty'); // No need to change difficulty if there is only one!
 
@@ -173,7 +175,7 @@ class PauseSubState extends MusicBeatSubstate {
 			startDelay: 0.7
 		});
 
-		//region Render positions
+		// region Render positions
 		var songie = PlayState.SONG.song;
 		var assets = getPauseAsset(songie);
 		charRender.loadGraphic(Paths.image(assets[1]));
@@ -372,7 +374,11 @@ class PauseSubState extends MusicBeatSubstate {
 	var holdTime:Float = 0;
 	var cantUnpause:Float = 0.1;
 
-	override function update(elapsed:Float) {
+	override function update(elapsed:Float)
+	{
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 4.0;
+
 		cantUnpause -= elapsed;
 		if (pauseMusic.volume < 0.5)
 			pauseMusic.volume += 0.01 * elapsed;

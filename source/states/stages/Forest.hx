@@ -1,12 +1,9 @@
 package states.stages;
 
+import shaders.GameShaders;
 import openfl.display.BlendMode;
 import backend.BaseStage;
-import states.stages.objects.*;
 import flixel.effects.particles.FlxEmitter;
-import flixel.effects.particles.FlxEmitter;
-import openfl.filters.BitmapFilter;
-import openfl.filters.ShaderFilter;
 
 class Forest extends BaseStage {
 	// If you're moving your stage from PlayState to a stage file,
@@ -19,7 +16,7 @@ class Forest extends BaseStage {
 	var kailip:BGSprite;
 	var boombox:BGSprite;
 	var log:BGSprite;
-	
+
 	var leaf: LeafParticle = new LeafParticle();
 	var emitter: FlxEmitter = new FlxEmitter(0, 0);
 
@@ -32,17 +29,6 @@ class Forest extends BaseStage {
 	var whiteText:BGSprite;
 	var blackscreen:BGSprite;
 
-	
-
-	var shader:Array<BitmapFilter> = [
-		new ShaderFilter(new shaders.PostProcessing()),
-	];
-
-	/*var curveShader:Array<BitmapFilter> = [
-		new ShaderFilter(new shaders.CurveShader()),
-	];*/
-
-	var curveShader = new shaders.CurveShader();
 
 	override function create() {
 		// Spawn your stage sprites here.
@@ -138,27 +124,14 @@ class Forest extends BaseStage {
 		whiteText.cameras = [camOther];
 		whiteText.screenCenter();
 		whiteText.alpha = 0.00001;
-		
+
 		add(whiteText);
-		
-		if (ClientPrefs.data.shaders == true)
-		{
-		FlxG.game.setFilters(shader);
-		FlxG.game.filtersEnabled = true;
-
-		PlayState.instance.camHUD.setFilters([new ShaderFilter(curveShader)]);
-		PlayState.instance.camHUD.filtersEnabled = true;
-
-		PlayState.instance.camGame.setFilters([new ShaderFilter(curveShader)]);
-		PlayState.instance.camGame.filtersEnabled = true;
-
-		curveShader.chromOff = 3.5;
-		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
-
 	}
 
-	override function update(elapsed:Float) {
-		// Code here
+	override function update(elapsed:Float)
+	{
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 3.5;
 	}
 
 	/*override function countdownTick(count:BaseStage.Countdown, num:Int)
@@ -183,17 +156,17 @@ class Forest extends BaseStage {
 	override function beatHit() {
 		everyoneDance();
 
-		
+
 		switch (curBeat) {
 
 			case 2:
 				{
 					whiteText.animation.play('alfie');
 					//FlxTween.tween(whiteText, {alpha: 1}, 1.5);
-					songDeets();	
+					songDeets();
 					blackscreen.alpha = 0.00001;
 					blackscreen.cameras = [camHUD];
-					whiteText.cameras = [camHUD];				
+					whiteText.cameras = [camHUD];
 				}
 
 			case 14:
@@ -209,8 +182,8 @@ class Forest extends BaseStage {
 			case 179:
 				{
 					blackscreen.alpha = 1;
-				}	
-				
+				}
+
 			case 180:
 				{
 					blackscreen.alpha = 0.00001;
@@ -229,13 +202,13 @@ class Forest extends BaseStage {
 					log.color = 0xFFFF2E2E;
 
 
-				}	
+				}
 
 			case 222:
 				{
 					FlxTween.tween(blackscreen, {alpha: 1}, 0.5);
 				}
-				
+
 			case 224:
 				{
 					FlxG.camera.flash(FlxColor.WHITE,1,false);
@@ -254,7 +227,7 @@ class Forest extends BaseStage {
 					bgfront.color = 0xFFFFFFFF;
 					log.color = 0xFFFFFFFF;
 
-				}		
+				}
 
 			case 416:
 				{
@@ -268,7 +241,7 @@ class Forest extends BaseStage {
 					//FlxTween.tween(whiteText, {alpha: 0}, 1);
 				}
 
-			
+
 			}
 	}
 
@@ -309,7 +282,7 @@ class Forest extends BaseStage {
 		musician.scrollFactor.set();
 		musician.alpha = 0;
 		musician.borderColor = 0xFF3F0000;
-		musician.borderSize = 3;		
+		musician.borderSize = 3;
 		musician.cameras = [camOther];
 
 		charter = new FlxText(110, 350, FlxG.width - 100, 'Charter: Chubby & PavDrop (Events)', 32);
@@ -317,13 +290,13 @@ class Forest extends BaseStage {
 		charter.scrollFactor.set();
 		charter.alpha = 0;
 		charter.borderColor = 0xFF3F0000;
-		charter.borderSize = 3;		
+		charter.borderSize = 3;
 		charter.cameras = [camOther];
-		
+
 		add(moontitle);
 		add(songTitle);
-		add(musician);		
-		add(charter);		
+		add(musician);
+		add(charter);
 
 		//STARTING TWEENS
 		FlxTween.tween(moontitle, {
@@ -331,7 +304,7 @@ class Forest extends BaseStage {
 			angle: 0
 		}, 0.8, {
 			ease: FlxEase.quartInOut,
-		});		
+		});
 
 		FlxTween.tween(songTitle, {
 			alpha: 1,
@@ -339,7 +312,7 @@ class Forest extends BaseStage {
 		}, 0.8, {
 			ease: FlxEase.quartInOut,
 			startDelay: 0.2
-		});		
+		});
 
 
 		FlxTween.tween(musician, {
@@ -348,35 +321,35 @@ class Forest extends BaseStage {
 		}, 0.8, {
 			ease: FlxEase.quartInOut,
 			startDelay: 0.4
-		});				
+		});
 		FlxTween.tween(charter, {
 			alpha: 1,
 			x: charter.x - 50
 		}, 0.8, {
 			ease: FlxEase.quartInOut,
 			startDelay: 0.4
-		});			
-		
-		
+		});
+
+
 		//-----------------------------
 
 		//ENDING TWEENS
 		FlxTween.tween(moontitle, {
 			alpha: 0,
-			angle:  5			
+			angle:  5
 		}, 1.2, {
 			ease: FlxEase.quartInOut,
 			startDelay: 2.5
-		});		
+		});
 
 		FlxTween.tween(songTitle, {
 			alpha: 0,
 			x: songTitle.x + 70,
-			angle:  5			
+			angle:  5
 		}, 1.2, {
 			ease: FlxEase.quartInOut,
 			startDelay: 2.5
-		});		
+		});
 
 
 		FlxTween.tween(musician, {
@@ -386,7 +359,7 @@ class Forest extends BaseStage {
 		}, 1.2, {
 			ease: FlxEase.quartInOut,
 			startDelay: 2.5
-		});				
+		});
 		FlxTween.tween(charter, {
 			alpha: 0,
 			x: charter.x - 70,
@@ -408,7 +381,7 @@ class Forest extends BaseStage {
 				charter.destroy();
 
 			}, 0);
-	}	
+	}
 
 	override function sectionHit() {
 		// Code here

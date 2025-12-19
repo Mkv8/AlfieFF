@@ -32,6 +32,7 @@ class GraphicsSettingsSubState extends BaseOptionsMenu {
 		var option:Option = new Option('Shaders', // Name
 			"If unchecked, disables shaders.\nIt's used for some visual effects, and also CPU intensive for weaker PCs.", // Description
 			'shaders', 'bool');
+		option.onChange = this.onChangeShaders;
 		addOption(option);
 
 		var option:Option = new Option('GPU Caching', // Name
@@ -62,6 +63,11 @@ class GraphicsSettingsSubState extends BaseOptionsMenu {
 				sprite.antialiasing = ClientPrefs.data.antialiasing;
 			}
 		}
+	}
+
+	function onChangeShaders()
+	{
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
 	}
 
 	function onChangeFramerate() {

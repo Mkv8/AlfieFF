@@ -1,17 +1,11 @@
 package states.stages;
 
-import openfl.display.BlendMode;
-import backend.BaseStage;
-import states.stages.objects.*;
-import shaders.PostProcessing;
-import openfl.filters.BitmapFilter;
-import openfl.filters.ShaderFilter;
+import shaders.GameShaders;
 
-// import.shaders.example_mods.shaders.PostProcessing;
 class MikuStage extends BaseStage {
 	// If you're moving your stage from PlayState to a stage file,
 	// you might have to rename some variables if they're missing, for example: camZooming -> game.camZooming
-	
+
 	//chars
 	var mikuS:BGSprite;
 	var alfieS:BGSprite;
@@ -27,7 +21,7 @@ class MikuStage extends BaseStage {
 	var alfieTitle:BGSprite;
 	var creds:BGSprite;
 	var songTitle:BGSprite;
-	
+
 	var mainBG:BGSprite;
 	var polkadots:BGSprite;
 	var polkadots2:BGSprite;
@@ -55,15 +49,6 @@ class MikuStage extends BaseStage {
 	var mikuTween:FlxTween;
 	var alfieTween:FlxTween;
 
-	var shader:Array<BitmapFilter> = [
-		new ShaderFilter(new shaders.PostProcessing()),
-	];
-
-	/*var curveShader:Array<BitmapFilter> = [
-		new ShaderFilter(new shaders.CurveShader()),
-	];*/
-
-	var curveShader = new shaders.CurveShader();
 
 	override function create() {
 		// Spawn your stage sprites here.
@@ -112,28 +97,28 @@ class MikuStage extends BaseStage {
 		polkadots.angle = -45;
 		polkadots.antialiasing = ClientPrefs.data.antialiasing;
 		polkadots.alpha = 0;
-		add(polkadots);	
+		add(polkadots);
 		polkadots2 = new BGSprite('miku/polkadots', -1500, 270, 1, 1); //
 		polkadots2.updateHitbox();
-		polkadots2.angle = 45;		
+		polkadots2.angle = 45;
 		polkadots2.antialiasing = ClientPrefs.data.antialiasing;
 		polkadots2.alpha = 0;
-		add(polkadots2);	
+		add(polkadots2);
 
 		bumpMainBG = new BGSprite('miku/bumpMainBG', 275, -95, 1, 1, ['bump'], false); //
 		bumpMainBG.updateHitbox();
 		bumpMainBG.antialiasing = ClientPrefs.data.antialiasing;
 		bumpMainBG.alpha = 0;
 		add(bumpMainBG);
-		
+
 		//------------
 
-		
+
 		mikuBG1 = new BGSprite('miku/mikuBG1', -300, -170, 1, 1); //
 		mikuBG1.updateHitbox();
 		mikuBG1.antialiasing = ClientPrefs.data.antialiasing;
 		mikuBG1.alpha = 0;
-		add(mikuBG1);		
+		add(mikuBG1);
 
 
 		//-----------
@@ -157,7 +142,7 @@ class MikuStage extends BaseStage {
 		aishiteBG.updateHitbox();
 		aishiteBG.antialiasing = ClientPrefs.data.antialiasing;
 		aishiteBG.alpha = 0;
-		add(aishiteBG);		
+		add(aishiteBG);
 
 		//---------
 
@@ -228,7 +213,7 @@ class MikuStage extends BaseStage {
 		monitoringWhites.antialiasing = ClientPrefs.data.antialiasing;
 		monitoringWhites.animation.play('whites', true, false);
 		monitoringWhites.animation.pause();
-		//add(monitoringWhites);		
+		//add(monitoringWhites);
 
 		monitoringMikus = new BGSprite('miku/monitoringMikus', -115, -160, 1, 1, ['Mikus'], false); //DONE
 		monitoringMikus.updateHitbox();
@@ -236,16 +221,16 @@ class MikuStage extends BaseStage {
 		monitoringMikus.antialiasing = ClientPrefs.data.antialiasing;
 		monitoringMikus.animation.play('Mikus', true, false);
 		monitoringMikus.animation.pause();
-		add(monitoringMikus);	
-		
+		add(monitoringMikus);
+
 		monitoringAlfies = new BGSprite('miku/monitoringAlfies', -80, -160, 1, 1, ['Alfies'], false); //DONE
 		monitoringAlfies.updateHitbox();
 		monitoringAlfies.alpha = 0;
 		monitoringAlfies.antialiasing = ClientPrefs.data.antialiasing;
 		monitoringAlfies.animation.play('Alfies', true, false);
 		monitoringAlfies.animation.pause();
-		add(monitoringAlfies);				
-		
+		add(monitoringAlfies);
+
 	}
 
 	override function createPost() {
@@ -255,14 +240,14 @@ class MikuStage extends BaseStage {
 		mikuBG2.antialiasing = ClientPrefs.data.antialiasing;
 		mikuBG2.scale.set(1.3, 1.3);
 		mikuBG2.alpha = 0;
-		add(mikuBG2);	
+		add(mikuBG2);
 
 		lens = new BGSprite('miku/lens', -300, -130, 1, 1); //
 		lens.updateHitbox();
 		lens.antialiasing = ClientPrefs.data.antialiasing;
 		lens.scale.set(1.8, 1.8);
 		lens.alpha = 0;
-		add(lens);		
+		add(lens);
 
 		blackscreen = new BGSprite(null, 0, 0, 1, 1);
 		blackscreen.makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
@@ -284,20 +269,6 @@ class MikuStage extends BaseStage {
 		noises.antialiasing = ClientPrefs.data.antialiasing;
 		noises.animation.play('noises', true, false);
 		add(noises);
-		
-		if (ClientPrefs.data.shaders == true)
-		{
-		FlxG.game.setFilters(shader);
-		FlxG.game.filtersEnabled = true;
-
-		PlayState.instance.camHUD.setFilters([new ShaderFilter(curveShader)]);
-		PlayState.instance.camHUD.filtersEnabled = true;
-
-		PlayState.instance.camGame.setFilters([new ShaderFilter(curveShader)]);
-		PlayState.instance.camGame.filtersEnabled = true;
-
-		curveShader.chromOff = 3.5;
-		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
 	}
 
 	override function destroy() {
@@ -305,8 +276,10 @@ class MikuStage extends BaseStage {
 		FlxG.game.filtersEnabled = false;
 	}
 
-	override function update(elapsed:Float) {
-		// Code here
+	override function update(elapsed:Float)
+	{
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 3.5;
 	}
 
 	/*override function countdownTick(count:BaseStage.Countdown, num:Int)
@@ -331,24 +304,24 @@ class MikuStage extends BaseStage {
 					mikuTitle.alpha = 1;
 					alfieTitle.alpha = 0;
 					songTitle.alpha = 1;
-					creds.alpha = 0;		
+					creds.alpha = 0;
 					mikuS.alpha = 1;
-					alfieS.alpha = 0;		
+					alfieS.alpha = 0;
 			}
 			case 58:
 			{
 					mikuTitle.alpha = 0;
 					alfieTitle.alpha = 1;
 					songTitle.alpha = 0;
-					creds.alpha = 1;		
+					creds.alpha = 1;
 					mikuS.alpha = 0;
-					alfieS.alpha = 1;						
+					alfieS.alpha = 1;
 			}
-			case 61 | 2183: 
+			case 61 | 2183:
 			{
 				blackscreen.alpha = 1;
-			}	
-			case 64: 
+			}
+			case 64:
 			{
 				blackscreen.alpha = 0;
 				FlxG.camera.flash(FlxColor.WHITE,1.5,false);
@@ -365,7 +338,7 @@ class MikuStage extends BaseStage {
 				{
             	PlayState.opponentStrums.members[i].x += 2000;
 				}
-			}	
+			}
 			case 70:
 			{
 				mikuTitle.destroy();
@@ -406,48 +379,48 @@ class MikuStage extends BaseStage {
 					case 3:
 						FlxTween.tween(PlayState.opponentStrums.members[i], {x: PlayState.opponentStrums.members[i].x - 600}, 12 * Conductor.stepCrochet / 1000, {ease: FlxEase.cubeOut});
     				}
-					}		
-				}			
+					}
+				}
 			}
-			case 442: 
+			case 442:
 			{
 				blackscreen.alpha = 1;
 				mainBG.alpha = 0;
 				polkadots.alpha = 0;
 				polkadots2.alpha = 0;
-				bumpMainBG.alpha = 0;				
+				bumpMainBG.alpha = 0;
 				FlxTween.tween(noises, {alpha: 1}, 4 * Conductor.stepCrochet / 1000);
 			}
-			case 448: 
+			case 448:
 			{
 				blackscreen.alpha = 0;
 				noises.alpha = 0;
-				FlxG.camera.flash(FlxColor.WHITE,1,false);				
+				FlxG.camera.flash(FlxColor.WHITE,1,false);
 				mikuBG1.alpha = 1;
 				mikuBG2.alpha = 1;
 			}
-			case 576: 
+			case 576:
 			{
-				FlxG.camera.flash(FlxColor.WHITE,1,false);	
-				mikuTween = FlxTween.tween(dad, {y: dad.y - 80}, 2, { type: FlxTween.PINGPONG, ease: FlxEase.sineInOut});			
-				alfieTween  = FlxTween.tween(boyfriend, {y: boyfriend.y - 80}, 2, { type: FlxTween.PINGPONG, ease: FlxEase.sineInOut, startDelay: 0.5});	
+				FlxG.camera.flash(FlxColor.WHITE,1,false);
+				mikuTween = FlxTween.tween(dad, {y: dad.y - 80}, 2, { type: FlxTween.PINGPONG, ease: FlxEase.sineInOut});
+				alfieTween  = FlxTween.tween(boyfriend, {y: boyfriend.y - 80}, 2, { type: FlxTween.PINGPONG, ease: FlxEase.sineInOut, startDelay: 0.5});
 				mikuBG2.alpha = 0;
-			}			
-			case 696: 
+			}
+			case 696:
 			{
 				FlxTween.tween(noises, {alpha: 1}, 6 * Conductor.stepCrochet / 1000);
-			}				
-			case 704: 
+			}
+			case 704:
 			{
 				mikuTween.cancel();
 				alfieTween.cancel();
 				noises.alpha = 0;
-				FlxG.camera.flash(FlxColor.WHITE,1,false);	
+				FlxG.camera.flash(FlxColor.WHITE,1,false);
 				mikuBG1.alpha = 0;
 				mainBG.alpha = 1;
 				polkadots.alpha = 1;
 				polkadots2.alpha = 1;
-				bumpMainBG.alpha = 1;	
+				bumpMainBG.alpha = 1;
 				if (ClientPrefs.data.disableSplit == false)
 					{
 					for (i in 0...4)
@@ -477,13 +450,13 @@ class MikuStage extends BaseStage {
 					case 3:
 						FlxTween.tween(PlayState.opponentStrums.members[i], {x: PlayState.opponentStrums.members[i].x + 600}, 16 * Conductor.stepCrochet / 1000, {ease: FlxEase.cubeOut});
     				}
-					}		
-					}				
+					}
+					}
 			}
 			case 768:
 			{
 					if (ClientPrefs.data.disableSplit == false)
-					{				
+					{
 					for (i in 0...4)
 					{
     				switch (i)
@@ -497,13 +470,13 @@ class MikuStage extends BaseStage {
 					case 3:
 						FlxTween.tween(PlayState.opponentStrums.members[i], {x: PlayState.opponentStrums.members[i].x - 600}, 14 * Conductor.stepCrochet / 1000, {ease: FlxEase.cubeOut});
     				}
-					}			
-					}	
+					}
+					}
 			}
 			case 784:
 			{
 					if (ClientPrefs.data.disableSplit == false)
-					{				
+					{
 					for (i in 0...4)
 					{
     				switch (i)
@@ -517,10 +490,10 @@ class MikuStage extends BaseStage {
 					case 3:
 						FlxTween.tween(PlayState.playerStrums.members[i], {x: 900}, 12 * Conductor.stepCrochet / 1000, {ease: FlxEase.cubeOut});
     				}
-					}		
-					}		
+					}
+					}
 			}
-			case 896: 
+			case 896:
 			{
 				blackscreen.alpha = 1;
 					if (ClientPrefs.data.disableSplit == false)
@@ -556,20 +529,20 @@ class MikuStage extends BaseStage {
 						PlayState.opponentStrums.members[i].x += 2000;
 						FlxTween.tween(PlayState.opponentStrums.members[i], {x: 1068}, 14 * Conductor.stepCrochet / 1000, {ease: FlxEase.cubeOut});
     				}
-					}		
-					}				
-			}	
-			case 920: 
+					}
+					}
+			}
+			case 920:
 			{
 				FlxTween.tween(noises, {alpha: 1}, 6 * Conductor.stepCrochet / 1000);
-			}			
+			}
 			case 928:
 			{
 				boyfriend.alpha = 1;
 				dad.alpha = 1;
 				noises.alpha = 0;
 				blackscreen.alpha = 0;
-				FlxG.camera.flash(FlxColor.WHITE,1,false);				
+				FlxG.camera.flash(FlxColor.WHITE,1,false);
 				wimbg2.alpha = 1;
 				wimbg1.alpha = 0;
 				wimdance.alpha = 0;
@@ -577,16 +550,16 @@ class MikuStage extends BaseStage {
 			case 1168:
 			{
 				wimbg2.alpha = 0;
-			}	
+			}
 			case 1174:
 			{
 				boyfriend.alpha = 0;
 				dad.alpha = 0;
-			}			
+			}
 			case 1180:
 			{
 				noises.alpha = 1;
-			}			
+			}
 			case 1184:
 			{
 				FlxTween.tween(noises, {alpha: 0}, 12 * Conductor.stepCrochet / 1000);
@@ -622,19 +595,19 @@ class MikuStage extends BaseStage {
     				}
 					}
 					}
-			}	
-			case 1193: 
+			}
+			case 1193:
 			{
 				FlxTween.tween(boyfriend, {alpha: 1}, 8 * Conductor.stepCrochet / 1000);
-			}	
-			case 1298: 
+			}
+			case 1298:
 			{
 				FlxTween.tween(dad, {alpha: 1}, 8 * Conductor.stepCrochet / 1000);
-			}										
-			case 1503: 
+			}
+			case 1503:
 			{
-				FlxTween.tween(whitescreen, {alpha: 1}, 16 * Conductor.stepCrochet / 1000);			
-			}	
+				FlxTween.tween(whitescreen, {alpha: 1}, 16 * Conductor.stepCrochet / 1000);
+			}
 			case 1525:
 			{
 				add(monitoringBG1);
@@ -648,7 +621,7 @@ class MikuStage extends BaseStage {
 			{
 				FlxTween.tween(noises, {alpha: 1}, 6 * Conductor.stepCrochet / 1000);
 				aishiteBG.alpha = 0;
-			}			
+			}
 			case 1536:
 			{
 				noises.alpha = 0;
@@ -658,10 +631,10 @@ class MikuStage extends BaseStage {
 				dad.alpha = 0;
 				monitoringWhites.alpha = 1;
 				monitoringWhites.animation.curAnim.curFrame = 0;
-				FlxG.camera.flash(FlxColor.WHITE,1,false);	
+				FlxG.camera.flash(FlxColor.WHITE,1,false);
 				FlxTween.tween(monitoringWhites, {x: monitoringWhites.x - 50}, 21 * Conductor.stepCrochet / 1000);
 				FlxTween.tween(monitoringBG1, {"scale.x": 1.08, "scale.y": 1.08}, 21 * Conductor.stepCrochet / 1000);
-			}			
+			}
 			case 1558:
 			{
 				monitoringBG1.alpha = 0;
@@ -670,37 +643,37 @@ class MikuStage extends BaseStage {
 				monitoringWhites.x += 50;
 				FlxTween.tween(monitoringWhites, {x: monitoringWhites.x - 50}, 17 * Conductor.stepCrochet / 1000);
 				FlxTween.tween(monitoringBG2, {"scale.x": 1.08, "scale.y": 1.08}, 17 * Conductor.stepCrochet / 1000);
-			}		
+			}
 			case 1576:
 			{
 				monitoringBG2.alpha = 0;
 				monitoringBG3.alpha = 1;
 				monitoringWhites.animation.curAnim.curFrame = 2;
 				monitoringWhites.x += 50;
-			}		
+			}
 			case 1599:
 			{
 				monitoringBG3.alpha = 0;
 				monitoringBG4.alpha = 1;
 				monitoringWhites.animation.curAnim.curFrame = 3;
-				FlxTween.tween(monitoringWhites, {x: monitoringWhites.x - 50}, 11 * Conductor.stepCrochet / 1000);			
+				FlxTween.tween(monitoringWhites, {x: monitoringWhites.x - 50}, 11 * Conductor.stepCrochet / 1000);
 				FlxTween.tween(monitoringBG4, {"scale.x": 1.08, "scale.y": 1.08},11 * Conductor.stepCrochet / 1000);
-			}			
+			}
 			case 1611:
 			{
 				monitoringBG4.alpha = 0;
 				monitoringBG5.alpha = 1;
 				monitoringWhites.animation.curAnim.curFrame = 4;
 				monitoringWhites.x += 50;
-				FlxTween.tween(monitoringWhites, {x: monitoringWhites.x - 50}, 14 * Conductor.stepCrochet / 1000);				
+				FlxTween.tween(monitoringWhites, {x: monitoringWhites.x - 50}, 14 * Conductor.stepCrochet / 1000);
 				FlxTween.tween(monitoringBG5, {"scale.x": 1.08, "scale.y": 1.08}, 14 * Conductor.stepCrochet / 1000);
-			}	
-			case 1628: 
+			}
+			case 1628:
 			{
-				FlxTween.tween(blackscreen, {alpha: 1}, 6 * Conductor.stepCrochet / 1000);			
+				FlxTween.tween(blackscreen, {alpha: 1}, 6 * Conductor.stepCrochet / 1000);
 			}
 			//region THE MONITORING SECTION BLOCK OF CODE
-			case 1648: 
+			case 1648:
 			{
 				monitoringBG1.destroy();
 				monitoringBG2.destroy();
@@ -713,209 +686,209 @@ class MikuStage extends BaseStage {
 				monitoringBG6.alpha = 1;
 				monitoringMikus.alpha = 1;
 				monitoringMikus.animation.curAnim.curFrame = 6;
-			}	
+			}
 			case 1650:
 			{
 				monitoringMikus.alpha = 0;
 				monitoringAlfies.alpha = 1;
 				monitoringAlfies.animation.curAnim.curFrame = 5;
-			}			
+			}
 			case 1652:
 			{
 				monitoringMikus.alpha = 1;
 				monitoringAlfies.alpha = 0;
 				monitoringMikus.animation.curAnim.curFrame = 7;
-			}	
+			}
 			case 1654:
 			{
 				monitoringMikus.alpha = 0;
 				monitoringAlfies.alpha = 1;
 				monitoringAlfies.animation.curAnim.curFrame = 7;
 			}
-			case 1655: 
+			case 1655:
 			{
 				monitoringMikus.alpha = 1;
 				monitoringAlfies.alpha = 0;
 				monitoringMikus.animation.curAnim.curFrame = 3;
 			}
-			case 1658: 
+			case 1658:
 			{
-				FlxTween.tween(whitescreen, {alpha: 1}, 4 * Conductor.stepCrochet / 1000);	 //mwah		
+				FlxTween.tween(whitescreen, {alpha: 1}, 4 * Conductor.stepCrochet / 1000);	 //mwah
 			}
-			case 1664: 
+			case 1664:
 			{
 				whitescreen.alpha = 0;
-				FlxG.camera.flash(FlxColor.WHITE,1,false);	
+				FlxG.camera.flash(FlxColor.WHITE,1,false);
 				monitoringMikus.animation.curAnim.curFrame = 0;
 			}
 			case 1672: //alfie posin
 			{
 				monitoringMikus.alpha = 0;
 				monitoringAlfies.alpha = 1;
-				monitoringAlfies.animation.curAnim.curFrame = 2;				
+				monitoringAlfies.animation.curAnim.curFrame = 2;
 			}
 			case 1675: //miku posin
 			{
 				monitoringMikus.alpha = 1;
 				monitoringAlfies.alpha = 0;
-				monitoringMikus.animation.curAnim.curFrame = 4;				
+				monitoringMikus.animation.curAnim.curFrame = 4;
 			}
 			case 1678: //both posin
 			{
 				monitoringMikus.alpha = 1;
 				monitoringAlfies.alpha = 1;
-				monitoringMikus.animation.curAnim.curFrame = 1;			
-				monitoringAlfies.animation.curAnim.curFrame = 1;						
+				monitoringMikus.animation.curAnim.curFrame = 1;
+				monitoringAlfies.animation.curAnim.curFrame = 1;
 			}
-			case 1686: 
+			case 1686:
 			{
 				monitoringMikus.alpha = 1;
 				monitoringAlfies.alpha = 0;
-				monitoringMikus.animation.curAnim.curFrame = 2;							
+				monitoringMikus.animation.curAnim.curFrame = 2;
 			}
 			case 1696: //alfie posin
 			{
 				monitoringMikus.alpha = 0;
 				monitoringAlfies.alpha = 1;
-				monitoringAlfies.animation.curAnim.curFrame = 4;				
-			}		
+				monitoringAlfies.animation.curAnim.curFrame = 4;
+			}
 			case 1700: //miku posin
 			{
 				monitoringMikus.alpha = 1;
 				monitoringAlfies.alpha = 0;
-				monitoringMikus.animation.curAnim.curFrame = 5;				
-			}	
+				monitoringMikus.animation.curAnim.curFrame = 5;
+			}
 			case 1704: //alfie posin
 			{
 				monitoringMikus.alpha = 0;
 				monitoringAlfies.alpha = 1;
-				monitoringAlfies.animation.curAnim.curFrame = 3;				
-			}	
+				monitoringAlfies.animation.curAnim.curFrame = 3;
+			}
 			case 1776 | 1718 | 1904: //miku posin //1
 			{
 				monitoringMikus.alpha = 1;
 				monitoringAlfies.alpha = 0;
-				monitoringMikus.animation.curAnim.curFrame = 6;				
-			}			
+				monitoringMikus.animation.curAnim.curFrame = 6;
+			}
 			case 1778 | 1719 | 1906: //alfie posin //1
 			{
 				monitoringMikus.alpha = 0;
 				monitoringAlfies.alpha = 1;
-				monitoringAlfies.animation.curAnim.curFrame = 5;				
+				monitoringAlfies.animation.curAnim.curFrame = 5;
 			}
 			case 1780 | 1720 | 1908: //miku posin //2
 			{
 				monitoringMikus.alpha = 1;
 				monitoringAlfies.alpha = 0;
-				monitoringMikus.animation.curAnim.curFrame = 7;				
-			}			
+				monitoringMikus.animation.curAnim.curFrame = 7;
+			}
 			case 1782 | 1722: //alfie posin //2
 			{
 				monitoringMikus.alpha = 0;
 				monitoringAlfies.alpha = 1;
-				monitoringAlfies.animation.curAnim.curFrame = 7;				
+				monitoringAlfies.animation.curAnim.curFrame = 7;
 			}
 			case 1726: //miku posin
 			{
 				monitoringMikus.alpha = 1;
 				monitoringAlfies.alpha = 0;
-				monitoringMikus.animation.curAnim.curFrame = 5;				
-			}	
+				monitoringMikus.animation.curAnim.curFrame = 5;
+			}
 			case 1783 | 1731 | 1911: //miku posin
 			{
 				monitoringMikus.alpha = 1;
 				monitoringAlfies.alpha = 0;
-				monitoringMikus.animation.curAnim.curFrame = 3;				
-			}		
+				monitoringMikus.animation.curAnim.curFrame = 3;
+			}
 			case 1739: //alfie posin
 			{
 				monitoringMikus.alpha = 0;
 				monitoringAlfies.alpha = 1;
-				monitoringAlfies.animation.curAnim.curFrame = 4;				
-			}	
+				monitoringAlfies.animation.curAnim.curFrame = 4;
+			}
 			case 1746: //alfie posin
 			{
 				monitoringMikus.alpha = 0;
 				monitoringAlfies.alpha = 1;
-				monitoringAlfies.animation.curAnim.curFrame = 6;				
-			}	
+				monitoringAlfies.animation.curAnim.curFrame = 6;
+			}
 			case 1760: // both gone
 			{
 				monitoringMikus.alpha = 0;
 				monitoringAlfies.alpha = 0;
-			}	
+			}
 			case 1792: //alfie posin
 			{
 				monitoringMikus.alpha = 0;
 				monitoringAlfies.alpha = 1;
-				monitoringAlfies.animation.curAnim.curFrame = 2;				
+				monitoringAlfies.animation.curAnim.curFrame = 2;
 			}
 			case 1796: //miku posin
 			{
 				monitoringMikus.alpha = 1;
 				monitoringAlfies.alpha = 0;
-				monitoringMikus.animation.curAnim.curFrame = 0;				
-			}	
+				monitoringMikus.animation.curAnim.curFrame = 0;
+			}
 			case 1801: //alfie posin
 			{
 				monitoringMikus.alpha = 0;
 				monitoringAlfies.alpha = 1;
-				monitoringAlfies.animation.curAnim.curFrame = 1;				
-			}	
+				monitoringAlfies.animation.curAnim.curFrame = 1;
+			}
 			case 1812: //miku posin
 			{
 				monitoringMikus.alpha = 1;
 				monitoringAlfies.alpha = 0;
-				monitoringMikus.animation.curAnim.curFrame = 1;				
-			}					
+				monitoringMikus.animation.curAnim.curFrame = 1;
+			}
 			case 1825: //alfie posin
 			{
 				monitoringMikus.alpha = 0;
 				monitoringAlfies.alpha = 1;
-				monitoringAlfies.animation.curAnim.curFrame = 0;					
+				monitoringAlfies.animation.curAnim.curFrame = 0;
 			}
-			case 1850 | 1854: 
+			case 1850 | 1854:
 			{
 				monitoringAlfies.alpha = 1;
 				monitoringMikus.alpha = 1;
-				monitoringMikus.animation.curAnim.curFrame = 1;			
-				monitoringAlfies.animation.curAnim.curFrame = 1;	
+				monitoringMikus.animation.curAnim.curFrame = 1;
+				monitoringAlfies.animation.curAnim.curFrame = 1;
 			}
-			case 1851: 
+			case 1851:
 			{
-				monitoringMikus.animation.curAnim.curFrame = 6;			
-				monitoringAlfies.animation.curAnim.curFrame = 5;	
-			}	
-			case 1852: 
+				monitoringMikus.animation.curAnim.curFrame = 6;
+				monitoringAlfies.animation.curAnim.curFrame = 5;
+			}
+			case 1852:
 			{
-				monitoringMikus.animation.curAnim.curFrame = 4;			
-				monitoringAlfies.animation.curAnim.curFrame = 4;				
-			}	
-			case 1853: 
+				monitoringMikus.animation.curAnim.curFrame = 4;
+				monitoringAlfies.animation.curAnim.curFrame = 4;
+			}
+			case 1853:
 			{
-				monitoringMikus.animation.curAnim.curFrame = 7;			
-				monitoringAlfies.animation.curAnim.curFrame = 7;				
+				monitoringMikus.animation.curAnim.curFrame = 7;
+				monitoringAlfies.animation.curAnim.curFrame = 7;
 			}
 			case 1856: //alfie posin
 			{
 				monitoringMikus.alpha = 0;
 				monitoringAlfies.alpha = 1;
-				monitoringAlfies.animation.curAnim.curFrame = 6;					
-			}	
+				monitoringAlfies.animation.curAnim.curFrame = 6;
+			}
 			case 1872: //miku posin
 			{
 				monitoringMikus.alpha = 1;
 				monitoringAlfies.alpha = 0;
-				monitoringMikus.animation.curAnim.curFrame = 0;				
+				monitoringMikus.animation.curAnim.curFrame = 0;
 			}
 			case 1888: //miku posin
 			{
 				monitoringMikus.alpha = 1;
 				monitoringAlfies.alpha = 1;
-				monitoringAlfies.animation.curAnim.curFrame = 1;					
-				monitoringMikus.animation.curAnim.curFrame = 1;				
-			}			
-			case 1914: 
+				monitoringAlfies.animation.curAnim.curFrame = 1;
+				monitoringMikus.animation.curAnim.curFrame = 1;
+			}
+			case 1914:
 			{
 				FlxTween.tween(noises, {alpha: 1}, 4 * Conductor.stepCrochet / 1000);
 			}
@@ -926,7 +899,7 @@ class MikuStage extends BaseStage {
 				noises.alpha = 0;
 				boyfriend.alpha = 1;
 				dad.alpha = 1;
-				FlxG.camera.flash(FlxColor.WHITE,1,false);	
+				FlxG.camera.flash(FlxColor.WHITE,1,false);
 				monitoringAlfies.destroy();
 				monitoringMikus.destroy();
 				monitoringBG6.destroy();
@@ -934,7 +907,7 @@ class MikuStage extends BaseStage {
 				mainBG.alpha = 1;
 				polkadots.alpha = 1;
 				polkadots2.alpha = 1;
-				bumpMainBG.alpha = 1;				
+				bumpMainBG.alpha = 1;
 				if (ClientPrefs.data.disableSplit == false)
 					{
 					for (i in 0...4)
@@ -950,7 +923,7 @@ class MikuStage extends BaseStage {
 					case 3:
 						FlxTween.tween(PlayState.playerStrums.members[i], {x: 1068}, 16 * Conductor.stepCrochet / 1000, {ease: FlxEase.cubeOut});
     				}
-					}	
+					}
 					for (i in 0...4)
 					{
 					switch (i)
@@ -981,7 +954,7 @@ class MikuStage extends BaseStage {
 				wimdance.destroy();
 				mikuBG2.destroy();
 			}
-			
+
 		}
 	}
 
@@ -989,7 +962,7 @@ class MikuStage extends BaseStage {
 		everyoneDance();
 
 		switch (curBeat) {
-			case 8: 
+			case 8:
 				{
 					mikuTitle.alpha = 0;
 					alfieTitle.alpha = 1;
@@ -1014,7 +987,7 @@ class MikuStage extends BaseStage {
 					mainBG.alpha = 0;
 					polkadots.alpha = 0;
 					polkadots2.alpha = 0;
-					bumpMainBG.alpha = 0;	
+					bumpMainBG.alpha = 0;
 					boyfriend.alpha = 0;
 					dad.alpha = 0;
 				}

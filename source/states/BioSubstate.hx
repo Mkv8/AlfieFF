@@ -1,10 +1,10 @@
 package states;
 
+import shaders.GameShaders;
 import flixel.effects.particles.FlxEmitter;
 import flixel.FlxObject;
 import openfl.filters.BitmapFilter;
 import openfl.display.BlendMode;
-import openfl.filters.ShaderFilter;
 import flixel.util.FlxTimer;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
@@ -32,16 +32,6 @@ class BioSubstate extends MusicBeatSubstate {
 
 	var infoText:FlxText;
 	var readingComments:Bool = false;
-
-	var shader:Array<BitmapFilter> = [
-		new ShaderFilter(new shaders.PostProcessing()),
-	];
-
-	/*var curveShader:Array<BitmapFilter> = [
-		new ShaderFilter(new shaders.CurveShader()),
-	];*/
-
-	var curveShader = new shaders.CurveShader();
 
 	//THANK YOU FERZY FOR THE JSON HELP !!!!!! EVERYONE SAY THANK YOU FERZY !!!!
 
@@ -90,21 +80,21 @@ class BioSubstate extends MusicBeatSubstate {
         this.multiplyBar.blend = BlendMode.MULTIPLY;
         this.multiplyBar.antialiasing = ClientPrefs.data.antialiasing;
         this.add(this.multiplyBar);
-		
-		renders = new FlxSprite(-80, -28); 
+
+		renders = new FlxSprite(-80, -28);
 		renders.updateHitbox();
 		renders.alpha = 1;
 		renders.antialiasing = ClientPrefs.data.antialiasing;
 		add(renders);
 
-		leftSelect = new BGSprite('menuassets/arrowButton', FlxG.width / 2 - 100, 80, 0, 0); 
+		leftSelect = new BGSprite('menuassets/arrowButton', FlxG.width / 2 - 100, 80, 0, 0);
 		leftSelect.updateHitbox();
 		leftSelect.alpha = 0.6;
 		//leftSelect.scale.set(0.8,0.8);
 		leftSelect.antialiasing = ClientPrefs.data.antialiasing;
-		add(leftSelect);	
+		add(leftSelect);
 
-		rightSelect = new BGSprite('menuassets/arrowButton', FlxG.width / 2 + 430, 80, 0, 0); 
+		rightSelect = new BGSprite('menuassets/arrowButton', FlxG.width / 2 + 430, 80, 0, 0);
 		rightSelect.updateHitbox();
 		rightSelect.alpha = 0.7;
 		rightSelect.flipX = true;
@@ -115,53 +105,49 @@ class BioSubstate extends MusicBeatSubstate {
 		nameTexts = new FlxText(690, 93);
 		nameTexts.setFormat(Paths.font("vcr.ttf"), 64, 0xFFffcf53, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		nameTexts.borderColor = 0xFF850303;
-		nameTexts.borderSize = 3;	
+		nameTexts.borderSize = 3;
 		add(nameTexts);
 
 		bioText = new FlxText(540, 190, 600);
 		bioText.setFormat(Paths.font("vcr.ttf"), 32, 0xFFffcf53, JUSTIFY, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		bioText.borderColor = 0xFF850303;
-		bioText.borderSize = 2;	
+		bioText.borderSize = 2;
 		add(bioText);
 
-		comment1 = new BGSprite('menuassets/extras/comments', 540, 160, 0, 0, ['comments'], false); 
+		comment1 = new BGSprite('menuassets/extras/comments', 540, 160, 0, 0, ['comments'], false);
 		comment1.updateHitbox();
 		comment1.alpha = 0;
 		comment1.animation.play('comments', true, false);
 		comment1.animation.pause();
 		comment1.scale.set(0.9,0.9);
 		comment1.antialiasing = ClientPrefs.data.antialiasing;
-		add(comment1);		
+		add(comment1);
 
-		comment2 = new BGSprite('menuassets/extras/comments', 540, 310, 0, 0, ['comments'], false); 
+		comment2 = new BGSprite('menuassets/extras/comments', 540, 310, 0, 0, ['comments'], false);
 		comment2.updateHitbox();
 		comment2.alpha = 0;
 		comment2.animation.play('comments', true, false);
 		comment2.animation.pause();
 		comment2.scale.set(0.9,0.9);
 		comment2.antialiasing = ClientPrefs.data.antialiasing;
-		add(comment2);		
+		add(comment2);
 
-		comment3 = new BGSprite('menuassets/extras/comments', 540, 460, 0, 0, ['comments'], false); 
+		comment3 = new BGSprite('menuassets/extras/comments', 540, 460, 0, 0, ['comments'], false);
 		comment3.updateHitbox();
 		comment3.alpha = 0;
 		comment3.animation.play('comments', true, false);
 		comment3.animation.pause();
 		comment3.scale.set(0.9,0.9);
 		comment3.antialiasing = ClientPrefs.data.antialiasing;
-		add(comment3);		
+		add(comment3);
 
 		infoText = new FlxText(FlxG.width * 0.51, FlxG.height * 0.94, 800, 'Press ENTER to change info!');
 		infoText.setFormat(Paths.font("vcr.ttf"), 28, 0xFFffcf53, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		infoText.borderColor = 0xFF850303;
 		infoText.borderSize = 2;
-		infoText.alpha = 0.75;	
-		add(infoText);		
-		if (ClientPrefs.data.shaders == true)
-		{
-		FlxG.game.setFilters(shader);
-		FlxG.game.filtersEnabled = true;
-		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
+		infoText.alpha = 0.75;
+		add(infoText);
+
 		//json
 		var file;
 		if (FileSystem.exists("assets/shared/data/charBioData.json")) {
@@ -176,14 +162,17 @@ class BioSubstate extends MusicBeatSubstate {
 			characters.set(charName, charData);
 		}
 
-		trace(characters['Alfie'].bio); //Testie
 		changeSelection();
 		switchBio();
 	}
 
 	var selectedSomethin:Bool = false;
 
-	override function update(elapsed:Float) {
+	override function update(elapsed:Float)
+	{
+		// <Tantalun>: in case you would like to give the substate a different amount of chromatic abberation
+		// GameShaders.CHROMATIC_ABBERATION.chromOff = 2.0;
+
 		var lerpVal:Float = Math.exp(-elapsed * 10);
 		if (FlxG.sound.music.volume < 0.8) {
 			FlxG.sound.music.volume += 0.5 * elapsed;
@@ -221,14 +210,14 @@ class BioSubstate extends MusicBeatSubstate {
 			FlxTween.tween(rightSelect, {alpha: 0.6}, 0.6, {ease: FlxEase.quartInOut});
 			FlxG.sound.play(Paths.sound('scrollMenu'));
 			changeSelection(1);
-			readingComments = false;			
+			readingComments = false;
 			switchBio();
 			}
 
 		super.update(elapsed);
 	}
 
-	
+
 	function changeSelection(change:Int = 0, playSound:Bool = true) {
 
 		curSelected += change;
@@ -241,7 +230,7 @@ class BioSubstate extends MusicBeatSubstate {
 	}
 
 	function switchBetween() {
-	
+
 		if (!readingComments)
 		{
 		readingComments = true;
@@ -304,33 +293,33 @@ class BioSubstate extends MusicBeatSubstate {
 				renders.loadGraphic(Paths.image(characters['Alfie'].imageFile));
 				comment1.animation.curAnim.curFrame = 0;
 				comment2.animation.curAnim.curFrame = 1;
-				comment3.animation.curAnim.curFrame = 2;				
+				comment3.animation.curAnim.curFrame = 2;
 			}
 			case 1:
 			{
-				nameTexts.x = 690 - 22;				
+				nameTexts.x = 690 - 22;
 				nameTexts.text = charList[1];
 				bioText.text = characters['Boyfriend'].bio;
-				renders.loadGraphic(Paths.image(characters['Boyfriend'].imageFile));	
+				renders.loadGraphic(Paths.image(characters['Boyfriend'].imageFile));
 				comment1.animation.curAnim.curFrame = 3;
 				comment2.animation.curAnim.curFrame = 4;
-				comment3.animation.curAnim.curFrame = 5;		
-				comment3.visible = true;	
+				comment3.animation.curAnim.curFrame = 5;
+				comment3.visible = true;
 			}
 			case 2:
 			{
-				nameTexts.x = 690 - 39;	
+				nameTexts.x = 690 - 39;
 				nameTexts.text = charList[2];
 				bioText.text = characters['Girlfriend'].bio;
 				renders.loadGraphic(Paths.image(characters['Girlfriend'].imageFile));
 				comment1.animation.curAnim.curFrame = 6;
 				comment2.animation.curAnim.curFrame = 7;
 				comment3.visible = false;
-				//comment3.animation.curAnim.curFrame = 8;	
+				//comment3.animation.curAnim.curFrame = 8;
 			}
 			case 3:
 			{
-				nameTexts.x = 690 + 22;	
+				nameTexts.x = 690 + 22;
 				nameTexts.text = charList[3];
 				bioText.text = characters['Kisston'].bio;
 				bioText.size = 32;
@@ -343,7 +332,7 @@ class BioSubstate extends MusicBeatSubstate {
 			}
 			case 4:
 			{
-				nameTexts.x = 690 - 58;	
+				nameTexts.x = 690 - 58;
 				nameTexts.text = charList[4];
 				bioText.text = characters['Kai & Erhardt'].bio;
 				bioText.size = 28;
@@ -355,7 +344,7 @@ class BioSubstate extends MusicBeatSubstate {
 			}
 			case 5:
 			{
-				nameTexts.x = 690 + 48;	
+				nameTexts.x = 690 + 48;
 				nameTexts.text = charList[5];
 				bioText.text = characters['Filip'].bio;
 				bioText.size = 32;
@@ -367,28 +356,28 @@ class BioSubstate extends MusicBeatSubstate {
 			}
 			case 6:
 			{
-				nameTexts.x = 690 + 48;	
+				nameTexts.x = 690 + 48;
 				nameTexts.text = charList[6];
 				bioText.text = characters['Nikku'].bio;
 				renders.loadGraphic(Paths.image(characters['Nikku'].imageFile));
 				comment1.animation.curAnim.curFrame = 17;
 				comment2.animation.curAnim.curFrame = 18;
-				comment3.animation.curAnim.curFrame = 19;	
+				comment3.animation.curAnim.curFrame = 19;
 			}
 			case 7:
 			{
-				nameTexts.x = 690 + 100;	
+				nameTexts.x = 690 + 100;
 				nameTexts.text = charList[7];
 				bioText.text = characters['Ai'].bio;
 				renders.loadGraphic(Paths.image(characters['Ai'].imageFile));
 				nameTexts.size = 64;
 				comment1.animation.curAnim.curFrame = 20;
 				comment2.animation.curAnim.curFrame = 21;
-				comment3.animation.curAnim.curFrame = 22;		
+				comment3.animation.curAnim.curFrame = 22;
 			}
 			case 8:
 			{
-				nameTexts.x = 690 - 47;	
+				nameTexts.x = 690 - 47;
 				nameTexts.size = 56;
 				nameTexts.text = charList[8];
 				bioText.text = characters['Hatsune Miku'].bio;
@@ -399,7 +388,7 @@ class BioSubstate extends MusicBeatSubstate {
 			}
 			case 9:
 			{
-				nameTexts.x = 690 + 48;	
+				nameTexts.x = 690 + 48;
 				nameTexts.size = 64;
 				nameTexts.text = charList[9];
 				bioText.text = characters['?????'].bio;
@@ -407,7 +396,7 @@ class BioSubstate extends MusicBeatSubstate {
 				comment1.animation.curAnim.curFrame = 26;
 				comment2.animation.curAnim.curFrame = 27;
 				comment3.animation.curAnim.curFrame = 28;
-			}			
+			}
 		}
 
 

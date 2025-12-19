@@ -1,6 +1,6 @@
 package states;
-import openfl.filters.ShaderFilter;
-import openfl.filters.BitmapFilter;
+
+import shaders.GameShaders;
 
 
 typedef CreditData = {
@@ -332,13 +332,6 @@ class CreditsState extends MusicBeatState {
 	private var infoTextFirstLine:FlxText;
 	private var infoTextSecondLine:FlxText;
 
-	
-	var shader:Array<BitmapFilter> = [
-		new ShaderFilter(new shaders.PostProcessing()),
-	];
-
-	var curveShader = new shaders.CurveShader();
-
 	private var arrowTweens = {
 		left: null,
 		right: null,
@@ -378,14 +371,6 @@ class CreditsState extends MusicBeatState {
 	private var showInfoTextFirstLine:Bool = false;
 	private var showInfoTextSecondLine:Bool = false;
 
-	// var shader:Array<BitmapFilter> = [
-	// 	new ShaderFilter(new shaders.PostProcessing()),
-	// ];
-
-	/*var curveShader:Array<BitmapFilter> = [
-		new ShaderFilter(new shaders.CurveShader()),
-	];*/
-
 	//REMINDER THAT THERES A CONCEPT PICTURE ON THE MENU ASSETS FOLDER
 	//For this menu, people are displayed vertically and when you press up and down it swaps between them (just like the original menu!)
 	//When someone is highlighted/selected, their icon and name tweens to the left and it displays a message
@@ -393,12 +378,14 @@ class CreditsState extends MusicBeatState {
 	//I set all the icons as mk for now but i can change them later, theyre already in the tiles
 	//IDK WHAT BUTTON TO MAKE THE CREDITS VIDEO PLAY, the credits video itself is done its "CreditsFilter" in the files
 
-	// var curveShader = new shaders.CurveShader();
-
-	override function create() {
+	override function create()
+	{
 		#if DISCORD_ALLOWED
 		DiscordClient.changePresence("Checking the credits!", null);
 		#end
+
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 3.0;
 
 		super.create();
 
@@ -650,18 +637,6 @@ class CreditsState extends MusicBeatState {
 		this.add(this.infoBox);
 		this.add(this.infoTextFirstLine);
 		this.add(this.infoTextSecondLine);
-
-		if (ClientPrefs.data.shaders == true)
-		{
-		FlxG.game.setFilters(shader);
-		FlxG.game.filtersEnabled = true;
-
-		FlxG.camera.setFilters([new ShaderFilter(curveShader)]);
-		FlxG.camera.filtersEnabled = true;
-
-		curveShader.chromOff = 3;
-		//curveShader.effect = -0.15;
-		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
 	}
 
 	var quitting:Bool = false;

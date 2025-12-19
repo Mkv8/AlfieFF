@@ -1,22 +1,13 @@
 package states;
 
-import openfl.display.Window;
-import flixel.graphics.frames.FlxAtlasFrames;
+import shaders.GameShaders;
 import flixel.effects.particles.FlxEmitter;
 import flixel.FlxObject;
-import flixel.addons.transition.FlxTransitionableState;
-import flixel.effects.FlxFlicker;
-import lime.app.Application;
-import states.editors.MasterEditorMenu;
-import options.OptionsState;
-import openfl.filters.BitmapFilter;
 import openfl.display.BlendMode;
-import openfl.filters.ShaderFilter;
-import backend.Highscore;
 
 
 class ArtworkSubstate extends MusicBeatSubstate {
-	
+
 	var characters:Map<String, Dynamic> = new Map<String, Dynamic>();
 	var charList = ['mikuStage', 'aiAlfieDesign', 'firstPromo', 'secondPromo', 'hooman', 'artificial', 'artificial2', 'oldAlbums', 'forestFire', 'deadbf', 'minusPoses', 'minusPoses2', 'fuckinArrested', 'wellthissucks', 'alfandquaver']; //Use this as the order to show them bc maps dont have an order to them
 
@@ -38,19 +29,10 @@ class ArtworkSubstate extends MusicBeatSubstate {
 	var infoText:FlxText;
 	var readingComments:Bool = false;
 
-	var shader:Array<BitmapFilter> = [
-		new ShaderFilter(new shaders.PostProcessing()),
-	];
-
-	/*var curveShader:Array<BitmapFilter> = [
-		new ShaderFilter(new shaders.CurveShader()),
-	];*/
-
-	var curveShader = new shaders.CurveShader();
-
 	//THANK YOU FERZY FOR THE JSON HELP !!!!!! EVERYONE SAY THANK YOU FERZY !!!!
 
-	override function create() {
+	override function create()
+	{
 		#if DISCORD_ALLOWED
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("Lookin' at some art!", null);
@@ -95,8 +77,8 @@ class ArtworkSubstate extends MusicBeatSubstate {
         this.multiplyBar.blend = BlendMode.MULTIPLY;
         this.multiplyBar.antialiasing = ClientPrefs.data.antialiasing;
         this.add(this.multiplyBar);
-		
-		concepts = new FlxSprite(-80, -28); 
+
+		concepts = new FlxSprite(-80, -28);
 		concepts.updateHitbox();
 		concepts.alpha = 1;
 		concepts.antialiasing = ClientPrefs.data.antialiasing;
@@ -104,14 +86,14 @@ class ArtworkSubstate extends MusicBeatSubstate {
 		concepts.scale.set(0.55, 0.55);
 		add(concepts);
 
-		leftSelect = new BGSprite('menuassets/arrowButton', 120, 300, 0, 0); 
+		leftSelect = new BGSprite('menuassets/arrowButton', 120, 300, 0, 0);
 		leftSelect.updateHitbox();
 		leftSelect.alpha = 0.6;
 		//leftSelect.scale.set(0.8,0.8);
 		leftSelect.antialiasing = ClientPrefs.data.antialiasing;
-		add(leftSelect);	
+		add(leftSelect);
 
-		rightSelect = new BGSprite('menuassets/arrowButton', FlxG.width / 2 + 450, 300, 0, 0); 
+		rightSelect = new BGSprite('menuassets/arrowButton', FlxG.width / 2 + 450, 300, 0, 0);
 		rightSelect.updateHitbox();
 		rightSelect.alpha = 0.7;
 		rightSelect.flipX = true;
@@ -124,13 +106,9 @@ class ArtworkSubstate extends MusicBeatSubstate {
 		bioText = new FlxText(250, 550, 1000);
 		bioText.setFormat(Paths.font("vcr.ttf"), 24, 0xFFffcf53, JUSTIFY, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		bioText.borderColor = 0xFF850303;
-		bioText.borderSize = 2;	
-		add(bioText);			
-		if (ClientPrefs.data.shaders == true)
-		{
-		FlxG.game.setFilters(shader);
-		FlxG.game.filtersEnabled = true;
-		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
+		bioText.borderSize = 2;
+		add(bioText);
+
 		//json
 		var file;
 		if (FileSystem.exists("assets/shared/data/artworkData.json")) {
@@ -152,7 +130,11 @@ class ArtworkSubstate extends MusicBeatSubstate {
 
 	var selectedSomethin:Bool = false;
 
-	override function update(elapsed:Float) {
+	override function update(elapsed:Float)
+	{
+		// <Tantalun>: in case you would like to give the substate a different amount of chromatic abberation
+		// GameShaders.CHROMATIC_ABBERATION.chromOff = 2.0;
+
 		var lerpVal:Float = Math.exp(-elapsed * 10);
 		if (FlxG.sound.music.volume < 0.8) {
 			FlxG.sound.music.volume += 0.5 * elapsed;
@@ -190,14 +172,14 @@ class ArtworkSubstate extends MusicBeatSubstate {
 			FlxTween.tween(rightSelect, {alpha: 0.6}, 0.6, {ease: FlxEase.quartInOut});
 			FlxG.sound.play(Paths.sound('scrollMenu'));
 			changeSelection(1);
-			readingComments = false;			
+			readingComments = false;
 			switchBio();
 			}
 
 		super.update(elapsed);
 	}
 
-	
+
 	function changeSelection(change2:Int = 0, playSound:Bool = true) {
 
 		curSelected2 += change2;
@@ -210,7 +192,7 @@ class ArtworkSubstate extends MusicBeatSubstate {
 	}
 
 	function switchBetween() {
-	
+
 		if (!readingComments)
 		{
 		readingComments = true;
@@ -237,95 +219,95 @@ class ArtworkSubstate extends MusicBeatSubstate {
 		switch (curSelected2)
 		{
 			case 0: //done--------------------
-			{	
+			{
 				bioText.text = characters['mikuStage'].bio;
-				concepts.loadGraphic(Paths.image(characters['mikuStage'].imageFile));		
+				concepts.loadGraphic(Paths.image(characters['mikuStage'].imageFile));
 				bioText.x = 140; bioText.y = 570; concepts.x = -16; concepts.y = -20; concepts.scale.set(0.55, 0.55);
 			}
 			case 1: //done------------------
-			{								
+			{
 				bioText.text = characters['aiAlfieDesign'].bio;
-				concepts.loadGraphic(Paths.image(characters['aiAlfieDesign'].imageFile));	
+				concepts.loadGraphic(Paths.image(characters['aiAlfieDesign'].imageFile));
 				bioText.x = 140; bioText.y = 550; concepts.x = 348; concepts.y = -55; concepts.scale.set(0.65, 0.65);
 			}
 			case 2: //done ----------------
-			{				
+			{
 				bioText.text = characters['firstPromo'].bio;
-				concepts.loadGraphic(Paths.image(characters['firstPromo'].imageFile));	
+				concepts.loadGraphic(Paths.image(characters['firstPromo'].imageFile));
 				bioText.x = 140; bioText.y = 560; concepts.x = -320; concepts.y = -220; concepts.scale.set(0.37, 0.37);
 			}
 			case 3: //done-----------------
-			{				
+			{
 				bioText.text = characters['secondPromo'].bio;
-				concepts.loadGraphic(Paths.image(characters['secondPromo'].imageFile));	
+				concepts.loadGraphic(Paths.image(characters['secondPromo'].imageFile));
 				bioText.x = 140; bioText.y = 550; concepts.x = -9; concepts.y = -70; concepts.scale.set(0.55, 0.55);
 			}
 			case 4: //done--------------
-			{				
+			{
 				bioText.text = characters['hooman'].bio;
-				concepts.loadGraphic(Paths.image(characters['hooman'].imageFile));	
+				concepts.loadGraphic(Paths.image(characters['hooman'].imageFile));
 				bioText.x = 140; bioText.y = 570; concepts.x = 265; concepts.y = 100; concepts.scale.set(0.7, 0.7);
 			}
 			case 5:
-			{			
+			{
 				bioText.text = characters['artificial'].bio;
-				concepts.loadGraphic(Paths.image(characters['artificial'].imageFile));	
+				concepts.loadGraphic(Paths.image(characters['artificial'].imageFile));
 				bioText.x = 140; bioText.y = 575; concepts.x = 40; concepts.y = -285; concepts.scale.set(0.4, 0.4);
 			}
 			case 6:
-			{				
+			{
 				bioText.text = characters['artificial2'].bio;
-				concepts.loadGraphic(Paths.image(characters['artificial2'].imageFile));	
+				concepts.loadGraphic(Paths.image(characters['artificial2'].imageFile));
 				bioText.x = 140; bioText.y = 575; concepts.x = 100; concepts.y = -215; concepts.scale.set(0.42, 0.42);
 			}
 			case 7:
-			{				
+			{
 				bioText.text = characters['oldAlbums'].bio;
-				concepts.loadGraphic(Paths.image(characters['oldAlbums'].imageFile));	
+				concepts.loadGraphic(Paths.image(characters['oldAlbums'].imageFile));
 				bioText.x = 140; bioText.y = 575; concepts.x = 100; concepts.y = -215; concepts.scale.set(0.42, 0.42);
 			}
 			case 8:
-			{				
+			{
 				bioText.text = characters['forestFire'].bio;
-				concepts.loadGraphic(Paths.image(characters['forestFire'].imageFile));	
+				concepts.loadGraphic(Paths.image(characters['forestFire'].imageFile));
 				bioText.x = 140; bioText.y = 575; concepts.x = 100; concepts.y = 10; concepts.scale.set(0.66, 0.66);
 			}
 			case 9:
-			{				
+			{
 				bioText.text = characters['deadbf'].bio;
-				concepts.loadGraphic(Paths.image(characters['deadbf'].imageFile));	
+				concepts.loadGraphic(Paths.image(characters['deadbf'].imageFile));
 				bioText.x = 140; bioText.y = 550; concepts.x = 521; concepts.y = 200; concepts.scale.set(1, 1);
 			}
 			case 10:
-			{				
+			{
 				bioText.text = characters['minusPoses'].bio;
-				concepts.loadGraphic(Paths.image(characters['minusPoses'].imageFile));	
+				concepts.loadGraphic(Paths.image(characters['minusPoses'].imageFile));
 				bioText.x = 140; bioText.y = 560; concepts.x = 100; concepts.y = -10; concepts.scale.set(0.6, 0.6);
 			}
 			case 11:
-			{				
+			{
 				bioText.text = characters['minusPoses2'].bio;
-				concepts.loadGraphic(Paths.image(characters['minusPoses2'].imageFile));	
+				concepts.loadGraphic(Paths.image(characters['minusPoses2'].imageFile));
 				bioText.x = 140; bioText.y = 560; concepts.x = 360; concepts.y = -45; concepts.scale.set(0.63, 0.63);
 			}
 			case 12:
-			{				
+			{
 				bioText.text = characters['fuckinArrested'].bio;
-				concepts.loadGraphic(Paths.image(characters['fuckinArrested'].imageFile));	
+				concepts.loadGraphic(Paths.image(characters['fuckinArrested'].imageFile));
 				bioText.x = 140; bioText.y = 560; concepts.x = 507; concepts.y = 240; concepts.scale.set(1.5, 1.5);
 			}
 			case 13:
-			{				
+			{
 				bioText.text = characters['wellthissucks'].bio;
-				concepts.loadGraphic(Paths.image(characters['wellthissucks'].imageFile));	
+				concepts.loadGraphic(Paths.image(characters['wellthissucks'].imageFile));
 				bioText.x = 140; bioText.y = 560; concepts.x = 140; concepts.y = -190; concepts.scale.set(0.44, 0.44);
 			}
 			case 14:
-			{				
+			{
 				bioText.text = characters['alfandquaver'].bio;
-				concepts.loadGraphic(Paths.image(characters['alfandquaver'].imageFile));	
+				concepts.loadGraphic(Paths.image(characters['alfandquaver'].imageFile));
 				bioText.x = 140; bioText.y = 550; concepts.x = -58; concepts.y = -340; concepts.scale.set(0.36, 0.36);
-			}			
+			}
 		}
 		bioText.alpha = 0;
 		//bioText.screenCenter(X);

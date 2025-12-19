@@ -1,5 +1,6 @@
 package states;
 
+import shaders.GameShaders;
 import lime.app.Promise;
 import lime.app.Future;
 import flixel.FlxState;
@@ -33,7 +34,8 @@ class LoadingState extends MusicBeatState {
 	var funkay:FlxSprite;
 	var loadBar:FlxSprite;
 
-	override function create() {
+	override function create()
+	{
 		var bg:FlxSprite = new FlxSprite(0, 0).makeGraphic(FlxG.width, FlxG.height, 0xffcaff4d);
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		add(bg);
@@ -96,8 +98,13 @@ class LoadingState extends MusicBeatState {
 		}
 	}
 
-	override function update(elapsed:Float) {
+	override function update(elapsed:Float)
+	{
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 4.0;
+
 		super.update(elapsed);
+
 		funkay.setGraphicSize(Std.int(0.88 * FlxG.width + 0.9 * (funkay.width - 0.88 * FlxG.width)));
 		funkay.updateHitbox();
 		if (controls.ACCEPT) {

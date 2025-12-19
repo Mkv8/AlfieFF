@@ -1,20 +1,12 @@
 package states;
 
-import flixel.FlxState;
-import backend.WeekData;
-import backend.Highscore;
-import backend.Song;
-import objects.HealthIcon;
+import shaders.GameShaders;
 import objects.MusicPlayer;
-import substates.GameplayChangersSubstate;
-import substates.ResetScoreSubState;
-import flixel.math.FlxMath;
-import openfl.filters.BitmapFilter;
-import openfl.filters.ShaderFilter;
 import flixel.util.FlxTimer;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import hxcodec.VideoSprite;
+
 
 class CreditsVideoState extends MusicBeatState {
 	var panelNum:Int = 0;
@@ -25,8 +17,7 @@ class CreditsVideoState extends MusicBeatState {
 	var canSpam:Bool = true;
 	var data:Array<Dynamic> = [];
 	var forceNumber = 0;
-	var shader:Array<BitmapFilter> = [new ShaderFilter(new shaders.PostProcessing()),];
-	var curveShader = new shaders.CurveShader();
+
 	var player:MusicPlayer;
 
 	private var exitStateName:String;
@@ -40,7 +31,10 @@ class CreditsVideoState extends MusicBeatState {
 		this.exitStateName = exitStateName;
 	}
 
-	override function create() {
+	override function create()
+	{
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 4.0;
 
 		videoSprite = new VideoSprite();
 		videoSprite.playVideo(Paths.video("creditsVideo"),false,false,true);//cached but not gonna start to play
@@ -56,7 +50,7 @@ class CreditsVideoState extends MusicBeatState {
 
 		videoSprite.finishCallback = function() {
 			FlxG.sound.volume = FlxG.save.data.volume;
-			this.exit();			
+			this.exit();
 		}
 
 		FlxG.sound.volume = 0.7;
@@ -87,17 +81,6 @@ class CreditsVideoState extends MusicBeatState {
 		);
 
 		super.create();
-		if (ClientPrefs.data.shaders == true)
-		{
-		FlxG.game.setFilters(shader);
-		FlxG.game.filtersEnabled = true;
-
-		FlxG.camera.setFilters([new ShaderFilter(curveShader)]);
-		FlxG.camera.filtersEnabled = true;
-
-		curveShader.chromOff = 2;
-		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
-		
 	}
 
 	override function update(elapsed:Float) {

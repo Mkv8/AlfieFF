@@ -3,14 +3,13 @@ package states.stages;
 import objects.Character;
 import backend.BaseStage;
 
+import shaders.GameShaders;
 import hxcodec.VideoSprite;
 import openfl.display.BlendMode;
 import backend.BaseStage;
 import states.stages.objects.*;
 import flixel.effects.particles.FlxEmitter;
-import flixel.effects.particles.FlxEmitter;
-import openfl.filters.BitmapFilter;
-import openfl.filters.ShaderFilter;
+
 
 class Skidhouse extends BaseStage {
 	// If you're moving your stage from PlayState to a stage file,
@@ -19,7 +18,6 @@ class Skidhouse extends BaseStage {
 	var bg:BGSprite;
 	var n64:BGSprite;
 	var pump:BGSprite;
-	
 
 	var concept:BGSprite;
 
@@ -31,17 +29,6 @@ class Skidhouse extends BaseStage {
 
 	var animtimer:FlxTimer;
 
-
-
-	var shader:Array<BitmapFilter> = [
-		new ShaderFilter(new shaders.PostProcessing()),
-	];
-
-	/*var curveShader:Array<BitmapFilter> = [
-		new ShaderFilter(new shaders.CurveShader()),
-	];*/
-
-	var curveShader = new shaders.CurveShader();
 
 	override function create() {
 		// Spawn your stage sprites here.
@@ -74,7 +61,7 @@ class Skidhouse extends BaseStage {
 		n64.antialiasing = ClientPrefs.data.antialiasing;
 		add(n64);
 
-		
+
 		couch = new BGSprite('skidHouse/couch', -55, 690, 1, 1);
 		couch.updateHitbox();
 		couch.antialiasing = ClientPrefs.data.antialiasing;
@@ -87,8 +74,8 @@ class Skidhouse extends BaseStage {
 		videoSprite.scale.set(1,1);
 		//videoSprite.screenCenter();
 		videoSprite.x = 0;
-		videoSprite.y= 0;   
-		
+		videoSprite.y= 0;
+
 		videoSprite.antialiasing = ClientPrefs.data.antialiasing;
 		add(videoSprite);
 
@@ -110,24 +97,12 @@ class Skidhouse extends BaseStage {
 		concept.alpha = 0.3;
 		concept.antialiasing = ClientPrefs.data.antialiasing;
 		//add(concept);
-
-		if (ClientPrefs.data.shaders == true)
-		{
-		FlxG.game.setFilters(shader);
-		FlxG.game.filtersEnabled = true;
-
-		PlayState.instance.camHUD.setFilters([new ShaderFilter(curveShader)]);
-		PlayState.instance.camHUD.filtersEnabled = true;
-
-		PlayState.instance.camGame.setFilters([new ShaderFilter(curveShader)]);
-		PlayState.instance.camGame.filtersEnabled = true;
-
-		curveShader.chromOff = 3.5;
-		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
 	}
 
-	override function update(elapsed:Float) {
-		// Code here
+	override function update(elapsed:Float)
+	{
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 3.5;
 	}
 
 	override function countdownTick(count:Countdown, num:Int)
@@ -178,7 +153,7 @@ class Skidhouse extends BaseStage {
 	override function beatHit() {
 		everyoneDance();
 
-		
+
 		switch (curBeat) {
 
 			case 30:
@@ -201,8 +176,8 @@ class Skidhouse extends BaseStage {
 					FlxTween.tween(blackscreen, {alpha: 1}, 1);
 
 				}
-				
-			
+
+
 			}
 	}
 
@@ -242,7 +217,7 @@ class Skidhouse extends BaseStage {
 		musician.scrollFactor.set();
 		musician.alpha = 0;
 		musician.borderColor = 0xFF3F0000;
-		musician.borderSize = 3;		
+		musician.borderSize = 3;
 		musician.cameras = [camOther];
 
 		charter = new FlxText(110, 350, FlxG.width - 100, 'Charter: sire_kirbz', 32);
@@ -250,13 +225,13 @@ class Skidhouse extends BaseStage {
 		charter.scrollFactor.set();
 		charter.alpha = 0;
 		charter.borderColor = 0xFF3F0000;
-		charter.borderSize = 3;		
+		charter.borderSize = 3;
 		charter.cameras = [camOther];
-		
+
 		add(moontitle);
 		add(songTitle);
-		add(musician);		
-		add(charter);		
+		add(musician);
+		add(charter);
 
 		//STARTING TWEENS
 		FlxTween.tween(moontitle, {
@@ -264,7 +239,7 @@ class Skidhouse extends BaseStage {
 			angle: 0
 		}, 0.8, {
 			ease: FlxEase.quartInOut,
-		});		
+		});
 
 		FlxTween.tween(songTitle, {
 			alpha: 1,
@@ -272,7 +247,7 @@ class Skidhouse extends BaseStage {
 		}, 0.8, {
 			ease: FlxEase.quartInOut,
 			startDelay: 0.2
-		});		
+		});
 
 
 		FlxTween.tween(musician, {
@@ -281,35 +256,35 @@ class Skidhouse extends BaseStage {
 		}, 0.8, {
 			ease: FlxEase.quartInOut,
 			startDelay: 0.4
-		});				
+		});
 		FlxTween.tween(charter, {
 			alpha: 1,
 			x: charter.x - 50
 		}, 0.8, {
 			ease: FlxEase.quartInOut,
 			startDelay: 0.4
-		});			
-		
-		
+		});
+
+
 		//-----------------------------
 
 		//ENDING TWEENS
 		FlxTween.tween(moontitle, {
 			alpha: 0,
-			angle:  5			
+			angle:  5
 		}, 1.2, {
 			ease: FlxEase.quartInOut,
 			startDelay: 2.5
-		});		
+		});
 
 		FlxTween.tween(songTitle, {
 			alpha: 0,
 			x: songTitle.x + 70,
-			angle:  5			
+			angle:  5
 		}, 1.2, {
 			ease: FlxEase.quartInOut,
 			startDelay: 2.5
-		});		
+		});
 
 
 		FlxTween.tween(musician, {
@@ -319,7 +294,7 @@ class Skidhouse extends BaseStage {
 		}, 1.2, {
 			ease: FlxEase.quartInOut,
 			startDelay: 2.5
-		});				
+		});
 		FlxTween.tween(charter, {
 			alpha: 0,
 			x: charter.x - 70,
@@ -341,7 +316,7 @@ class Skidhouse extends BaseStage {
 				charter.destroy();
 
 			}, 0);
-	}	
+	}
 	override function sectionHit() {
 		// Code here
 	}
@@ -355,13 +330,13 @@ class Skidhouse extends BaseStage {
 			if (videoSprite != null)
 				videoSprite.bitmap.pause();
 		}
-	
+
 		override function onFocus()
 		{
 			if (videoSprite != null && !paused)
 				videoSprite.bitmap.resume();
 		}
-	
+
 
 	override function closeSubState() {
 		if(paused)

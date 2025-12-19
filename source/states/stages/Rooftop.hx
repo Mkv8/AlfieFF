@@ -1,13 +1,9 @@
 package states.stages;
 
+import shaders.GameShaders;
 import openfl.display.BlendMode;
 import backend.BaseStage;
-import states.stages.objects.*;
-import shaders.PostProcessing;
-import openfl.filters.BitmapFilter;
-import openfl.filters.ShaderFilter;
 
-// import.shaders.example_mods.shaders.PostProcessing;
 class Rooftop extends BaseStage {
 	// If you're moving your stage from PlayState to a stage file,
 	// you might have to rename some variables if they're missing, for example: camZooming -> game.camZooming
@@ -28,16 +24,6 @@ class Rooftop extends BaseStage {
 	var redGlow:BGSprite;
 
 	var stoplights:Bool = false;
-
-	var shader:Array<BitmapFilter> = [
-		new ShaderFilter(new shaders.PostProcessing()),
-	];
-
-	/*var curveShader:Array<BitmapFilter> = [
-		new ShaderFilter(new shaders.CurveShader()),
-	];*/
-
-	var curveShader = new shaders.CurveShader();
 
 	override function create() {
 		// Spawn your stage sprites here.
@@ -88,7 +74,11 @@ class Rooftop extends BaseStage {
 		add(clouds);
 	}
 
-	override function createPost() {
+	override function createPost()
+	{
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 3.5;
+
 		// Use this function to layer things above characters!
 
 		multiplynight = new BGSprite('rooftop/kisstonmultiply', 0, 0, 1, 1);
@@ -112,20 +102,6 @@ class Rooftop extends BaseStage {
 		blackscreen.makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
 		blackscreen.camera = game.camHUD;
 		add(blackscreen);
-
-		if (ClientPrefs.data.shaders == true)
-		{
-		FlxG.game.setFilters(shader);
-		FlxG.game.filtersEnabled = true;
-
-		PlayState.instance.camHUD.setFilters([new ShaderFilter(curveShader)]);
-		PlayState.instance.camHUD.filtersEnabled = true;
-
-		PlayState.instance.camGame.setFilters([new ShaderFilter(curveShader)]);
-		PlayState.instance.camGame.filtersEnabled = true;
-
-		curveShader.chromOff = 3.5;
-		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
 	}
 
 	override function destroy() {
@@ -173,10 +149,10 @@ class Rooftop extends BaseStage {
 					}, 1);
 				}
 
-			case 3: 
+			case 3:
 				{
 					songDeets();
-				}	
+				}
 
 			case 16:
 				{
@@ -217,7 +193,7 @@ class Rooftop extends BaseStage {
 					stoplights = false;
 					policeLights();
 				}
-				
+
 
 			case 224 | 482:
 				{
@@ -240,7 +216,7 @@ class Rooftop extends BaseStage {
 			{
 			return;
 			}
-		
+
 		blueGlow.alpha = 1;
 		FlxTween.tween(blueGlow, {alpha: 0}, 0.9, {onComplete: function(twn:FlxTween) {
 			glowtimer2 = new FlxTimer().start(0.4, function(tmr:FlxTimer)
@@ -249,7 +225,7 @@ class Rooftop extends BaseStage {
 					FlxTween.tween(redGlow, {alpha: 0}, 0.9, {onComplete: function(twn:FlxTween) {policeLights();}});
 				});
 		}});
-		
+
 
 	}
 
@@ -282,7 +258,7 @@ class Rooftop extends BaseStage {
 		musician.scrollFactor.set();
 		musician.alpha = 0;
 		musician.borderColor = 0xFF3F0000;
-		musician.borderSize = 3;		
+		musician.borderSize = 3;
 		musician.cameras = [camOther];
 
 		charter = new FlxText(110, 350, FlxG.width - 100, 'Charter: PavDrop', 32);
@@ -290,13 +266,13 @@ class Rooftop extends BaseStage {
 		charter.scrollFactor.set();
 		charter.alpha = 0;
 		charter.borderColor = 0xFF3F0000;
-		charter.borderSize = 3;		
+		charter.borderSize = 3;
 		charter.cameras = [camOther];
-		
+
 		add(moontitle);
 		add(songTitle);
-		add(musician);		
-		add(charter);		
+		add(musician);
+		add(charter);
 
 		//STARTING TWEENS
 		FlxTween.tween(moontitle, {
@@ -304,7 +280,7 @@ class Rooftop extends BaseStage {
 			angle: 0
 		}, 0.8, {
 			ease: FlxEase.quartInOut,
-		});		
+		});
 
 		FlxTween.tween(songTitle, {
 			alpha: 1,
@@ -312,7 +288,7 @@ class Rooftop extends BaseStage {
 		}, 0.8, {
 			ease: FlxEase.quartInOut,
 			startDelay: 0.2
-		});		
+		});
 
 
 		FlxTween.tween(musician, {
@@ -321,35 +297,35 @@ class Rooftop extends BaseStage {
 		}, 0.8, {
 			ease: FlxEase.quartInOut,
 			startDelay: 0.4
-		});				
+		});
 		FlxTween.tween(charter, {
 			alpha: 1,
 			x: charter.x - 50
 		}, 0.8, {
 			ease: FlxEase.quartInOut,
 			startDelay: 0.4
-		});			
-		
-		
+		});
+
+
 		//-----------------------------
 
 		//ENDING TWEENS
 		FlxTween.tween(moontitle, {
 			alpha: 0,
-			angle:  5			
+			angle:  5
 		}, 1.2, {
 			ease: FlxEase.quartInOut,
 			startDelay: 2.5
-		});		
+		});
 
 		FlxTween.tween(songTitle, {
 			alpha: 0,
 			x: songTitle.x + 70,
-			angle:  5			
+			angle:  5
 		}, 1.2, {
 			ease: FlxEase.quartInOut,
 			startDelay: 2.5
-		});		
+		});
 
 
 		FlxTween.tween(musician, {
@@ -359,7 +335,7 @@ class Rooftop extends BaseStage {
 		}, 1.2, {
 			ease: FlxEase.quartInOut,
 			startDelay: 2.5
-		});				
+		});
 		FlxTween.tween(charter, {
 			alpha: 0,
 			x: charter.x - 70,
@@ -381,7 +357,7 @@ class Rooftop extends BaseStage {
 				charter.destroy();
 
 			}, 0);
-	}	
+	}
 
 	override function sectionHit() {
 		// Code here

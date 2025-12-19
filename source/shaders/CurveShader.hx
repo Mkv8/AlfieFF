@@ -17,7 +17,7 @@ vec2 getCurvedUV(vec2 uv) {
 	// center
 	uv.xy -= vec2(uOriginX, uOriginY);
 	vec2 uv2 = uv;
-	
+
 	float dd2 = dot(uv2, uv2);
 
 	uv2 = (uv2 * dd2) * (-uEffect) + uv2 * 1.0;
@@ -39,9 +39,9 @@ void main()
 	vec4 base = offsetColor(0.0);
 	base.r = offsetColor(-uChromOff).r;
 	base.b = offsetColor(uChromOff).b;
-	
+
 	base.a = texture2D(bitmap, openfl_TextureCoordv.xy).a;
-	
+
 	gl_FragColor = base;
 }')
 

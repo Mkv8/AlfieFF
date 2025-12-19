@@ -1,5 +1,6 @@
 package states;
 
+import shaders.GameShaders;
 import backend.WeekData;
 import backend.Highscore;
 import backend.Song;
@@ -31,15 +32,15 @@ class AiComic extends MusicBeatState {
 
 	var forceNumber = 0;
 
-	var shader:Array<BitmapFilter> = [new ShaderFilter(new shaders.PostProcessing()),];
-	var curveShader = new shaders.CurveShader();
-
 	var player:MusicPlayer;
 
 	public static var itsgivingendcard:Bool;
 
 
-	override function create() {
+	override function create()
+	{
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 2.0;
 
 		setupPanels();
 
@@ -58,16 +59,6 @@ class AiComic extends MusicBeatState {
         FlxG.sound.playMusic("assets/shared/music/pauseAi.ogg", 0.1);
 
 		super.create();
-		if (ClientPrefs.data.shaders == true)
-		{
-		FlxG.game.setFilters(shader);
-		FlxG.game.filtersEnabled = true;
-
-		FlxG.camera.setFilters([new ShaderFilter(curveShader)]);
-		FlxG.camera.filtersEnabled = true;
-
-		curveShader.chromOff = 2;
-		} else {FlxG.game.filtersEnabled = false; FlxG.camera.filtersEnabled = false;}
 	}
 
 	function doPanelEvent()
@@ -113,7 +104,7 @@ class AiComic extends MusicBeatState {
 			{
 				FlxTween.cancelTweensOf(panel);
 				FlxTween.cancelTweensOf(lastpanel);
-			
+
 				lastpanel.alpha = 0;
 				//panel.y += 100;
 				panel.alpha = 1;
@@ -258,7 +249,7 @@ class AiComic extends MusicBeatState {
 			{
 				FlxTween.cancelTweensOf(panel);
 				FlxTween.cancelTweensOf(lastpanel);
-				
+
 				FlxTween.tween(lastpanel, {
 						alpha: 0.5,
 						x: panel.x -300
@@ -292,7 +283,7 @@ class AiComic extends MusicBeatState {
 			{
 				FlxTween.cancelTweensOf(panel);
 				FlxTween.cancelTweensOf(lastpanel);
-								
+
 				lastpanel.alpha = 0;
 				panel.alpha =1;
 				ignore = true;
@@ -395,7 +386,7 @@ class AiComic extends MusicBeatState {
 				FlxTween.cancelTweensOf(panel);
 				FlxTween.cancelTweensOf(lastpanel);
 				FlxTween.cancelTweensOf(lastlastpanel);
-								
+
 				FlxTween.tween(lastlastpanel, {
 						alpha: 0
 					}, 1.5, {
