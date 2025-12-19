@@ -133,7 +133,7 @@ class ArtworkSubstate extends MusicBeatSubstate {
 	override function update(elapsed:Float)
 	{
 		// <Tantalun>: in case you would like to give the substate a different amount of chromatic abberation
-		// GameShaders.CHROMATIC_ABBERATION.chromOff = 2.0;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 0.5;
 
 		var lerpVal:Float = Math.exp(-elapsed * 10);
 		if (FlxG.sound.music.volume < 0.8) {
