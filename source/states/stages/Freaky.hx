@@ -23,7 +23,7 @@ class Freaky extends BaseStage {
 	var blackUI:BGSprite;
 	var blackscreen:BGSprite;
 
-	
+	var warmup:FlxText;
 
 	var shader:Array<BitmapFilter> = [
 		new ShaderFilter(new shaders.PostProcessing()),
@@ -98,6 +98,16 @@ class Freaky extends BaseStage {
 		blackscreen.alpha = 0;
 		add(blackscreen);
 
+		warmup = new FlxText(0, 0, FlxG.width - 100, "Let's get you warmed up!", 48);
+		warmup.setFormat(Paths.font("vcr.ttf"), 48, 0xFFffcf53, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		warmup.scrollFactor.set();
+		warmup.screenCenter(XY);
+		warmup.alpha = 0;
+		warmup.borderColor = 0xFF3F0000;
+		warmup.borderSize = 3;
+		warmup.cameras = [camOther];
+		add(warmup);
+
 		if (ClientPrefs.data.shaders == true)
 		{
 		FlxG.game.setFilters(shader);
@@ -160,7 +170,17 @@ class Freaky extends BaseStage {
 		
 		switch (curBeat) {
 
-			case 4:
+			case 3: 
+				{
+				FlxTween.tween(warmup, {alpha: 1}, 1.5, {ease: FlxEase.cubeIn});
+				}
+
+			case 10: 
+				{
+				FlxTween.tween(warmup, {alpha: 0}, 1.5, {ease: FlxEase.cubeIn});
+				}
+
+			case 13:
 				{
 					FlxTween.tween(blackUI, {alpha: 0}, 3, {ease: FlxEase.cubeIn});
 					songDeets();
