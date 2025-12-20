@@ -231,11 +231,16 @@ class MansionTop extends BaseStage {
 
 					FlxTween.tween(botBar, {y: 750}, 0.7, {ease: FlxEase.cubeInOut});
 					FlxTween.tween(topBar, {y: -750}, 0.7, {ease: FlxEase.cubeInOut});
-					for (i in 0...4)
+					
+					if (ClientPrefs.data.middleScroll == false)
 					{
-					PlayState.playerStrums.members[i].x -= 650;
-					PlayState.opponentStrums.members[i].x += 650;
+						for (i in 0...4)
+						{
+						PlayState.playerStrums.members[i].x -= 650;
+						PlayState.opponentStrums.members[i].x += 650;
+						}
 					}
+
 
 				}
 

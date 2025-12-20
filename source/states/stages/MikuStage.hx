@@ -350,7 +350,7 @@ class MikuStage extends BaseStage {
 			}
 			case 320:
 			{
-				if (ClientPrefs.data.disableSplit == false)
+				if (ClientPrefs.data.disableSplit == false && ClientPrefs.data.middleScroll == false)
 				{
 					for (i in 0...4)
 					{
@@ -421,7 +421,7 @@ class MikuStage extends BaseStage {
 				polkadots.alpha = 1;
 				polkadots2.alpha = 1;
 				bumpMainBG.alpha = 1;
-				if (ClientPrefs.data.disableSplit == false)
+				if (ClientPrefs.data.disableSplit == false && ClientPrefs.data.middleScroll == false)
 					{
 					for (i in 0...4)
 					{
@@ -455,7 +455,7 @@ class MikuStage extends BaseStage {
 			}
 			case 768:
 			{
-					if (ClientPrefs.data.disableSplit == false)
+					if (ClientPrefs.data.disableSplit == false && ClientPrefs.data.middleScroll == false)
 					{
 					for (i in 0...4)
 					{
@@ -475,7 +475,7 @@ class MikuStage extends BaseStage {
 			}
 			case 784:
 			{
-					if (ClientPrefs.data.disableSplit == false)
+					if (ClientPrefs.data.disableSplit == false && ClientPrefs.data.middleScroll == false)
 					{
 					for (i in 0...4)
 					{
@@ -496,7 +496,7 @@ class MikuStage extends BaseStage {
 			case 896:
 			{
 				blackscreen.alpha = 1;
-					if (ClientPrefs.data.disableSplit == false)
+					if (ClientPrefs.data.disableSplit == false && ClientPrefs.data.middleScroll == false)
 					{
 					for (i in 0...4)
 					{
@@ -564,7 +564,7 @@ class MikuStage extends BaseStage {
 			{
 				FlxTween.tween(noises, {alpha: 0}, 12 * Conductor.stepCrochet / 1000);
 				aishiteBG.alpha = 1;
-				if (ClientPrefs.data.disableSplit == false)
+				if (ClientPrefs.data.disableSplit == false && ClientPrefs.data.middleScroll == false)
 					{
 					for (i in 0...4)
 					{
@@ -908,7 +908,7 @@ class MikuStage extends BaseStage {
 				polkadots.alpha = 1;
 				polkadots2.alpha = 1;
 				bumpMainBG.alpha = 1;
-				if (ClientPrefs.data.disableSplit == false)
+				if (ClientPrefs.data.disableSplit == false && ClientPrefs.data.middleScroll == false)
 					{
 					for (i in 0...4)
 					{

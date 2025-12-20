@@ -216,7 +216,10 @@ class Temple extends BaseStage {
 				{
 					FlxTween.tween(camHUD, {alpha: 1}, 1);
 				}
-
+			case 227:
+				{
+					blackscreen.alpha = 1;
+				}
 			}
 	}
 
