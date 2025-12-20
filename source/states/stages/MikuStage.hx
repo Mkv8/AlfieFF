@@ -269,6 +269,8 @@ class MikuStage extends BaseStage {
 		noises.antialiasing = ClientPrefs.data.antialiasing;
 		noises.animation.play('noises', true, false);
 		add(noises);
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 3.5;		
 	}
 
 	override function destroy() {
@@ -278,8 +280,7 @@ class MikuStage extends BaseStage {
 
 	override function update(elapsed:Float)
 	{
-		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
-		GameShaders.CHROMATIC_ABBERATION.chromOff = 3.5;
+
 	}
 
 	/*override function countdownTick(count:BaseStage.Countdown, num:Int)

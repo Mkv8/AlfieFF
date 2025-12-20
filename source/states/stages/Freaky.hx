@@ -92,12 +92,13 @@ class Freaky extends BaseStage {
 		warmup.borderSize = 3;
 		warmup.cameras = [camOther];
 		add(warmup);
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 3.5;
 	}
 
 	override function update(elapsed:Float)
 	{
-		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
-		GameShaders.CHROMATIC_ABBERATION.chromOff = 3.5;
+
 	}
 
 	override function countdownTick(count:Countdown, num:Int)

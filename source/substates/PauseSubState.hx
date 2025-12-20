@@ -358,7 +358,9 @@ class PauseSubState extends MusicBeatSubstate {
 
 		regenMenu();
 		cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
-
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 4.0;
 		super.create();
 	}
 
@@ -376,8 +378,7 @@ class PauseSubState extends MusicBeatSubstate {
 
 	override function update(elapsed:Float)
 	{
-		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
-		GameShaders.CHROMATIC_ABBERATION.chromOff = 4.0;
+
 
 		cantUnpause -= elapsed;
 		if (pauseMusic.volume < 0.5)

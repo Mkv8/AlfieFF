@@ -108,7 +108,9 @@ class OptionsState extends MusicBeatState {
 
 		changeSelection();
 		ClientPrefs.saveSettings();
-
+		
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 3.0;
 		super.create();
 	}
 
@@ -122,8 +124,7 @@ class OptionsState extends MusicBeatState {
 
 	override function update(elapsed:Float)
 	{
-		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
-		GameShaders.CHROMATIC_ABBERATION.chromOff = 3.0;
+
 
 		super.update(elapsed);
 

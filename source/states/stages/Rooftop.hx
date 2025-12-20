@@ -76,8 +76,7 @@ class Rooftop extends BaseStage {
 
 	override function createPost()
 	{
-		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
-		GameShaders.CHROMATIC_ABBERATION.chromOff = 3.5;
+
 
 		// Use this function to layer things above characters!
 
@@ -102,6 +101,9 @@ class Rooftop extends BaseStage {
 		blackscreen.makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
 		blackscreen.camera = game.camHUD;
 		add(blackscreen);
+		
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 3.5;		
 	}
 
 	override function destroy() {

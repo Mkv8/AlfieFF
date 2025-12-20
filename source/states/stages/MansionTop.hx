@@ -175,12 +175,13 @@ class MansionTop extends BaseStage {
 		youText.cameras = [camOther];
 		youText.alpha = 0;
 		add(youText);
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 3.5;		
 	}
 
 	override function update(elapsed:Float)
 	{
-		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
-		GameShaders.CHROMATIC_ABBERATION.chromOff = 3.5;
+
 	}
 
 	override function countdownTick(count:Countdown, num:Int)

@@ -67,6 +67,8 @@ class LoadingState extends MusicBeatState {
 			FlxG.camera.fade(FlxG.camera.bgColor, fadeTime, true);
 			new FlxTimer().start(fadeTime + MIN_TIME, function(_) introComplete());
 		});
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 4.0;		
 	}
 
 	function checkLoadSong(path:String) {
@@ -82,6 +84,7 @@ class LoadingState extends MusicBeatState {
 				callback();
 			});
 		}
+
 	}
 
 	function checkLibrary(library:String) {
@@ -100,8 +103,7 @@ class LoadingState extends MusicBeatState {
 
 	override function update(elapsed:Float)
 	{
-		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
-		GameShaders.CHROMATIC_ABBERATION.chromOff = 4.0;
+
 
 		super.update(elapsed);
 

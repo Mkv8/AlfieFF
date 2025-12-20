@@ -78,12 +78,13 @@ class FilipGarage extends BaseStage {
 		blackscreen.cameras = [camOther];
 		blackscreen.alpha = 0;
 		add(blackscreen);
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 3.5;		
 	}
 
 	override function update(elapsed:Float)
 	{
-		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
-		GameShaders.CHROMATIC_ABBERATION.chromOff = 3.5;
+
 	}
 
 	/*override function countdownTick(count:BaseStage.Countdown, num:Int)

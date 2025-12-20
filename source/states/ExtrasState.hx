@@ -100,14 +100,15 @@ class ExtrasState extends MusicBeatState {
         this.add(this.menuItems);
 
         this.changeSelection();
+        FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+        GameShaders.CHROMATIC_ABBERATION.chromOff = 2.0;
     }
 
     var selectedSomethin:Bool = false;
 
     override function update(elapsed:Float)
     {
-        FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
-        GameShaders.CHROMATIC_ABBERATION.chromOff = 2.0;
+
 
         super.update(elapsed);
 

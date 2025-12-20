@@ -242,7 +242,8 @@ class FreeplayState extends MusicBeatState {
 		lockShitUp();
 		for (i in 0...songs.length) {
 		}
-
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 2.0;
 		super.create();
 	}
 
@@ -270,8 +271,7 @@ class FreeplayState extends MusicBeatState {
 
 	override function update(elapsed:Float)
 	{
-		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
-		GameShaders.CHROMATIC_ABBERATION.chromOff = 2.0;
+
 
 		if (FlxG.sound.music.volume < 0.7) {
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;

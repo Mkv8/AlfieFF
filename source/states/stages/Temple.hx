@@ -135,12 +135,14 @@ class Temple extends BaseStage {
 		blackscreen.cameras = [camOther];
 		blackscreen.alpha = 1;
 		add(blackscreen);
+		
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 3.5;		
 	}
 
 	override function update(elapsed:Float)
 	{
-		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
-		GameShaders.CHROMATIC_ABBERATION.chromOff = 3.5;
+
 	}
 
 	override function countdownTick(count:Countdown, num:Int)

@@ -97,12 +97,13 @@ class Skidhouse extends BaseStage {
 		concept.alpha = 0.3;
 		concept.antialiasing = ClientPrefs.data.antialiasing;
 		//add(concept);
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 3.5;
 	}
 
 	override function update(elapsed:Float)
 	{
-		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
-		GameShaders.CHROMATIC_ABBERATION.chromOff = 3.5;
+
 	}
 
 	override function countdownTick(count:Countdown, num:Int)

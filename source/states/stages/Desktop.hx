@@ -132,13 +132,14 @@ class Desktop extends BaseStage {
 		blackscreen.cameras = [camOther];
 		blackscreen.alpha = 1;
 		add(blackscreen);
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 3.5;		
 	}
 
 	override function update(elapsed:Float)
 	{
 		// <Tantalun>: if you think the shaders might look bad here you can disable them by replacing the follong line with FlxG.game.filtersEnabled = false;
-		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
-		GameShaders.CHROMATIC_ABBERATION.chromOff = 3.5;
+
 	}
 
 	override function countdownTick(count:Countdown, num:Int)

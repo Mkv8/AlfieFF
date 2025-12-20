@@ -200,7 +200,8 @@ class MainMenuState extends MusicBeatState {
 		this.add(this.menuItems);
 
 		// FlxG.camera.follow(camFollow, null, 9);
-
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 2.0;
 		this.changeSelection();
 	}
 
@@ -208,8 +209,7 @@ class MainMenuState extends MusicBeatState {
 
 	override function update(elapsed:Float)
 	{
-		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
-		GameShaders.CHROMATIC_ABBERATION.chromOff = 2.0;
+
 
 		if (FlxG.sound.music.volume < 0.8) {
 			FlxG.sound.music.volume += 0.5 * elapsed;

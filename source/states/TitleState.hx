@@ -102,6 +102,8 @@ class TitleState extends MusicBeatState {
 				});
 			}
 		}
+		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
+		GameShaders.CHROMATIC_ABBERATION.chromOff = 4.0;		
 	}
 
 	var logoBl:FlxSprite;
@@ -259,8 +261,6 @@ class TitleState extends MusicBeatState {
 
 	override function update(elapsed:Float)
 	{
-		FlxG.game.filtersEnabled = ClientPrefs.data.shaders;
-		GameShaders.CHROMATIC_ABBERATION.chromOff = 4.0;
 
 		if (FlxG.sound.music != null)
 			Conductor.songPosition = FlxG.sound.music.time;
