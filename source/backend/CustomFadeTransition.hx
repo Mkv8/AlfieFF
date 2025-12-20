@@ -70,6 +70,7 @@ class CustomFadeTransition extends MusicBeatSubstate {
 			if (finishCallback != null)
 			finishCallback();
 			finishCallback = null;	
+			killll();
 			}});
 		}
 		if (isTransIn)
@@ -89,6 +90,7 @@ class CustomFadeTransition extends MusicBeatSubstate {
 			if (finishCallback != null)
 			finishCallback();
 			finishCallback = null;	
+			killll();
 			}
 		});		
 		
@@ -101,6 +103,15 @@ class CustomFadeTransition extends MusicBeatSubstate {
 
 
 		super.create();
+	}
+
+	function killll() {
+		transWhite.kill();
+		transWhite.destroy();
+		transBlack.kill();
+		transBlack.destroy();
+		transBlack2.kill();
+		transBlack2.destroy();
 	}
 
 	override function update(elapsed:Float) {
